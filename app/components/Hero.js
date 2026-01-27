@@ -91,15 +91,28 @@ export default function Hero() {
           </div>
 
           {/* Right */}
-          <div className="hidden lg:flex justify-center">
-            <div className="relative w-full max-w-md aspect-square rounded-2xl  ">
-              <img
-                src="/images/farhan.jpg"
-                alt="Farhan Abid"
-                className="w-full h-full object-cover opacity-90 relative z-10 -top-12 left-16"
-                loading="lazy"
-              />
-              <div className="absolute -top-12 left-30 inset-0 bg-indigo-500/50 blur-2xl" />
+          <div className="flex justify-center">
+            {/* Mobile initials */}
+            <div className="flex md:hidden lg:hidden items-center justify-center w-full">
+              <div className="h-20 w-20 rounded-full bg-indigo-500/20 flex items-center justify-center text-3xl font-bold text-indigo-400" style={{
+    position: "relative",
+    top: "-460px",
+    right: "-140px"}}>
+                FA
+              </div>
+            </div>
+
+            {/* Desktop image */}
+            <div className="hidden lg:flex justify-center">
+              <div className="relative w-full max-w-md aspect-square rounded-2xl">
+                <img
+                  src="/images/farhan.jpg"
+                  alt="Farhan Abid"
+                  className="w-full h-full object-cover opacity-90 relative z-10 shadow-2xl -top-12 left-16"
+                  loading="lazy"
+                />
+                <div className="absolute -top-12 left-30 inset-0 bg-indigo-500/50 blur-2xl" />
+              </div>
             </div>
           </div>
         </div>
