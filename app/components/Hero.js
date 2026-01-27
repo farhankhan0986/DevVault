@@ -5,7 +5,7 @@ export default function Hero() {
     <section
       id="hero"
       aria-labelledby="hero-title"
-      className="relative min-h-screen flex items-center isolate bg-background text-foreground pt-28"
+      className="relative min-h-screen -top-8 md:top-0 lg:top-0 flex items-center isolate bg-background text-foreground pt-28"
     >
       {/* Background glow */}
       <div
