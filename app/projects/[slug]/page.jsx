@@ -80,7 +80,7 @@ export default async function ProjectDetail({ params }) {
         "Security middleware patterns",
         "Thinking at system scale",
       ],
-      github: "#",
+      github: "http://github.com/farhankhan0986/Firewall_Guardian_MERN",
     },
   };
 

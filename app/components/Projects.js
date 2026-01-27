@@ -37,7 +37,7 @@ export default function Projects() {
         "A conceptual API firewall and security middleware that sits in front of backend services. Handles rate limiting, attack detection, and logging.",
       image: "/images/sentinal.png",
       tech: ["Node.js", "Middleware", "Security", "System Design"],
-      github: "#",
+      github: "http://github.com/farhankhan0986/Firewall_Guardian_MERN",
       status: "COMPLETED",
       highlight: "Advanced Middleware Architecture",
       href: "https://firewallguardian.netlify.app/",
