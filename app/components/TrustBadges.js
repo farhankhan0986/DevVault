@@ -39,9 +39,12 @@ const TrustBadges = () => {
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-          <h2 className="text-2xl md:text-3xl font-bold">
-            Core <span className="text-indigo-500">Tech Stack</span>
-          </h2>
+           <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+            Core{" "}
+            <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+              Tech Stack
+            </span>
+          </h3>
           <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
             Technologies I use to build scalable, secure, and production-ready
             full-stack applications with a focus on backend architecture and API design.
