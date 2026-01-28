@@ -31,7 +31,21 @@ export default function Projects() {
       slug: "idvault",
     },
     {
-      id: 3,
+  id: 3,
+  title: "Chai Culture",
+  description:
+    "A premium 'Coming Soon' landing page for Chai Culture, designed to reflect royal Indian heritage through a calm, elegant, and modern digital experience.",
+  image: "/images/chai.png",
+  tech: ["Next.js", "React", "Tailwind CSS", "UI/UX Design"],
+  github: "https://github.com/farhankhan0986/ChaiCulture",
+  status: "COMPLETED",
+  highlight: "Luxury Brand UI & Product Thinking",
+  href: "https://chai-culture-dun.vercel.app/",
+  slug: "chai-culture",
+},
+
+    {
+      id: 4,
       title: "Sentinel Guard",
       description:
         "A conceptual API firewall and security middleware that sits in front of backend services. Handles rate limiting, attack detection, and logging.",

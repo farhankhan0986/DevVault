@@ -54,6 +54,37 @@ export default async function ProjectDetail({ params }) {
       ],
       github: "https://github.com/farhankhan0986/IDVault",
     },
+    "chai-culture": {
+      title: "Chai Culture",
+      role: "Frontend Engineer & UI Designer",
+      description:
+        "Chai Culture is a premium tea brand inspired by the royal traditions of Indian chai, reimagined for a modern global audience.",
+      problem:
+        "Early-stage heritage brands often struggle to create a strong digital first impression that feels premium, authentic, and culturally grounded.",
+      solution:
+        "Designed and built a calm, minimal 'Coming Soon' landing page that balances Indian heritage with modern luxury, focusing on clarity, restraint, and user trust.",
+      tech: [
+        "Next.js (App Router)",
+        "React",
+        "Tailwind CSS",
+        "Responsive Design",
+        "UI/UX Design",
+      ],
+      architecture: [
+        "Single-page landing architecture",
+        "Component-based UI structure",
+        "Client-side email validation & submission flow",
+        "API route abstraction for waitlist handling",
+      ],
+      learnings: [
+        "Designing for luxury and heritage brands",
+        "Balancing visual restraint with brand identity",
+        "Building production-ready landing pages",
+        "Thinking from a founder and product perspective",
+      ],
+      github: "https://github.com/farhankhan0986/ChaiCulture",
+    },
+
     "sentinel-guard": {
       title: "Sentinel Guard",
       role: "System Design & Backend Engineer",
@@ -105,7 +136,7 @@ export default async function ProjectDetail({ params }) {
             </h1>
             <a
               href="/#projects"
-              className="inline-flex items-center gap-2 px-4 py-1 rounded-2xl border border-white/10 bg-white/5 text-sm text-indigo-300 hover:text-indigo-500 hover:border-white/20 hover:bg-white/10 transition"
+              className="inline-flex items-center gap-2 px-4 py-1 rounded-2xl border border-white/10 bg-white/5 text-sm text-white hover:text-indigo-500 hover:border-white/20 hover:bg-white/10 transition"
             >
               <span className="text-base">←</span>
               Back
@@ -197,12 +228,10 @@ export default async function ProjectDetail({ params }) {
             href={project.github}
             target="_blank"
             rel="noopener noreferrer"
-            className="group inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-blue-600 to-purple-600 rounded-full text-sm font-semibold shadow-lg hover:shadow-blue-500/40 transition-all"
+            className="inline-flex items-center gap-3 px-6 py-3 rounded-xl border border-white/10 bg-white/5  text-sm font-medium text-white/90 hover:text-indigo-500 backdrop-blur-sm  hover:border-white/20 hover:bg-white/10  transition"
           >
-            <span>View Code on GitHub</span>
-            <span className="text-lg group-hover:translate-x-0.5 transition-transform">
-              →
-            </span>
+            <span>View Code</span>
+            <span className="text-base">→</span>
           </a>
         </div>
       </div>
