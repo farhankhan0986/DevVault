@@ -9,10 +9,10 @@ import TrustBadges from "./TrustBadges";
 
 export default function Skills() {
   const skillCategories = [
-    { category: "Languages", skills: ["JavaScript", "TypeScript", "HTML/CSS"] },
+    { category: "Languages", skills: ["JavaScript", "TypeScript", "C++"] },
     { category: "Frontend", skills: ["React.js", "Next.js", "Tailwind CSS"] },
     { category: "Backend", skills: ["Node.js", "Express.js", "REST APIs"] },
-    { category: "Database", skills: ["MongoDB", "Mongoose", "Data Modeling"] },
+    { category: "Database", skills: ["MongoDB", "Mongoose", "MySQL"] },
     { category: "Tools & Platforms", skills: ["Git/GitHub", "Postman", "Vercel"] },
     {
       category: "Core Concepts",

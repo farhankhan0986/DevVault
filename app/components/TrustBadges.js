@@ -3,6 +3,12 @@
 const TrustBadges = () => {
   const techStack = [
     {
+      name: "C++",
+      description: "High-performance compiled language",
+      focus: "DSA, memory management",
+      logo: "https://www.svgrepo.com/show/303480/c-logo.svg",
+    },
+    {
       name: "MongoDB",
       description: "NoSQL database for scalable data storage",
       focus: "Schema design, indexing, aggregation",
@@ -39,7 +45,7 @@ const TrustBadges = () => {
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
-           <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+          <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             Core{" "}
             <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
               Tech Stack
@@ -47,12 +53,13 @@ const TrustBadges = () => {
           </h3>
           <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
             Technologies I use to build scalable, secure, and production-ready
-            full-stack applications with a focus on backend architecture and API design.
+            full-stack applications with a focus on backend architecture and API
+            design.
           </p>
         </div>
 
         {/* Tech Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
           {techStack.map((item) => (
             <div key={item.name} className="relative group">
               {/* Base card */}
@@ -88,9 +95,7 @@ const TrustBadges = () => {
                   </p>
 
                   <p className="text-xs text-muted-foreground">
-                    <span className="font-medium text-foreground">
-                      Focus:
-                    </span>{" "}
+                    <span className="font-medium text-foreground">Focus:</span>{" "}
                     {item.focus}
                   </p>
                 </div>
