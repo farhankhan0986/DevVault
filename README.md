@@ -1,36 +1,132 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# 🚀 DevVault
 
-## Getting Started
+**DevVault** is a modern, full-stack developer portfolio built with a backend-first mindset.  
+It showcases real-world projects, core technical skills, and scalable engineering practices using the **MERN stack and Next.js**.
 
-First, run the development server:
+Designed to be fast, clean, and production-ready — not just a static portfolio.
+
+---
+
+## ✨ Features
+- ⚡ Modern **Next.js App Router** architecture
+- 🧠 Backend-focused project showcase
+- 🔐 Emphasis on **API design, security & scalability**
+- 🎨 Clean, responsive UI with Tailwind CSS
+- 🧩 Modular, reusable components
+- 🚀 Optimized for performance & SEO
+- 📱 Fully responsive across devices
+
+---
+
+## 🧑‍💻 Tech Stack
+
+### Frontend
+- **React.js**
+- **Next.js (App Router)**
+- **Tailwind CSS**
+- **Lucide Icons**
+
+### Backend & Concepts
+- **Node.js**
+- **Express.js**
+- **REST API Design**
+- **Authentication & Authorization**
+- **Middleware Architecture**
+- **System Design Fundamentals**
+
+### Database
+- **MongoDB**
+
+### Tools
+- **Git & GitHub**
+- **Postman**
+- **VS Code**
+- **Vercel (Deployment)**
+
+---
+
+## 📂 Project Highlights
+
+### 🔹 HireSight
+An intelligent hiring support platform designed around structured candidate evaluation and scalable backend workflows.
+
+**Focus:** Backend architecture, clean APIs, data flow design  
+**Stack:** MERN, REST APIs  
+🔗 GitHub: https://github.com/farhankhan0986/HireSight-AI
+
+---
+
+### 🔹 IDVault
+A secure identity and data management system built with a security-first approach.
+
+**Focus:** Authentication, authorization, data integrity  
+**Stack:** Node.js, Express.js, MongoDB  
+🔗 GitHub: https://github.com/farhankhan0986/IDVault
+
+---
+
+### 🔹 Sentinel Guard
+A conceptual API firewall and security middleware placed in front of backend services.
+
+**Focus:** Rate limiting, attack detection, request validation  
+**Stack:** Node.js, Middleware Design  
+🔗 GitHub: Coming soon
+
+---
+
+## 🛠️ Installation & Setup
 
 ```bash
+# Clone the repository
+git clone https://github.com/farhankhan0986/DevVault
+
+# Navigate into the project
+cd devvault
+
+# Install dependencies
+npm install
+
+# Start development server
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open `http://localhost:3000` to view it in the browser.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## 📁 Folder Structure
+```
+app/
+ ├── components/     # Reusable UI components
+ ├── page.js         # Home page
+ ├── layout.js       # Root layout
+public/
+ ├── images/         # Static assets
+```
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## 🎯 Purpose of DevVault
+DevVault is built to:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- Demonstrate real engineering thinking
+- Showcase backend-heavy full-stack skills
+- Act as a personal technical brand
+- Serve as a foundation for future projects and experiments
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## 📬 Contact
+**Farhan Abid**  
+Full-Stack Web Developer (Backend-Focused)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+📧 Email: farhankhan080304@gmail.com  
+💼 LinkedIn: https://www.linkedin.com/in/farhan-abid-38967a259/  
+🧑‍💻 GitHub: https://github.com/farhankhan0986
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+---
+
+## ⭐️ Acknowledgements
+Built with a focus on clean architecture, performance, and real-world backend practices.
+
+If you find this project helpful or inspiring, feel free to ⭐️ the repository.
