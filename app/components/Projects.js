@@ -7,7 +7,7 @@ export default function Projects() {
   const projects = [
     {
       id: 1,
-      title: "HireSight",
+      title: "HireSight-AI",
       description:
         "An intelligent hiring support platform focused on structured candidate evaluation and screening workflows. Designed to streamline hiring decisions with a scalable backend architecture and clean data flow.",
       image: "/images/hire.png",
@@ -23,7 +23,7 @@ export default function Projects() {
       description:
         "A secure identity and data management system focused on controlled access, validation, and backend-first security principles.",
       image: "/images/idvault.png",
-      tech: ["Node.js", "Express", "MongoDB", "Auth", "Security"],
+      tech: ["Node.js", "Express", "Next.js", "MongoDB", "Auth"],
       github: "https://github.com/farhankhan0986/IDVault",
       status: "COMPLETED",
       highlight: "Security-First Design",
@@ -31,18 +31,18 @@ export default function Projects() {
       slug: "idvault",
     },
     {
-  id: 3,
-  title: "Chai Culture",
-  description:
-    "A premium 'Coming Soon' landing page for Chai Culture, designed to reflect royal Indian heritage through a calm, elegant, and modern digital experience.",
-  image: "/images/chai.png",
-  tech: ["Next.js", "React", "Tailwind CSS", "UI/UX Design"],
-  github: "https://github.com/farhankhan0986/ChaiCulture",
-  status: "COMPLETED",
-  highlight: "Luxury Brand UI & Product Thinking",
-  href: "https://chai-culture-dun.vercel.app/",
-  slug: "chai-culture",
-},
+      id: 3,
+      title: "Chai Culture",
+      description:
+        "A premium 'Coming Soon' landing page for Chai Culture, designed to reflect royal Indian heritage through a calm, elegant, and modern digital experience.",
+      image: "/images/chai.png",
+      tech: ["Next.js", "React", "Tailwind CSS", "UI/UX Design"],
+      github: "https://github.com/farhankhan0986/ChaiCulture",
+      status: "COMPLETED",
+      highlight: "Luxury Brand UI & Product Thinking",
+      href: "https://chai-culture-dun.vercel.app/",
+      slug: "chai-culture",
+    },
 
     {
       id: 4,
@@ -117,7 +117,7 @@ export default function Projects() {
               <div
                 className={`space-y-6 ${index % 2 === 1 ? "lg:order-1" : ""}`}
               >
-                <span className="inline-block text-xs bg-white/5 border border-white/10 px-3 py-1 rounded-full text-muted">
+                <span className="inline-block text-xs bg-white/5 border border-indigo-500 px-3 py-1 rounded-full text-indigo-400 font-medium">
                   {project.highlight}
                 </span>
 
@@ -134,7 +134,7 @@ export default function Projects() {
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="text-xs px-3 py-1 rounded-full bg-white/5 border border-white/10 text-muted"
+                        className="text-xs text-indigo-400 px-3 py-1 rounded-full bg-indigo-500/5 border border-indigo-500"
                       >
                         {tech}
                       </span>
