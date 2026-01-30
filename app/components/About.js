@@ -44,8 +44,8 @@ export default function About() {
           {/* Bio */}
           <div className="lg:col-span-2 space-y-6">
             <p className="text-lg text-muted leading-relaxed">
-              I'm a final-year B.Tech student and Full-Stack Web Developer with a
-              strong passion for backend systems, API design, and
+              I'm a final-year B.Tech student and Full-Stack Web Developer with
+              a strong passion for backend systems, API design, and
               security-focused architectures. Currently working as a Web
               Developer Intern at{" "}
               <span className="text-indigo-400 font-semibold">
@@ -73,12 +73,12 @@ export default function About() {
             <div className="grid grid-cols-3 gap-4 pt-8">
               {[
                 { value: "5+", label: "Projects Built" },
-              { value: "50k+", label: "Lines of Code" },
+                { value: "50k+", label: "Lines of Code" },
                 { value: "100%", label: "Dedication" },
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-4 text-center hover:bg-white/10 transition"
+                  className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-4 text-center hover:bg-white/10 hover:-translate-y-1 transition"
                 >
                   <p className="text-3xl font-bold text-indigo-400">
                     {stat.value}
@@ -96,17 +96,18 @@ export default function About() {
               return (
                 <div
                   key={index}
-                  className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6 hover:bg-white/10 hover:-translate-y-1 transition-all"
+                  className="group rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6 opacity-80 hover:bg-white/10 hover:-translate-y-1 hover:opacity-100 transition-all"
                 >
-                  <div className="flex items-start gap-4">
-                    <div className="p-3 rounded-lg bg-indigo-500/20">
-                      <Icon className="w-6 h-6 text-indigo-400" />
+                  <div className="flex items-start gap-4 ">
+                    <div className="p-3 rounded-lg bg-indigo-500/20 transition-all duration-300 group-hover:bg-indigo-500/30 group-hover:shadow-[0_0_24px_rgba(99,102,241,0.45)] group-hover:animate-pulse ">
+                      <Icon className="w-6 h-6 text-indigo-200 transition-all duration-300 group-hover:text-indigo-400 " />
                     </div>
+
                     <div>
-                      <h3 className="font-semibold mb-1">{item.title}</h3>
-                      <p className="text-sm text-muted">
-                        {item.description}
-                      </p>
+                      <h3 className="font-semibold text-xl mb-1">
+                        {item.title}
+                      </h3>
+                      <p className="text-sm text-muted">{item.description}</p>
                     </div>
                   </div>
                 </div>
@@ -117,7 +118,13 @@ export default function About() {
 
         {/* Core Competencies */}
         <div className="mt-20 pt-16 border-t border-white/10">
-          <h3 className="text-2xl font-bold mb-8">Core Competencies</h3>
+          <h2 className="text-2xl font-extrabold tracking-tight mb-8">
+            Core{" "}
+            <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+              Competencies
+            </span>
+          </h2>
+
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {[
               "Backend Architecture & System Design",
@@ -129,10 +136,15 @@ export default function About() {
             ].map((skill) => (
               <div
                 key={skill}
-                className="flex items-center gap-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur px-6 py-4 hover:bg-white/10 hover:-translate-y-0.5 transition-all"
+                className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] px-6 py-5 transition-all hover:-translate-y-1 hover:bg-white/[0.06]"
               >
-                <span className="w-2 h-2 rounded-full bg-indigo-400" />
-                <span className="font-medium">{skill}</span>
+                {/* Accent bar */}
+                <span className="absolute left-0 top-0 h-full w-1 bg-indigo-500/40 transition-all group-hover:bg-indigo-400 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.6)]" />
+
+                {/* Content */}
+                <span className="block pl-4 text-sm font-medium text-white/80 transition-colors group-hover:text-white">
+                  {skill}
+                </span>
               </div>
             ))}
           </div>

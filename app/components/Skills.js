@@ -13,7 +13,10 @@ export default function Skills() {
     { category: "Frontend", skills: ["React.js", "Next.js", "Tailwind CSS"] },
     { category: "Backend", skills: ["Node.js", "Express.js", "REST APIs"] },
     { category: "Database", skills: ["MongoDB", "Mongoose", "MySQL"] },
-    { category: "Tools & Platforms", skills: ["Git/GitHub", "Postman", "Vercel"] },
+    {
+      category: "Tools & Platforms",
+      skills: ["Git/GitHub", "Postman", "Vercel"],
+    },
     {
       category: "Core Concepts",
       skills: ["System Design", "API Security", "Authentication"],
@@ -77,52 +80,53 @@ export default function Skills() {
 
         {/* Proficiency */}
         <div className="mt-24 pt-16 border-t border-white/10">
-  <div className="max-w-4xl mx-auto">
-    <div className="text-center space-y-2 mb-12">
-      <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-            Proficiency{" "}
-            <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
-              Level
-            </span>
-          </h3>
-      <p className="text-sm sm:text-base text-white/60">
-        Focused expertise with a backend-first mindset.
-      </p>
-    </div>
+          <div className="max-w-4xl mx-auto">
+            <div className="text-center space-y-2 mb-12">
+              <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+                Proficiency{" "}
+                <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+                  Level
+                </span>
+              </h3>
+              <p className="text-sm sm:text-base text-white/60">
+                Focused expertise with a backend-first mindset.
+              </p>
+            </div>
 
-    { /* Skill Bars */ }      
-    <div className="space-y-6" role="list">
-      {[
-        { skill: "Backend Development", level: 90 },
-        { skill: "Full-Stack MERN", level: 85 },
-        { skill: "System Design", level: 80 },
-        { skill: "API Security", level: 85 },
-        { skill: "Frontend (React / Next.js)", level: 80 },
-      ].map((item) => (
-        <div
-          key={item.skill}
-          className="rounded-xl border border-white/10 bg-white/5 px-6 py-4 shadow-sm backdrop-blur-sm"
-          role="listitem"
-        >
-          <div className="flex items-center justify-between mb-3">
-            <span className="font-semibold text-white">{item.skill}</span>
-            <span className="text-indigo-300 font-semibold tabular-nums">
-              {item.level}%
-            </span>
-          </div>
+            {/* Skill Bars */}
+            <div className="space-y-6" role="list">
+              {[
+                { skill: "Backend Development", level: 90 },
+                { skill: "Full-Stack MERN", level: 85 },
+                { skill: "System Design", level: 80 },
+                { skill: "API Security", level: 85 },
+                { skill: "Frontend (React / Next.js)", level: 80 },
+              ].map((item) => (
+                <div
+                  key={item.skill}
+                  className="rounded-xl border border-white/10 bg-white/5 px-6 py-4 shadow-sm backdrop-blur-sm"
+                  role="listitem"
+                >
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="font-semibold text-white">
+                      {item.skill}
+                    </span>
+                    <span className="text-indigo-300 font-semibold tabular-nums">
+                      {item.level}%
+                    </span>
+                  </div>
 
-          <div className="w-full h-2.5 rounded-full bg-white/10 overflow-hidden">
-            <div
-              className="h-full rounded-full bg-gradient-to-r from-indigo-500 via-indigo-400 to-indigo-600 motion-safe:transition-all motion-safe:duration-700"
-              style={{ width: `${item.level}%` }}
-            />
+                  <div className="w-full h-2.5 rounded-full bg-white/10 overflow-hidden">
+                    <div
+                      className="h-full rounded-full bg-gradient-to-r from-indigo-500 via-indigo-400 to-indigo-600 animate-progress"
+                      style={{ "--target": `${item.level}%` }}
+                    />
+                  </div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
-      ))}
-    </div>
-  </div>
-</div>
-       
       </div>
     </section>
   );

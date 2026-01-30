@@ -77,3 +77,16 @@ html {
   scroll-behavior: smooth;
   
 }
+@keyframes progress-fill {
+  from {
+    width: 0%;
+  }
+  to {
+    width: var(--target);
+  }
+}
+
+.animate-progress {
+  width: 0%;
+  animation: progress-fill 1.2s ease-out forwards;
+}

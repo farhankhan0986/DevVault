@@ -7,41 +7,47 @@ const TrustBadges = () => {
       description: "High-performance compiled language",
       focus: "DSA, memory management",
       logo: "https://www.svgrepo.com/show/303480/c-logo.svg",
+      color: "#00599C",
     },
     {
       name: "MongoDB",
       description: "NoSQL database for scalable data storage",
       focus: "Schema design, indexing, aggregation",
       logo: "https://www.svgrepo.com/show/331488/mongodb.svg",
+      color: "#47A248",
     },
     {
       name: "Express.js",
       description: "Minimal and flexible Node.js framework",
       focus: "REST APIs, middleware, auth",
-      logo: "https://www.manektech.com//storage/technology/image/1646733600.webp",
+      logo: "https://www.manektech.com/storage/technology/image/1646733600.webp",
+      color: "#ffffff",
     },
     {
       name: "React",
       description: "Component-based frontend library",
       focus: "Hooks, state management, UI logic",
       logo: "https://www.svgrepo.com/show/354259/react.svg",
+      color: "#61DAFB",
     },
     {
       name: "Next.js",
       description: "React framework for production apps",
       focus: "App Router, SSR, performance",
-      logo: "https://cdn.brandfetch.io/id2alue-rx/w/800/h/800/theme/dark/symbol.webp?c=1bxid64Mup7aczewSAYMX&t=1762498501254",
+      logo: "https://cdn.brandfetch.io/id2alue-rx/w/800/h/800/theme/dark/symbol.webp",
+      color: "#ffffff",
     },
     {
       name: "Node.js",
       description: "JavaScript runtime for backend systems",
       focus: "APIs, async workflows, scalability",
       logo: "https://www.svgrepo.com/show/354119/nodejs-icon.svg",
+      color: "#339933",
     },
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-background ">
+    <section className="py-16 md:py-20 bg-background">
       <div className="max-w-6xl mx-auto px-4">
         {/* Header */}
         <div className="text-center mb-12">
@@ -63,8 +69,22 @@ const TrustBadges = () => {
           {techStack.map((item) => (
             <div key={item.name} className="relative group">
               {/* Base card */}
-              <div className="rounded-xl bg-card border border-border/60 px-4 py-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-1 hover:shadow-md">
-                <div className="flex justify-center mb-3">
+              <div
+                className="relative rounded-xl bg-card border border-border/60 px-4 py-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-1"
+                style={{
+                  borderColor: "rgba(255,255,255,0.1)",
+                }}
+              >
+                {/* Glow overlay */}
+                <div
+                  className="pointer-events-none absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  style={{
+                    boxShadow: `0 0 26px ${item.color}55`,
+                    border: `1px solid ${item.color}`,
+                  }}
+                />
+
+                <div className="relative flex justify-center mb-3">
                   <img
                     src={item.logo}
                     alt={`${item.name} logo`}
@@ -72,13 +92,15 @@ const TrustBadges = () => {
                   />
                 </div>
 
-                <div className="text-sm font-semibold">{item.name}</div>
-                <div className="text-xs text-muted-foreground mt-1">
+                <div className="relative text-sm font-semibold">
+                  {item.name}
+                </div>
+                <div className="relative text-xs text-muted-foreground mt-1">
                   {item.description}
                 </div>
               </div>
 
-              {/* Hover detail */}
+              {/* Hover detail tooltip */}
               <div className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-72 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-30">
                 <div className="rounded-xl border border-border bg-card p-4 text-sm shadow-lg">
                   <div className="flex items-center gap-2 mb-2">
