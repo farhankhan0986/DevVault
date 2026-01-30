@@ -60,8 +60,8 @@ export default function Hero() {
               </a>
 
               <a
-                href="https://drive.google.com/file/d/1MH9BeHwiQXw7O1fHc_llI6yXNychTvHQ/view"
-                target="_blank"
+                href="https://drive.google.com/file/d/19UxK6CThL9GkbcRLOSsrdP1X90Uvm0Jh/view?usp=sharing"
+                target=""
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 hover:bg-white/5 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
               >
