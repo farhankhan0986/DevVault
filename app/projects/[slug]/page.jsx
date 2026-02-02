@@ -87,31 +87,45 @@ export default async function ProjectDetail({ params }) {
 
     "sentinel-guard": {
       title: "Sentinel Guard",
-      role: "System Design & Backend Engineer",
+      role: "Backend & Security Engineer",
       description:
-        "Sentinel Guard is a conceptual API firewall and security middleware designed to protect backend services.",
+        "Sentinel Guard is a multi-tenant API firewall and security platform that protects backend services by intercepting requests at the middleware layer and enforcing security policies in real time.",
       problem:
-        "APIs are vulnerable to abuse, attacks, and unregulated traffic without a security layer.",
+        "Modern APIs are exposed to abuse such as brute-force attacks, excessive traffic, unauthorized access, and lack of visibility into request behavior.",
       solution:
-        "Designed a middleware-based security layer handling rate limiting, attack detection, and request logging.",
+        "Built a middleware-first security layer that sits in front of APIs, evaluates each request using firewall rules, rate limits traffic, detects malicious behavior, and logs all activity for analysis through an admin dashboard.",
       tech: [
+        "Next.js (App Router)",
         "Node.js",
-        "Express Middleware",
+        "MongoDB",
+        "JWT Authentication",
+        "Middleware Architecture",
         "Security Patterns",
-        "System Design",
       ],
       architecture: [
-        "Request interception layer",
-        "Rate limiting & abuse prevention",
-        "Attack detection logic",
-        "Centralized logging pipeline",
+        "Global request interception using Next.js middleware",
+        "Per-site API key identification (multi-tenant design)",
+        "Rule engine for blocking methods, routes, and IPs",
+        "Rate limiting and automated threat scoring",
+        "Centralized request logging and analytics pipeline",
+        "Admin dashboard for monitoring traffic and threats",
+      ],
+      features: [
+        "Multi-site onboarding with API keys",
+        "Firewall rules (block methods, paths, IPs)",
+        "Rate limiting per IP and per site",
+        "Attack detection with auto-blocking",
+        "Detailed request logs and security analytics",
+        "JWT-based admin authentication",
       ],
       learnings: [
-        "API gateway design principles",
-        "Security middleware patterns",
-        "Thinking at system scale",
+        "Designing middleware-based security systems",
+        "API gateway and firewall design principles",
+        "Multi-tenant SaaS architecture",
+        "Security-focused backend engineering",
+        "Building observable systems with logs and analytics",
       ],
-      github: "http://github.com/farhankhan0986/Firewall_Guardian_MERN",
+      github: "https://github.com/farhankhan0986/Sentinel-Guard",
     },
   };
 

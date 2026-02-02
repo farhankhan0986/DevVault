@@ -31,7 +31,27 @@ export default function Projects() {
       slug: "idvault",
     },
     {
-      id: 3,
+  id: 3,
+  title: "Sentinel Guard",
+  description:
+    "A multi-tenant API firewall and security platform built with Next.js middleware. Provides request interception, rate limiting, attack detection, logging, and an admin dashboard for real-time security insights.",
+  image: "/images/sentinal.png",
+  tech: [
+    "Next.js",
+    "Node.js",
+    "Middleware",
+    "MongoDB",
+    "JWT",
+    "Security Engineering",
+  ],
+  github: "https://github.com/farhankhan0986/Sentinel-Guard",
+  status: "COMPLETED",
+  highlight: "Real-world API Firewall & Security Platform",
+  href: "https://sentinel-guard-eb9e.vercel.app/",
+  slug: "sentinel-guard",
+},
+    {
+      id: 4,
       title: "Chai Culture",
       description:
         "A premium 'Coming Soon' landing page for Chai Culture, designed to reflect royal Indian heritage through a calm, elegant, and modern digital experience.",
@@ -44,19 +64,7 @@ export default function Projects() {
       slug: "chai-culture",
     },
 
-    {
-      id: 4,
-      title: "Sentinel Guard",
-      description:
-        "A conceptual API firewall and security middleware that sits in front of backend services. Handles rate limiting, attack detection, and logging.",
-      image: "/images/sentinal.png",
-      tech: ["Node.js", "Middleware", "Security", "System Design"],
-      github: "http://github.com/farhankhan0986/Firewall_Guardian_MERN",
-      status: "COMPLETED",
-      highlight: "Advanced Middleware Architecture",
-      href: "https://firewallguardian.netlify.app/",
-      slug: "sentinel-guard",
-    },
+
   ];
 
   return (
