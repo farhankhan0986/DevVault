@@ -70,7 +70,7 @@ export default function About() {
             </p>
 
             {/* Stats */}
-            <div className="grid grid-cols-3 gap-4 pt-8">
+            <div className="grid grid-cols-3 gap-6 pt-10">
               {[
                 { value: "5+", label: "Projects Built" },
                 { value: "50k+", label: "Lines of Code" },
@@ -78,12 +78,16 @@ export default function About() {
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="rounded-xl border border-white/10 bg-white/5 backdrop-blur p-4 text-center hover:bg-white/10 hover:-translate-y-1 transition"
+                  className="group relative rounded-xl border border-white/10 bg-white/5 backdrop-blur p-5 text-center transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_28px_rgba(99,102,241,0.25)]"
                 >
-                  <p className="text-3xl font-bold text-indigo-400">
+                  <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+
+                  <p className="relative text-3xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-500 bg-clip-text text-transparent">
                     {stat.value}
                   </p>
-                  <p className="text-sm text-muted mt-2">{stat.label}</p>
+                  <p className="relative text-sm text-muted mt-2 group-hover:text-indigo-200 transition-colors duration-300">
+                    {stat.label}
+                  </p>
                 </div>
               ))}
             </div>
@@ -96,11 +100,13 @@ export default function About() {
               return (
                 <div
                   key={index}
-                  className="group rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6 opacity-80 hover:bg-white/10 hover:-translate-y-1 hover:opacity-100 transition-all"
+                  className="group relative rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_36px_rgba(99,102,241,0.28)]"
                 >
-                  <div className="flex items-start gap-4 ">
-                    <div className="p-3 rounded-lg bg-indigo-500/20 transition-all duration-300 group-hover:bg-indigo-500/30 group-hover:shadow-[0_0_24px_rgba(99,102,241,0.45)] group-hover:animate-pulse ">
-                      <Icon className="w-6 h-6 text-indigo-200 transition-all duration-300 group-hover:text-indigo-400 " />
+                  <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+
+                  <div className="relative flex items-start gap-4">
+                    <div className="relative p-3 rounded-lg bg-indigo-500/20 transition-all duration-300 group-hover:bg-indigo-500/30 group-hover:shadow-[0_0_28px_rgba(99,102,241,0.6)]">
+                      <Icon className="relative w-6 h-6 text-indigo-500 lg:text-indigo-200 transition-colors duration-700 group-hover:text-indigo-500" />
                     </div>
 
                     <div>
@@ -117,10 +123,10 @@ export default function About() {
         </div>
 
         {/* Core Competencies */}
-        <div className="mt-20 pt-16 border-t border-white/10">
-          <h2 className="text-2xl font-extrabold tracking-tight mb-8">
+        <div className="mt-24 pt-16 border-t border-white/10">
+          <h2 className="text-2xl font-extrabold tracking-tight mb-10">
             Core{" "}
-            <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-600 bg-clip-text text-transparent">
               Competencies
             </span>
           </h2>
@@ -136,13 +142,13 @@ export default function About() {
             ].map((skill) => (
               <div
                 key={skill}
-                className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/[0.03] px-6 py-5 transition-all hover:-translate-y-1 hover:bg-white/[0.06]"
+                className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/[0.04] px-6 py-5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.08] hover:shadow-[0_0_30px_rgba(99,102,241,0.25)]"
               >
-                {/* Accent bar */}
-                <span className="absolute left-0 top-0 h-full w-1 bg-indigo-500/40 transition-all group-hover:bg-indigo-400 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.6)]" />
+                <span className="pointer-events-none absolute inset-0 bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
-                {/* Content */}
-                <span className="block pl-4 text-sm font-medium text-white/80 transition-colors group-hover:text-white">
+                <span className="absolute left-0 top-0 h-full w-1 bg-indigo-500/40 transition-all duration-300 group-hover:bg-indigo-400 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.6)]"></span>
+
+                <span className="relative block pl-4 text-sm font-medium text-white/80 transition-colors duration-300 group-hover:text-white">
                   {skill}
                 </span>
               </div>

@@ -28,6 +28,7 @@ export default function Contact() {
         aria-hidden
         className="absolute inset-0 -z-10 bg-[radial-gradient(600px_circle_at_50%_20%,rgba(99,102,241,0.18),transparent_45%)]"
       />
+      
 
       <div className="max-w-3xl mx-auto px-6 text-center">
         {/* Header */}

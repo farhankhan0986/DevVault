@@ -101,32 +101,44 @@ export default function Skills() {
                 { skill: "System Design", level: 80 },
                 { skill: "API Security", level: 85 },
                 { skill: "Frontend (React / Next.js)", level: 80 },
-              ].map((item) => (
-                <div
-                  key={item.skill}
-                  className="rounded-xl border border-white/10 bg-white/5 px-6 py-4 shadow-sm backdrop-blur-sm"
-                  role="listitem"
-                >
-                  <div className="flex items-center justify-between mb-3">
-                    <span className="font-semibold text-white">
-                      {item.skill}
-                    </span>
-                    <span className="text-indigo-300 font-semibold tabular-nums">
-                      {item.level}%
-                    </span>
-                  </div>
+              ].map((item) => {
+                const segments = 20;
+                const filled = Math.floor((item.level / 100) * segments);
 
-                  <div className="w-full h-2.5 rounded-full bg-white/10 overflow-hidden">
-                    <div
-                      className="h-full rounded-full bg-gradient-to-r from-indigo-500 via-indigo-400 to-indigo-600 animate-progress"
-                      style={{ "--target": `${item.level}%` }}
-                    />
+                return (
+                  <div
+                    key={item.skill}
+                    role="listitem"
+                    className="rounded-xl border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_28px_rgba(99,102,241,0.25)]"
+                  >
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="font-semibold text-white">
+                        {item.skill}
+                      </span>
+                      <span className="text-sm font-semibold text-indigo-300 tabular-nums">
+                        {item.level}%
+                      </span>
+                    </div>
+
+                    <div className="flex gap-1.5 ">
+                      {Array.from({ length: segments }).map((_, i) => (
+                        <span
+                          key={i}
+                          className={`h-2.5 flex-1 rounded-sm ${
+                            i < filled
+                              ? "bg-indigo-500 shadow-[0_0_6px_rgba(99,102,241,0.5)]"
+                              : "bg-white/10"
+                          }`}
+                        />
+                      ))}
+                    </div>
                   </div>
-                </div>
-              ))}
+                );
+              })}
             </div>
           </div>
         </div>
+             <div className="border-t border-white/10 my-10 mt-30" />
       </div>
     </section>
   );

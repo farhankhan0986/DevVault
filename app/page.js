@@ -6,13 +6,16 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
+import Experience from "./components/Experience";
+import Education from "./components/Education";
+
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 
 // Client-only Motion wrapper
 const MotionDiv = dynamic(
   () => import("@/lib/MotionClient").then((mod) => mod.default.div),
-  { ssr: false }
+  { ssr: false },
 );
 
 const fadeUp = {
@@ -51,6 +54,28 @@ export default function Home() {
               <About />
             </MotionDiv>
           </section>
+          
+          {/* <section id="experience">
+            <MotionDiv
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <Experience />
+            </MotionDiv>
+          </section>
+
+          <section id="education">
+            <MotionDiv
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <Education />
+            </MotionDiv>
+          </section> */}
 
           {/* PROJECTS */}
           <section id="projects">

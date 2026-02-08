@@ -31,6 +31,8 @@ export default function Header() {
               { href: "#projects", label: "Projects" },
               { href: "#skills", label: "Skills" },
               { href: "#contact", label: "Contact" },
+              // { href: "#experience", label: "Experience" },
+              // { href: "#education", label: "Education" },
             ].map((item) => (
               <li key={item.href}>
                 <Link
