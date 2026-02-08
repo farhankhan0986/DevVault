@@ -138,7 +138,7 @@ export default function Skills() {
             </div>
           </div>
         </div>
-             <div className="border-t border-white/10 my-10 mt-30" />
+        
       </div>
     </section>
   );

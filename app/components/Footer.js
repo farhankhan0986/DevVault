@@ -104,9 +104,9 @@ export default function Footer() {
           <button
             onClick={scrollToTop}
             aria-label="Scroll to top"
-            className="p-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur hover:bg-white/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            className="group p-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur hover:bg-white/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 cursor-pointer"
           >
-            <ArrowUp className="w-5 h-5" />
+            <ArrowUp className="w-5 h-5 text-white transition-transform group-hover:-translate-y-0.5" />
           </button>
         </div>
       </div>
