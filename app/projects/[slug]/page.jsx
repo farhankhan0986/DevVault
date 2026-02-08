@@ -127,6 +127,49 @@ export default async function ProjectDetail({ params }) {
       ],
       github: "https://github.com/farhankhan0986/Sentinel-Guard",
     },
+    planixa: {
+      title: "Planixa",
+      role: "Full Stack Developer Intern (Full-Stack Assignment)",
+      description:
+        "Planixa is a full-stack task management application built as part of the Anything.ai Full Stack Intern assignment, focusing on clean UI, secure authentication, and seamless frontend–backend integration.",
+      problem:
+        "Many early-stage applications struggle with fragmented authentication flows, unprotected routes, and poor task management UX, leading to security risks and low usability.",
+      solution:
+        "Designed and built a modern dashboard-driven application using Next.js App Router, implementing JWT-based authentication, protected routes, profile management, and full CRUD task functionality with search and filter support.",
+      tech: [
+        "Next.js 16 (App Router)",
+        "React",
+        "Tailwind CSS",
+        "MongoDB",
+        "Mongoose",
+        "JWT Authentication",
+        "Framer Motion",
+      ],
+      architecture: [
+        "Single monorepo containing frontend and backend",
+        "JWT authentication using HTTP-only cookies",
+        "Protected routes for dashboard, tasks, and profile",
+        "REST-style APIs with versioning (/api/v1)",
+        "Client-side search and filter for fast task discovery",
+        "Component-driven frontend with reusable UI patterns",
+      ],
+      features: [
+        "User signup, login, and logout",
+        "Profile fetch and update (GET / PUT)",
+        "Task CRUD (create, list, read, update, delete)",
+        "Dedicated Tasks page with search and filter UI",
+        "Inline task editing and deletion",
+        "Animated transitions using Framer Motion",
+      ],
+      learnings: [
+        "Implementing secure authentication with JWT cookies",
+        "Building scalable frontend–backend integrations",
+        "Designing clean and intuitive task dashboards",
+        "Managing state and side effects in React",
+        "Structuring production-ready Next.js applications",
+      ],
+      github: "https://github.com/farhankhan0986/Planixa",
+    },
   };
 
   const project = projects[slug];

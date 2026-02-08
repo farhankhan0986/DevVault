@@ -31,25 +31,25 @@ export default function Projects() {
       slug: "idvault",
     },
     {
-  id: 3,
-  title: "Sentinel Guard",
-  description:
-    "A multi-tenant API firewall and security platform built with Next.js middleware. Provides request interception, rate limiting, attack detection, logging, and an admin dashboard for real-time security insights.",
-  image: "/images/sentinal.png",
-  tech: [
-    "Next.js",
-    "Node.js",
-    "Middleware",
-    "MongoDB",
-    "JWT",
-    "Security Engineering",
-  ],
-  github: "https://github.com/farhankhan0986/Sentinel-Guard",
-  status: "COMPLETED",
-  highlight: "Real-world API Firewall & Security Platform",
-  href: "https://sentinel-guard-eb9e.vercel.app/",
-  slug: "sentinel-guard",
-},
+      id: 3,
+      title: "Sentinel Guard",
+      description:
+        "A multi-tenant API firewall and security platform built with Next.js middleware. Provides request interception, rate limiting, attack detection, logging, and an admin dashboard for real-time security insights.",
+      image: "/images/sentinal.png",
+      tech: [
+        "Next.js",
+        "Node.js",
+        "Middleware",
+        "MongoDB",
+        "JWT",
+        "Security Engineering",
+      ],
+      github: "https://github.com/farhankhan0986/Sentinel-Guard",
+      status: "COMPLETED",
+      highlight: "Real-world API Firewall & Security Platform",
+      href: "https://sentinel-guard-eb9e.vercel.app/",
+      slug: "sentinel-guard",
+    },
     {
       id: 4,
       title: "Chai Culture",
@@ -63,8 +63,26 @@ export default function Projects() {
       href: "https://chai-culture-dun.vercel.app/",
       slug: "chai-culture",
     },
-
-
+    {
+      id: 5,
+      title: "Planixa",
+      description:
+        "A full-stack task management webapp built as part of the Anything.ai Full Stack Intern assignment, featuring secure authentication, profile management, and a modern tasks UI with search and filter.",
+      image: "/images/planixa.png",
+      tech: [
+        "Next.js 16",
+        "React",
+        "Tailwind CSS",
+        "MongoDB",
+        "JWT Authentication",
+        "Framer Motion",
+      ],
+      github: "https://github.com/farhankhan0986/Planixa",
+      status: "COMPLETED",
+      highlight: "Full-Stack Dashboard & Auth Flow",
+      href: "https://planixa.vercel.app/",
+      slug: "planixa",
+    },
   ];
 
   return (
