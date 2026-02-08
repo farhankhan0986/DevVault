@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowUp, Instagram } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -75,6 +75,11 @@ export default function Footer() {
                   href: "mailto:farhankhan080304@gmail.com",
                   label: "Email",
                   Icon: Mail,
+                },
+                {
+                  href: "https://www.instagram.com/_._farhan__/",
+                  label: "Instagram",
+                  Icon: Instagram,
                 },
               ].map(({ href, label, Icon }) => (
                 <a
