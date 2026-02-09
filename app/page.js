@@ -54,7 +54,7 @@ export default function Home() {
               <About />
             </MotionDiv>
           </section>
-          
+
           <section id="experience">
             <MotionDiv
               variants={fadeUp}
@@ -63,17 +63,6 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <Experience />
-            </MotionDiv>
-          </section>
-
-          <section id="education">
-            <MotionDiv
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <Education />
             </MotionDiv>
           </section>
 
@@ -98,6 +87,17 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <Skills />
+            </MotionDiv>
+          </section>
+          
+          <section id="education">
+            <MotionDiv
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <Education />
             </MotionDiv>
           </section>
 
