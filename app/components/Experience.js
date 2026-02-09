@@ -7,12 +7,20 @@ export default function Experience() {
 
       <div className="max-w-6xl mx-auto px-6">
         <div className="border-t border-white/10 pt-16">
-          <h2 className="text-5xl font-extrabold tracking-tight mb-10">
-            Work{" "}
-            <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+              My{"  "}
+              <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
               Experience
-            </span>
-          </h2>
+              </span>
+            </h2>
+            <p className="max-w-2xl text-muted text-lg">
+              Real-world experience building, maintaining, and scaling backend
+              systems and production applications.
+            </p>
+
+            <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-indigo-700 rounded-full mt-3" />
+          </div>
 
           <div className="space-y-6">
             <div className="group relative rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]">

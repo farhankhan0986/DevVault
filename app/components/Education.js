@@ -6,12 +6,20 @@ export default function Education() {
 
       <div className="max-w-6xl mx-auto px-6">
         <div className="border-t border-white/10 pt-16">
-          <h2 className="text-5xl font-extrabold tracking-tight mb-10">
-            Education{" "}
-            <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
-              Background
-            </span>
-          </h2>
+          <div className="mb-16">
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+              Education{" "}
+              <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+                Background
+              </span>
+            </h2>
+            <p className="max-w-2xl text-muted text-lg">
+              Academic foundation supporting my work in software engineering,
+              data systems, and applied development.
+            </p>
+
+            <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-indigo-700 rounded-full mt-3" />
+          </div>
 
           <div className="space-y-6 mt-1">
             {/* College */}
@@ -23,7 +31,11 @@ export default function Education() {
                   <h3 className="text-lg font-semibold bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
                     B.Tech – Artificial Intelligence & Data Science (2022-2026)
                   </h3>
-                  <span className="text-sm text-indigo-300">CGPA: 7.8 (6th semester)</span>
+                  <span className="text-sm relative top-2.5 flex flex-col items-center justify-center text-indigo-300">
+                    <p>CGPA: 7.8 </p>
+                   
+                    <p>(6th semester)</p>
+                  </span>
                 </div>
 
                 <div className="flex items-center gap-20">

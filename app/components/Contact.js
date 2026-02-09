@@ -1,6 +1,6 @@
 "use client";
 
-import { Mail, Github, Linkedin } from "lucide-react";
+import { Mail, Github, Linkedin, Briefcase, Target, Clock } from "lucide-react";
 
 export default function Contact() {
   const socialLinks = [
@@ -28,7 +28,6 @@ export default function Contact() {
         aria-hidden
         className="absolute inset-0 -z-10 bg-[radial-gradient(600px_circle_at_50%_20%,rgba(99,102,241,0.18),transparent_45%)]"
       />
-      
 
       <div className="max-w-3xl mx-auto px-6 text-center">
         {/* Header */}
@@ -45,9 +44,9 @@ export default function Contact() {
         {/* Main CTA */}
         <div className="mb-16">
           <p className="text-lg text-muted leading-relaxed max-w-2xl mx-auto mb-8">
-            I’m always interested in discussing new projects, backend challenges,
-            and engineering opportunities. Whether you have a question or just
-            want to say hi — my inbox is always open.
+            I’m always interested in discussing new projects, backend
+            challenges, and engineering opportunities. Whether you have a
+            question or just want to say hi — my inbox is always open.
           </p>
 
           <a
@@ -87,35 +86,47 @@ export default function Contact() {
         {/* Divider */}
         <div className="border-t border-white/10 my-10 mb-20" />
 
-        <div className="space-y-6 animate-slide-up" style={{ animationDelay: "0.3s" }}>
+        <div className="space-y-6">
           {[
             {
               title: "Current Role",
               text: "Final-year B.Tech student and Web Developer Intern at Tripify, working on real-world, production-focused web applications.",
+              Icon: Briefcase,
             },
             {
               title: "Open To",
               text: "Backend-heavy full-stack roles, software engineering positions, and internship opportunities focused on scalable systems.",
+              Icon: Target,
             },
             {
               title: "Availability",
               text: "I usually respond within 24 hours and am happy to discuss opportunities, collaborations, or technical challenges.",
+              Icon: Clock,
             },
           ].map((item) => (
             <div
               key={item.title}
-              className="relative rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6 transition-all hover:border-indigo-500/40 hover:shadow-[0_0_40px_rgba(99,102,241,0.15)]"
+              className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_32px_rgba(99,102,241,0.22)]"
             >
-              {/* glow layer */}
-              <div
-                aria-hidden
-                className="pointer-events-none absolute inset-0 rounded-xl opacity-0 transition hover:opacity-100 bg-[radial-gradient(600px_circle_at_30%_20%,rgba(99,102,241,0.12),transparent_40%)]"
-              />
+              {/* ambient glow */}
+              <span className="pointer-events-none absolute inset-0 bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
-              <h3 className="relative font-semibold text-2xl text-foreground mb-2">
-                {item.title}
-              </h3>
-              <p className="relative text-muted">{item.text}</p>
+              <div className="relative flex flex-col items-center justify-center gap-4 pl-4">
+                {/* icon */}
+                <div className="flex h-15 w-15 shrink-0 items-center justify-center rounded-full bg-indigo-500/15 text-indigo-500 lg:text-white group-hover:text-indigo-500 duration-300 transition-all group-hover:bg-indigo-500/25">
+                  <item.Icon className="h-6 w-6 group-hover:w-7 group-hover:h-7 duration-700 group-hover:-translate-y-1 transition-transform group-hover:transition-transform group-hover:duration-700 " />
+                </div>
+
+                {/* content */}
+                <div>
+                  <h3 className="font-semibold text-lg text-foreground mb-1">
+                    {item.title}
+                  </h3>
+                  <p className="text-sm text-muted leading-relaxed">
+                    {item.text}
+                  </p>
+                </div>
+              </div>
             </div>
           ))}
         </div>
