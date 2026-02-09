@@ -1,6 +1,6 @@
 "use client";
 
-import { Github, Linkedin, Mail, ArrowUp, Instagram } from "lucide-react";
+import { Github, Linkedin, Mail, ArrowUp, Instagram, Phone } from "lucide-react";
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -65,27 +65,37 @@ export default function Footer() {
                   href: "https://github.com/farhankhan0986",
                   label: "GitHub",
                   Icon: Github,
+                  target: "_blank",
                 },
                 {
                   href: "https://www.linkedin.com/in/farhan-abid-38967a259/",
                   label: "LinkedIn",
                   Icon: Linkedin,
+                  target: "_blank",
                 },
                 {
                   href: "mailto:farhankhan080304@gmail.com",
                   label: "Email",
                   Icon: Mail,
+                  target: "_blank",
                 },
                 {
                   href: "https://www.instagram.com/_._farhan__/",
                   label: "Instagram",
                   Icon: Instagram,
+                  target: "_blank",
                 },
-              ].map(({ href, label, Icon }) => (
+                {
+                  href: "tel:+6392515612",
+                  label: "Phone",
+                  Icon: Phone,
+                  target: "_self",
+                },
+              ].map(({ href, label, Icon, target }) => (
                 <a
                   key={label}
                   href={href}
-                  target="_blank"
+                  target={target}
                   rel="noopener noreferrer"
                   aria-label={label}
                   className="p-3 rounded-xl borde border-white/10 bg-white/5 backdrop-blur hover:bg-white/10 hover:-translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
