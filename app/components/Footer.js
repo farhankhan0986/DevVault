@@ -86,7 +86,7 @@ export default function Footer() {
                   target: "_blank",
                 },
                 {
-                  href: "tel:+6392515612",
+                  href: "tel:+916392515612",
                   label: "Phone",
                   Icon: Phone,
                   target: "_self",
