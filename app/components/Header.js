@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname} from "next/navigation";
+import { usePathname } from "next/navigation";
 
 export default function Header() {
   const pathname = usePathname();
@@ -28,11 +28,11 @@ export default function Header() {
             {[
               { href: "#home", label: "Home" },
               { href: "#about", label: "About" },
+              { href: "#experience", label: "Experience" },
+              { href: "#education", label: "Education" },
               { href: "#projects", label: "Projects" },
               { href: "#skills", label: "Skills" },
               { href: "#contact", label: "Contact" },
-              // { href: "#experience", label: "Experience" },
-              // { href: "#education", label: "Education" },
             ].map((item) => (
               <li key={item.href}>
                 <Link

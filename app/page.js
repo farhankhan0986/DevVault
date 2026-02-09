@@ -55,7 +55,7 @@ export default function Home() {
             </MotionDiv>
           </section>
           
-          {/* <section id="experience">
+          <section id="experience">
             <MotionDiv
               variants={fadeUp}
               initial="hidden"
@@ -75,7 +75,7 @@ export default function Home() {
             >
               <Education />
             </MotionDiv>
-          </section> */}
+          </section>
 
           {/* PROJECTS */}
           <section id="projects">
