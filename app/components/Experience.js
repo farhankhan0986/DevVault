@@ -1,7 +1,7 @@
 import { CiLocationOn } from "react-icons/ci";
 export default function Experience() {
   return (
-    <section className="relative isolate bg-background text-foreground pt-28">
+    <section className="relative select-none isolate bg-background text-foreground pt-28">
       {/* background glow */}
       <div aria-hidden className="absolute inset-0 -z-10 " />
 
@@ -22,7 +22,7 @@ export default function Experience() {
             <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-indigo-700 rounded-full mt-3" />
           </div>
 
-          <div className="space-y-6">
+          <div className="space-y-6 duration-300 active:-translate-y-2 active:duration-300 active:transition-transform">
             <div className="group relative rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]">
               <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
@@ -73,7 +73,7 @@ export default function Experience() {
             <div className="h-15 w-px bg-white/50" />
           </div>
 
-          <div className="space-y-6 mt-1">
+          <div className="space-y-6 mt-1 duration-300 active:-translate-y-2 active:duration-300 active:transition-transform">
             <div className="group relative rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]">
               <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 

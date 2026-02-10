@@ -20,7 +20,7 @@ export default function About() {
   ];
 
   return (
-    <section className="relative py-28 bg-background text-foreground overflow-hidden">
+    <section className="relative select-none py-28 bg-background text-foreground overflow-hidden">
       {/* Ambient background glow */}
       <div
         aria-hidden
@@ -142,11 +142,11 @@ export default function About() {
             ].map((skill) => (
               <div
                 key={skill}
-                className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/[0.04] px-6 py-5 transition-all duration-300 hover:-translate-y-1 hover:bg-white/[0.08] hover:shadow-[0_0_30px_rgba(99,102,241,0.25)]"
+                className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/[0.04] px-6 py-5 transition-all duration-300 hover:-translate-y-1 active:-translate-y-1 hover:bg-white/[0.08] hover:shadow-[0_0_30px_rgba(99,102,241,0.25)]"
               >
                 <span className="pointer-events-none absolute inset-0 bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
-                <span className="absolute left-0 top-0 h-full w-1 bg-indigo-500/40 transition-all duration-300 group-hover:bg-indigo-400 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.6)]"></span>
+                <span className="absolute left-0 top-0 h-full w-1 bg-indigo-500/40 transition-all duration-300 group-hover:bg-indigo-400 group-active:bg-indigo-400 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.6)]"></span>
 
                 <span className="relative block pl-4 text-sm font-medium text-white/80 transition-colors duration-300 group-hover:text-white">
                   {skill}

@@ -24,7 +24,7 @@ export default function Skills() {
   ];
 
   return (
-    <section className="relative py-28 bg-background text-foreground overflow-hidden">
+    <section className="relative select-none py-28 bg-background text-foreground overflow-hidden">
       {/* Ambient glow */}
       <div
         aria-hidden
@@ -52,9 +52,9 @@ export default function Skills() {
           {skillCategories.map((category) => (
             <div
               key={category.category}
-              className="rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-8 hover:bg-white/10 hover:-translate-y-1 transition-all"
+              className="group rounded-2xl border border-white/10 bg-white/5 backdrop-blur p-8 hover:bg-white/10 hover:-translate-z-2 active:duration-500 active:scale-105 active:-translate-y-1 transition-all duration-500 active:transition-transform"
             >
-              <h3 className="text-xl font-bold mb-6 flex items-center gap-3">
+              <h3 className="text-xl font-bold mb-6 flex text-white items-center gap-3">
                 <span className="w-1 h-6 rounded-full bg-indigo-500" />
                 {category.category}
               </h3>
@@ -109,7 +109,7 @@ export default function Skills() {
                   <div
                     key={item.skill}
                     role="listitem"
-                    className="rounded-xl border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_28px_rgba(99,102,241,0.25)]"
+                    className="group rounded-xl border border-white/10 bg-white/5 px-6 py-4 backdrop-blur-sm transition-all duration-300 hover:-translate-y-1 active:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_28px_rgba(99,102,241,0.25)]"
                   >
                     <div className="flex items-center justify-between mb-4">
                       <span className="font-semibold text-white">

@@ -86,7 +86,7 @@ export default function Projects() {
   ];
 
   return (
-    <section className="relative py-28 bg-background text-foreground">
+    <section className="relative select-none py-28 bg-background text-foreground">
       <div
         aria-hidden
         className="absolute inset-0 -z-10 bg-[radial-gradient(600px_circle_at_20%_20%,rgba(99,102,241,0.12),transparent_45%)]"
@@ -117,7 +117,7 @@ export default function Projects() {
             >
               {/* Image */}
               <div
-                className={`group relative rounded-2xl overflow-hidden border border-white/10 bg-card ${
+                className={`group relative rounded-2xl duration-500 active:-translate-z-2 active:scale-105 active:duration-300 active:transition-transform overflow-hidden border border-white/10 bg-card ${
                   index % 2 === 1 ? "lg:order-2" : ""
                 }`}
               >

@@ -68,16 +68,22 @@ const TrustBadges = () => {
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
           {techStack.map((item) => (
             <div key={item.name} className="relative group">
-              {/* Base card */}
+              {/* Card */}
               <div
-                className="relative rounded-xl bg-card border border-border/60 px-4 py-5 text-center shadow-sm transition-all duration-300 hover:-translate-y-1"
+                className="relative rounded-xl bg-card border border-border/60 px-4 py-5 text-center
+                           shadow-sm transition-all duration-300
+                           hover:-translate-y-1 active:-translate-y-1"
                 style={{
                   borderColor: "rgba(255,255,255,0.1)",
                 }}
               >
                 {/* Glow overlay */}
                 <div
-                  className="pointer-events-none absolute inset-0 rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"
+                  className="pointer-events-none absolute inset-0 rounded-xl
+                             opacity-0
+                             group-hover:opacity-100
+                             group-active:opacity-100
+                             transition-opacity duration-300"
                   style={{
                     boxShadow: `0 0 26px ${item.color}55`,
                     border: `1px solid ${item.color}`,
@@ -100,8 +106,15 @@ const TrustBadges = () => {
                 </div>
               </div>
 
-              {/* Hover detail tooltip */}
-              <div className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-72 opacity-0 group-hover:opacity-100 transition-opacity duration-200 pointer-events-none z-30">
+              {/* Hover / tap tooltip */}
+              <div
+                className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-72
+                           opacity-0
+                           group-hover:opacity-100
+                           group-active:opacity-100
+                           transition-opacity duration-200
+                           pointer-events-none z-30"
+              >
                 <div className="rounded-xl border border-border bg-card p-4 text-sm shadow-lg">
                   <div className="flex items-center gap-2 mb-2">
                     <img

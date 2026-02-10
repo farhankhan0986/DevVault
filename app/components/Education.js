@@ -1,7 +1,7 @@
 import { CiLocationOn } from "react-icons/ci";
 export default function Education() {
   return (
-    <section className="relative isolate bg-background text-foreground pt-28 mb-10">
+    <section className="relative isolate bg-background text-foreground pt-10 mb-10">
       <div aria-hidden className="absolute inset-0 -z-10" />
 
       <div className="max-w-6xl mx-auto px-6">
@@ -21,12 +21,12 @@ export default function Education() {
             <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-indigo-700 rounded-full mt-3" />
           </div>
 
-          <div className="space-y-6 mt-1">
+          <div className="space-y-6 mt-1 ">
             {/* College */}
-            <div className="group relative rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]">
+            <div className="group relative rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 active:-translate-y-1 active:duration-300 active:transition-transform hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]">
               <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
-              <div className="relative space-y-3">
+              <div className="relative space-y-3 ">
                 <div className="flex items-center justify-between">
                   <h3 className="text-lg font-semibold bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
                     B.Tech – Artificial Intelligence & Data Science (2022-2026)
@@ -51,7 +51,7 @@ export default function Education() {
             </div>
 
             {/* Class 12 */}
-            <div className="group relative rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]">
+            <div className="group relative rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 active:-translate-y-1 active:duration-300 active:transition-transform hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]">
               <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
               <div className="relative space-y-3">
@@ -73,7 +73,7 @@ export default function Education() {
             </div>
 
             {/* Class 10 */}
-            <div className="group relative rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]">
+            <div className="group relative rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 active:-translate-y-1 active:duration-300 active:transition-transform hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]">
               <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
               <div className="relative space-y-3">

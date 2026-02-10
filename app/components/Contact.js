@@ -22,7 +22,7 @@ export default function Contact() {
   ];
 
   return (
-    <section className="relative py-28 bg-background text-foreground overflow-hidden">
+    <section className="relative select-none py-28 bg-background text-foreground overflow-hidden">
       {/* Ambient glow */}
       <div
         aria-hidden
@@ -106,15 +106,15 @@ export default function Contact() {
           ].map((item) => (
             <div
               key={item.title}
-              className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6 transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_32px_rgba(99,102,241,0.22)]"
+              className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6 transition-all active:-translate-z-2 active:scale-105 active:duration-500 active:transition-transform duration-500 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_32px_rgba(99,102,241,0.22)]"
             >
               {/* ambient glow */}
               <span className="pointer-events-none absolute inset-0 bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
               <div className="relative flex flex-col items-center justify-center gap-4 pl-4">
                 {/* icon */}
-                <div className="flex h-15 w-15 shrink-0 items-center justify-center rounded-full bg-indigo-500/15 text-indigo-500 lg:text-white group-hover:text-indigo-500 duration-300 transition-all group-hover:bg-indigo-500/25">
-                  <item.Icon className="h-6 w-6 group-hover:w-7 group-hover:h-7 duration-700 group-hover:-translate-y-1 transition-transform group-hover:transition-transform group-hover:duration-700 " />
+                <div className="flex h-15 w-15 shrink-0 items-center justify-center rounded-full bg-indigo-500/15 text-white lg:text-white group-hover:text-indigo-500 group-active:text-indigo-500 group-active:duration-500 duration-300 transition-all  group-active:bg-indigo-500/25  group-hover:bg-indigo-500/25">
+                  <item.Icon className="h-6 w-6 group-hover:w-7 group-hover:h-7 duration-700 group-hover:-translate-y-1 group-active:-translate-y-1 transition-transform group-hover:transition-transform group-active:transition-transform group-hover:duration-700 group-active:duration-500  " />
                 </div>
 
                 {/* content */}
