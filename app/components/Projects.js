@@ -15,6 +15,7 @@ export default function Projects() {
       github: "https://github.com/farhankhan0986/HireSight-AI",
       status: "ONGOING",
       highlight: "Scalable Backend Architecture",
+      href: "https://hire-sight-ai-sigma.vercel.app",
       slug: "hiresight",
     },
     {
@@ -187,7 +188,7 @@ export default function Projects() {
                     View Details
                   </Link>
 
-                  {project.status === "COMPLETED" && project.href && (
+                  
                     <a
                       href={project.href}
                       target="_blank"
@@ -197,7 +198,7 @@ export default function Projects() {
                       <ExternalLink className="w-4 h-4" />
                       Live Demo
                     </a>
-                  )}
+                  
                 </div>
               </div>
             </div>
