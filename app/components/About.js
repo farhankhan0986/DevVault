@@ -100,13 +100,13 @@ export default function About() {
               return (
                 <div
                   key={index}
-                  className="group relative rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6 transition-all duration-300 active:duration-300 select-none active:-translate-y-2 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_36px_rgba(99,102,241,0.28)]"
+                  className="group relative rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6 transition-all duration-500 active:duration-500 select-none active:-translate-y-2 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_36px_rgba(99,102,241,0.28)]"
                 >
                   <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
                   <div className="relative flex items-start gap-4">
-                    <div className="relative p-3 rounded-lg bg-indigo-500/20 transition-all duration-300 group-hover:bg-indigo-500/30 group-hover:shadow-[0_0_28px_rgba(99,102,241,0.6)]">
-                      <Icon className="relative w-6 h-6 text-white lg:text-indigo-200 group-active:-translate-y-1 group-active:text-indigo-500 group-active:duration-300 group-active:transition-transform transition-colors duration-700 group-hover:text-indigo-500 group-hover:-translate-y-1 group-hover:duration-500  group-hover:transition-transform  " />
+                    <div className="relative p-3 rounded-lg bg-indigo-500/20 transition-all duration-500 group-hover:bg-indigo-500/30 group-hover:shadow-[0_0_28px_rgba(99,102,241,0.6)]">
+                      <Icon className="relative w-6 h-6 text-white lg:text-indigo-200 group-active:-translate-y-1 group-active:text-indigo-500 group-active:duration-500 group-active:transition-transform transition-colors duration-700 group-hover:text-indigo-500 group-hover:-translate-y-1 group-hover:duration-500  group-hover:transition-transform  " />
                     </div>
 
                     <div>
