@@ -8,7 +8,6 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
-
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 
@@ -38,13 +37,14 @@ export default function Home() {
         />
 
         <section className="min-h-screen bg-background text-foreground">
+
           {/* HOME */}
-          <section id="home">
+          <section id="home" className="scroll-mt-28 md:scroll-mt-5">
             <Hero />
           </section>
 
           {/* ABOUT */}
-          <section id="about">
+          <section id="about" className="scroll-mt-5 md:scroll-mt-5">
             <MotionDiv
               variants={fadeUp}
               initial="hidden"
@@ -55,7 +55,8 @@ export default function Home() {
             </MotionDiv>
           </section>
 
-          <section id="experience">
+          {/* EXPERIENCE */}
+          <section id="experience" className="scroll-mt-5 md:scroll-mt-5">
             <MotionDiv
               variants={fadeUp}
               initial="hidden"
@@ -67,7 +68,7 @@ export default function Home() {
           </section>
 
           {/* PROJECTS */}
-          <section id="projects">
+          <section id="projects" className="scroll-mt-5 md:scroll-mt-5">
             <MotionDiv
               variants={fadeUp}
               initial="hidden"
@@ -79,7 +80,7 @@ export default function Home() {
           </section>
 
           {/* SKILLS */}
-          <section id="skills">
+          <section id="skills" className="scroll-mt-5 md:scroll-mt-5">
             <MotionDiv
               variants={fadeUp}
               initial="hidden"
@@ -89,8 +90,9 @@ export default function Home() {
               <Skills />
             </MotionDiv>
           </section>
-          
-          <section id="education">
+
+          {/* EDUCATION */}
+          <section id="education" className="scroll-mt-5 md:scroll-mt-5">
             <MotionDiv
               variants={fadeUp}
               initial="hidden"
@@ -102,7 +104,7 @@ export default function Home() {
           </section>
 
           {/* CONTACT */}
-          <section id="contact">
+          <section id="contact" className="scroll-mt-5 md:scroll-mt-5">
             <MotionDiv
               variants={fadeUp}
               initial="hidden"
@@ -112,6 +114,7 @@ export default function Home() {
               <Contact />
             </MotionDiv>
           </section>
+
         </section>
       </main>
 
