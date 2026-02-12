@@ -1,7 +1,17 @@
 @import "tailwindcss";
 
-/* ========= THEME VARIABLES ========= */
+/* ========= LIGHT THEME (default) ========= */
 :root {
+  --background: 242 244 248;     /* soft gray instead of white */
+  --foreground: 24 24 27;        /* near black (better readability) */
+  --muted: 82 82 91;             /* darker muted text */
+  --card: 255 255 255;           /* white card for contrast */
+  --border: 212 212 216;         /* softer gray border */
+  --primary: 79 70 229;          /* slightly deeper indigo */
+}
+
+/* ========= DARK THEME ========= */
+.dark {
   --background: 11 15 25;
   --foreground: 229 231 235;
   --muted: 156 163 175;

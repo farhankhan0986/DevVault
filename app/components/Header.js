@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ThemeToggle } from "../components/theme-toggle";
 
 export default function Header() {
   const pathname = usePathname();
@@ -45,13 +46,20 @@ export default function Header() {
             ))}
           </ul>
 
+          
+
           {/* CTA */}
+          <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4">
+            <ThemeToggle />
+          </div>
           <Link
             href="#contact"
             className="rounded-xl px-5 py-2.5 bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition"
           >
             Get in Touch
           </Link>
+          </div>
         </div>
       </nav>
     </header>

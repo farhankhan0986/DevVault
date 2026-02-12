@@ -43,10 +43,10 @@ export default function Hero() {
             </div>
 
             <p className="text-base sm:text-lg text-muted max-w-xl leading-relaxed">
-              I build scalable backend systems, secure APIs, and production-ready
-              web applications. Currently a B.Tech student and Web Developer
-              Intern at Tripify, passionate about system design and engineering
-              excellence.
+              I build scalable backend systems, secure APIs, and
+              production-ready web applications. Currently a B.Tech student and
+              Web Developer Intern at Tripify, passionate about system design
+              and engineering excellence.
             </p>
 
             {/* CTA */}
@@ -72,9 +72,21 @@ export default function Hero() {
             {/* Socials */}
             <div className="flex gap-4 pt-2">
               {[
-                { href: "https://github.com/farhankhan0986", label: "GitHub", Icon: Github },
-                { href: "https://www.linkedin.com/in/farhan-abid-38967a259/", label: "LinkedIn", Icon: Linkedin },
-                { href: "mailto:farhankhan080304@gmail.com", label: "Email", Icon: Mail },
+                {
+                  href: "https://github.com/farhankhan0986",
+                  label: "GitHub",
+                  Icon: Github,
+                },
+                {
+                  href: "https://www.linkedin.com/in/farhan-abid-38967a259/",
+                  label: "LinkedIn",
+                  Icon: Linkedin,
+                },
+                {
+                  href: "mailto:farhankhan080304@gmail.com",
+                  label: "Email",
+                  Icon: Mail,
+                },
               ].map(({ href, label, Icon }) => (
                 <a
                   key={label}
@@ -94,10 +106,14 @@ export default function Hero() {
           <div className="flex justify-center">
             {/* Mobile initials */}
             <div className="flex md:hidden lg:hidden items-center justify-center w-full">
-              <div className="h-20 w-20 rounded-full bg-indigo-500/20 flex items-center justify-center text-3xl font-bold text-indigo-400" style={{
-    position: "relative",
-    top: "-460px",
-    right: "-140px"}}>
+              <div
+                className="h-20 w-20 rounded-full bg-indigo-500/20 flex items-center justify-center text-3xl font-bold text-indigo-400"
+                style={{
+                  position: "relative",
+                  top: "-460px",
+                  right: "-140px",
+                }}
+              >
                 FA
               </div>
             </div>
@@ -105,13 +121,16 @@ export default function Hero() {
             {/* Desktop image */}
             <div className="hidden lg:flex justify-center">
               <div className="relative w-full max-w-md aspect-square rounded-2xl">
+                {/* Glow */}
+                <div className="absolute inset-0 -top-12 left-16 bg-indigo-500/40 blur-3xl rounded-2xl" />
+
+                {/* Image */}
                 <img
                   src="/images/farhan.jpg"
                   alt="Farhan Abid"
-                  className="w-full h-full object-cover opacity-90 relative z-10 shadow-2xl -top-12 left-16"
+                  className="relative z-10 w-full h-full object-cover rounded-2xl shadow-2xl -top-12 left-16"
                   loading="lazy"
                 />
-                <div className="absolute -top-12 left-30 inset-0 bg-indigo-500/50 blur-2xl" />
               </div>
             </div>
           </div>
@@ -122,8 +141,18 @@ export default function Hero() {
       <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
         <div className="flex flex-col items-center gap-2">
           <p className="text-sm text-muted-foreground">Scroll to explore</p>
-          <svg className="w-6 h-6 text-indigo-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 14l-7 7m0 0l-7-7m7 7V3" />
+          <svg
+            className="w-6 h-6 text-indigo-500"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              strokeWidth={2}
+              d="M19 14l-7 7m0 0l-7-7m7 7V3"
+            />
           </svg>
         </div>
       </div>

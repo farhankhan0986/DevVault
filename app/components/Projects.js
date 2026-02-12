@@ -183,7 +183,7 @@ export default function Projects() {
 
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/10 hover:bg-white/5 transition"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border hover:bg-white/5 transition"
                   >
                     View Details
                   </Link>
@@ -193,7 +193,7 @@ export default function Projects() {
                       href={project.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-white/10 text-sm hover:bg-white/5 transition"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border text-sm hover:bg-white/5 transition"
                     >
                       <ExternalLink className="w-4 h-4" />
                       Live Demo

@@ -23,7 +23,7 @@ export default function Education() {
 
           <div className="space-y-6 mt-1 ">
             {/* College */}
-            <div className="group relative rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 active:-translate-y-1 active:duration-300 active:transition-transform hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]">
+            <div className="group relative rounded-xl border border-border bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 active:-translate-y-1 active:duration-300 active:transition-transform hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]">
               <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
               <div className="relative space-y-3 ">
@@ -39,11 +39,11 @@ export default function Education() {
                 </div>
 
                 <div className="flex items-center gap-20">
-                  <p className="text-sm text-white/90">
+                  <p className="text-sm text-foreground/90">
                     GL Bajaj Institute of Technology and Management
                   </p>
                 </div>
-                <p className="text-sm text-white/80">
+                <p className="text-sm text-foreground/80">
                   <CiLocationOn className="inline mr-1 relative -top-0.5" />{" "}
                   Greater Noida
                 </p>
@@ -51,7 +51,7 @@ export default function Education() {
             </div>
 
             {/* Class 12 */}
-            <div className="group relative rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 active:-translate-y-1 active:duration-300 active:transition-transform hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]">
+            <div className="group relative rounded-xl border border-border bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 active:-translate-y-1 active:duration-300 active:transition-transform hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]">
               <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
               <div className="relative space-y-3">
@@ -63,9 +63,9 @@ export default function Education() {
                 </div>
 
                 <div className="flex items-center gap-20">
-                  <p className="text-sm text-white/90">Lucknow Public School</p>
+                  <p className="text-sm text-foreground/90">Lucknow Public School</p>
                 </div>
-                <p className="text-sm text-white/80">
+                <p className="text-sm text-foreground/80">
                   <CiLocationOn className="inline mr-1 relative -top-0.5" />{" "}
                   Lucknow
                 </p>
@@ -73,7 +73,7 @@ export default function Education() {
             </div>
 
             {/* Class 10 */}
-            <div className="group relative rounded-xl border border-white/10 bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 active:-translate-y-1 active:duration-300 active:transition-transform hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]">
+            <div className="group relative rounded-xl border border-border bg-white/5 p-6 backdrop-blur transition-all duration-300 hover:-translate-y-1 hover:bg-white/10 active:-translate-y-1 active:duration-300 active:transition-transform hover:shadow-[0_0_32px_rgba(99,102,241,0.25)]">
               <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
               <div className="relative space-y-3">
@@ -85,9 +85,9 @@ export default function Education() {
                 </div>
 
                 <div className="flex items-center gap-20">
-                  <p className="text-sm text-white/90">Lucknow Public School</p>
+                  <p className="text-sm text-foreground/90">Lucknow Public School</p>
                 </div>
-                <p className="text-sm text-white/80">
+                <p className="text-sm text-foreground/80">
                   <CiLocationOn className="inline mr-1 relative -top-0.5" />{" "}
                   Lucknow
                 </p>

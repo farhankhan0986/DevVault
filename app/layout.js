@@ -1,3 +1,4 @@
+import { ThemeProvider } from "./components/theme-provider";
 import "./globals.css";
 import Header from "./components/Header";
 
@@ -8,10 +9,13 @@ export const metadata = {
 
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning={true}>
       <body className="antialiased bg-background text-foreground" suppressHydrationWarning={true}>
-        <Header />
-        {children}
+        <ThemeProvider>
+          <Header />
+          {children}
+
+        </ThemeProvider>
       </body>
     </html>
   );

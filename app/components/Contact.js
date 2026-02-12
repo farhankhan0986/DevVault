@@ -74,9 +74,9 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  className="p-4 rounded-xl border border-white/10 bg-white/5 backdrop-blur hover:bg-white/10 hover:-translate-y-1 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 text-indigo-500"
+                  className="p-4 rounded-xl border border-border bg-white/5 backdrop-blur hover:bg-white/10 hover:-translate-y-1 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 text-indigo-500"
                 >
-                  <Icon className="w-6 h-6" />
+                  <Icon className="w-6 h-6"   />
                 </a>
               );
             })}
@@ -84,7 +84,7 @@ export default function Contact() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/10 my-10 mb-20" />
+        <div className="border-t border-border my-10 mb-20" />
 
         <div className="space-y-6">
           {[
@@ -106,14 +106,14 @@ export default function Contact() {
           ].map((item) => (
             <div
               key={item.title}
-              className="group relative overflow-hidden rounded-xl border border-white/10 bg-white/5 backdrop-blur p-6 transition-all active:-translate-z-2 active:scale-105 active:duration-500 active:transition-transform duration-500 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_32px_rgba(99,102,241,0.22)]"
+              className="group relative overflow-hidden rounded-xl border border-border bg-white/5 backdrop-blur p-6 transition-all active:-translate-z-2 active:scale-105 active:duration-500 active:transition-transform duration-500 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_32px_rgba(99,102,241,0.22)]"
             >
               {/* ambient glow */}
               <span className="pointer-events-none absolute inset-0 bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
-              <div className="relative flex flex-col items-center justify-center gap-4 pl-4">
+              <div className="relative flex flex-col items-center justify-center  gap-4 pl-4">
                 {/* icon */}
-                <div className="flex h-15 w-15 shrink-0 items-center justify-center rounded-full bg-indigo-500/15 text-white lg:text-white group-hover:text-indigo-500 group-active:text-indigo-500 group-active:duration-500 duration-300 transition-all  group-active:bg-indigo-500/25  group-hover:bg-indigo-500/25">
+                <div className="flex h-15 w-15 shrink-0 items-center justify-center  rounded-full bg-indigo-500/15 text-white lg:text-white group-hover:text-indigo-500 group-active:text-indigo-500 group-active:duration-500 duration-300 transition-all  group-active:bg-indigo-500/25  group-hover:bg-indigo-500/25">
                   <item.Icon className="h-6 w-6 duration-700 group-hover:-translate-y-1 group-active:-translate-y-1 transition-transform group-hover:transition-transform group-active:transition-transform group-hover:duration-700 group-active:duration-500  " />
                 </div>
 
@@ -131,7 +131,7 @@ export default function Contact() {
           ))}
         </div>
 
-        <div className="border-t border-white/10 my-10 mt-20" />
+        <div className="border-t border-border my-10 mt-20" />
       </div>
     </section>
   );

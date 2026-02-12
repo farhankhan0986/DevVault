@@ -10,32 +10,35 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-[#091229] text-foreground overflow-hidden">
-      {/* Ambient glow */}
+    <footer className="relative bg-background text-foreground border-t border-border overflow-hidden">
+      
+      {/* Glow */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[radial-gradient(500px_circle_at_50%_100%,rgba(99,102,241,0.18),transparent_45%)]"
+        className="absolute inset-0 -z-10 bg-[radial-gradient(600px_circle_at_50%_100%,rgba(99,102,241,0.15),transparent_50%)]"
       />
 
       <div className="max-w-6xl mx-auto px-6 py-20">
-        {/* Main */}
+        
+        {/* Top Section */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-14 mb-16">
+
           {/* About */}
           <div>
             <h3 className="text-lg font-extrabold tracking-tight mb-4">
-              <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
                 Farhan
               </span>{" "}
               Abid
             </h3>
             <p className="text-sm text-muted leading-relaxed max-w-sm">
               Full-Stack Web Developer focused on backend architecture, API
-              design, and building scalable, production-ready systems.
+              design, and building scalable production-ready systems.
             </p>
           </div>
 
           {/* Links */}
-          <nav aria-label="Footer navigation">
+          <nav>
             <h4 className="text-sm font-semibold mb-4">Quick Links</h4>
             <ul className="space-y-3">
               {[
@@ -47,9 +50,15 @@ export default function Footer() {
                 <li key={link.label}>
                   <a
                     href={link.href}
-                     className="relative text-gray-400 hover:text-indigo-500 transition-colors"
+                    className="group relative inline-block text-muted transition-colors duration-300"
                   >
-                    {link.label}
+                    {/* Text */}
+                    <span className="group-hover:text-[rgb(var(--primary))] transition-colors duration-300">
+                      {link.label}
+                    </span>
+
+                    {/* Animated underline */}
+                    <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[rgb(var(--primary))] transition-all duration-300 group-hover:w-full" />
                   </a>
                 </li>
               ))}
@@ -98,9 +107,9 @@ export default function Footer() {
                   target={target}
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="p-3 rounded-xl borde border-white/10 bg-white/5 backdrop-blur hover:bg-white/10 hover:-translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  className="p-3 rounded-xl border border-border bg-card/60 backdrop-blur hover:bg-card hover:-translate-y-1 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))]"
                 >
-                  <Icon className="w-5 h-5" />
+                  <Icon className="w-5 h-5 text-foreground" />
                 </a>
               ))}
             </div>
@@ -108,7 +117,7 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-white/10 mb-8" />
+        <div className="border-t border-border mb-8" />
 
         {/* Bottom */}
         <div className="flex flex-col md:flex-row items-center justify-between gap-4">
@@ -119,9 +128,9 @@ export default function Footer() {
           <button
             onClick={scrollToTop}
             aria-label="Scroll to top"
-            className="group p-3 rounded-xl border border-white/10 bg-white/5 backdrop-blur hover:bg-white/10 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 cursor-pointer"
+            className="group p-3 rounded-xl border border-border bg-card/60 backdrop-blur hover:bg-card hover:-translate-y-1 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))]"
           >
-            <ArrowUp className="w-5 h-5 text-white transition-transform group-hover:-translate-y-0.5" />
+            <ArrowUp className="w-5 h-5 text-foreground transition-transform duration-300 group-hover:-translate-y-1" />
           </button>
         </div>
       </div>
