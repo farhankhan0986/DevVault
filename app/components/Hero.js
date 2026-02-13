@@ -58,8 +58,8 @@ export default function Hero() {
               </a>
 
               <a
-                href="https://drive.google.com/file/d/19UxK6CThL9GkbcRLOSsrdP1X90Uvm0Jh/view?usp=sharing"
-                target=""
+                href="https://drive.google.com/file/d/1AjzPsE0kdR_iMpJd5WuSoxyJ9TskEfvH/view?usp=sharing"
+                target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border hover:bg-[rgb(var(--border))] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
               >
