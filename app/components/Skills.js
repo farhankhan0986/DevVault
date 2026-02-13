@@ -52,7 +52,7 @@ export default function Skills() {
           {skillCategories.map((category) => (
             <div
               key={category.category}
-              className="group rounded-2xl border border-border bg-foreground/30  hover:bg-[rgb(var(--border))] active:bg-[rgb(var(--border))] backdrop-blur p-8 hover:-translate-z-2 hover:scale-105 active:duration-500 active:scale-105 active:-translate-y-1 transition-all duration-500 active:transition-transform"
+              className="group rounded-2xl border border-border bg-foreground/30  hover:bg-[rgb(var(--border))] active:bg-[rgb(var(--border))] backdrop-blur p-8 hover:duration-500 hover:-translate-z-2 hover:scale-105 active:duration-300 active:scale-105 active:-translate-y-1 transition-all duration-500 active:transition-transform"
             >
               <h3 className="text-xl font-bold mb-6 flex text-foreground items-center gap-3">
                 <span className="w-1 h-6 rounded-full bg-indigo-500" />
