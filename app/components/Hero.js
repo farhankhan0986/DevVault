@@ -61,7 +61,7 @@ export default function Hero() {
                 href="https://drive.google.com/file/d/19UxK6CThL9GkbcRLOSsrdP1X90Uvm0Jh/view?usp=sharing"
                 target=""
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-white/10 hover:bg-white/5 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border hover:bg-[rgb(var(--border))] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
               >
                 Download Resume
               </a>
@@ -92,7 +92,7 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="p-3 rounded-xl bg-white/5 border border-white/10 text-indigo-500 hover:bg-white/10 hover:-translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                  className="p-3 rounded-xl bg-foreground border border-border text-indigo-500 hover:bg-[rgb(var(--border))] hover:-translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
                 >
                   <Icon className="w-5 h-5" />
                 </a>

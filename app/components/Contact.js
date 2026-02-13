@@ -34,7 +34,7 @@ export default function Contact() {
         <div className="mb-14">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             Let’s{" "}
-            <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
               Connect
             </span>
           </h2>
@@ -74,7 +74,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  className="p-4 rounded-xl border border-border bg-white/5 backdrop-blur hover:bg-white/10 hover:-translate-y-1 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 text-indigo-500"
+                  className="p-4 rounded-xl border border-border bg-foreground backdrop-blur hover:bg-[rgb(var(--border))] hover:-translate-y-1 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 text-indigo-500"
                 >
                   <Icon className="w-6 h-6"   />
                 </a>

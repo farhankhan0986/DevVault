@@ -36,7 +36,7 @@ export default function Skills() {
         <div className="mb-20">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             Skills &{" "}
-            <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
               Expertise
             </span>
           </h2>
@@ -52,7 +52,7 @@ export default function Skills() {
           {skillCategories.map((category) => (
             <div
               key={category.category}
-              className="group rounded-2xl border border-border bg-white/5 backdrop-blur p-8 hover:bg-white/10 hover:-translate-z-2 active:duration-500 active:scale-105 active:-translate-y-1 transition-all duration-500 active:transition-transform"
+              className="group rounded-2xl border border-border bg-foreground/30  hover:bg-[rgb(var(--border))] active:bg-[rgb(var(--border))] backdrop-blur p-8 hover:-translate-z-2 hover:scale-105 active:duration-500 active:scale-105 active:-translate-y-1 transition-all duration-500 active:transition-transform"
             >
               <h3 className="text-xl font-bold mb-6 flex text-foreground items-center gap-3">
                 <span className="w-1 h-6 rounded-full bg-indigo-500" />
@@ -62,8 +62,8 @@ export default function Skills() {
               <ul className="space-y-3">
                 {category.skills.map((skill) => (
                   <li key={skill} className="flex items-center gap-3 group">
-                    <span className="w-2 h-2 rounded-full bg-indigo-400 group-hover:bg-indigo-300 transition" />
-                    <span className="text-gray-400 hover:text-indigo-500 group-hover:text-foreground transition">
+                    <span className="w-2 h-2 rounded-full bg-indigo-500 group-hover:bg-indigo-600 transition" />
+                    <span className="text-foreground hover:text-indigo-500 group-hover:text-foreground transition">
                       {skill}
                     </span>
                   </li>
@@ -84,7 +84,7 @@ export default function Skills() {
             <div className="text-center space-y-2 mb-12">
               <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
                 Proficiency{" "}
-                <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
                   Level
                 </span>
               </h3>
@@ -125,11 +125,10 @@ export default function Skills() {
                         <span
                           key={i}
                           className={`h-2.5 flex-1 rounded-sm ${
-  i < filled
-    ? "bg-indigo-500 shadow-[0_0_6px_rgba(99,102,241,0.5)]"
-    : "bg-[rgb(var(--border))]"
-}`}
-
+                            i < filled
+                              ? "bg-indigo-500 shadow-[0_0_6px_rgba(99,102,241,0.5)]"
+                              : "bg-[rgb(var(--border))]"
+                          }`}
                         />
                       ))}
                     </div>

@@ -31,7 +31,7 @@ export default function Experience() {
 
               <div className="relative space-y-3">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-semibold bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
+                  <h3 className="text-lg font-semibold bg-gradient-to-r from-indigo-600 to-indigo-700 bg-clip-text text-transparent">
                     AI Agent Developer Intern
                   </h3>
                   <span className="text-sm text-muted">
@@ -91,7 +91,7 @@ export default function Experience() {
 
               <div className="relative space-y-3">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-semibold bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
+                  <h3 className="text-lg font-semibold bg-gradient-to-r from-indigo-600 to-indigo-700 bg-clip-text text-transparent">
                     MERN Stack Developer Intern
                   </h3>
                   <span className="text-sm text-muted">

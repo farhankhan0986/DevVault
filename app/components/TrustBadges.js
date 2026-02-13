@@ -53,7 +53,7 @@ const TrustBadges = () => {
         <div className="text-center mb-12">
           <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             Core{" "}
-            <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
               Tech Stack
             </span>
           </h3>

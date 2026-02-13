@@ -9,7 +9,7 @@ export default function Education() {
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
               Education{" "}
-              <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+              <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
                 Background
               </span>
             </h2>
@@ -28,10 +28,10 @@ export default function Education() {
 
               <div className="relative space-y-3 ">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-semibold bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+                  <h3 className="text-lg font-semibold bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
                     B.Tech – Artificial Intelligence & Data Science (2022-2026)
                   </h3>
-                  <span className="text-sm relative top-2.5 flex flex-col items-center justify-center text-indigo-300">
+                  <span className="text-sm relative top-2.5 flex flex-col items-center justify-center text-indigo-500">
                     <p>CGPA: 7.8 </p>
                    
                     <p>(6th semester)</p>
@@ -56,10 +56,10 @@ export default function Education() {
 
               <div className="relative space-y-3">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-semibold bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+                  <h3 className="text-lg font-semibold bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
                     Class XII – PCM (2021-2022)
                   </h3>
-                  <span className="text-sm text-indigo-300">85%</span>
+                  <span className="text-sm text-indigo-500">85%</span>
                 </div>
 
                 <div className="flex items-center gap-20">
@@ -78,10 +78,10 @@ export default function Education() {
 
               <div className="relative space-y-3">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-lg font-semibold bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+                  <h3 className="text-lg font-semibold bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
                     Class X – Science (2019-2020)
                   </h3>
-                  <span className="text-sm text-indigo-300">83%</span>
+                  <span className="text-sm text-indigo-500">83%</span>
                 </div>
 
                 <div className="flex items-center gap-20">

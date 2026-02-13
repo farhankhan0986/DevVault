@@ -32,7 +32,7 @@ export default function About() {
         <div className="mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             About{" "}
-            <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
               Me
             </span>
           </h2>
@@ -48,8 +48,8 @@ export default function About() {
               a strong passion for backend systems, API design, and
               security-focused architectures. Currently working as a Web
               Developer Intern at{" "}
-              <span className="text-indigo-400 font-semibold">
-                Tripify Pvt Ltd
+              <span className="text-indigo-500 font-semibold">
+                Tripify India
               </span>
               , where I build real-world web solutions with production intent.
             </p>
@@ -78,12 +78,11 @@ export default function About() {
               ].map((stat) => (
                 <div
                   key={stat.label}
-                 className="group relative rounded-xl border border-border bg-card/60 backdrop-blur p-5 text-center transition-all duration-300 hover:-translate-y-1 active:-translate-y-1 hover:bg-card active:bg-card hover:shadow-[0_0_28px_rgba(99,102,241,0.25)]"
-
+                  className="group relative rounded-xl border border-border bg-card/60 backdrop-blur p-5 text-center transition-all duration-300 hover:-translate-y-1 active:-translate-y-1 hover:bg-card active:bg-card hover:shadow-[0_0_28px_rgba(99,102,241,0.25)]"
                 >
                   <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
-                  <p className="relative text-3xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-300 via-indigo-400 to-indigo-500 bg-clip-text text-transparent">
+                  <p className="relative text-3xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-600 group-hover:-translate-y-2 group-hover:duration-500 group-hover:transition-transform group-active:transition-transform transition-transform group-active:-translate-y-2 group-active:duration-500 duration-700 bg-clip-text text-transparent">
                     {stat.value}
                   </p>
                   <p className="relative text-sm text-muted mt-2 group-hover:text-indigo-200 transition-colors duration-300">
@@ -102,7 +101,6 @@ export default function About() {
                 <div
                   key={index}
                   className="group relative rounded-xl border border-border bg-card/60 backdrop-blur p-6 transition-all duration-500 hover:-translate-y-1 active:-translate-y-1 hover:bg-card hover:shadow-[0_0_36px_rgba(99,102,241,0.28)]"
-
                 >
                   <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
@@ -128,7 +126,7 @@ export default function About() {
         <div className="mt-24 pt-16 border-t border-border">
           <h2 className="text-2xl font-extrabold tracking-tight mb-10">
             Core{" "}
-            <span className="bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-500 via-indigo-600 to-indigo-700 bg-clip-text text-transparent">
               Competencies
             </span>
           </h2>
@@ -148,7 +146,7 @@ export default function About() {
               >
                 <span className="pointer-events-none absolute inset-0 bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
-                <span className="absolute left-0 top-0 h-full w-1 bg-indigo-500/40 transition-all duration-300 group-hover:bg-indigo-400 group-active:bg-indigo-400 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.6)]"></span>
+                <span className="absolute left-0 top-0 h-full w-1 bg-indigo-500/70 transition-all duration-300 group-hover:bg-indigo-600 group-active:bg-indigo-600 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.6)]"></span>
 
                 <span className="relative block pl-4 text-sm font-medium text-foreground transition-colors duration-300 group-hover:text-foreground">
                   {skill}

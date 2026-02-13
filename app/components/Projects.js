@@ -98,7 +98,7 @@ export default function Projects() {
         <div className="mb-20">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             Featured{" "}
-            <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
               Projects
             </span>
           </h2>
@@ -118,7 +118,7 @@ export default function Projects() {
             >
               {/* Image */}
               <div
-                className={`group relative rounded-2xl duration-500 active:-translate-z-2 active:scale-105 active:duration-300 active:transition-transform overflow-hidden border border-white/10 bg-card ${
+                className={`group relative rounded-2xl duration-500 active:-translate-z-2 active:scale-105 active:duration-500 active:transition-transform overflow-hidden border border-border bg-card ${
                   index % 2 === 1 ? "lg:order-2" : ""
                 }`}
               >
@@ -144,7 +144,7 @@ export default function Projects() {
               <div
                 className={`space-y-6 ${index % 2 === 1 ? "lg:order-1" : ""}`}
               >
-                <span className="inline-block text-xs bg-white/5 border border-indigo-500 px-3 py-1 rounded-full text-indigo-400 font-medium">
+                <span className="inline-block text-xs bg-white/5 border border-indigo-600 px-3 py-1 rounded-full text-indigo-500 font-medium">
                   {project.highlight}
                 </span>
 
@@ -161,7 +161,7 @@ export default function Projects() {
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="text-xs text-indigo-400 px-3 py-1 rounded-full bg-indigo-500/5 border border-indigo-500"
+                        className="text-xs text-indigo-500 px-3 py-1 rounded-full bg-indigo-500/5 border border-indigo-600"
                       >
                         {tech}
                       </span>
@@ -175,7 +175,7 @@ export default function Projects() {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 transition"
                   >
                     <Github className="w-4 h-4" />
                     View Code
@@ -183,7 +183,7 @@ export default function Projects() {
 
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border hover:bg-white/5 transition"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border hover:bg-[rgb(var(--border))] transition"
                   >
                     View Details
                   </Link>
@@ -193,7 +193,7 @@ export default function Projects() {
                       href={project.href}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border text-sm hover:bg-white/5 transition"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border text-sm hover:bg-[rgb(var(--border))] transition"
                     >
                       <ExternalLink className="w-4 h-4" />
                       Live Demo
