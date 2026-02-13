@@ -26,7 +26,7 @@ export default function Hero() {
                 id="hero-title"
                 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight"
               >
-                <span className="bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
                   Farhan Abid
                 </span>
               </h1>
