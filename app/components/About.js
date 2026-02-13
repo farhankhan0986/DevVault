@@ -78,11 +78,11 @@ export default function About() {
               ].map((stat) => (
                 <div
                   key={stat.label}
-                  className="group relative rounded-xl border border-border bg-card/60 backdrop-blur p-5 text-center transition-all duration-700 group-active:duration-500 active:translate-z-2 active:scale-105  hover:bg-card active:bg-card hover:shadow-[0_0_28px_rgba(99,102,241,0.25)]"
+                  className="group relative rounded-xl border border-border bg-card/60 backdrop-blur p-5 text-center transition-all duration-500 group-active:duration-500 active:translate-z-2 active:scale-105  hover:bg-card active:bg-card hover:shadow-[0_0_28px_rgba(99,102,241,0.25)]"
                 >
                   <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
-                  <p className="relative text-3xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-600 group-hover:-translate-y-2 group-hover:duration-500 group-hover:transition-transform group-active:transition-transform transition-transform group-active:-translate-y-2 group-active:duration-500 duration-700 bg-clip-text text-transparent">
+                  <p className="relative text-3xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-400 via-indigo-500 to-indigo-600 group-hover:-translate-y-2 group-hover:duration-500 group-hover:transition-transform group-active:transition-transform transition-transform group-active:-translate-y-2 group-active:duration-500 duration-500 bg-clip-text text-transparent">
                     {stat.value}
                   </p>
                   <p className="relative text-sm text-muted mt-2 group-hover:text-indigo-200 transition-colors duration-300">
