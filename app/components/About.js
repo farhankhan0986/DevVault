@@ -108,7 +108,7 @@ export default function About() {
 
                   <div className="relative flex items-start gap-4">
                     <div className="relative p-3 rounded-lg bg-indigo-500/20 transition-all duration-700 group-hover:bg-indigo-500/30  ">
-                      <Icon className="relative w-6 h-6 text-white lg:text-indigo-200 group-active:-translate-y-1 group-active:text-indigo-500 group-active:duration-700 group-active:transition-transform transition-transform duration-700 group-hover:text-indigo-500 group-hover:-translate-y-1 group-hover:duration-700  group-hover:transition-transform  " />
+                      <Icon className="relative w-6 h-6 text-foreground lg:text-foreground group-active:-translate-y-1 group-active:text-indigo-500 group-active:duration-700 group-active:transition-transform transition-transform duration-700 group-hover:text-indigo-500 group-hover:-translate-y-1 group-hover:duration-700  group-hover:transition-transform  " />
                     </div>
 
                     <div>

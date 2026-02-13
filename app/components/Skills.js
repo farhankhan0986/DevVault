@@ -115,7 +115,7 @@ export default function Skills() {
                       <span className="font-semibold text-foreground">
                         {item.skill}
                       </span>
-                      <span className="text-sm font-semibold text-indigo-300 tabular-nums">
+                      <span className="text-sm font-semibold text-foreground tabular-nums">
                         {item.level}%
                       </span>
                     </div>
@@ -125,10 +125,11 @@ export default function Skills() {
                         <span
                           key={i}
                           className={`h-2.5 flex-1 rounded-sm ${
-                            i < filled
-                              ? "bg-indigo-500 shadow-[0_0_6px_rgba(99,102,241,0.5)]"
-                              : "bg-white/10"
-                          }`}
+  i < filled
+    ? "bg-indigo-500 shadow-[0_0_6px_rgba(99,102,241,0.5)]"
+    : "bg-[rgb(var(--border))]"
+}`}
+
                         />
                       ))}
                     </div>
