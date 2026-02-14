@@ -100,7 +100,7 @@ export default function About() {
               return (
                 <div
                   key={index}
-                  className="group relative rounded-xl border border-border bg-card/60 backdrop-blur p-6 transition-all duration-500 hover:-translate-y-1 active:-translate-y-1 hover:bg-card hover:shadow-[0_0_36px_rgba(99,102,241,0.28)]"
+                  className="group relative rounded-xl border border-border bg-card/60 backdrop-blur p-6 transition-all duration-500 hover:-translate-y-1 active:translate-z-2 active:scale-105 hover:bg-card hover:shadow-[0_0_36px_rgba(99,102,241,0.28)]"
                 >
                   <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
