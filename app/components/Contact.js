@@ -131,7 +131,7 @@ export default function Contact() {
           ))}
         </div>
 
-        <div className="border-t border-border my-10 mt-20" />
+        {/* <div className="border-t border-border my-10 mt-20" /> */}
       </div>
     </section>
   );
