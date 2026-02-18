@@ -102,10 +102,10 @@ export default function About() {
                   key={index}
                   className="group relative rounded-xl border border-border bg-card/60 backdrop-blur p-6 transition-all duration-500 hover:-translate-y-1 active:translate-z-2 active:scale-105 hover:bg-card hover:shadow-[0_0_36px_rgba(99,102,241,0.28)]"
                 >
-                  <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
+                  <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-700 group-hover:opacity-100"></span>
 
                   <div className="relative flex items-start gap-4">
-                    <div className="relative p-3 rounded-lg bg-indigo-500/20 transition-all duration-700 group-hover:bg-indigo-500/30  ">
+                    <div className="relative p-3 rounded-lg bg-indigo-500/20 transition-all duration-700 group-hover:bg-indigo-500/30 group-active:bg-indigo-500/30  ">
                       <Icon className="relative w-6 h-6 text-foreground lg:text-foreground group-active:-translate-y-1 group-active:text-indigo-500 group-active:duration-700 group-active:transition-transform transition-transform duration-700 group-hover:text-indigo-500 group-hover:-translate-y-1 group-hover:duration-700  group-hover:transition-transform  " />
                     </div>
 
@@ -146,7 +146,7 @@ export default function About() {
               >
                 <span className="pointer-events-none absolute inset-0 bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
 
-                <span className="absolute left-0 top-0 h-full w-1 bg-indigo-500/70 transition-all duration-300 group-hover:bg-indigo-600 group-active:bg-indigo-600 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.6)]"></span>
+                <span className="absolute left-0 top-0 h-full w-1 bg-indigo-400 transition-all duration-300 group-hover:bg-indigo-600 group-active:bg-indigo-600 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.6)]"></span>
 
                 <span className="relative block pl-4 text-sm font-medium text-foreground transition-colors duration-300 group-hover:text-foreground">
                   {skill}
