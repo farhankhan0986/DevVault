@@ -105,8 +105,10 @@ export default function About() {
                   <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-700 group-hover:opacity-100"></span>
 
                   <div className="relative flex items-start gap-4">
-                    <div className="relative p-3 rounded-lg bg-indigo-500/20 transition-all duration-700 group-hover:bg-indigo-500/30 group-active:bg-indigo-500/30  ">
-                      <Icon className="relative w-6 h-6 text-foreground lg:text-foreground group-active:-translate-y-1 group-active:text-indigo-500 group-active:duration-700 group-active:transition-transform transition-transform duration-700 group-hover:text-indigo-500 group-hover:-translate-y-1 group-hover:duration-700  group-hover:transition-transform  " />
+                    <div className="relative p-3 rounded-xl bg-indigo-500/15 transition-all duration-300 ease-out group-hover:bg-indigo-500/25 group-hover:shadow-lg group-hover:shadow-indigo-500/20 group-active:scale-95">
+                      <Icon
+                        className="w-6 h-6 text-primary transition-all duration-300 ease-out group-hover:-translate-y-1  group-hover:text-indigo-600 group-active:text-indigo-600 group-active:-translate-y-1 group-active:scale-105 group-active:duration-500"
+                      />
                     </div>
 
                     <div>

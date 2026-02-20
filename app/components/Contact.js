@@ -113,7 +113,7 @@ export default function Contact() {
 
               <div className="relative flex flex-col items-center justify-center  gap-4 pl-4">
                 {/* icon */}
-                <div className="flex h-15 w-15 shrink-0 items-center justify-center  rounded-full bg-indigo-500/15 text-foreground lg:text-foreground group-hover:text-indigo-500 group-active:text-indigo-500 group-active:duration-500 duration-300 transition-all  group-active:bg-indigo-500/25  group-hover:bg-indigo-500/25">
+                <div className="flex h-15 w-15 shrink-0 items-center justify-center  rounded-full bg-indigo-500/15 text-primary lg:text-primary group-hover:text-indigo-500 group-active:text-indigo-500 group-active:duration-500 duration-300 transition-all  group-active:bg-indigo-500/25  group-hover:bg-indigo-500/25">
                   <item.Icon className="h-6 w-6 duration-700 group-hover:-translate-y-1 group-active:-translate-y-1 transition-transform group-hover:transition-transform group-active:transition-transform group-hover:duration-700 group-active:duration-500  " />
                 </div>
 
