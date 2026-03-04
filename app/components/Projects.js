@@ -69,7 +69,7 @@ export default function Projects() {
       title: "Planixa",
       description:
         "A full-stack task management webapp built as part of the Anything.ai Full Stack Intern assignment, featuring secure authentication, profile management, and a modern tasks UI with search and filter.",
-      image: "/images/planixa.png",
+      image: "/images/planixa1.png",
       tech: [
         "Next.js 16",
         "React",
