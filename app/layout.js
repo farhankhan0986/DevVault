@@ -2,6 +2,7 @@ import { ThemeProvider } from "./components/theme-provider";
 import "./globals.css";
 import Header from "./components/Header";
 import ChatWidget from "./components/ChatWidget";
+import { Analytics } from "@vercel/analytics/next"
 
 export const metadata = {
   title: "Farhan Abid | Portfolio",
@@ -15,6 +16,7 @@ export default function RootLayout({ children }) {
         <ThemeProvider>
           <Header />
           {children}
+          <Analytics />
           {/* 
             ChatWidget is rendered at the ROOT layout level.
             
