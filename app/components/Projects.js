@@ -6,6 +6,28 @@ import { ExternalLink, Github } from "lucide-react";
 export default function Projects() {
   const projects = [
     {
+      id: 6,
+      title: "PromptForge",
+      description:
+        "A full-stack AI-powered prompt generator and manager that transforms rough ideas into production-grade AI prompts, with a personal library featuring categorization, tagging, search, and an analytics dashboard.",
+      image: "/images/promptforge.png",
+      tech: [
+        "React 19",
+        "Vite 7",
+        "Tailwind CSS 3",
+        "Node.js",
+        "Express 5",
+        "PostgreSQL",
+        "JWT Authentication",
+        "Groq API (LLaMA 3.3)",
+      ],
+      github: "https://github.com/farhankhan0986/promptforge",
+      status: "COMPLETED",
+      highlight: "AI Prompt Engineering & Analytics Dashboard",
+      href: "https://promptforge-blush.vercel.app",
+      slug: "promptforge",
+    },
+    {
       id: 1,
       title: "HireSight-AI",
       description:
@@ -51,39 +73,39 @@ export default function Projects() {
       href: "https://sentinel-guard-eb9e.vercel.app/",
       slug: "sentinel-guard",
     },
-    {
-      id: 4,
-      title: "Chai Culture",
-      description:
-        "A premium 'Coming Soon' landing page for Chai Culture, designed to reflect royal Indian heritage through a calm, elegant, and modern digital experience.",
-      image: "/images/chai.png",
-      tech: ["Next.js", "React", "Tailwind CSS", "UI/UX Design"],
-      github: "https://github.com/farhankhan0986/ChaiCulture",
-      status: "COMPLETED",
-      highlight: "Luxury Brand UI & Product Thinking",
-      href: "https://chai-culture-dun.vercel.app/",
-      slug: "chai-culture",
-    },
-    {
-      id: 5,
-      title: "Planixa",
-      description:
-        "A full-stack task management webapp built as part of the Anything.ai Full Stack Intern assignment, featuring secure authentication, profile management, and a modern tasks UI with search and filter.",
-      image: "/images/planixa.png",
-      tech: [
-        "Next.js 16",
-        "React",
-        "Tailwind CSS",
-        "MongoDB",
-        "JWT Authentication",
-        "Framer Motion",
-      ],
-      github: "https://github.com/farhankhan0986/Planixa",
-      status: "COMPLETED",
-      highlight: "Full-Stack Dashboard & Auth Flow",
-      href: "https://planixa.vercel.app/",
-      slug: "planixa",
-    },
+    // {
+    //   id: 4,
+    //   title: "Chai Culture",
+    //   description:
+    //     "A premium 'Coming Soon' landing page for Chai Culture, designed to reflect royal Indian heritage through a calm, elegant, and modern digital experience.",
+    //   image: "/images/chai.png",
+    //   tech: ["Next.js", "React", "Tailwind CSS", "UI/UX Design"],
+    //   github: "https://github.com/farhankhan0986/ChaiCulture",
+    //   status: "COMPLETED",
+    //   highlight: "Luxury Brand UI & Product Thinking",
+    //   href: "https://chai-culture-dun.vercel.app/",
+    //   slug: "chai-culture",
+    // },
+    // {
+    //   id: 5,
+    //   title: "Planixa",
+    //   description:
+    //     "A full-stack task management webapp built as part of the Anything.ai Full Stack Intern assignment, featuring secure authentication, profile management, and a modern tasks UI with search and filter.",
+    //   image: "/images/planixa.png",
+    //   tech: [
+    //     "Next.js 16",
+    //     "React",
+    //     "Tailwind CSS",
+    //     "MongoDB",
+    //     "JWT Authentication",
+    //     "Framer Motion",
+    //   ],
+    //   github: "https://github.com/farhankhan0986/Planixa",
+    //   status: "COMPLETED",
+    //   highlight: "Full-Stack Dashboard & Auth Flow",
+    //   href: "https://planixa.vercel.app/",
+    //   slug: "planixa",
+    // },
   ];
 
   return (
@@ -188,17 +210,15 @@ export default function Projects() {
                     View Details
                   </Link>
 
-                  
-                    <a
-                      href={project.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border text-sm hover:bg-[rgb(var(--border))] transition"
-                    >
-                      <ExternalLink className="w-4 h-4" />
-                      Live Demo
-                    </a>
-                  
+                  <a
+                    href={project.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border text-sm hover:bg-[rgb(var(--border))] transition"
+                  >
+                    <ExternalLink className="w-4 h-4" />
+                    Live Demo
+                  </a>
                 </div>
               </div>
             </div>
