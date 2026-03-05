@@ -11,110 +11,62 @@ import Education from "./components/Education";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 
-// Client-only Motion wrapper
 const MotionDiv = dynamic(
   () => import("@/lib/MotionClient").then((mod) => mod.default.div),
   { ssr: false },
 );
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.5, ease: "easeOut" },
   },
 };
 
 export default function Home() {
   return (
     <>
-      <main className="relative overflow-hidden bg-background text-foreground">
-        {/* subtle background glow */}
-        <div
-          aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(600px_circle_at_20%_0%,rgba(99,102,241,0.12),transparent_40%)]"
-        />
+      <main className="bg-background text-foreground">
+        <section id="home" className="scroll-mt-20">
+          <Hero />
+        </section>
 
-        <section className="min-h-screen bg-background text-foreground">
+        <section id="about" className="scroll-mt-20">
+          <MotionDiv variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            <About />
+          </MotionDiv>
+        </section>
 
-          {/* HOME */}
-          <section id="home" className="scroll-mt-28 md:scroll-mt-5">
-            <Hero />
-          </section>
+        <section id="experience" className="scroll-mt-20">
+          <MotionDiv variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            <Experience />
+          </MotionDiv>
+        </section>
 
-          {/* ABOUT */}
-          <section id="about" className="scroll-mt-5 md:scroll-mt-5">
-            <MotionDiv
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <About />
-            </MotionDiv>
-          </section>
+        <section id="projects" className="scroll-mt-20">
+          <MotionDiv variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            <Projects />
+          </MotionDiv>
+        </section>
 
-          {/* EXPERIENCE */}
-          <section id="experience" className="scroll-mt-5 md:scroll-mt-5">
-            <MotionDiv
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <Experience />
-            </MotionDiv>
-          </section>
+        <section id="skills" className="scroll-mt-20">
+          <MotionDiv variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            <Skills />
+          </MotionDiv>
+        </section>
 
-          {/* PROJECTS */}
-          <section id="projects" className="scroll-mt-5 md:scroll-mt-5">
-            <MotionDiv
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <Projects />
-            </MotionDiv>
-          </section>
+        <section id="education" className="scroll-mt-20">
+          <MotionDiv variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            <Education />
+          </MotionDiv>
+        </section>
 
-          {/* SKILLS */}
-          <section id="skills" className="scroll-mt-5 md:scroll-mt-5">
-            <MotionDiv
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <Skills />
-            </MotionDiv>
-          </section>
-
-          {/* EDUCATION */}
-          <section id="education" className="scroll-mt-5 md:scroll-mt-5">
-            <MotionDiv
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <Education />
-            </MotionDiv>
-          </section>
-
-          {/* CONTACT */}
-          <section id="contact" className="scroll-mt-5 md:scroll-mt-5">
-            <MotionDiv
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <Contact />
-            </MotionDiv>
-          </section>
-
+        <section id="contact" className="scroll-mt-20">
+          <MotionDiv variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+            <Contact />
+          </MotionDiv>
         </section>
       </main>
 

@@ -19,25 +19,23 @@ const navItems = [
 export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
 
-  // Close mobile menu on route change or hash navigation
   useEffect(() => {
     setMobileOpen(false);
   }, [pathname]);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    const handleScroll = () => setScrolled(window.scrollY > 20);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  // Close menu on Escape key
   useEffect(() => {
     const handleEscape = (e) => {
       if (e.key === "Escape") setMobileOpen(false);
@@ -51,125 +49,109 @@ export default function Header() {
   }
 
   return (
-    <header className="sticky top-0 z-50 -mt-[75px]">
+    <header className="fixed top-0 left-0 right-0 z-50">
       <nav
         aria-label="Primary navigation"
-        className="bg-background/80 backdrop-blur border-b border-border"
+        className={`transition-all duration-300 ${
+          scrolled
+            ? "bg-background/80 backdrop-blur-xl border-b border-border"
+            : "bg-transparent"
+        }`}
       >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <div className="max-w-5xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Logo */}
           <Link
             href="#home"
-            className="text-xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent"
+            className="text-base font-semibold tracking-tight text-foreground hover:text-accent transition-colors duration-200"
           >
-            FA
+            Farhan Abid
           </Link>
 
-          {/* Desktop Nav Links */}
-          <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
+          {/* Desktop Nav */}
+          <ul className="hidden md:flex items-center gap-8 text-sm">
             {navItems.map((item) => (
               <li key={item.href}>
                 <Link
                   href={item.href}
-                  className="group relative inline-block text-muted transition-colors duration-300"
+                  className="text-muted hover:text-foreground transition-colors duration-200"
                 >
-                  <span className="group-hover:text-[rgb(var(--primary))] transition-colors duration-300">
-                    {item.label}
-                  </span>
-                  <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[rgb(var(--primary))] transition-all duration-300 group-hover:w-full" />
+                  {item.label}
                 </Link>
               </li>
             ))}
           </ul>
 
-          {/* Desktop CTA + Theme Toggle */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* Desktop CTA + Theme */}
+          <div className="hidden md:flex items-center gap-3">
             <ThemeToggle />
             <Link
               href="#contact"
-              className="rounded-xl px-5 py-2.5 bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition"
+              className="rounded-lg px-4 py-2 bg-accent text-background text-sm font-medium hover:opacity-90 transition-opacity"
             >
-              Get in Touch
+              Contact
             </Link>
           </div>
 
-          {/* Mobile: Theme Toggle + Hamburger */}
+          {/* Mobile */}
           <div className="flex md:hidden items-center gap-3">
             <ThemeToggle />
             <button
               onClick={() => setMobileOpen((prev) => !prev)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
-              className="p-2 rounded-lg border border-border text-foreground hover:bg-white/10 transition"
+              className="p-2 rounded-lg text-foreground hover:text-accent transition-colors"
             >
-              {mobileOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
+              {mobileOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
             </button>
           </div>
         </div>
       </nav>
 
-      {/* ─── Mobile Slide-In Menu ─── */}
-
-      {/* Backdrop overlay */}
+      {/* Backdrop */}
       <div
-        className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
-          mobileOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+        className={`fixed inset-0 z-40 bg-background/60 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setMobileOpen(false)}
         aria-hidden="true"
       />
 
-      {/* Slide-in panel */}
+      {/* Mobile Panel */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-72 bg-background border-l border-border shadow-2xl transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 right-0 z-50 h-full w-72 bg-background border-l border-border transform transition-transform duration-300 ease-in-out md:hidden ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
-        {/* Close button inside panel */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-border">
-          <span className="text-lg font-extrabold bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
-            FA
-          </span>
+          <span className="text-base font-semibold text-foreground">Farhan Abid</span>
           <button
             onClick={() => setMobileOpen(false)}
             aria-label="Close menu"
-            className="p-2 rounded-lg border border-border text-foreground hover:bg-white/10 transition"
+            className="p-2 rounded-lg text-foreground hover:text-accent transition-colors"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        {/* Nav links */}
         <ul className="flex flex-col px-6 py-6 gap-1">
-          {navItems.map((item, i) => (
+          {navItems.map((item) => (
             <li key={item.href}>
               <Link
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-muted hover:text-foreground hover:bg-white/5 transition-all duration-200"
-                style={{
-                  animationDelay: `${i * 50}ms`,
-                }}
+                className="flex items-center px-4 py-3 rounded-lg text-sm font-medium text-muted hover:text-foreground hover:bg-card transition-all duration-200"
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
                 {item.label}
               </Link>
             </li>
           ))}
         </ul>
 
-        {/* CTA in mobile menu */}
         <div className="px-6 pt-4 border-t border-border">
           <Link
             href="#contact"
             onClick={() => setMobileOpen(false)}
-            className="block w-full text-center rounded-xl px-5 py-3 bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition"
+            className="block w-full text-center rounded-lg px-5 py-3 bg-accent text-background text-sm font-medium hover:opacity-90 transition-opacity"
           >
             Get in Touch
           </Link>

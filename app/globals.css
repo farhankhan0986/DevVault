@@ -1,26 +1,34 @@
 @import "tailwindcss";
 
-/* ========= LIGHT THEME (default) ========= */
-:root {
-  --background: 242 244 248;     /* soft gray instead of white */
-  --foreground: 24 24 27;        /* near black (better readability) */
-  --muted: 82 82 91;             /* darker muted text */
-  --card: 255 255 255;           /* white card for contrast */
-  --border: 212 212 216;         /* softer gray border */
-  --primary: 79 70 229;          /* slightly deeper indigo */
+@theme inline {
+  --font-sans: 'Inter', 'Inter Fallback', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  --color-background: oklch(0.145 0 0);
+  --color-foreground: oklch(0.95 0 0);
+  --color-muted: oklch(0.55 0 0);
+  --color-card: oklch(0.17 0 0);
+  --color-card-hover: oklch(0.20 0 0);
+  --color-border: oklch(0.25 0 0);
+  --color-border-hover: oklch(0.35 0 0);
+  --color-accent: oklch(0.72 0.19 165);
+  --color-accent-muted: oklch(0.72 0.19 165 / 0.15);
+  --color-surface: oklch(0.15 0 0);
 }
 
-/* ========= DARK THEME ========= */
-.dark {
-  --background: 11 15 25;
-  --foreground: 229 231 235;
-  --muted: 156 163 175;
-  --card: 15 23 42;
-  --border: 31 41 55;
-  --primary: 99 102 241;
+.light {
+  --color-background: oklch(0.98 0 0);
+  --color-foreground: oklch(0.13 0 0);
+  --color-muted: oklch(0.45 0 0);
+  --color-card: oklch(1 0 0);
+  --color-card-hover: oklch(0.97 0 0);
+  --color-border: oklch(0.88 0 0);
+  --color-border-hover: oklch(0.75 0 0);
+  --color-accent: oklch(0.55 0.2 165);
+  --color-accent-muted: oklch(0.55 0.2 165 / 0.1);
+  --color-surface: oklch(0.96 0 0);
 }
 
-/* Reset */
 * {
   box-sizing: border-box;
 }
@@ -33,70 +41,34 @@ body {
 
 body {
   min-height: 100vh;
-  background:
-    radial-gradient(
-      1200px circle at top,
-      rgba(var(--primary), 0.08),
-      transparent 40%
-    ),
-    rgb(var(--background));
-
-  color: rgb(var(--foreground));
-  font-family: system-ui, Inter, sans-serif;
+  background-color: var(--color-background);
+  color: var(--color-foreground);
 }
 
-/* Utilities you ACTUALLY use */
-.bg-background {
-  background-color: rgb(var(--background));
-}
-
-.text-foreground {
-  color: rgb(var(--foreground));
-}
-
-.text-muted {
-  color: rgb(var(--muted));
-}
-
-.bg-card {
-  background-color: rgb(var(--card));
-}
-
-.border-border {
-  border-color: rgb(var(--border));
-}
-
-/* Glass utility */
-.glass {
-  background: rgba(18, 31, 62, 0.6);
-  backdrop-filter: blur(12px);
-  border: 1px solid rgb(var(--border));
-}
-
-/* Accessibility */
 :focus-visible {
-  outline: 2px solid rgb(var(--primary));
+  outline: 2px solid var(--color-accent);
   outline-offset: 2px;
 }
 
 ::selection {
-  background: rgba(var(--primary), 0.25);
+  background: var(--color-accent-muted);
 }
 
 html {
   scroll-behavior: smooth;
-  
-}
-@keyframes progress-fill {
-  from {
-    width: 0%;
-  }
-  to {
-    width: var(--target);
-  }
 }
 
-.animate-progress {
-  width: 0%;
-  animation: progress-fill 1.2s ease-out forwards;
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-border-hover);
 }

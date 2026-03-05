@@ -4,134 +4,89 @@ import { Mail, Github, Linkedin, Briefcase, Target, Clock } from "lucide-react";
 
 export default function Contact() {
   const socialLinks = [
-    {
-      icon: Github,
-      label: "GitHub",
-      url: "https://github.com/farhankhan0986",
-    },
-    {
-      icon: Linkedin,
-      label: "LinkedIn",
-      url: "https://www.linkedin.com/in/farhan-abid-38967a259/",
-    },
-    {
-      icon: Mail,
-      label: "Email",
-      url: "mailto:farhankhan080304@gmail.com",
-    },
+    { icon: Github, label: "GitHub", url: "https://github.com/farhankhan0986" },
+    { icon: Linkedin, label: "LinkedIn", url: "https://www.linkedin.com/in/farhan-abid-38967a259/" },
+    { icon: Mail, label: "Email", url: "mailto:farhankhan080304@gmail.com" },
   ];
 
   return (
-    <section className="relative select-none py-28 bg-background text-foreground overflow-hidden">
-      {/* Ambient glow */}
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-[radial-gradient(600px_circle_at_50%_20%,rgba(99,102,241,0.18),transparent_45%)]"
-      />
-
-      <div className="max-w-3xl mx-auto px-6 text-center">
+    <section className="py-24 bg-background text-foreground">
+      <div className="max-w-3xl mx-auto px-6">
         {/* Header */}
-        <div className="mb-14">
-          <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-            Let’s{" "}
-            <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
-              Connect
-            </span>
-          </h2>
-          <div className="w-16 h-1 bg-gradient-to-r from-indigo-500 to-indigo-700 rounded-full mx-auto" />
-        </div>
+        <p className="text-sm font-mono text-accent mb-4 text-center">Contact</p>
+        <h2 className="text-3xl sm:text-4xl font-bold tracking-tight mb-6 text-center text-balance">
+          {"Let's work together"}
+        </h2>
 
-        {/* Main CTA */}
-        <div className="mb-16">
-          <p className="text-lg text-muted leading-relaxed max-w-2xl mx-auto mb-8">
-            I’m always interested in discussing new projects, backend
-            challenges, and engineering opportunities. Whether you have a
-            question or just want to say hi — my inbox is always open.
-          </p>
+        <p className="text-center text-muted leading-relaxed max-w-xl mx-auto mb-10">
+          {"I'm always interested in discussing new projects, backend challenges, and engineering opportunities. My inbox is open."}
+        </p>
 
+        {/* CTA */}
+        <div className="text-center mb-12">
           <a
             href="mailto:farhankhan080304@gmail.com"
-            className="inline-flex items-center gap-2 px-7 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition-opacity"
           >
             <Mail className="w-5 h-5" />
             Send me an Email
           </a>
         </div>
 
-        {/* Social links */}
-        <div className="mb-20">
-          <p className="text-muted mb-6">
-            Or connect with me on social platforms
-          </p>
-
-          <div className="flex justify-center gap-6">
-            {socialLinks.map((link) => {
-              const Icon = link.icon;
-              return (
-                <a
-                  key={link.label}
-                  href={link.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={link.label}
-                  className="p-4 rounded-xl border border-border bg-foreground backdrop-blur hover:bg-[rgb(var(--border))] hover:-translate-y-1 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500 text-indigo-500"
-                >
-                  <Icon className="w-6 h-6"   />
-                </a>
-              );
-            })}
-          </div>
+        {/* Socials */}
+        <div className="flex justify-center gap-3 mb-16">
+          {socialLinks.map((link) => {
+            const Icon = link.icon;
+            return (
+              <a
+                key={link.label}
+                href={link.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={link.label}
+                className="p-3 rounded-lg border border-border bg-card text-muted hover:text-foreground hover:border-border-hover hover:bg-card-hover transition-all duration-200"
+              >
+                <Icon className="w-5 h-5" />
+              </a>
+            );
+          })}
         </div>
 
-        {/* Divider */}
-        <div className="border-t border-border my-10 mb-20" />
-
-        <div className="space-y-6">
-          {[
-            {
-              title: "Current Role",
-              text: "Final-year B.Tech student and Web Developer Intern at Tripify, working on real-world, production-focused web applications.",
-              Icon: Briefcase,
-            },
-            {
-              title: "Open To",
-              text: "Backend-heavy full-stack roles, software engineering positions, and internship opportunities focused on scalable systems.",
-              Icon: Target,
-            },
-            {
-              title: "Availability",
-              text: "I usually respond within 24 hours and am happy to discuss opportunities, collaborations, or technical challenges.",
-              Icon: Clock,
-            },
-          ].map((item) => (
-            <div
-              key={item.title}
-              className="group relative overflow-hidden rounded-xl border border-border bg-white/5 backdrop-blur p-6 transition-all active:-translate-z-2 active:scale-105 active:duration-500 active:transition-transform duration-500 hover:-translate-y-1 hover:bg-white/10 hover:shadow-[0_0_32px_rgba(99,102,241,0.22)]"
-            >
-              {/* ambient glow */}
-              <span className="pointer-events-none absolute inset-0 bg-indigo-500/10 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"></span>
-
-              <div className="relative flex flex-col items-center justify-center  gap-4 pl-4">
-                {/* icon */}
-                <div className="flex h-15 w-15 shrink-0 items-center justify-center  rounded-full bg-indigo-500/15 text-primary lg:text-primary group-hover:text-indigo-500 group-active:text-indigo-500 group-active:duration-500 duration-300 transition-all  group-active:bg-indigo-500/25  group-hover:bg-indigo-500/25">
-                  <item.Icon className="h-6 w-6 duration-700 group-hover:-translate-y-1 group-active:-translate-y-1 transition-transform group-hover:transition-transform group-active:transition-transform group-hover:duration-700 group-active:duration-500  " />
+        {/* Info cards */}
+        <div className="border-t border-border pt-12">
+          <div className="space-y-4">
+            {[
+              {
+                title: "Current Role",
+                text: "Final-year B.Tech student and AI Agent Developer Intern at Tripify, building production travel booking infrastructure.",
+                Icon: Briefcase,
+              },
+              {
+                title: "Open To",
+                text: "Backend-heavy full-stack roles, software engineering positions, and internship opportunities.",
+                Icon: Target,
+              },
+              {
+                title: "Availability",
+                text: "Responds within 24 hours. Happy to discuss opportunities, collaborations, or technical challenges.",
+                Icon: Clock,
+              },
+            ].map((item) => (
+              <div
+                key={item.title}
+                className="flex items-start gap-4 rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:border-border-hover hover:bg-card-hover"
+              >
+                <div className="p-2.5 rounded-lg bg-accent-muted shrink-0">
+                  <item.Icon className="w-4 h-4 text-accent" />
                 </div>
-
-                {/* content */}
                 <div>
-                  <h3 className="font-semibold text-lg text-foreground mb-1">
-                    {item.title}
-                  </h3>
-                  <p className="text-sm text-muted leading-relaxed">
-                    {item.text}
-                  </p>
+                  <h3 className="font-semibold text-foreground text-sm mb-1">{item.title}</h3>
+                  <p className="text-sm text-muted leading-relaxed">{item.text}</p>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
-
-        {/* <div className="border-t border-border my-10 mt-20" /> */}
       </div>
     </section>
   );

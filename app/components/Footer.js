@@ -10,55 +10,38 @@ export default function Footer() {
   };
 
   return (
-    <footer className="relative bg-background text-foreground border-t border-border overflow-hidden">
-      
-      {/* Glow */}
-      <div
-        aria-hidden
-        className="absolute inset-0 -z-10 bg-[radial-gradient(600px_circle_at_50%_100%,rgba(99,102,241,0.15),transparent_50%)]"
-      />
-
-      <div className="max-w-6xl mx-auto px-6 py-20">
-        
-        {/* Top Section */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-14 mb-16">
-
+    <footer className="border-t border-border bg-background text-foreground">
+      <div className="max-w-5xl mx-auto px-6 py-16">
+        {/* Top */}
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
           {/* About */}
           <div>
-            <h3 className="text-lg font-extrabold tracking-tight mb-4">
-              <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
-                Farhan
-              </span>{" "}
-              Abid
+            <h3 className="text-base font-semibold text-foreground mb-3">
+              Farhan Abid
             </h3>
-            <p className="text-sm text-muted leading-relaxed max-w-sm">
-              Full-Stack Web Developer focused on backend architecture, API
-              design, and building scalable production-ready systems.
+            <p className="text-sm text-muted leading-relaxed max-w-xs">
+              Full-Stack Developer focused on backend architecture, API design,
+              and building scalable systems.
             </p>
           </div>
 
           {/* Links */}
           <nav>
-            <h4 className="text-sm font-semibold mb-4">Quick Links</h4>
-            <ul className="space-y-3">
+            <h4 className="text-sm font-mono text-accent mb-4">Navigation</h4>
+            <ul className="space-y-2.5">
               {[
                 { label: "Home", href: "#home" },
                 { label: "About", href: "#about" },
                 { label: "Projects", href: "#projects" },
                 { label: "Skills", href: "#skills" },
+                { label: "Contact", href: "#contact" },
               ].map((link) => (
                 <li key={link.label}>
                   <a
                     href={link.href}
-                    className="group relative inline-block text-muted transition-colors duration-300"
+                    className="text-sm text-muted hover:text-foreground transition-colors duration-200"
                   >
-                    {/* Text */}
-                    <span className="group-hover:text-[rgb(var(--primary))] transition-colors duration-300">
-                      {link.label}
-                    </span>
-
-                    {/* Animated underline */}
-                    <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[rgb(var(--primary))] transition-all duration-300 group-hover:w-full" />
+                    {link.label}
                   </a>
                 </li>
               ))}
@@ -67,39 +50,14 @@ export default function Footer() {
 
           {/* Social */}
           <div>
-            <h4 className="text-sm font-semibold mb-4">Connect</h4>
-            <div className="flex gap-4">
+            <h4 className="text-sm font-mono text-accent mb-4">Connect</h4>
+            <div className="flex gap-2">
               {[
-                {
-                  href: "https://github.com/farhankhan0986",
-                  label: "GitHub",
-                  Icon: Github,
-                  target: "_blank",
-                },
-                {
-                  href: "https://www.linkedin.com/in/farhan-abid-38967a259/",
-                  label: "LinkedIn",
-                  Icon: Linkedin,
-                  target: "_blank",
-                },
-                {
-                  href: "mailto:farhankhan080304@gmail.com",
-                  label: "Email",
-                  Icon: Mail,
-                  target: "_blank",
-                },
-                {
-                  href: "https://www.instagram.com/_._farhan__/",
-                  label: "Instagram",
-                  Icon: Instagram,
-                  target: "_blank",
-                },
-                {
-                  href: "tel:+916392515612",
-                  label: "Phone",
-                  Icon: Phone,
-                  target: "_self",
-                },
+                { href: "https://github.com/farhankhan0986", label: "GitHub", Icon: Github, target: "_blank" },
+                { href: "https://www.linkedin.com/in/farhan-abid-38967a259/", label: "LinkedIn", Icon: Linkedin, target: "_blank" },
+                { href: "mailto:farhankhan080304@gmail.com", label: "Email", Icon: Mail, target: "_blank" },
+                { href: "https://www.instagram.com/_._farhan__/", label: "Instagram", Icon: Instagram, target: "_blank" },
+                { href: "tel:+916392515612", label: "Phone", Icon: Phone, target: "_self" },
               ].map(({ href, label, Icon, target }) => (
                 <a
                   key={label}
@@ -107,9 +65,9 @@ export default function Footer() {
                   target={target}
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="p-3 rounded-xl border border-border bg-card/60 backdrop-blur hover:bg-card hover:-translate-y-1 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))]"
+                  className="p-2.5 rounded-lg text-muted hover:text-foreground transition-colors duration-200"
                 >
-                  <Icon className="w-5 h-5 text-foreground" />
+                  <Icon className="w-4 h-4" />
                 </a>
               ))}
             </div>
@@ -117,21 +75,20 @@ export default function Footer() {
         </div>
 
         {/* Divider */}
-        <div className="border-t border-border mb-8" />
+        <div className="border-t border-border pt-8">
+          <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
+            <p className="text-xs text-muted">
+              {currentYear} Farhan Abid. Built with Next.js and Tailwind CSS.
+            </p>
 
-        {/* Bottom */}
-        <div className="flex flex-col md:flex-row items-center justify-between gap-4">
-          <p className="text-sm text-muted">
-            © {currentYear} Farhan Abid. All rights reserved.
-          </p>
-
-          <button
-            onClick={scrollToTop}
-            aria-label="Scroll to top"
-            className="group p-3 rounded-xl border border-border bg-card/60 backdrop-blur hover:bg-card hover:-translate-y-1 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))]"
-          >
-            <ArrowUp className="w-5 h-5 text-foreground transition-transform duration-300 group-hover:-translate-y-1" />
-          </button>
+            <button
+              onClick={scrollToTop}
+              aria-label="Scroll to top"
+              className="p-2 rounded-lg text-muted hover:text-foreground transition-colors duration-200"
+            >
+              <ArrowUp className="w-4 h-4" />
+            </button>
+          </div>
         </div>
       </div>
     </footer>

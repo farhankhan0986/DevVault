@@ -1,158 +1,113 @@
-import { ArrowRight, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, ArrowDown } from "lucide-react";
 
 export default function Hero() {
   return (
     <section
       id="hero"
       aria-labelledby="hero-title"
-      className="relative min-h-screen -top-8 md:top-0 lg:top-0 flex items-center isolate bg-background text-foreground pt-28"
+      className="relative min-h-screen flex items-center bg-background text-foreground pt-20"
     >
-      {/* Background glow */}
+      {/* Subtle gradient accent */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[radial-gradient(800px_circle_at_30%_10%,rgba(99,102,241,0.18),transparent_45%)]"
+        className="pointer-events-none absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[400px] bg-accent/5 blur-[120px] rounded-full"
       />
 
-      {/* Subtle grid */}
-      <div aria-hidden className="absolute inset-0 -z-10 opacity-[0.06] bg-[linear-gradient(to_right,rgba(0,0,0,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.12)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.12)_1px,transparent_1px)] bg-[size:40px_40px]" />
-
-
-      <div className="relative max-w-6xl mx-auto px-6 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-          {/* Left */}
-          <div className="space-y-8">
-            <div className="space-y-4">
-              <h1
-                id="hero-title"
-                className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight"
-              >
-                <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
-                  Farhan Abid
-                </span>
-              </h1>
-
-              <p className="text-xl sm:text-2xl md:text-3xl font-semibold text-muted">
-                Full-Stack Web Developer
-              </p>
-
-              <p className="text-sm sm:text-base font-mono text-muted">
-                MERN • Next.js • Backend-Focused
-              </p>
-            </div>
-
-            <p className="text-base sm:text-lg text-muted max-w-xl leading-relaxed">
-              I build scalable backend systems, secure APIs, and
-              production-ready web applications. Currently a B.Tech student and
-              Web Developer Intern at Tripify, passionate about system design
-              and engineering excellence.
-            </p>
-
-            {/* CTA */}
-            <div className="flex flex-wrap gap-4 pt-2">
-              <a
-                href="#projects"
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 active:bg-indigo-700 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-              >
-                View My Work
-                <ArrowRight className="w-4 h-4 text-white transition-transform group-hover:translate-x-1" />
-              </a>
-
-              <a
-                href="https://drive.google.com/file/d/1AjzPsE0kdR_iMpJd5WuSoxyJ9TskEfvH/view?usp=sharing"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border hover:bg-[rgb(var(--border))] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
-              >
-                Download Resume
-              </a>
-            </div>
-
-            {/* Socials */}
-            <div className="flex gap-4 pt-2">
-              {[
-                {
-                  href: "https://github.com/farhankhan0986",
-                  label: "GitHub",
-                  Icon: Github,
-                },
-                {
-                  href: "https://www.linkedin.com/in/farhan-abid-38967a259/",
-                  label: "LinkedIn",
-                  Icon: Linkedin,
-                },
-                {
-                  href: "mailto:farhankhan080304@gmail.com",
-                  label: "Email",
-                  Icon: Mail,
-                },
-              ].map(({ href, label, Icon }) => (
-                <a
-                  key={label}
-                  href={href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={label}
-                  className="p-3 rounded-xl bg-foreground border border-border text-indigo-500 hover:bg-[rgb(var(--border))] hover:-translate-y-0.5 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
-                >
-                  <Icon className="w-5 h-5" />
-                </a>
-              ))}
-            </div>
+      <div className="relative max-w-5xl mx-auto px-6 w-full">
+        <div className="max-w-3xl">
+          {/* Status badge */}
+          <div className="flex items-center gap-2 mb-8">
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-accent opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-accent" />
+            </span>
+            <span className="text-sm font-mono text-muted">
+              Available for opportunities
+            </span>
           </div>
 
-          {/* Right */}
-          <div className="flex justify-center">
-            {/* Mobile initials */}
-            <div className="flex md:hidden lg:hidden items-center justify-center w-full">
-              <div
-                className="h-20 w-20 rounded-full bg-indigo-500/20 flex items-center justify-center text-3xl font-bold text-indigo-400"
-                style={{
-                  position: "relative",
-                  top: "-460px",
-                  right: "-140px",
-                }}
+          {/* Name */}
+          <h1
+            id="hero-title"
+            className="text-5xl sm:text-6xl md:text-7xl font-bold tracking-tight leading-[1.1] text-balance"
+          >
+            {"I build backend systems "}
+            <span className="text-accent">{"& scalable APIs"}</span>
+          </h1>
+
+          {/* Subtitle */}
+          <p className="mt-6 text-lg sm:text-xl text-muted max-w-2xl leading-relaxed">
+            Full-Stack Developer specializing in backend architecture,
+            authentication systems, and production-ready web applications.
+            Currently building at{" "}
+            <span className="text-foreground font-medium">Tripify</span>.
+          </p>
+
+          {/* Tech line */}
+          <p className="mt-4 text-sm font-mono text-muted/70">
+            {"Node.js / Express / MongoDB / Next.js / React / PostgreSQL"}
+          </p>
+
+          {/* CTAs */}
+          <div className="flex flex-wrap gap-4 mt-10">
+            <a
+              href="#projects"
+              className="group inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-accent text-background font-medium hover:opacity-90 transition-opacity"
+            >
+              View Projects
+              <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5" />
+            </a>
+
+            <a
+              href="https://drive.google.com/file/d/1AjzPsE0kdR_iMpJd5WuSoxyJ9TskEfvH/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg border border-border text-foreground font-medium hover:border-border-hover hover:bg-card transition-all duration-200"
+            >
+              Resume
+            </a>
+          </div>
+
+          {/* Socials */}
+          <div className="flex gap-3 mt-10">
+            {[
+              {
+                href: "https://github.com/farhankhan0986",
+                label: "GitHub",
+                Icon: Github,
+              },
+              {
+                href: "https://www.linkedin.com/in/farhan-abid-38967a259/",
+                label: "LinkedIn",
+                Icon: Linkedin,
+              },
+              {
+                href: "mailto:farhankhan080304@gmail.com",
+                label: "Email",
+                Icon: Mail,
+              },
+            ].map(({ href, label, Icon }) => (
+              <a
+                key={label}
+                href={href}
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label={label}
+                className="p-2.5 rounded-lg text-muted hover:text-foreground transition-colors duration-200"
               >
-                FA
-              </div>
-            </div>
-
-            {/* Desktop image */}
-            <div className="hidden lg:flex justify-center">
-              <div className="relative w-full max-w-md aspect-square rounded-2xl">
-                {/* Glow */}
-                <div className="absolute inset-0 -top-12 left-16 bg-indigo-500/40 blur-3xl rounded-2xl" />
-
-                {/* Image */}
-                <img
-                  src="/images/farhan.jpg"
-                  alt="Farhan Abid"
-                  className="relative z-10 w-full h-full object-cover rounded-2xl shadow-2xl -top-12 left-16"
-                  loading="lazy"
-                />
-              </div>
-            </div>
+                <Icon className="w-5 h-5" />
+              </a>
+            ))}
           </div>
         </div>
       </div>
 
       {/* Scroll indicator */}
-      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10 animate-bounce">
-        <div className="flex flex-col items-center gap-2">
-          <p className="text-sm text-muted-foreground">Scroll to explore</p>
-          <svg
-            className="w-6 h-6 text-indigo-500"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M19 14l-7 7m0 0l-7-7m7 7V3"
-            />
-          </svg>
-        </div>
+      <div className="absolute bottom-8 left-1/2 -translate-x-1/2 z-10">
+        <a href="#about" aria-label="Scroll to about section" className="flex flex-col items-center gap-2 text-muted hover:text-foreground transition-colors">
+          <span className="text-xs font-mono">scroll</span>
+          <ArrowDown className="w-4 h-4 animate-bounce" />
+        </a>
       </div>
     </section>
   );
