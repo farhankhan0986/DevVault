@@ -32,7 +32,7 @@ export default function Header() {
 
   // Track active section with IntersectionObserver
   useEffect(() => {
-    const sectionIds = navItems.map((item) => item.href.replace("#", ""));
+    const sectionIds = navItems.map((item) => item.href.slice(1));
     const observers = [];
 
     sectionIds.forEach((id) => {
@@ -43,6 +43,7 @@ export default function Header() {
         ([entry]) => {
           if (entry.isIntersecting) setActiveSection(id);
         },
+        // Activate when section is roughly centered in the viewport
         { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
       );
 
@@ -98,13 +99,13 @@ export default function Header() {
             className="relative text-xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-500 bg-clip-text text-transparent"
           >
             FA
-            <span className="absolute -top-0.5 -right-2 h-1.5 w-1.5 rounded-full bg-violet-400" />
+            <span className="absolute -top-0.5 -right-2 h-1.5 w-1.5 rounded-full bg-violet-400" aria-hidden="true" />
           </Link>
 
           {/* Desktop Nav Links */}
           <ul className="hidden md:flex items-center gap-1 text-sm font-medium">
             {navItems.map((item) => {
-              const sectionId = item.href.replace("#", "");
+              const sectionId = item.href.slice(1);
               const isActive = activeSection === sectionId;
 
               return (
@@ -185,7 +186,7 @@ export default function Header() {
         <div className="flex items-center justify-between px-6 py-4 border-b border-[rgb(var(--border))]">
           <span className="relative text-lg font-extrabold bg-gradient-to-r from-indigo-400 via-indigo-500 to-violet-500 bg-clip-text text-transparent">
             FA
-            <span className="absolute -top-0.5 -right-2 h-1.5 w-1.5 rounded-full bg-violet-400" />
+            <span className="absolute -top-0.5 -right-2 h-1.5 w-1.5 rounded-full bg-violet-400" aria-hidden="true" />
           </span>
           <button
             onClick={() => setMobileOpen(false)}
@@ -199,7 +200,7 @@ export default function Header() {
         {/* Nav links */}
         <ul className="flex flex-col px-4 py-6 gap-1">
           {navItems.map((item, i) => {
-            const sectionId = item.href.replace("#", "");
+            const sectionId = item.href.slice(1);
             const isActive = activeSection === sectionId;
 
             return (
