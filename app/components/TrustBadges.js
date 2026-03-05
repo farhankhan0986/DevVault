@@ -1,5 +1,10 @@
 "use client";
 
+const scrollbarHideStyles = `
+  .trust-scroll-hide::-webkit-scrollbar { display: none; }
+  .trust-scroll-hide { -ms-overflow-style: none; scrollbar-width: none; }
+`;
+
 const TrustBadges = () => {
   const techStack = [
     {
@@ -47,93 +52,76 @@ const TrustBadges = () => {
   ];
 
   return (
-    <section className="py-16 md:py-20 bg-background">
-      <div className="max-w-6xl mx-auto px-4">
+    <section className="py-20 md:py-28 bg-background">
+      <style dangerouslySetInnerHTML={{ __html: scrollbarHideStyles }} />
+
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-16">
           <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             Core{" "}
-            <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
+            <span
+              className="bg-clip-text text-transparent"
+              style={{
+                backgroundImage:
+                  "linear-gradient(135deg, var(--gradient-from, #6366f1), var(--gradient-via, #8b5cf6), var(--gradient-to, #a78bfa))",
+              }}
+            >
               Tech Stack
             </span>
           </h3>
-          <p className="text-muted-foreground mt-3 max-w-2xl mx-auto">
+          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
             Technologies I use to build scalable, secure, and production-ready
             full-stack applications with a focus on backend architecture and API
             design.
           </p>
         </div>
 
-        {/* Tech Grid */}
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+        {/* Mobile: horizontal scroll · md: 3-col grid · lg: 6-col grid */}
+        <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory trust-scroll-hide md:grid md:grid-cols-3 md:overflow-visible md:pb-0 md:snap-none lg:grid-cols-6">
           {techStack.map((item) => (
-            <div key={item.name} className="relative group">
+            <div
+              key={item.name}
+              className="relative group flex-shrink-0 w-40 snap-center md:w-auto"
+              style={{ "--card-color": item.color }}
+            >
+              {/* Underglow */}
+              <div
+                className="pointer-events-none absolute -bottom-2 left-1/2 -translate-x-1/2 h-8 w-3/4 rounded-full blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500"
+                style={{ backgroundColor: item.color }}
+              />
+
               {/* Card */}
               <div
-                className="relative rounded-xl bg-card border border-border/60 px-4 py-5 text-center
-                           shadow-sm transition-all duration-300
-                           hover:-translate-y-1 active:-translate-y-1"
-                style={{
-                  borderColor: "rgba(255,255,255,0.1)",
+                className="relative rounded-2xl px-4 py-6 text-center border border-white/10 bg-white/5 backdrop-blur-md shadow-sm transition-all duration-300 ease-out group-hover:-translate-y-1.5 group-hover:shadow-lg"
+                style={{ borderColor: "rgba(255,255,255,0.1)" }}
+                onMouseEnter={(e) => {
+                  e.currentTarget.style.borderColor = item.color;
+                  e.currentTarget.style.boxShadow = `0 0 24px ${item.color}44, 0 4px 24px rgba(0,0,0,0.2)`;
+                }}
+                onMouseLeave={(e) => {
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                  e.currentTarget.style.boxShadow = "";
                 }}
               >
-                {/* Glow overlay */}
-                <div
-                  className="pointer-events-none absolute inset-0 rounded-xl
-                             opacity-0
-                             group-hover:opacity-100
-                             group-active:opacity-100
-                             transition-opacity duration-300"
-                  style={{
-                    boxShadow: `0 0 26px ${item.color}55`,
-                    border: `1px solid ${item.color}`,
-                  }}
-                />
-
-                <div className="relative flex justify-center mb-3">
+                {/* Logo */}
+                <div className="flex justify-center mb-4">
                   <img
                     src={item.logo}
                     alt={`${item.name} logo`}
-                    className="h-8 object-contain"
+                    className="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-110"
                   />
                 </div>
 
-                <div className="relative text-sm font-semibold">
+                {/* Name */}
+                <p className="text-sm font-semibold leading-tight">
                   {item.name}
-                </div>
-                <div className="relative text-xs text-muted-foreground mt-1">
+                </p>
+
+                {/* Description */}
+                <p className="mt-1.5 text-[11px] leading-snug text-muted-foreground">
                   {item.description}
-                </div>
-              </div>
-
-              {/* Hover / tap tooltip */}
-              <div
-                className="absolute left-1/2 -translate-x-1/2 top-full mt-3 w-72
-                           opacity-0
-                           group-hover:opacity-100
-                           group-active:opacity-100
-                           transition-opacity duration-200
-                           pointer-events-none z-30"
-              >
-                <div className="rounded-xl border border-border bg-card p-4 text-sm shadow-lg">
-                  <div className="flex items-center gap-2 mb-2">
-                    <img
-                      src={item.logo}
-                      alt=""
-                      className="h-5 object-contain"
-                    />
-                    <span className="font-semibold">{item.name}</span>
-                  </div>
-
-                  <p className="text-muted-foreground mb-2">
-                    {item.description}
-                  </p>
-
-                  <p className="text-xs text-muted-foreground">
-                    <span className="font-medium text-foreground">Focus:</span>{" "}
-                    {item.focus}
-                  </p>
-                </div>
+                </p>
               </div>
             </div>
           ))}
