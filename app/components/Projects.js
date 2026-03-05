@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github, ArrowUpRight } from "lucide-react";
 
 export default function Projects() {
   const projects = [
@@ -114,110 +114,125 @@ export default function Projects() {
         aria-hidden
         className="absolute inset-0 -z-10 bg-[radial-gradient(600px_circle_at_20%_20%,rgba(99,102,241,0.12),transparent_45%)]"
       />
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 bg-[radial-gradient(400px_circle_at_80%_70%,rgba(139,92,246,0.08),transparent_50%)]"
+      />
 
       <div className="max-w-6xl mx-auto px-6">
         {/* Header */}
-        <div className="mb-20">
+        <div className="mb-20 text-center">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             Featured{" "}
-            <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[rgb(var(--primary))] to-[rgb(var(--accent))] bg-clip-text text-transparent">
               Projects
             </span>
           </h2>
-          <p className="max-w-2xl text-muted text-lg">
+          <p className="max-w-2xl mx-auto text-muted text-lg">
             A selection of projects showcasing backend architecture, API design,
             and full-stack development.
           </p>
-          <div className="mt-4 w-16 h-1 bg-gradient-to-r from-indigo-500 to-indigo-700 rounded-full" />
+          <div className="section-line mx-auto mt-4" />
         </div>
 
-        {/* Projects */}
-        <div className="space-y-24">
+        {/* Project Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
             <div
               key={project.id}
-              className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+              className="group relative flex flex-col rounded-2xl border border-[rgba(var(--border),0.5)] overflow-hidden transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(99,102,241,0.15)] hover:border-indigo-500/40"
+              style={{
+                background: "rgba(var(--card), 0.6)",
+                backdropFilter: "blur(16px)",
+                WebkitBackdropFilter: "blur(16px)",
+              }}
             >
-              {/* Image */}
-              <div
-                className={`group relative rounded-2xl duration-500 active:-translate-z-2 active:scale-105 active:duration-500 active:transition-transform overflow-hidden border border-border bg-card ${
-                  index % 2 === 1 ? "lg:order-2" : ""
-                }`}
-              >
+              {/* Featured Ribbon — first project only */}
+              {index === 0 && (
+                <div className="absolute top-5 -left-8 z-20 rotate-[-45deg] bg-gradient-to-r from-[rgb(var(--primary))] to-[rgb(var(--accent))] px-10 py-1 text-[10px] font-bold uppercase tracking-widest text-white shadow-lg">
+                  Featured
+                </div>
+              )}
+
+              {/* Image Section */}
+              <div className="relative h-56 overflow-hidden">
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover group-hover:scale-110 transition duration-500"
+                  className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition" />
+                {/* Hover overlay gradient */}
+                <div className="absolute inset-0 bg-gradient-to-t from-[rgb(var(--background))] via-transparent to-transparent opacity-0 group-hover:opacity-80 transition-opacity duration-500" />
+
+                {/* Status Badge */}
                 <span
-                  className={`absolute top-4 right-4 px-3 py-1 text-xs font-semibold rounded-full ${
+                  className={`absolute top-4 right-4 z-10 px-3 py-1 text-[11px] font-bold uppercase tracking-wider rounded-full shadow-md ${
                     project.status === "ONGOING"
-                      ? "bg-cyan-400 text-black"
-                      : "bg-emerald-400 text-black"
+                      ? "bg-amber-400/90 text-amber-950"
+                      : "bg-emerald-400/90 text-emerald-950"
                   }`}
                 >
                   {project.status}
                 </span>
               </div>
 
-              {/* Content */}
-              <div
-                className={`space-y-6 ${index % 2 === 1 ? "lg:order-1" : ""}`}
-              >
-                <span className="inline-block text-xs bg-white/5 border border-indigo-600 px-3 py-1 rounded-full text-indigo-500 font-medium">
+              {/* Card Body */}
+              <div className="flex flex-col flex-1 p-6 gap-4">
+                {/* Highlight Badge */}
+                <span className="inline-flex self-start text-[11px] font-medium px-3 py-1 rounded-full border border-[rgb(var(--primary))]/30 text-[rgb(var(--primary))] bg-[rgb(var(--primary))]/5">
                   {project.highlight}
                 </span>
 
-                <h3 className="text-3xl font-bold">{project.title}</h3>
+                {/* Title */}
+                <h3 className="text-2xl font-bold tracking-tight leading-tight">
+                  {project.title}
+                </h3>
 
-                <p className="text-muted leading-relaxed">
+                {/* Description — clamped to 3 lines */}
+                <p className="text-muted text-sm leading-relaxed line-clamp-3">
                   {project.description}
                 </p>
 
-                {/* Tech */}
-                <div>
-                  <p className="text-sm font-semibold mb-2">Tech Stack</p>
-                  <div className="flex flex-wrap gap-2">
-                    {project.tech.map((tech) => (
-                      <span
-                        key={tech}
-                        className="text-xs text-indigo-500 px-3 py-1 rounded-full bg-indigo-500/5 border border-indigo-600"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                  </div>
+                {/* Tech Stack Pills */}
+                <div className="flex flex-wrap gap-1.5 mt-auto pt-2">
+                  {project.tech.map((t) => (
+                    <span
+                      key={t}
+                      className="text-[11px] px-2.5 py-0.5 rounded-full border border-[rgba(var(--border),0.6)] text-muted bg-[rgba(var(--card),0.5)]"
+                    >
+                      {t}
+                    </span>
+                  ))}
                 </div>
 
-                {/* Links */}
-                <div className="flex flex-wrap gap-4 pt-4">
+                {/* Action Buttons */}
+                <div className="flex flex-wrap items-center gap-3 pt-4 border-t border-[rgba(var(--border),0.4)]">
                   <a
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 transition"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl bg-[rgb(var(--primary))]/10 text-[rgb(var(--primary))] text-xs font-semibold border border-[rgb(var(--primary))]/20 hover:bg-[rgb(var(--primary))]/20 transition-colors"
                   >
-                    <Github className="w-4 h-4" />
+                    <Github className="w-3.5 h-3.5" />
                     View Code
                   </a>
 
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border hover:bg-[rgb(var(--border))] transition"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold border border-[rgba(var(--border),0.6)] hover:bg-[rgba(var(--border),0.3)] transition-colors"
                   >
-                    View Details
+                    Details
                   </Link>
 
                   <a
                     href={project.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border text-sm hover:bg-[rgb(var(--border))] transition"
+                    className="inline-flex items-center gap-1.5 px-4 py-2 rounded-xl text-xs font-semibold ml-auto bg-gradient-to-r from-[rgb(var(--primary))] to-[rgb(var(--accent))] text-white shadow-sm hover:brightness-110 hover:shadow-md focus:outline-none focus:ring-2 focus:ring-[rgb(var(--primary))]/50 transition-all"
                   >
-                    <ExternalLink className="w-4 h-4" />
                     Live Demo
+                    <ArrowUpRight className="w-3.5 h-3.5" />
                   </a>
                 </div>
               </div>
@@ -226,8 +241,8 @@ export default function Projects() {
         </div>
 
         {/* CTA */}
-        <div className="mt-24 pt-16 border-t border-white/10 text-center">
-          <p className="text-muted mb-6 text-lg">
+        <div className="mt-24 pt-16 border-t border-[rgba(var(--border),0.3)] text-center">
+          <p className="text-muted mb-8 text-lg max-w-lg mx-auto">
             Want to see more? Explore my GitHub for additional projects and
             experiments.
           </p>
@@ -236,9 +251,9 @@ export default function Projects() {
             href="https://github.com/farhankhan0986"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition"
+            className="inline-flex items-center gap-2.5 px-8 py-3.5 rounded-2xl bg-gradient-to-r from-[rgb(var(--primary))] to-[rgb(var(--accent))] text-white font-semibold text-base shadow-lg shadow-indigo-500/20 hover:shadow-indigo-500/40 hover:scale-105 transition-all duration-300"
           >
-            <Github className="w-4 h-4" />
+            <Github className="w-5 h-5" />
             Explore on GitHub
           </a>
         </div>
