@@ -18,11 +18,11 @@ const MotionDiv = dynamic(
 );
 
 const fadeUp = {
-  hidden: { opacity: 0, y: 40 },
+  hidden: { opacity: 0, y: 30 },
   visible: {
     opacity: 1,
     y: 0,
-    transition: { duration: 0.6, ease: "easeOut" },
+    transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] },
   },
 };
 
@@ -30,95 +30,95 @@ export default function Home() {
   return (
     <>
       <main className="relative overflow-hidden bg-background text-foreground">
-        {/* subtle background glow */}
+        {/* Ambient background glows */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(600px_circle_at_20%_0%,rgba(99,102,241,0.12),transparent_40%)]"
-        />
+          className="pointer-events-none fixed inset-0 -z-10"
+        >
+          <div className="absolute top-0 left-[10%] w-[600px] h-[600px] bg-[rgb(var(--primary))] opacity-[0.04] rounded-full blur-[120px]" />
+          <div className="absolute top-[40%] right-[5%] w-[500px] h-[500px] bg-[rgb(var(--accent))] opacity-[0.03] rounded-full blur-[120px]" />
+          <div className="absolute bottom-[10%] left-[20%] w-[400px] h-[400px] bg-[rgb(var(--primary))] opacity-[0.03] rounded-full blur-[100px]" />
+        </div>
 
-        <section className="min-h-screen bg-background text-foreground">
-
-          {/* HOME */}
-          <section id="home" className="scroll-mt-28 md:scroll-mt-5">
-            <Hero />
-          </section>
-
-          {/* ABOUT */}
-          <section id="about" className="scroll-mt-5 md:scroll-mt-5">
-            <MotionDiv
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <About />
-            </MotionDiv>
-          </section>
-
-          {/* EXPERIENCE */}
-          <section id="experience" className="scroll-mt-5 md:scroll-mt-5">
-            <MotionDiv
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <Experience />
-            </MotionDiv>
-          </section>
-
-          {/* PROJECTS */}
-          <section id="projects" className="scroll-mt-5 md:scroll-mt-5">
-            <MotionDiv
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <Projects />
-            </MotionDiv>
-          </section>
-
-          {/* SKILLS */}
-          <section id="skills" className="scroll-mt-5 md:scroll-mt-5">
-            <MotionDiv
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <Skills />
-            </MotionDiv>
-          </section>
-
-          {/* EDUCATION */}
-          <section id="education" className="scroll-mt-5 md:scroll-mt-5">
-            <MotionDiv
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <Education />
-            </MotionDiv>
-          </section>
-
-          {/* CONTACT */}
-          <section id="contact" className="scroll-mt-5 md:scroll-mt-5">
-            <MotionDiv
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <Contact />
-            </MotionDiv>
-          </section>
-
+        {/* HOME */}
+        <section id="home" className="scroll-mt-20">
+          <Hero />
         </section>
-      </main>
 
-      <Footer />
+        {/* ABOUT */}
+        <section id="about" className="scroll-mt-16">
+          <MotionDiv
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
+            <About />
+          </MotionDiv>
+        </section>
+
+        {/* EXPERIENCE */}
+        <section id="experience" className="scroll-mt-16">
+          <MotionDiv
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
+            <Experience />
+          </MotionDiv>
+        </section>
+
+        {/* PROJECTS */}
+        <section id="projects" className="scroll-mt-16">
+          <MotionDiv
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
+            <Projects />
+          </MotionDiv>
+        </section>
+
+        {/* SKILLS */}
+        <section id="skills" className="scroll-mt-16">
+          <MotionDiv
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
+            <Skills />
+          </MotionDiv>
+        </section>
+
+        {/* EDUCATION */}
+        <section id="education" className="scroll-mt-16">
+          <MotionDiv
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
+            <Education />
+          </MotionDiv>
+        </section>
+
+        {/* CONTACT */}
+        <section id="contact" className="scroll-mt-16">
+          <MotionDiv
+            variants={fadeUp}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-80px" }}
+          >
+            <Contact />
+          </MotionDiv>
+        </section>
+
+        <Footer />
+      </main>
     </>
   );
 }
