@@ -5,8 +5,8 @@ import ChatWidget from "./components/ChatWidget";
 import { Analytics } from "@vercel/analytics/next"
 
 export const metadata = {
-  title: "Farhan Abid | Portfolio",
-  description: "Full-Stack Web Developer",
+  title: "Farhan A. | Developer Portfolio",
+  description: "Full-stack developer portfolio showcasing projects and skills.",
 };
 
 export default function RootLayout({ children }) {

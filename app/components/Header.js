@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
+import Logo from "./Logo";
 import { ThemeToggle } from "../components/theme-toggle";
 
 const navItems = [
@@ -58,11 +59,14 @@ export default function Header() {
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Logo */}
-          <Link
-            href="#home"
-            className="text-xl font-extrabold tracking-tight bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent"
-          >
-            FA
+          <Link href="/" className="flex items-center gap-3 group">
+            {/* Logo with hover effect */}
+            <div className="transition-transform duration-300 group-hover:scale-110">
+              <Logo size={40} />
+            </div>
+            <span className="text-foreground font-bold text-xl hidden sm:block">
+              Farhan<span className="text-[rgb(var(--primary))]">.dev</span>
+            </span>
           </Link>
 
           {/* Desktop Nav Links */}
