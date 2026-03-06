@@ -49,7 +49,6 @@ const TrustBadges = () => {
       logo: "https://www.svgrepo.com/show/354119/nodejs-icon.svg",
       color: "#339933",
     },
-    
   ];
 
   return (
@@ -78,12 +77,12 @@ const TrustBadges = () => {
           </p>
         </div>
 
-        {/* Mobile: horizontal scroll · md: 3-col grid · lg: 6-col grid */}
-        <div className="flex gap-4 overflow-x-auto pb-4 snap-x snap-mandatory trust-scroll-hide md:grid md:grid-cols-3 md:overflow-visible md:pb-0 md:snap-none lg:grid-cols-6">
+        {/* Responsive Grid */}
+        <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">
           {techStack.map((item) => (
             <div
               key={item.name}
-              className="relative group flex-shrink-0 w-40 snap-center md:w-auto"
+              className="relative group"
               style={{ "--card-color": item.color }}
             >
               {/* Underglow */}

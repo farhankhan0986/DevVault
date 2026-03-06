@@ -142,7 +142,7 @@ export default function Hero() {
                   },
                   {
                     text: "Node.js",
-                    pos: "top-1/2 -translate-y-1/2 -right-16",
+                    pos: "top-1/2 -translate-y-1/2 -right-10",
                     border: "border-purple-500/30",
                     fg: "text-purple-400",
                     delay: "1s",
