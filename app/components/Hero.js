@@ -14,8 +14,10 @@ export default function Hero() {
       />
 
       {/* Subtle grid */}
-      <div aria-hidden className="absolute inset-0 -z-10 opacity-[0.06] bg-[linear-gradient(to_right,rgba(0,0,0,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.12)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.12)_1px,transparent_1px)] bg-[size:40px_40px]" />
-
+      <div
+        aria-hidden
+        className="absolute inset-0 -z-10 opacity-[0.06] bg-[linear-gradient(to_right,rgba(0,0,0,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.12)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.12)_1px,transparent_1px)] bg-[size:40px_40px]"
+      />
 
       <div className="relative max-w-6xl mx-auto px-6 w-full">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
@@ -103,16 +105,21 @@ export default function Hero() {
           {/* Right */}
           <div className="flex justify-center">
             {/* Mobile initials */}
-            <div className="flex md:hidden lg:hidden items-center justify-center w-full">
+            <div className="flex md:hidden items-center justify-center w-full">
               <div
-                className="h-20 w-20 rounded-full bg-indigo-500/20 flex items-center justify-center text-3xl font-bold text-indigo-400"
+                className="relative flex items-center justify-center"
                 style={{
                   position: "relative",
                   top: "-460px",
                   right: "-140px",
                 }}
               >
-                FA
+                {/* Spinning ring */}
+                <div className="absolute h-28 w-28 rounded-full border-2 border-dashed border-indigo-400/40 animate-[spin_8s_linear_infinite]" />
+                {/* Avatar */}
+                <div className="h-20 w-20 rounded-full bg-indigo-600/90 flex items-center justify-center text-3xl font-bold text-white backdrop-blur-sm hover:bg-indigo-500 transition-colors duration-300 cursor-pointer">
+                  FA
+                </div>
               </div>
             </div>
 
