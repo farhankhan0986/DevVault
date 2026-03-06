@@ -9,7 +9,7 @@ const TrustBadges = () => {
   const techStack = [
     {
       name: "C++",
-      description: "High-performance compiled language",
+      description: "High-performance & compiled language",
       focus: "DSA, memory management",
       logo: "https://www.svgrepo.com/show/303480/c-logo.svg",
       color: "#00599C",
@@ -30,7 +30,7 @@ const TrustBadges = () => {
     },
     {
       name: "React",
-      description: "Component-based frontend library",
+      description: "Component-based UI frontend library",
       focus: "Hooks, state management, UI logic",
       logo: "https://www.svgrepo.com/show/354259/react.svg",
       color: "#61DAFB",
@@ -119,7 +119,7 @@ const TrustBadges = () => {
                 </p>
 
                 {/* Description */}
-                <p className="mt-1.5 text-[11px] text-muted-foreground">
+                <p className="mt-1.5 text-[11px] leading-snug text-muted-foreground">
                   {item.description}
                 </p>
               </div>
