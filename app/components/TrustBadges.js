@@ -119,7 +119,7 @@ const TrustBadges = () => {
                 </p>
 
                 {/* Description */}
-                <p className="mt-1.5 text-[11px] leading-snug text-muted-foreground">
+                <p className="mt-1.5 text-[11px] text-muted-foreground">
                   {item.description}
                 </p>
               </div>
