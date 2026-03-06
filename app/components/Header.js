@@ -20,6 +20,46 @@ const navItems = [
 export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState("home");
+  const [mounted, setMounted] = useState(false);
+
+
+  // Track scroll position for shadow effect
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 10);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    handleScroll();
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  useEffect(() => {
+  setMounted(true);
+}, []);
+
+useEffect(() => {
+  if (!mounted) return;
+
+  const sectionIds = navItems.map((item) => item.href.slice(1));
+  const observers = [];
+
+  sectionIds.forEach((id) => {
+    const el = document.getElementById(id);
+    if (!el) return;
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (entry.isIntersecting) setActiveSection(id);
+      },
+      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+    );
+
+    observer.observe(el);
+    observers.push(observer);
+  });
+
+  return () => observers.forEach((o) => o.disconnect());
+}, [mounted, pathname]);
 
   // Close mobile menu on route change or hash navigation
   useEffect(() => {
@@ -70,20 +110,31 @@ export default function Header() {
           </Link>
 
           {/* Desktop Nav Links */}
-          <ul className="hidden md:flex items-center gap-8 text-sm font-medium">
-            {navItems.map((item) => (
-              <li key={item.href}>
-                <Link
-                  href={item.href}
-                  className="group relative inline-block text-muted transition-colors duration-300"
-                >
-                  <span className="group-hover:text-[rgb(var(--primary))] transition-colors duration-300">
+          <ul className="hidden md:flex items-center gap-1 text-sm font-medium">
+            {navItems.map((item) => {
+              const sectionId = item.href.slice(1);
+              const isActive = activeSection === sectionId;
+
+              return (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    className={`relative px-3 py-2 rounded-lg transition-colors duration-300 ${
+                      isActive
+                        ? "text-[rgb(var(--foreground))]"
+                        : "text-muted hover:text-[rgb(var(--foreground))]"
+                    }`}
+                  >
                     {item.label}
-                  </span>
-                  <span className="absolute left-0 -bottom-1 h-[2px] w-0 bg-[rgb(var(--primary))] transition-all duration-300 group-hover:w-full" />
-                </Link>
-              </li>
-            ))}
+                    <span
+                      className={`absolute inset-x-1 -bottom-1 h-[2px] rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 transition-all duration-300 ${
+                        isActive ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
+                      }`}
+                    />
+                  </Link>
+                </li>
+              );
+            })}
           </ul>
 
           {/* Desktop CTA + Theme Toggle */}
