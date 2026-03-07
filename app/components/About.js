@@ -61,11 +61,11 @@ export default function About() {
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             About{" "}
             <span
-              className="bg-clip-text text-transparent"
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, rgb(var(--primary)), rgb(var(--accent)))",
-              }}
+              className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-indigo-600"
+              // style={{
+              //   backgroundImage:
+              //     "linear-gradient(135deg, rgb(var(--primary)), rgb(var(--accent)))",
+              // }}
             >
               Me
             </span>
@@ -221,11 +221,11 @@ export default function About() {
           <h2 className="text-2xl font-extrabold tracking-tight mb-3">
             Core{" "}
             <span
-              className="bg-clip-text text-transparent"
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, rgb(var(--primary)), rgb(var(--accent)))",
-              }}
+              className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-indigo-600"
+              // style={{
+              //   backgroundImage:
+              //     "linear-gradient(135deg, rgb(var(--primary)), rgb(var(--accent)))",
+              // }}
             >
               Competencies
             </span>

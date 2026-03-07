@@ -61,11 +61,11 @@ const TrustBadges = () => {
           <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             Core{" "}
             <span
-              className="bg-clip-text text-transparent"
-              style={{
-                backgroundImage:
-                  "linear-gradient(135deg, var(--gradient-from, #6366f1), var(--gradient-via, #8b5cf6), var(--gradient-to, #a78bfa))",
-              }}
+              className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-indigo-600 "
+              // style={{
+              //   backgroundImage:
+              //     "linear-gradient(135deg, var(--gradient-from, #6366f1), var(--gradient-via, #8b5cf6), var(--gradient-to, #a78bfa))",
+              // }}
             >
               Tech Stack
             </span>

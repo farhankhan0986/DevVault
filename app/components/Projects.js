@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { ExternalLink, Github } from "lucide-react";
+import { ExternalLink, Github,Folder  } from "lucide-react";
 
 export default function Projects() {
   const projects = [
@@ -226,12 +226,12 @@ export default function Projects() {
         </div>
 
         {/* CTA */}
-        <div className="mt-24 pt-16 border-t border-white/10 text-center">
+        <div className="mt-24 pt-16 border-t  border-white/10 text-center">
           <p className="text-muted mb-6 text-lg">
-            Want to see more? Explore my GitHub for additional projects and
+            Want to see more? Explore my GitHub or see additional projects and
             experiments.
           </p>
-
+          <div className="flex justify-center items-center gap-8">
           <a
             href="https://github.com/farhankhan0986"
             target="_blank"
@@ -241,6 +241,14 @@ export default function Projects() {
             <Github className="w-4 h-4" />
             Explore on GitHub
           </a>
+          <a
+            href="/projects/allprojects"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition"
+          >
+            <Folder  className="w-4 h-4" />
+            View All Projects
+          </a>
+          </div>
         </div>
       </div>
     </section>

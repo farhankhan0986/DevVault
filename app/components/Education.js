@@ -9,6 +9,7 @@ const education = [
     score: "CGPA: 7.8",
     scoreNote: "6th semester",
     icon: GraduationCap,
+    current: true,
   },
   {
     title: "Class XII – PCM",
@@ -17,6 +18,7 @@ const education = [
     location: "Lucknow",
     score: "85%",
     icon: BookOpen,
+    done: true,
   },
   {
     title: "Class X – Science",
@@ -25,6 +27,7 @@ const education = [
     location: "Lucknow",
     score: "83%",
     icon: BookOpen,
+    done: true,
   },
 ];
 
@@ -60,11 +63,19 @@ export default function Education() {
                   <div key={i} className="relative md:pl-12">
                     {/* Timeline dot */}
                     <div className="hidden md:flex absolute left-0 top-6 z-10 items-center justify-center">
-                      <span className="inline-flex h-3 w-3 rounded-full border-2 border-indigo-400 bg-[rgb(var(--background))]" />
+                      {edu.current && (
+                        <>
+                         <span className="timeline-dot-pulse absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
+                        <span className="relative inline-flex h-[14px] w-[14px] rounded-full bg-emerald-500 border-2 border-emerald-300 shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
+                        </>
+                      )}
+                      {edu.done && (
+                        <span className="inline-flex h-3 w-3 rounded-full border-2 border-indigo-400 bg-[rgb(var(--background))]" />
+                      )}
                     </div>
 
                     {/* Card */}
-                    <div className="group relative rounded-2xl border border-[rgba(var(--border),0.5)] bg-[rgba(var(--card),0.6)] backdrop-blur-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(99,102,241,0.15)] hover:border-indigo-500/30">
+                    <div className="group relative rounded-2xl border border-indigo-500/40 bg-[rgba(var(--card),0.6)] backdrop-blur-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(99,102,241,0.15)] hover:border-indigo-500/30">
                       {/* Hover glow */}
                       <span className="pointer-events-none absolute inset-0 rounded-2xl bg-indigo-500/5 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 

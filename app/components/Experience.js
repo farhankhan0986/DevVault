@@ -71,7 +71,7 @@ export default function Experience() {
                   </div>
 
                   {/* Card */}
-                  <div className="group relative rounded-xl border border-[rgba(var(--border),0.5)] bg-[rgba(var(--card),0.6)] backdrop-blur-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(99,102,241,0.15)] hover:border-indigo-500/30">
+                  <div className="group relative rounded-xl border border-indigo-500/40 bg-[rgba(var(--card),0.6)] backdrop-blur-xl p-6 transition-all duration-300 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(99,102,241,0.15)] hover:border-indigo-500/30">
                     {/* Hover glow */}
                     <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/5 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
 

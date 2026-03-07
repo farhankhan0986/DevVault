@@ -196,7 +196,7 @@ export default function Skills() {
         <div className="mb-20">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             Skills &{" "}
-            <span className="bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
               Expertise
             </span>
           </h2>
@@ -215,11 +215,11 @@ export default function Skills() {
             return (
               <div
                 key={category}
-                className="group relative rounded-2xl border border-border/60 bg-white/[0.03] backdrop-blur-md p-7 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_0_32px_rgba(99,102,241,0.15)] hover:border-indigo-500/40"
+                className="group relative rounded-2xl border border-indigo-500/20 bg-white/[0.03] backdrop-blur-md p-7 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_0_32px_rgba(99,102,241,0.15)] hover:border-indigo-500/40"
               >
                 {/* Category header */}
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-white/10 text-gray-400 ring-1 ring-indigo-500/20 transition-colors duration-300 group-hover:bg-indigo-500/20 group-hover:text-indigo-300">
+                  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-indigo-500/10 text-muted/10 ring-1 ring-indigo-500/20 transition-colors duration-300 group-hover:bg-indigo-500/20 group-hover:text-indigo-500">
                     <Icon size={20} strokeWidth={1.8} />
                   </span>
                   <h3 className="text-lg font-bold text-foreground tracking-tight">
@@ -232,12 +232,12 @@ export default function Skills() {
                   {skills.map((skill) => (
                     <li
                       key={skill.name}
-                      className="flex items-center gap-3 text-[15px] text-foreground/80 transition-colors duration-200 hover:text-foreground"
+                      className=" flex items-center gap-3 text-[15px] text-foreground/80 transition-colors duration-200 hover:text-foreground"
                     >
                       <img
                         src={skill.logo}
                         alt={`${skill.name} logo`}
-                        className="w-5 h-5 shrink-0 object-contain"
+                        className="w-5 h-5 group shrink-0 object-contain hover:scale-110 transition-transform duration-300 "
                         loading="lazy"
                       />
                       {skill.name}
@@ -254,14 +254,13 @@ export default function Skills() {
           <TrustBadges />
         </div>
 
-        {/* ── Proficiency Bars ── */}
         {/* ── Proficiency Radar ── */}
         <div className="mt-24 pt-16 border-t border-white/10">
           <div className="max-w-5xl mx-auto">
             <div className="text-center space-y-2 mb-14">
               <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
                 Proficiency{" "}
-                <span className="bg-gradient-to-r from-indigo-500 to-violet-500 bg-clip-text text-transparent">
+                <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
                   Radar
                 </span>
               </h3>
@@ -282,7 +281,7 @@ export default function Skills() {
                   <div
                     key={item.skill}
                     className={[
-                      "group relative rounded-3xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-xl p-8",
+                      "group relative rounded-3xl border border-indigo-500/40 bg-white/[0.03] backdrop-blur-xl p-8",
                       "transition-all duration-500 ease-out",
                       "hover:-translate-y-2 hover:border-indigo-500/40",
                       "hover:shadow-[0_0_40px_rgba(99,102,241,0.15),0_0_80px_rgba(99,102,241,0.05)]",

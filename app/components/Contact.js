@@ -74,7 +74,7 @@ export default function Contact() {
 
         {/* Main CTA Glass Card */}
         <div
-          className="relative rounded-2xl border border-[rgba(var(--border),0.5)] p-10 md:p-14 mb-16 text-center overflow-hidden"
+          className="relative rounded-2xl border border-indigo-500/40 p-10 md:p-14 mb-16 text-center overflow-hidden"
           style={{
             background: "rgba(var(--card), 0.6)",
             backdropFilter: "blur(16px)",
@@ -123,7 +123,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  className="group/social inline-flex items-center gap-2.5 px-5 py-3 rounded-xl border border-[rgba(var(--border),0.5)] text-[rgb(var(--primary))] hover:text-white hover:border-[rgb(var(--primary))]/60 hover:-translate-y-1 hover:shadow-[0_0_24px_rgba(99,102,241,0.25)] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))]"
+                  className="group/social inline-flex items-center gap-2.5 px-5 py-3 rounded-xl border border-indigo-500/40 text-[rgb(var(--primary))] hover:text-white hover:border-[rgb(var(--primary))]/60 hover:-translate-y-1 hover:shadow-[0_0_24px_rgba(99,102,241,0.25)] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))]"
                   style={{
                     background: "rgba(var(--card), 0.6)",
                     backdropFilter: "blur(12px)",
@@ -145,7 +145,7 @@ export default function Contact() {
           {infoCards.map((item) => (
             <div
               key={item.title}
-              className="group relative overflow-hidden rounded-2xl border border-[rgba(var(--border),0.5)] p-7 text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(99,102,241,0.15)] hover:border-[rgb(var(--primary))]/40"
+              className="group relative overflow-hidden rounded-2xl border border-indigo-500/40 p-7 text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(99,102,241,0.15)] hover:border-[rgb(var(--primary))]/40"
               style={{
                 background: "rgba(var(--card), 0.6)",
                 backdropFilter: "blur(16px)",
