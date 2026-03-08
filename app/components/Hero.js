@@ -119,7 +119,7 @@ export default function Hero() {
                 <div className="absolute h-32 w-32 bg-indigo-500/30 blur-2xl rounded-full" />
 
                 {/* Spinning ring */}
-                <div className="absolute h-28 w-28 rounded-full border-2 border-dashed border-indigo-400/40 animate-[spin_3s_linear_infinite]" />
+                <div className="absolute h-28 w-28 rounded-full border-2 border-dashed border-indigo-400/40 animate-[spin_6s_linear_infinite]" />
 
                 {/* Avatar image */}
                 <div className="relative h-20 w-20 rounded-full overflow-hidden ring-2 ring-indigo-500/30 shadow-lg shadow-indigo-500/20 hover:ring-indigo-400/60 hover:scale-105 transition-all duration-300 cursor-pointer">

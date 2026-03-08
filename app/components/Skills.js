@@ -14,7 +14,7 @@ import {
   Wrench,
   Brain,
   Bot,
-  Sparkles,
+  Cpu,
 } from "lucide-react";
 
 const categoryIcons = {
@@ -26,7 +26,7 @@ const categoryIcons = {
   "Tools & Platforms": Wrench,
   "Core Concepts": Brain,
   "AI & Automation": Bot,
-  LLMs: Sparkles,
+  LLMs: Cpu,
 };
 
 const skillCategories = [
@@ -101,8 +101,8 @@ const skillCategories = [
         logo: "https://icon.icepanel.io/Technology/svg/MongoDB.svg",
       },
       {
-        name: "Firebase",
-        logo: "https://www.svgrepo.com/show/373595/firebase.svg",
+        name: "Redis",
+        logo: "https://www.svgrepo.com/show/303460/redis-logo.svg",
       },
     ],
   },
@@ -143,14 +143,14 @@ const skillCategories = [
   {
     category: "AI & Automation",
     skills: [
+      {
+        name: "n8n",
+        logo: "https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/n8n-color.png",
+      },
       { name: "Cursor", logo: "https://www.cursor.com/favicon.ico" },
       {
         name: "Vercel v0",
         logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAhUlEQVR4Ae3PIRKCQBhH8f9JvIXVC1gMJuKmnbFvJO+MgbbFc2wjE79AJNPtlKfqAAN4BH71pafdVmrNrHH6q+ar0sRDkK7YnSgpApqVUEyxgp6LZg84nn8xgc+LqMxQfGJIcFO9jDIGLNKB1yaqh/YEOEl5HfWkG09KrR3MS6F5M6fR7gVNhV89Kw1F/QAAAABJRU5ErkJggg==",
-      },
-      {
-        name: "VS Code / Copilot",
-        logo: "https://www.svgrepo.com/show/374171/vscode.svg",
       },
     ],
   },
@@ -167,7 +167,7 @@ const skillCategories = [
       },
       {
         name: "Gemini / Groq",
-        logo: "https://www.svgrepo.com/show/475656/google-color.svg",
+        logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Google_Gemini_icon_2025.svg/1280px-Google_Gemini_icon_2025.svg.png?_=20250728014952",
       },
     ],
   },
@@ -232,15 +232,30 @@ export default function Skills() {
                   {skills.map((skill) => (
                     <li
                       key={skill.name}
-                      className=" flex items-center gap-3 text-[15px] text-foreground/80 transition-colors duration-200 hover:text-foreground"
+                      className="flex items-center gap-3 text-[15px] text-foreground/80"
                     >
                       <img
                         src={skill.logo}
                         alt={`${skill.name} logo`}
-                        className="w-5 h-5 group shrink-0 object-contain hover:scale-110 transition-transform duration-300 "
+                        className="w-5 h-5 shrink-0 object-contain transition-transform duration-300"
                         loading="lazy"
                       />
-                      {skill.name}
+
+                      <span
+                        className="hover:text-foreground"
+                        onMouseEnter={(e) =>
+                          e.currentTarget.previousElementSibling.classList.add(
+                            "scale-120",
+                          )
+                        }
+                        onMouseLeave={(e) =>
+                          e.currentTarget.previousElementSibling.classList.remove(
+                            "scale-120",
+                          )
+                        }
+                      >
+                        {skill.name}
+                      </span>
                     </li>
                   ))}
                 </ul>
