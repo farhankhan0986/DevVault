@@ -12,7 +12,7 @@ export default function Hero() {
         aria-hidden
         className="absolute inset-0 -z-10 bg-[radial-gradient(800px_circle_at_30%_10%,rgba(99,102,241,0.18),transparent_45%)]"
       />
-
+      
       {/* Subtle grid */}
       <div
         aria-hidden

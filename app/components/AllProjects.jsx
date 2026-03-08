@@ -107,53 +107,57 @@ export default function AllProjects() {
       slug: "planixa",
     },
     {
-        id: 4,
-        title: "Notes Server MERN",
-        description: "A RESTful notes management backend built with the MERN stack, supporting authentication, CRUD operations, and secure storage.",
-        image: "/images/notes-server-mern.png",
-        tech: ["MongoDB", "Express", "React", "Node.js", "JWT Auth"],
-        github: "https://github.com/[your-username]/Notes_Server_MERN",
-        status: "COMPLETED",
+      id: 4,
+      title: "Notes Server MERN",
+      description:
+        "A RESTful notes management backend built with the MERN stack, supporting authentication, CRUD operations, and secure storage.",
+      image: "/images/notes.png",
+      tech: ["MongoDB", "Express", "React", "Node.js", "JWT Auth"],
+      github: "https://github.com/farhankhan0986/Notes_Server_MERN",
+      status: "COMPLETED",
       highlight: "Full-featured CRUD API with auth",
       href: "",
       slug: "notes-server-mern",
     },
     {
-  id: 5,
-  title: "News Equator",
-  description: "A news aggregation web app fetching latest headlines from multiple sources, categorized and filterable using React.",
-  image: "/images/news-equator.png",
-  tech: ["React", "API Integration", "Bootstrap"],
-  github: "https://github.com/[your-username]/News_Equator_React",
-  status: "COMPLETED",
-  highlight: "Live news filtering",
-  href: "https://news-equator.vercel.app/",
-  slug: "news-equator-react",
-},
-{
-  id: 3,
-  title: "ToDo-List",
-  description: "A minimalistic and intuitive task management application to help users track daily activities with priorities and completion status.",
-  image: "/images/todo-list.png",
-  tech: ["React", "JavaScript", "CSS"],
-  github: "https://github.com/[your-username]/todo-list",
-  status: "COMPLETED",
-  highlight: "Simple and clean UI",
-  href: "https://todo-list.vercel.app/",
-  slug: "todo-list",
-},
-{
-  id: 6,
-  title: "Text Utils",
-  description: "A text utility toolkit providing features like word counting, case conversion, and whitespace cleanup in an interactive React UI.",
-  image: "/images/text-utils.png",
-  tech: ["React", "JavaScript", "Bootstrap"],
-  github: "https://github.com/[your-username]/Text-Utils-react",
-  status: "COMPLETED",
-  highlight: "Comprehensive text manipulation tools",
-  href: "https://text-utils-react.vercel.app/",
-  slug: "text-utils-react",
-}
+      id: 5,
+      title: "News Equator",
+      description:
+        "A news aggregation web app fetching latest headlines from multiple sources, categorized and filterable using React.",
+      image: "/images/news.png",
+      tech: ["React", "API Integration", "Bootstrap"],
+      github: "https://github.com/farhankhan0986/News_Equator_React",
+      status: "COMPLETED",
+      highlight: "Live news filtering",
+      href: "https://fluffy-heliotrope-addc19.netlify.app/",
+      slug: "news-equator-react",
+    },
+    {
+      id: 3,
+      title: "ToDo-List",
+      description:
+        "A minimalistic and intuitive task management application to help users track daily activities with priorities and completion status.",
+      image: "/images/todo.png",
+      tech: ["React", "JavaScript", "CSS"],
+      github: "https://github.com/farhankhan0986/ToDo-List",
+      status: "COMPLETED",
+      highlight: "Simple and clean UI",
+      href: "https://endearing-tapioca-1dd038.netlify.app/",
+      slug: "todo-list",
+    },
+    {
+      id: 6,
+      title: "Text Utils",
+      description:
+        "A text utility toolkit providing features like word counting, case conversion, and whitespace cleanup in an interactive React UI.",
+      image: "/images/textutils.png",
+      tech: ["React", "JavaScript", "Bootstrap"],
+      github: "https://github.com/farhankhan0986/Text-Utils-react",
+      status: "COMPLETED",
+      highlight: "Comprehensive text manipulation tools",
+      href: "https://musical-clafoutis-734d23.netlify.app/",
+      slug: "text-utils-react",
+    },
   ];
 
   return (
@@ -173,7 +177,9 @@ export default function AllProjects() {
             </span>
           </h2>
           <p className="max-w-2xl text-muted text-lg">
-            A comprehensive showcase of my full-stack development projects, demonstrating a range of skills from backend architecture and API design to frontend UI/UX and product thinking.
+            A comprehensive showcase of my full-stack development projects,
+            demonstrating a range of skills from backend architecture and API
+            design to frontend UI/UX and product thinking.
           </p>
           <div className="mt-4 w-16 h-1 bg-gradient-to-r from-indigo-500 to-indigo-700 rounded-full" />
         </div>
@@ -279,15 +285,15 @@ export default function AllProjects() {
             experiments.
           </p>
           <div className="flex justify-center items-center gap-2">
-          <a
-            href="https://github.com/farhankhan0986"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition"
-          >
-            <Github className="w-4 h-4" />
-            Explore on GitHub
-          </a>
+            <a
+              href="https://github.com/farhankhan0986"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition"
+            >
+              <Github className="w-4 h-4" />
+              Explore on GitHub
+            </a>
           </div>
         </div>
       </div>
