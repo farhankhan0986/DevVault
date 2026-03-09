@@ -222,6 +222,59 @@ export default async function ProjectDetail({ params }) {
       ],
       github: "https://github.com/farhankhan0986/Planixa",
     },
+    aiExpenseTracker: {
+      title: "AI Expense Tracker",
+      role: "Full Stack Developer",
+      description:
+        "AI Expense Tracker is a full-stack personal finance management application that helps users monitor their spending, automatically categorize transactions using AI, and gain meaningful financial insights through interactive analytics dashboards.",
+      problem:
+        "Managing personal finances manually is time-consuming and error-prone. Many users struggle to categorize transactions, identify spending patterns, and maintain a consistent budget. Without clear analytics and insights, it becomes difficult to understand financial behavior and make informed decisions.",
+      solution:
+        "Developed a full-stack application that leverages the Groq API for AI-powered expense categorization and financial insights. The platform allows users to record transactions, analyze spending trends, manage budgets, and receive intelligent suggestions for improving saving habits. The system combines a responsive frontend dashboard with a secure REST API backend and persistent cloud database.",
+      tech: [
+        "React",
+        "Vite",
+        "Tailwind CSS",
+        "Node.js",
+        "Express",
+        "MongoDB Atlas",
+        "JWT Authentication",
+        "Groq API",
+        "Recharts",
+        "Axios"
+      ],
+      architecture: [
+        "Decoupled frontend (React/Vite) and backend (Express) architecture",
+        "MongoDB Atlas for scalable cloud-based data storage",
+        "JWT-based authentication with secure token validation",
+        "Groq API integration for AI-powered transaction categorization",
+        "RESTful API design for expense, analytics, and budget management",
+        "Client-side routing with React Router",
+        "Interactive data visualization using Recharts",
+        "Frontend deployed on Vercel and backend hosted on Render",
+      ],
+      features: [
+        "AI-powered automatic expense categorization using Groq",
+        "Expense tracking with category tagging and transaction history",
+        "Monthly and daily spending analytics with interactive charts",
+        "Budget management with category-based spending limits",
+        "Smart financial insights and suggestions based on spending behavior",
+        "Secure user authentication with JWT-based login and registration",
+        "Upload financial statements for automated transaction processing",
+        "Responsive dashboard optimized for desktop and mobile devices",
+      ],
+      learnings: [
+        "Integrating Groq AI APIs for real-time financial data classification",
+        "Designing RESTful APIs with Express for scalable backend services",
+        "Managing NoSQL data structures in MongoDB for expense records",
+        "Implementing secure authentication with JWT tokens",
+        "Building interactive financial dashboards with Recharts",
+        "Handling file uploads and parsing transaction data",
+        "Deploying full-stack applications using Vercel and Render",
+        "Designing responsive fintech-style dashboards with Tailwind CSS",
+      ],
+      github: "https://github.com/farhankhan0986/AI-Expense-Tracker-",
+    }
   };
 
   const project = projects[slug];
