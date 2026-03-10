@@ -291,7 +291,67 @@ export default async function ProjectDetail({ params }) {
         "Designing responsive fintech-style dashboards with Tailwind CSS",
       ],
       github: "https://github.com/farhankhan0986/AI-Expense-Tracker-",
-    }
+    },
+    culinaria: {
+  title: "Culinaria",
+  role: "Full Stack Developer (AI Product Build)",
+  description:
+    "Culinaria is an AI-powered culinary platform designed to help users discover, create, and interact with recipes through a modern full-stack application. The platform combines a curated recipe database with an AI Sous-Chef assistant that helps users generate recipes, answer cooking questions, and explore ingredients. Built using a MERN-style architecture with a Vite + React frontend and an Express + MongoDB backend, the project focuses on building a real-world AI-integrated consumer product with authentication, personalized favorites, recipe ratings, and an editorial-style UI.",
+
+  problem:
+    "Most recipe websites are static content libraries with limited interactivity and no intelligent assistance. Users cannot easily generate new recipes, ask contextual cooking questions, or personalize their cooking experience with saved favorites and ratings.",
+
+  solution:
+    "Built a full-stack recipe platform that integrates AI-assisted recipe generation and conversational cooking support through a custom AI Sous-Chef. The system enables users to browse recipes, create their own dishes, save favorites, rate recipes, and interact with an AI assistant that provides cooking guidance and generates new recipes dynamically.",
+
+  tech: [
+    "React",
+    "Vite",
+    "Node.js",
+    "Express",
+    "MongoDB Atlas",
+    "Mongoose",
+    "JWT Authentication",
+    "Groq AI (LLM)",
+    "REST APIs",
+    "Tailwind CSS",
+    "Framer Motion"
+  ],
+
+  architecture: [
+    "Full-stack MERN-style architecture with a React frontend and Express backend",
+    "RESTful API design for recipes, authentication, ratings, favorites, and AI features",
+    "MongoDB Atlas database storing users, recipes, ratings, and favorites",
+    "JWT-based authentication with secure token storage",
+    "AI integration via Groq API for recipe generation and conversational AI assistance",
+    "Component-driven frontend architecture with reusable UI and modal components",
+    "Client-side state management for recipes, favorites, chat messages, and filters",
+  ],
+
+  features: [
+    "User authentication with signup and login",
+    "Browse recipes with category and cuisine filters",
+    "Search recipes by ingredients, cuisine, or category",
+    "Create and publish custom recipes",
+    "Save favorite recipes for personalized cooking lists",
+    "Recipe rating system with comments",
+    "AI recipe generator that creates new dishes from prompts",
+    "AI Sous-Chef chat assistant for cooking help and ingredient suggestions",
+    "Shopping list builder from recipe ingredients",
+    "Cooking mode with step-by-step recipe guidance",
+  ],
+
+  learnings: [
+    "Integrating LLM APIs into full-stack applications",
+    "Designing scalable REST APIs for multi-feature platforms",
+    "Managing complex React state across modals, chat, and user interactions",
+    "Handling deployment for full-stack apps using Vercel (frontend) and Render (backend)",
+    "Implementing user-centric features like favorites, ratings, and shopping lists",
+    "Building AI-assisted consumer applications with conversational interfaces",
+  ],
+
+  github: "https://github.com/farhankhan0986/Culinaria",
+},
   };
 
   const project = projects[slug];

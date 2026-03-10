@@ -28,6 +28,49 @@ export default function Projects() {
       slug: "hiresight",
     },
     {
+      id: 8,
+      title: "Culinaria",
+      description:
+      "An AI-powered recipe platform where users can discover, create, and manage recipes while collaborating with an intelligent AI Sous-Chef. Features include AI recipe generation, favorites, ratings, shopping lists, and a modern full-stack MERN architecture.",
+      image: "/images/culinaria.png",
+      tech: [
+        "React",
+        "Vite",
+        "Node.js",
+        "Express",
+        "MongoDB Atlas",
+        "JWT Authentication",
+        "Groq AI (LLM)",
+        "REST API",
+        "Full-Stack MERN"
+      ],
+      github: "https://github.com/farhankhan0986/Culinaria",
+      status: "COMPLETED",
+      highlight: "AI-Powered Recipe Platform with Interactive AI Sous-Chef",
+      href: "https://culinaria-wheat.vercel.app/",
+      slug: "culinaria",
+    },
+    {
+      id: 2,
+      title: "Planixa",
+      description:
+      "A full-stack task management webapp built as part of the Anything.ai Full Stack Intern assignment, featuring secure authentication, profile management, and a modern tasks UI with search and filter.",
+      image: "/images/planixa.png",
+      tech: [
+        "Next.js 16",
+        "React",
+        "Tailwind CSS",
+        "MongoDB",
+        "JWT Authentication",
+        "Framer Motion",
+      ],
+      github: "https://github.com/farhankhan0986/Planixa",
+      status: "COMPLETED",
+      highlight: "Full-Stack Dashboard & Auth Flow",
+      href: "https://planixa.vercel.app/",
+      slug: "planixa",
+    },
+    {
       id: 6,
       title: "PromptForge",
       description:
@@ -49,40 +92,40 @@ export default function Projects() {
       href: "https://promptforge-blush.vercel.app",
       slug: "promptforge",
     },
-
-    {
-      id: 2,
-      title: "IDVault",
-      description:
-        "A secure identity and data management system focused on controlled access, validation, and backend-first security principles.",
-      image: "/images/idvault.png",
-      tech: ["Node.js", "Express", "Next.js", "MongoDB", "Auth"],
-      github: "https://github.com/farhankhan0986/IDVault",
-      status: "COMPLETED",
-      highlight: "Security-First Design",
-      href: "https://id-vault.vercel.app/",
-      slug: "idvault",
-    },
-    {
-      id: 3,
-      title: "Sentinel Guard",
-      description:
-        "A multi-tenant API firewall and security platform built with Next.js middleware. Provides request interception, rate limiting, attack detection, logging, and an admin dashboard for real-time security insights.",
-      image: "/images/sentinal.png",
-      tech: [
-        "Next.js",
-        "Node.js",
-        "Middleware",
-        "MongoDB",
-        "JWT",
-        "Security Engineering",
-      ],
-      github: "https://github.com/farhankhan0986/Sentinel-Guard",
-      status: "COMPLETED",
-      highlight: "Real-world API Firewall & Security Platform",
-      href: "https://sentinel-guard-eb9e.vercel.app/",
-      slug: "sentinel-guard",
-    },
+    
+    // {
+    //   id: 2,
+    //   title: "IDVault",
+    //   description:
+    //     "A secure identity and data management system focused on controlled access, validation, and backend-first security principles.",
+    //   image: "/images/idvault.png",
+    //   tech: ["Node.js", "Express", "Next.js", "MongoDB", "Auth"],
+    //   github: "https://github.com/farhankhan0986/IDVault",
+    //   status: "COMPLETED",
+    //   highlight: "Security-First Design",
+    //   href: "https://id-vault.vercel.app/",
+    //   slug: "idvault",
+    // },
+    // {
+    //   id: 3,
+    //   title: "Sentinel Guard",
+    //   description:
+    //     "A multi-tenant API firewall and security platform built with Next.js middleware. Provides request interception, rate limiting, attack detection, logging, and an admin dashboard for real-time security insights.",
+    //   image: "/images/sentinal.png",
+    //   tech: [
+    //     "Next.js",
+    //     "Node.js",
+    //     "Middleware",
+    //     "MongoDB",
+    //     "JWT",
+    //     "Security Engineering",
+    //   ],
+    //   github: "https://github.com/farhankhan0986/Sentinel-Guard",
+    //   status: "COMPLETED",
+    //   highlight: "Real-world API Firewall & Security Platform",
+    //   href: "https://sentinel-guard-eb9e.vercel.app/",
+    //   slug: "sentinel-guard",
+    // },
     // {
     //   id: 4,
     //   title: "Chai Culture",
@@ -116,6 +159,29 @@ export default function Projects() {
     //   href: "https://planixa.vercel.app/",
     //   slug: "planixa",
     // },
+//     {
+//   id: 7,
+//   title: "Culinaria",
+//   description:
+//     "A modern AI-powered culinary platform where users can discover, create, and manage recipes while collaborating with an intelligent AI Sous-Chef. Built with a full-stack MERN architecture, Culinaria allows users to search recipes by cuisine and category, generate new recipes using AI, rate dishes, save favorites, maintain shopping lists, and interact with an AI assistant for cooking guidance and ingredient suggestions. The platform includes authentication, user profiles, real-time recipe management, and a beautifully designed editorial-style UI.",
+//   image: "/images/culinaria.png",
+//   tech: [
+//     "React",
+//     "Vite",
+//     "Node.js",
+//     "Express",
+//     "MongoDB Atlas",
+//     "JWT Authentication",
+//     "Groq AI (LLM)",
+//     "REST API",
+//     "Full-Stack MERN"
+//   ],
+//   github: "https://github.com/farhankhan0986/Culinaria",
+//   status: "COMPLETED",
+//   highlight: "AI-Powered Recipe Platform with Interactive AI Sous-Chef",
+//   href: "https://culinaria-editorial.vercel.app/",
+//   slug: "culinaria",
+// }
   ];
 
   return (

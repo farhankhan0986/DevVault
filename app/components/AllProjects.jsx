@@ -54,68 +54,83 @@ export default function AllProjects() {
     //   slug: "idvault",
     // },
     // {
-      //   id: 3,
-      //   title: "Sentinel Guard",
-      //   description:
-      //     "A multi-tenant API firewall and security platform built with Next.js middleware. Provides request interception, rate limiting, attack detection, logging, and an admin dashboard for real-time security insights.",
-      //   image: "/images/sentinal.png",
-      //   tech: [
-        //     "Next.js",
-        //     "Node.js",
-        //     "Middleware",
-        //     "MongoDB",
-        //     "JWT",
-        //     "Security Engineering",
-        //   ],
-        //   github: "https://github.com/farhankhan0986/Sentinel-Guard",
-        //   status: "COMPLETED",
-        //   highlight: "Real-world API Firewall & Security Platform",
-        //   href: "https://sentinel-guard-eb9e.vercel.app/",
-        //   slug: "sentinel-guard",
-        // },
-        {
-          id: 7,
-          title: "AI Expense Tracker",
-          description: "A full-stack AI-powered expense management platform that helps users track daily spending, automatically categorize transactions using Groq-powered AI, analyze spending patterns through interactive analytics dashboards, and receive smart budgeting insights to improve financial habits.",
-          image: "/images/expense.png",
-          tech: [
-            "React",
-            "Node.js",
-            "Express",
-            "MongoDB",
-            "JavaScript",
-            "Tailwind CSS",
-            "Groq AI",
-            "REST API",
-            "JWT Authentication"
-          ],
-          github: "https://github.com/farhankhan0986/AI-Expense-Tracker-",
-          status: "COMPLETED",
-          highlight: "Groq AI-powered automatic expense categorization and financial insights",
-          href: "https://ai-expense-tracker-kappa-sooty.vercel.app/",
-          slug: "aiExpenseTracker",
-        },
-        {
-          id: 2,
-          title: "Planixa",
-          description:
-          "A full-stack task management webapp built as part of the Anything.ai Full Stack Intern assignment, featuring secure authentication, profile management, and a modern tasks UI with search and filter.",
-          image: "/images/planixa.png",
-          tech: [
-            "Next.js 16",
-            "React",
-            "Tailwind CSS",
-            "MongoDB",
-            "JWT Authentication",
-            "Framer Motion",
-          ],
-          github: "https://github.com/farhankhan0986/Planixa",
-          status: "COMPLETED",
-          highlight: "Full-Stack Dashboard & Auth Flow",
-          href: "https://planixa.vercel.app/",
-          slug: "planixa",
-        },
-        {
+    //   id: 3,
+    //   title: "Sentinel Guard",
+    //   description:
+    //     "A multi-tenant API firewall and security platform built with Next.js middleware. Provides request interception, rate limiting, attack detection, logging, and an admin dashboard for real-time security insights.",
+    //   image: "/images/sentinal.png",
+    //   tech: [
+    //     "Next.js",
+    //     "Node.js",
+    //     "Middleware",
+    //     "MongoDB",
+    //     "JWT",
+    //     "Security Engineering",
+    //   ],
+    //   github: "https://github.com/farhankhan0986/Sentinel-Guard",
+    //   status: "COMPLETED",
+    //   highlight: "Real-world API Firewall & Security Platform",
+    //   href: "https://sentinel-guard-eb9e.vercel.app/",
+    //   slug: "sentinel-guard",
+    // },
+    
+    {
+      id: 7,
+      title: "AI Expense Tracker",
+      description: "A full-stack AI-powered expense management platform that helps users track daily spending, automatically categorize transactions using Groq-powered AI, analyze spending patterns through interactive analytics dashboards, and receive smart budgeting insights to improve financial habits.",
+      image: "/images/expense.png",
+      tech: [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "JavaScript",
+        "Tailwind CSS",
+        "Groq AI",
+        "REST API",
+        "JWT Authentication"
+      ],
+      github: "https://github.com/farhankhan0986/AI-Expense-Tracker-",
+      status: "COMPLETED",
+      highlight: "Groq AI-powered automatic expense categorization and financial insights",
+      href: "https://ai-expense-tracker-kappa-sooty.vercel.app/",
+      slug: "aiExpenseTracker",
+    },
+    
+    {
+      id: 2,
+      title: "IDVault",
+      description:
+        "A secure identity and data management system focused on controlled access, validation, and backend-first security principles.",
+      image: "/images/idvault.png",
+      tech: ["Node.js", "Express", "Next.js", "MongoDB", "Auth"],
+      github: "https://github.com/farhankhan0986/IDVault",
+      status: "COMPLETED",
+      highlight: "Security-First Design",
+      href: "https://id-vault.vercel.app/",
+      slug: "idvault",
+    },
+    {
+      id: 3,
+      title: "Sentinel Guard",
+      description:
+        "A multi-tenant API firewall and security platform built with Next.js middleware. Provides request interception, rate limiting, attack detection, logging, and an admin dashboard for real-time security insights.",
+      image: "/images/sentinal.png",
+      tech: [
+        "Next.js",
+        "Node.js",
+        "Middleware",
+        "MongoDB",
+        "JWT",
+        "Security Engineering",
+      ],
+      github: "https://github.com/farhankhan0986/Sentinel-Guard",
+      status: "COMPLETED",
+      highlight: "Real-world API Firewall & Security Platform",
+      href: "https://sentinel-guard-eb9e.vercel.app/",
+      slug: "sentinel-guard",
+    },
+    {
       id: 1,
       title: "Chai Culture",
       description:
@@ -155,7 +170,7 @@ export default function AllProjects() {
       slug: "news-equator-react",
     },
     {
-      id: 3,
+      id: 6,
       title: "ToDo-List",
       description:
         "A minimalistic and intuitive task management application to help users track daily activities with priorities and completion status.",
@@ -168,7 +183,7 @@ export default function AllProjects() {
       slug: "todo-list",
     },
     {
-      id: 6,
+      id: 8,
       title: "Text Utils",
       description:
         "A text utility toolkit providing features like word counting, case conversion, and whitespace cleanup in an interactive React UI.",
@@ -227,8 +242,8 @@ export default function AllProjects() {
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition" />
                 <span
                   className={`absolute top-4 right-4 px-3 py-1 text-xs font-semibold rounded-full ${project.status === "ONGOING"
-                      ? "bg-cyan-400 text-black"
-                      : "bg-emerald-400 text-black"
+                    ? "bg-cyan-400 text-black"
+                    : "bg-emerald-400 text-black"
                     }`}
                 >
                   {project.status}
