@@ -1,36 +1,53 @@
+import { ArrowLeft, Github, CheckCircle2, Layers, Lightbulb, Target, Zap } from "lucide-react";
+
 export default async function ProjectDetail({ params }) {
   const { slug } = await params;
 
   const projects = {
-    hiresight: {
-      title: "HireSight",
-      role: "Backend-focused Full-Stack Developer",
-      description:
-        "HireSight is an intelligent hiring support platform designed to streamline structured candidate evaluation and screening workflows.",
-      problem:
-        "Hiring pipelines often lack consistency and scalable evaluation mechanisms.",
-      solution:
-        "Designed a backend-first system with modular APIs, role-based access, and clean data flow.",
-      tech: [
-        "Node.js",
-        "Express",
-        "MongoDB",
-        "REST APIs",
-        "JWT Authentication",
-      ],
-      architecture: [
-        "Modular backend architecture",
-        "RBAC-based authorization",
-        "Secure REST endpoints",
-        "Scalable MongoDB schemas",
-      ],
-      learnings: [
-        "Backend system scalability",
-        "Secure API design",
-        "Production-grade data modeling",
-      ],
-      github: "https://github.com/farhankhan0986/HireSight-AI",
-    },
+       hiresight: {
+  title: "HireSight-AI",
+  role: "Full-Stack AI Software Engineer",
+  description:
+    "HireSight-AI is an AI-powered recruitment intelligence platform designed to automate the early stages of the hiring pipeline. The system leverages Large Language Models (LLMs) through the Groq API to parse unstructured PDF resumes, extract structured candidate data such as technical skills, frameworks, years of experience, and education, and compute objective match scores against job requirements. The platform provides recruiters with an AI-ranked candidate pipeline while offering candidates a streamlined application experience. By combining AI-powered resume analysis with a modern applicant tracking interface, HireSight significantly reduces manual resume screening time and improves hiring efficiency.",
+  problem:
+    "Modern hiring pipelines often require recruiters to manually review hundreds of resumes for a single role. Most resumes are unstructured PDFs with inconsistent formatting, making it difficult to quickly extract relevant information such as skills, technologies, and experience. This manual process introduces bias, delays hiring cycles, and increases the risk of overlooking highly qualified candidates.",
+  solution:
+    "Developed a full-stack recruitment platform using Next.js 15 and Groq's Llama-3 models to automate resume analysis and candidate ranking. The system parses uploaded resumes, extracts structured candidate information, and evaluates each applicant against job-specific requirements using an AI-driven scoring pipeline. Recruiters access a dedicated dashboard where candidates are automatically ranked by relevance, while candidates can browse open roles and submit applications through a simple and intuitive interface.",
+  tech: [
+    "Next.js 15 (App Router)",
+    "React 19",
+    "Tailwind CSS",
+    "Node.js",
+    "MongoDB Atlas",
+    "Mongoose ODM",
+    "Groq AI (Llama-3)",
+    "PDF Parsing & Text Extraction",
+    "JWT Authentication / NextAuth",
+    "RESTful API Architecture"
+  ],
+  architecture: [
+    "Serverless API routes and Server Actions for scalable backend logic",
+    "AI-powered resume parsing pipeline using Groq LLM for structured candidate data extraction",
+    "Resume processing workflow for skill extraction, normalization, and match scoring",
+    "Dual-sided Role-Based Access Control (RBAC) for recruiters and candidates",
+    "Scalable MongoDB schema for job postings, applications, and candidate profiles",
+    "Secure authentication and protected dashboard routes using JWT/NextAuth",
+    "Component-driven UI architecture using React and Tailwind CSS",
+    "Optimized Next.js server components for improved performance and reduced client-side JavaScript"
+  ],
+  learnings: [
+    "Designing AI-powered pipelines for structured data extraction from unstructured documents",
+    "Prompt engineering techniques to reliably extract JSON-formatted candidate information using LLMs",
+    "Handling file uploads, storage, and PDF parsing in Node.js environments",
+    "Building scalable full-stack applications using Next.js App Router architecture",
+    "Designing recruiter-focused dashboards and candidate workflows for real-world hiring use cases",
+    "Implementing role-based access control and secure authentication flows",
+    "Optimizing server components and asynchronous data fetching in Next.js 15",
+    "Structuring MongoDB schemas for scalable applicant tracking systems"
+  ],
+  github: "https://github.com/farhankhan0986/HireSight-AI",
+},
+
     idvault: {
       title: "IDVault",
       role: "Backend & Security Engineer",
@@ -282,135 +299,137 @@ export default async function ProjectDetail({ params }) {
   if (!project) {
     return (
       <div className="min-h-screen flex items-center justify-center bg-background">
-        <p className="text-xl text-muted">Project not found</p>
+        <p className="text-xl text-muted font-medium">Project not found</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground">
-      {/* Hero Section */}
-      <div className="max-w-6xl mx-auto px-6 py-12 lg:px-10 lg:py-20">
-        <div className="space-y-5 mb-12">
-          <div className="flex justify-between items-start">
-            <h1 className="text-4xl lg:text-6xl font-bold bg-gradient-to-r from-blue-400 via-blue-500 to-blue-600 bg-clip-text text-transparent">
-              {project.title}
-            </h1>
-            <a
-              href="/#projects"
-              className="inline-flex items-center gap-2 px-4 py-2 rounded-xl border-2 border-border hover:border-border/50 hover:bg-[rgb(var(--border))] text-sm text-foreground font-semibold transition-all"
-            >
-              <span className="text-base">←</span>
-              Back
-            </a>
+    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
+      <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
+        {/* Back Button */}
+        <a
+          href="/#projects"
+          className="inline-flex items-center gap-2 text-sm font-medium text-muted hover:text-foreground transition-colors mb-12 group"
+        >
+          <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
+          Back to Projects
+        </a>
+
+        {/* Header Section */}
+        <header className="space-y-6 mb-16">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+            {project.title}
+          </h1>
+          <div className="flex flex-wrap items-center gap-4 text-sm font-medium text-muted">
+            <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-card border border-border">
+              <Zap className="w-4 h-4 text-primary" />
+              {project.role}
+            </span>
           </div>
-          <p className="text-lg lg:text-2xl text-muted font-light">
-            {project.role}
-          </p>
-          <p className="text-base lg:text-lg text-foreground/80 max-w-3xl leading-relaxed">
+          <p className="text-lg md:text-xl text-muted leading-relaxed max-w-3xl">
             {project.description}
           </p>
-        </div>
+        </header>
 
         {/* Problem & Solution Cards */}
-        <div className="grid md:grid-cols-2 gap-6 mb-16">
-          <div className="bg-red-500/10 dark:bg-red-900/20 border-2 border-red-500/30 dark:border-red-800/40 rounded-xl p-6 hover:border-red-500/50 transition-colors">
-            <h2 className="text-xl font-semibold text-red-600 dark:text-red-400 mb-3">
-              The Problem
-            </h2>
-            <p className="text-base text-foreground/80 leading-relaxed">
-              {project.problem}
-            </p>
+        {(project.problem || project.solution) && (
+          <div className="grid md:grid-cols-2 gap-6 mb-16">
+            {project.problem && (
+              <div className="bg-card border border-border rounded-2xl p-6 md:p-8 flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center mb-2">
+                  <Target className="w-5 h-5 text-red-500" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground">The Challenge</h3>
+                <p className="text-muted leading-relaxed">
+                  {project.problem}
+                </p>
+              </div>
+            )}
+            {project.solution && (
+              <div className="bg-card border border-border rounded-2xl p-6 md:p-8 flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center mb-2">
+                  <Lightbulb className="w-5 h-5 text-green-500" />
+                </div>
+                <h3 className="text-lg font-semibold text-foreground">The Solution</h3>
+                <p className="text-muted leading-relaxed">
+                  {project.solution}
+                </p>
+              </div>
+            )}
           </div>
-          <div className="bg-green-500/10 dark:bg-green-900/20 border-2 border-green-500/30 dark:border-green-800/40 rounded-xl p-6 hover:border-green-500/50 transition-colors">
-            <h2 className="text-xl font-semibold text-green-600 dark:text-green-400 mb-3">
-              The Solution
-            </h2>
-            <p className="text-base text-foreground/80 leading-relaxed">
-              {project.solution}
-            </p>
-          </div>
-        </div>
+        )}
 
         {/* Tech Stack */}
-        <Block title="Technology Stack">
-          <div className="flex flex-wrap gap-3">
-            {project.tech.map((t, i) => (
-              <span
-                key={i}
-                className="px-4 py-2 bg-card border-2 border-border rounded-full text-sm font-semibold text-foreground hover:border-primary/50 hover:bg-primary/10 transition-all"
-              >
-                {t}
-              </span>
-            ))}
+        {project.tech && project.tech.length > 0 && (
+          <div className="mb-16">
+            <h2 className="text-2xl font-bold tracking-tight text-foreground mb-6">Technologies Used</h2>
+            <div className="flex flex-wrap gap-2">
+              {project.tech.map((t, i) => (
+                <span
+                  key={i}
+                  className="px-3 py-1.5 bg-card text-foreground text-sm font-medium rounded-lg border border-border shadow-sm"
+                >
+                  {t}
+                </span>
+              ))}
+            </div>
           </div>
-        </Block>
+        )}
 
-        {/* Architecture */}
-        <Block title="Architecture & Design">
-          <div className="grid md:grid-cols-2 gap-4">
-            {project.architecture.map((item, i) => (
-              <div
-                key={i}
-                className="bg-card border-2 border-border rounded-lg p-5 hover:border-primary/50 hover:bg-foreground/5 transition-all"
-              >
-                <div className="flex items-start gap-3">
-                  <span className="text-xl text-primary font-bold">▸</span>
-                  <p className="text-sm lg:text-base text-foreground/80 leading-relaxed">
-                    {item}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Block>
+        <div className="grid md:grid-cols-2 gap-12 mb-16">
+          {/* Architecture (if applies) */}
+          {project.architecture && project.architecture.length > 0 && (
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground mb-6 flex items-center gap-2">
+                <Layers className="w-5 h-5 text-primary" />
+                Architecture
+              </h2>
+              <ul className="space-y-4">
+                {project.architecture.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
+                    <span className="text-muted leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
-        {/* Key Learnings */}
-        <Block title="Key Learnings">
-          <div className="space-y-4">
-            {project.learnings.map((item, i) => (
-              <div
-                key={i}
-                className="bg-card border-2 border-border rounded-lg p-5 hover:border-accent/50 hover:bg-foreground/5 transition-all"
-              >
-                <div className="flex items-start gap-3">
-                  <span className="text-lg text-accent">✦</span>
-                  <p className="text-sm lg:text-base text-foreground/80 leading-relaxed">
-                    {item}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
-        </Block>
-
-        {/* CTA Button */}
-        <div className="mt-12 flex justify-center">
-          <a
-            href={project.github}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-3 px-8 py-4 rounded-xl border-2 border-border text-sm font-semibold text-foreground hover:bg-[rgb(var(--border))] hover:text-primary backdrop-blur-sm transition-all shadow-lg"
-          >
-            <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-              <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z" />
-            </svg>
-            <span>View Code on GitHub</span>
-            <span className="text-base">→</span>
-          </a>
+          {/* Key Learnings (if applies) */}
+          {project.learnings && project.learnings.length > 0 && (
+            <div>
+              <h2 className="text-2xl font-bold tracking-tight text-foreground mb-6 flex items-center gap-2">
+                <Lightbulb className="w-5 h-5 text-accent" />
+                Key Learnings
+              </h2>
+              <ul className="space-y-4">
+                {project.learnings.map((item, i) => (
+                  <li key={i} className="flex items-start gap-3">
+                    <div className="w-1.5 h-1.5 rounded-full bg-foreground/30 shrink-0 mt-2.5" />
+                    <span className="text-muted leading-relaxed">{item}</span>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
         </div>
-      </div>
-    </div>
-  );
-}
 
-function Block({ title, children }) {
-  return (
-    <div className="mb-12">
-      <h2 className="text-2xl lg:text-3xl font-bold mb-6 bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">
-        {title}
-      </h2>
-      {children}
+        {/* Call to Action */}
+        {project.github && (
+          <div className="pt-8 border-t border-border flex justify-center md:justify-start">
+            <a
+              href={project.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-900 text-background text-sm font-semibold hover:opacity-90 transition-opacity shadow-lg border border-border hover:shadow-none hover:bg-slate-900/50"
+            >
+              <Github className="w-4 h-4" />
+              View Source Code
+            </a>
+          </div>
+        )}
+      </div>
     </div>
   );
 }

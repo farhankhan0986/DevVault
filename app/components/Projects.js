@@ -1,10 +1,32 @@
 "use client";
 
 import Link from "next/link";
-import { ExternalLink, Github,Folder  } from "lucide-react";
+import { ExternalLink, Github, Folder } from "lucide-react";
 
 export default function Projects() {
   const projects = [
+    {
+      id: 1,
+      title: "HireSight-AI",
+      description:
+        "HireSight-AI is an AI-powered recruitment platform that parses PDF resumes using Groq LLMs, extracts candidate skills and experience, and generates match scores against job postings to automate early-stage candidate screening.",
+      image: "/images/hire.png",
+      tech: [
+        "Next.js 15",
+        "Groq AI (Llama)",
+        "MongoDB",
+        "Node.js",
+        "Tailwind CSS",
+        "React",
+        "PDF Parsing",
+        "JWT Authentication"
+      ],
+      github: "https://github.com/farhankhan0986/HireSight-AI",
+      status: "ONGOING",
+      highlight: "AI Resume Parsing & Candidate Ranking Engine",
+      href: "https://hire-sight-ai-sigma.vercel.app",
+      slug: "hiresight",
+    },
     {
       id: 6,
       title: "PromptForge",
@@ -27,19 +49,7 @@ export default function Projects() {
       href: "https://promptforge-blush.vercel.app",
       slug: "promptforge",
     },
-    {
-      id: 1,
-      title: "HireSight-AI",
-      description:
-        "An intelligent hiring support platform focused on structured candidate evaluation and screening workflows. Designed to streamline hiring decisions with a scalable backend architecture and clean data flow.",
-      image: "/images/hire.png",
-      tech: ["React", "Node.js", "Express", "MongoDB", "REST APIs"],
-      github: "https://github.com/farhankhan0986/HireSight-AI",
-      status: "ONGOING",
-      highlight: "Scalable Backend Architecture",
-      href: "https://hire-sight-ai-sigma.vercel.app",
-      slug: "hiresight",
-    },
+
     {
       id: 2,
       title: "IDVault",
@@ -140,9 +150,8 @@ export default function Projects() {
             >
               {/* Image */}
               <div
-                className={`group relative rounded-2xl duration-500 active:-translate-z-2 active:scale-105 active:duration-500 active:transition-transform overflow-hidden border border-border bg-card ${
-                  index % 2 === 1 ? "lg:order-2" : ""
-                }`}
+                className={`group relative rounded-2xl duration-500 active:-translate-z-2 active:scale-105 active:duration-500 active:transition-transform overflow-hidden border border-border bg-card ${index % 2 === 1 ? "lg:order-2" : ""
+                  }`}
               >
                 <img
                   src={project.image}
@@ -152,11 +161,10 @@ export default function Projects() {
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition" />
                 <span
-                  className={`absolute top-4 right-4 px-3 py-1 text-xs font-semibold rounded-full ${
-                    project.status === "ONGOING"
-                      ? "bg-cyan-400 text-black"
-                      : "bg-emerald-400 text-black"
-                  }`}
+                  className={`absolute top-4 right-4 px-3 py-1 text-xs font-semibold rounded-full ${project.status === "ONGOING"
+                    ? "bg-cyan-400 text-black"
+                    : "bg-emerald-400 text-black"
+                    }`}
                 >
                   {project.status}
                 </span>
@@ -232,22 +240,22 @@ export default function Projects() {
             experiments.
           </p>
           <div className="flex justify-center items-center gap-8">
-          <a
-            href="https://github.com/farhankhan0986"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition"
-          >
-            <Github className="w-4 h-4" />
-            Explore on GitHub
-          </a>
-          <a
-            href="/projects/allprojects"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition"
-          >
-            <Folder  className="w-4 h-4" />
-            View All Projects
-          </a>
+            <a
+              href="https://github.com/farhankhan0986"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition"
+            >
+              <Github className="w-4 h-4" />
+              Explore on GitHub
+            </a>
+            <a
+              href="/projects/allprojects"
+              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition"
+            >
+              <Folder className="w-4 h-4" />
+              View All Projects
+            </a>
           </div>
         </div>
       </div>
