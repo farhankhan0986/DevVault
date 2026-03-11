@@ -198,7 +198,7 @@ export default function Hero() {
                 <img
                   src="/images/farhan.jpg"
                   alt="Farhan Abid"
-                  className="relative z-10 w-full h-full object-cover rounded-2xl shadow-2xl"
+                  className="relative z-10 lg:w-full lg:h-full w-72 h-72 object-cover rounded-2xl shadow-2xl"
                   loading="lazy"
                 />
 
