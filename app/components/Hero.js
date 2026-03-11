@@ -19,7 +19,7 @@ export default function Hero() {
         className="absolute inset-0 -z-10 opacity-[0.06] bg-[linear-gradient(to_right,rgba(0,0,0,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.12)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.12)_1px,transparent_1px)] bg-[size:40px_40px]"
       />
 
-      <div className="relative max-w-6xl mx-auto px-6 w-full">
+      <div className="relative max-w-6xl mx-auto px-6 w-full mt-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left */}
           <div className="space-y-8">
@@ -106,7 +106,7 @@ export default function Hero() {
           {/* Right */}
           <div className="flex justify-center">
             {/* Mobile initials */}
-            <div className="flex md:hidden items-center justify-center w-full">
+            {/* <div className="flex md:hidden items-center justify-center w-full">
               <div
                 className="relative flex items-center justify-center"
                 style={{
@@ -115,13 +115,13 @@ export default function Hero() {
                   right: "-140px",
                 }}
               >
-                {/* Glow behind avatar */}
+                Glow behind avatar
                 <div className="absolute h-32 w-32 bg-indigo-500/30 blur-2xl rounded-full" />
 
-                {/* Spinning ring */}
+                Spinning ring
                 <div className="absolute h-28 w-28 rounded-full border-2 border-dashed border-indigo-400/40 animate-[spin_6s_linear_infinite]" />
 
-                {/* Avatar image */}
+                Avatar image
                 <div className="relative h-20 w-20 rounded-full overflow-hidden ring-2 ring-indigo-500/30 shadow-lg shadow-indigo-500/20 hover:ring-indigo-400/60 hover:scale-105 transition-all duration-300 cursor-pointer">
                   <img
                     src="/images/farhan.jpg"
@@ -131,7 +131,7 @@ export default function Hero() {
                   />
                 </div>
 
-                {/* Floating tech markers */}
+                Floating tech markers
                 {[
                   {
                     text: "React",
@@ -185,10 +185,10 @@ export default function Hero() {
                   </div>
                 ))}
               </div>
-            </div>
+            </div> */}
 
             {/* Desktop image */}
-            <div className="hidden lg:flex justify-center relative -top-13 left-15">
+            <div className="flex flex-col lg:flex-row justify-center relative lg:-top-13 lg:left-15 mt-10">
               <div className="absolute h-full w-full rounded-full border-2 border-dashed border-indigo-400/40 animate-[spin_3s_linear_infinite]" />
               <div className="relative w-full max-w-md aspect-square">
                 {/* Glow behind image */}
