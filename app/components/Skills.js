@@ -215,11 +215,11 @@ export default function Skills() {
             return (
               <div
                 key={category}
-                className="group relative rounded-2xl border border-indigo-500/20 bg-white/[0.03] backdrop-blur-md p-7 transition-all duration-500 hover:-translate-y-1.5 hover:shadow-[0_0_32px_rgba(99,102,241,0.15)] hover:border-indigo-500/40"
+                className="group relative rounded-2xl border active:border-indigo-500/40 hover:border-indigo-500/40 border-indigo-500/20 bg-white/[0.03] backdrop-blur-md p-7 transition-all duration-500 active:-translate-y-1.5 hover:-translate-y-1.5 hover:shadow-[0_0_32px_rgba(99,102,241,0.15)] active:shadow-[0_0_32px_rgba(99,102,241,0.15)]"
               >
                 {/* Category header */}
                 <div className="flex items-center gap-3 mb-6">
-                  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-indigo-500/10 text-muted/10 ring-1 ring-indigo-500/20 transition-colors duration-300 group-hover:bg-indigo-500/20 group-hover:text-indigo-500">
+                  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-indigo-500/10 text-muted/10 ring-1  ring-indigo-500/20 transition-colors duration-300 group-active:bg-indigo-500/20 group-active:text-indigo-500 group-hover:bg-indigo-500/20 group-hover:text-indigo-500">
                     <Icon size={20} strokeWidth={1.8} />
                   </span>
                   <h3 className="text-lg font-bold text-foreground tracking-tight">
@@ -237,12 +237,12 @@ export default function Skills() {
                       <img
                         src={skill.logo}
                         alt={`${skill.name} logo`}
-                        className="w-5 h-5 shrink-0 object-contain transition-transform duration-300"
+                        className="w-5 h-5 shrink-0 object-contain active:scale-120 hover:scale-120 transition-transform duration-300"
                         loading="lazy"
                       />
 
                       <span
-                        className="hover:text-foreground"
+                        className="hover:text-foreground active:text-foreground"
                         onMouseEnter={(e) =>
                           e.currentTarget.previousElementSibling.classList.add(
                             "scale-120",
@@ -298,8 +298,8 @@ export default function Skills() {
                     className={[
                       "group relative rounded-3xl border border-indigo-500/40 bg-white/[0.03] backdrop-blur-xl p-8",
                       "transition-all duration-500 ease-out",
-                      "hover:-translate-y-2 hover:border-indigo-500/40",
-                      "hover:shadow-[0_0_40px_rgba(99,102,241,0.15),0_0_80px_rgba(99,102,241,0.05)]",
+                      "hover:-translate-y-2 active:-translate-y-2 hover:border-indigo-500/40 active:border-indigo-500/40",
+                      "hover:shadow-[0_0_40px_rgba(99,102,241,0.15),0_0_80px_rgba(99,102,241,0.05)] active:shadow-[0_0_40px_rgba(99,102,241,0.15),0_0_80px_rgba(99,102,241,0.05)]",
                       index === proficiencyData.length - 1 &&
                       proficiencyData.length % 3 === 1
                         ? "sm:col-span-2 lg:col-span-1 lg:col-start-2"
@@ -317,7 +317,7 @@ export default function Skills() {
                       .join(" ")}
                   >
                     {/* Ambient glow on hover */}
-                    <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.08),transparent_70%)]" />
+                    <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.08),transparent_70%)]" />
 
                     <div className="relative flex flex-col items-center text-center">
                       {/* Circular progress ring */}
@@ -375,11 +375,11 @@ export default function Skills() {
                         </div>
 
                         {/* Pulse ring on hover */}
-                        <div className="absolute inset-0 rounded-full border-2 border-indigo-500/0 group-hover:border-indigo-500/20 group-hover:scale-110 transition-all duration-700 ease-out" />
+                        <div className="absolute inset-0 rounded-full border-2 border-indigo-500/0 group-hover:border-indigo-500/20 group-active:border-indigo-500/20 group-hover:scale-110 group-active:scale-110 transition-all duration-700 ease-out" />
                       </div>
 
                       {/* Skill name */}
-                      <h4 className="text-lg font-bold text-foreground tracking-tight mb-2 group-hover:text-indigo-300 transition-colors duration-300">
+                      <h4 className="text-lg font-bold text-foreground tracking-tight mb-2 group-hover:text-indigo-300 group-active:text-indigo-300 transition-colors duration-300">
                         {item.skill}
                       </h4>
 

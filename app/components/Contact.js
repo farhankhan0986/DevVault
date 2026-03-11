@@ -84,7 +84,7 @@ export default function Contact() {
           {/* Inner ambient glow */}
           <div
             aria-hidden
-            className="pointer-events-none absolute -top-24 left-1/2 -translate-x-1/2 h-48 w-96 rounded-full bg-[rgb(var(--primary))]/10 blur-3xl"
+            className="pointer-events-none absolute -top-24 left-1/2 group-active:-translate-y-1 group-hover:-translate-y-1 -translate-x-1/2 h-48 w-96 rounded-full bg-[rgb(var(--primary))]/10 blur-3xl"
           />
 
           <p className="relative text-sm font-semibold uppercase tracking-widest text-[rgb(var(--primary))] mb-3">
@@ -145,7 +145,7 @@ export default function Contact() {
           {infoCards.map((item) => (
             <div
               key={item.title}
-              className="group relative overflow-hidden rounded-2xl border border-indigo-500/40 p-7 text-center transition-all duration-500 hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(99,102,241,0.15)] hover:border-[rgb(var(--primary))]/40"
+              className="group relative overflow-hidden rounded-2xl border border-indigo-500/40 p-7 text-center transition-all duration-500 active:-translate-y-2 active:shadow-[0_8px_40px_rgba(99,102,241,0.15)] active:border-[rgb(var(--primary))]/40 hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(99,102,241,0.15)] hover:border-[rgb(var(--primary))]/40"
               style={{
                 background: "rgba(var(--card), 0.6)",
                 backdropFilter: "blur(16px)",
@@ -159,7 +159,7 @@ export default function Contact() {
               />
 
               {/* Icon in gradient circle */}
-              <div className="relative mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[rgb(var(--primary))]/20 to-[rgb(var(--accent))]/20 text-[rgb(var(--primary))] ring-1 ring-[rgb(var(--primary))]/20 transition-all duration-500 group-hover:ring-[rgb(var(--primary))]/40 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.25)]">
+              <div className="relative mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[rgb(var(--primary))]/20 to-[rgb(var(--accent))]/20 text-[rgb(var(--primary))] ring-1 ring-[rgb(var(--primary))]/20 transition-all duration-500 active:ring-[rgb(var(--primary))]/40 active:shadow-[0_0_20px_rgba(99,102,241,0.25)] group-hover:ring-[rgb(var(--primary))]/40 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.25)]">
                 <item.Icon className="h-6 w-6 transition-transform duration-700 group-hover:-translate-y-0.5" />
               </div>
 

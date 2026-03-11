@@ -87,13 +87,13 @@ const TrustBadges = () => {
             >
               {/* Underglow */}
               <div
-                className="pointer-events-none absolute -bottom-2 left-1/2 -translate-x-1/2 h-8 w-3/4 rounded-full blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500"
+                className="pointer-events-none absolute -bottom-2 left-1/2 -translate-x-1/2 h-8 w-3/4 rounded-full blur-xl opacity-0 group-active:opacity-40 group-hover:opacity-40 transition-opacity duration-500"
                 style={{ backgroundColor: item.color }}
               />
 
               {/* Card */}
               <div
-                className="relative rounded-2xl px-4 py-6 text-center border border-white/10 bg-white/5 backdrop-blur-md shadow-sm transition-all duration-300 ease-out group-hover:-translate-y-1.5 group-hover:shadow-lg"
+                className="relative rounded-2xl px-4 py-6 text-center border border-white/10 bg-white/5 backdrop-blur-md shadow-sm transition-all duration-300 ease-out group-active:-translate-y-1.5 group-hover:-translate-y-1.5 group-active:shadow-lg group-hover:shadow-lg"
                 style={{ borderColor: "rgba(255,255,255,0.1)" }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = item.color;
@@ -109,7 +109,7 @@ const TrustBadges = () => {
                   <img
                     src={item.logo}
                     alt={`${item.name} logo`}
-                    className="h-10 w-10 object-contain transition-transform duration-300 group-hover:scale-110"
+                    className="h-10 w-10 object-contain transition-transform duration-300 group-active:scale-110 group-hover:scale-110"
                   />
                 </div>
 

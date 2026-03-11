@@ -138,15 +138,15 @@ export default function About() {
                       WebkitBackdropFilter: "blur(12px)",
                     }}
                   >
-                    <span className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100 bg-[radial-gradient(circle_at_50%_0%,rgba(var(--primary),0.12),transparent_70%)]" />
+                    <span className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-active:opacity-100 group-hover:opacity-100 bg-[radial-gradient(circle_at_50%_0%,rgba(var(--primary),0.12),transparent_70%)]" />
 
                     <div className="relative flex flex-col items-center gap-3">
                       <StatIcon
-                        className="w-5 h-5 transition-all duration-300 group-hover:scale-110"
+                        className="w-5 h-5 transition-all duration-300 group-active:scale-110 group-hover:scale-110"
                         style={{ color: "rgb(var(--primary))" }}
                       />
                       <p
-                        className="text-3xl font-extrabold tracking-tight bg-clip-text text-transparent transition-transform duration-500 group-hover:-translate-y-1"
+                        className="text-3xl font-extrabold tracking-tight bg-clip-text text-transparent transition-transform duration-500 group-active:-translate-y-1 group-hover:-translate-y-1"
                         style={{
                           backgroundImage:
                             "linear-gradient(135deg, rgb(var(--primary)), rgb(var(--accent)))",
@@ -154,7 +154,7 @@ export default function About() {
                       >
                         {stat.value}
                       </p>
-                      <p className="text-sm text-muted transition-colors duration-300 group-hover:text-foreground">
+                      <p className="text-sm text-muted transition-colors duration-300 group-active:text-foreground group-hover:text-foreground">
                         {stat.label}
                       </p>
                     </div>
@@ -171,7 +171,7 @@ export default function About() {
               return (
                 <div
                   key={index}
-                  className="group relative overflow-hidden rounded-2xl border border-border p-6 transition-all duration-500 hover:-translate-y-1 hover:shadow-[0_0_30px_rgba(var(--primary),0.15)]"
+                  className="group relative overflow-hidden rounded-2xl border border-border p-6 transition-all duration-500 hover:-translate-y-1 active:-translate-y-1 hover:shadow-[0_0_30px_rgba(var(--primary),0.15)]"
                   style={{
                     background: "rgba(var(--card), 0.5)",
                     backdropFilter: "blur(12px)",
@@ -196,7 +196,7 @@ export default function About() {
                       }}
                     >
                       <Icon
-                        className="w-6 h-6 transition-all duration-300 ease-out group-hover:-translate-y-0.5 group-hover:scale-110"
+                        className="w-6 h-6 transition-all duration-300 ease-out group-active:-translate-y-0.5 group-hover:-translate-y-0.5 group-active:scale-110 group-hover:scale-110"
                         style={{ color: "rgb(var(--primary))" }}
                       />
                     </div>
@@ -265,7 +265,7 @@ export default function About() {
                   />
 
                   <CompIcon
-                    className="relative shrink-0 w-4 h-4 transition-colors duration-300"
+                    className="relative shrink-0 w-4 h-4 transition-transform duration-300 group-active:-translate-z-1 group-active:scale-110 group-hover:-translate-z-1 group-hover:scale-110"
                     style={{ color: "rgb(var(--primary))" }}
                   />
 

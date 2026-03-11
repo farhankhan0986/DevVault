@@ -189,7 +189,7 @@ export default function Hero() {
 
             {/* Desktop image */}
             <div className="flex flex-col lg:flex-row justify-center relative lg:-top-13 lg:left-15 mt-10">
-              <div className="absolute h-full w-full rounded-full border-2 border-dashed border-indigo-400/40 animate-[spin_3s_linear_infinite]" />
+              <div className="absolute h-full w-full rounded-full border-2 border-dashed border-indigo-400/40 lg:animate-[spin_3s_linear_infinite] animate-spin" />
               <div className="relative w-full max-w-md aspect-square">
                 {/* Glow behind image */}
                 <div className="absolute inset-0 bg-indigo-500/30 blur-3xl rounded-full scale-75" />

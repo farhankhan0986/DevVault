@@ -29,7 +29,7 @@ const fadeUp = {
 export default function Home() {
   return (
     <>
-      <main className="relative overflow-hidden bg-background text-foreground">
+      <main className="relative overflow-hidden bg-background text-foreground select-none">
         {/* subtle background glow */}
         <div
           aria-hidden
