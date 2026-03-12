@@ -51,7 +51,7 @@ export default function Hero() {
             </p>
 
             {/* CTA */}
-            <div className="flex flex-wrap gap-4 pt-2 ">
+            <div className="flex flex-wrap gap-4 pt-2 lg:justify-start justify-center">
               <a
                 href="#projects"
                 className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 active:bg-indigo-700 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
