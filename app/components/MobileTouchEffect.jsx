@@ -4,26 +4,44 @@ import { useEffect } from "react";
 
 export default function MobileTouchEffect() {
   useEffect(() => {
-    const createRipple = (x, y) => {
-      const ripple = document.createElement("span");
-      ripple.className = "tap-ripple";
-      ripple.style.left = x + "px";
-      ripple.style.top = y + "px";
+    const dot = document.createElement("div");
+    const ring = document.createElement("div");
 
-      document.body.appendChild(ripple);
+    dot.className = "tap-dot";
+    ring.className = "tap-ring";
 
-      setTimeout(() => ripple.remove(), 600);
+    document.body.appendChild(dot);
+    document.body.appendChild(ring);
+
+    let ringX = 0;
+    let ringY = 0;
+
+    const movePointer = (x, y) => {
+      // dot moves instantly
+      dot.style.left = x + "px";
+      dot.style.top = y + "px";
+      dot.style.opacity = "1";
+
+      // ring follows with delay
+      ringX += (x - ringX) * 0.2;
+      ringY += (y - ringY) * 0.2;
+
+      ring.style.left = ringX + "px";
+      ring.style.top = ringY + "px";
+      ring.style.opacity = "1";
     };
 
     const handleTouch = (e) => {
       const touch = e.touches[0];
-      createRipple(touch.clientX, touch.clientY);
+      movePointer(touch.clientX, touch.clientY);
     };
 
     window.addEventListener("touchstart", handleTouch);
 
     return () => {
       window.removeEventListener("touchstart", handleTouch);
+      dot.remove();
+      ring.remove();
     };
   }, []);
 
