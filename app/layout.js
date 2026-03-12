@@ -19,14 +19,6 @@ export default function RootLayout({ children }) {
           <Header />
           {children}
           <Analytics />
-          {/* 
-            ChatWidget is rendered at the ROOT layout level.
-            
-            WHY HERE and not inside a specific page?
-            → It needs to be available on EVERY page
-            → It's position:fixed so it doesn't affect page layout
-            → Rendering once at root = no re-mounting when navigating
-            */}
           <ChatWidget />
           <PointerEffects />
           <CustomCursor />

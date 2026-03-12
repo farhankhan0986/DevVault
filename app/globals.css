@@ -34,27 +34,31 @@ body {
   cursor: none;
 }
 
-.tap-ripple{
+.tap-dot{
   position: fixed;
-  width: 20px;
-  height: 20px;
+  width: 8px;
+  height: 8px;
+  background: rgb(99,102,241);
   border-radius: 50%;
-  border: 2px solid rgb(99,102,241);
   transform: translate(-50%, -50%);
   pointer-events: none;
-  animation: ripple 0.6s ease-out;
+  z-index: 9999;
+  opacity: 0;
 }
 
-@keyframes ripple{
-  from{
-    opacity:1;
-    transform:translate(-50%, -50%) scale(0);
-  }
-  to{
-    opacity:0;
-    transform:translate(-50%, -50%) scale(6);
-  }
+.tap-ring{
+  position: fixed;
+  width: 28px;
+  height: 28px;
+  border: 2px solid rgba(99,102,241,0.9);
+  border-radius: 50%;
+  box-shadow: 0 0 18px rgba(99,102,241,0.6);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  z-index: 9998;
+  opacity: 0;
 }
+
 /* Reset */
 *,
 *::before,

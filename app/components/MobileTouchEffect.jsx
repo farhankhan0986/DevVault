@@ -1,49 +1,55 @@
-// "use client";
+"use client";
 
-// import { useEffect } from "react";
+import { useEffect } from "react";
 
-// export default function MobileTouchEffect() {
-//   useEffect(() => {
-//     const dot = document.createElement("div");
-//     const ring = document.createElement("div");
+export default function MobileTouchEffect() {
+  useEffect(() => {
+    const dot = document.createElement("div");
+    const ring = document.createElement("div");
 
-//     dot.className = "tap-dot";
-//     ring.className = "tap-ring";
+    dot.className = "tap-dot";
+    ring.className = "tap-ring";
 
-//     document.body.appendChild(dot);
-//     document.body.appendChild(ring);
+    document.body.appendChild(dot);
+    document.body.appendChild(ring);
 
-//     let ringX = 0;
-//     let ringY = 0;
+    let mouseX = 0;
+    let mouseY = 0;
+    let ringX = 0;
+    let ringY = 0;
 
-//     const movePointer = (x, y) => {
-//       // dot moves instantly
-//       dot.style.left = x + "px";
-//       dot.style.top = y + "px";
-//       dot.style.opacity = "1";
+    const handleTouch = (e) => {
+      const touch = e.touches[0];
 
-//       // ring follows with delay
-//       ringX += (x - ringX) * 0.2;
-//       ringY += (y - ringY) * 0.2;
+      mouseX = touch.clientX;
+      mouseY = touch.clientY;
 
-//       ring.style.left = ringX + "px";
-//       ring.style.top = ringY + "px";
-//       ring.style.opacity = "1";
-//     };
+      dot.style.left = mouseX + "px";
+      dot.style.top = mouseY + "px";
+      dot.style.opacity = "1";
+      ring.style.opacity = "1";
+    };
 
-//     const handleTouch = (e) => {
-//       const touch = e.touches[0];
-//       movePointer(touch.clientX, touch.clientY);
-//     };
+    const animate = () => {
+      ringX += (mouseX - ringX) * 0.2;
+      ringY += (mouseY - ringY) * 0.2;
 
-//     window.addEventListener("touchstart", handleTouch);
+      ring.style.left = ringX + "px";
+      ring.style.top = ringY + "px";
 
-//     return () => {
-//       window.removeEventListener("touchstart", handleTouch);
-//       dot.remove();
-//       ring.remove();
-//     };
-//   }, []);
+      requestAnimationFrame(animate);
+    };
 
-//   return null;
-// }
+    animate();
+
+    window.addEventListener("touchstart", handleTouch);
+
+    return () => {
+      window.removeEventListener("touchstart", handleTouch);
+      dot.remove();
+      ring.remove();
+    };
+  }, []);
+
+  return null;
+}
