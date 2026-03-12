@@ -3,6 +3,8 @@ import "./globals.css";
 import Header from "./components/Header";
 import ChatWidget from "./components/ChatWidget";
 import { Analytics } from "@vercel/analytics/next"
+import CustomCursor from "./components/CustomCursor";
+import PointerEffects from "./components/PointerEffects";
 
 export const metadata = {
   title: "Farhan A. | Developer Portfolio",
@@ -24,8 +26,10 @@ export default function RootLayout({ children }) {
             → It needs to be available on EVERY page
             → It's position:fixed so it doesn't affect page layout
             → Rendering once at root = no re-mounting when navigating
-          */}
+            */}
           <ChatWidget />
+          <PointerEffects />
+          <CustomCursor />
         </ThemeProvider>
       </body>
     </html>

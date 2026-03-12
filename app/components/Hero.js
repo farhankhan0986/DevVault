@@ -22,7 +22,7 @@ export default function Hero() {
       <div className="relative max-w-6xl mx-auto px-6 w-full mt-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
           {/* Left */}
-          <div className="space-y-8">
+          <div className="space-y-8 lg:text-left text-center">
             <div className="space-y-4">
               <h1
                 id="hero-title"
@@ -51,7 +51,7 @@ export default function Hero() {
             </p>
 
             {/* CTA */}
-            <div className="flex flex-wrap gap-4 pt-2">
+            <div className="flex flex-wrap gap-4 pt-2 ">
               <a
                 href="#projects"
                 className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 active:bg-indigo-700 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
@@ -71,7 +71,7 @@ export default function Hero() {
             </div>
 
             {/* Socials */}
-            <div className="flex gap-3 pt-1">
+            <div className="flex gap-3 pt-1 lg:justify-start justify-center">
               {[
                 {
                   href: "https://github.com/farhankhan0986",

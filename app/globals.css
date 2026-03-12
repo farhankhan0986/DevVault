@@ -22,6 +22,36 @@
   --accent: 167 139 250;
 }
 
+body{
+cursor:none;
+}
+
+body {
+  cursor: none;
+}
+
+.tap-ripple{
+  position: fixed;
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  border: 2px solid rgb(99,102,241);
+  transform: translate(-50%, -50%);
+  pointer-events: none;
+  animation: ripple 0.6s ease-out;
+}
+
+@keyframes ripple{
+  from{
+    opacity:1;
+    transform:translate(-50%, -50%) scale(0);
+  }
+  to{
+    opacity:0;
+    transform:translate(-50%, -50%) scale(6);
+  }
+}
+
 /* Reset */
 *,
 *::before,
@@ -81,6 +111,7 @@ body {
 html {
   scroll-behavior: smooth;
 }
+
 
 /* ========= ANIMATIONS ========= */
 @keyframes progress-fill {
