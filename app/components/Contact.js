@@ -160,7 +160,7 @@ export default function Contact() {
 
               {/* Icon in gradient circle */}
               <div className="relative mx-auto mb-5 flex h-14 w-14 items-center justify-center rounded-full bg-gradient-to-br from-[rgb(var(--primary))]/20 to-[rgb(var(--accent))]/20 text-[rgb(var(--primary))] ring-1 ring-[rgb(var(--primary))]/20 transition-all duration-500 active:ring-[rgb(var(--primary))]/40 active:shadow-[0_0_20px_rgba(99,102,241,0.25)] group-hover:ring-[rgb(var(--primary))]/40 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.25)]">
-                <item.Icon className="h-6 w-6 transition-transform duration-700 group-hover:-translate-y-0.5" />
+                <item.Icon className="h-6 w-6 transition-transform duration-700 group-active:translate-y-1.5 group-hover:-translate-y-1.5" />
               </div>
 
               {/* Content */}

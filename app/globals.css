@@ -38,7 +38,7 @@ body {
   position: fixed;
   width: 8px;
   height: 8px;
-  background: rgb(99,102,241);
+  background: rgb(100, 103, 233);
   border-radius: 50%;
   transform: translate(-50%, -50%);
   pointer-events: none;
@@ -50,9 +50,9 @@ body {
   position: fixed;
   width: 28px;
   height: 28px;
-  border: 2px solid rgba(99,102,241,0.9);
+  border: 2px solid rgba(107, 109, 237, 0.9);
   border-radius: 50%;
-  box-shadow: 0 0 18px rgba(99,102,241,0.6);
+  box-shadow: 0 0 18px rgba(107, 109, 237, 0.6);
   transform: translate(-50%, -50%);
   pointer-events: none;
   z-index: 9998;

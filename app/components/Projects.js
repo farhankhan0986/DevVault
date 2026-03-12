@@ -51,26 +51,6 @@ export default function Projects() {
       slug: "culinaria",
     },
     {
-      id: 2,
-      title: "Planixa",
-      description:
-      "A full-stack task management webapp built as part of the Anything.ai Full Stack Intern assignment, featuring secure authentication, profile management, and a modern tasks UI with search and filter.",
-      image: "/images/planixa.png",
-      tech: [
-        "Next.js 16",
-        "React",
-        "Tailwind CSS",
-        "MongoDB",
-        "JWT Authentication",
-        "Framer Motion",
-      ],
-      github: "https://github.com/farhankhan0986/Planixa",
-      status: "COMPLETED",
-      highlight: "Full-Stack Dashboard & Auth Flow",
-      href: "https://planixa.vercel.app/",
-      slug: "planixa",
-    },
-    {
       id: 6,
       title: "PromptForge",
       description:
@@ -91,6 +71,26 @@ export default function Projects() {
       highlight: "AI Prompt Engineering & Analytics Dashboard",
       href: "https://promptforge-blush.vercel.app",
       slug: "promptforge",
+    },
+    {
+      id: 2,
+      title: "Planixa",
+      description:
+      "A full-stack task management webapp built as part of the Anything.ai Full Stack Intern assignment, featuring secure authentication, profile management, and a modern tasks UI with search and filter.",
+      image: "/images/planixa.png",
+      tech: [
+        "Next.js 16",
+        "React",
+        "Tailwind CSS",
+        "MongoDB",
+        "JWT Authentication",
+        "Framer Motion",
+      ],
+      github: "https://github.com/farhankhan0986/Planixa",
+      status: "COMPLETED",
+      highlight: "Full-Stack Dashboard & Auth Flow",
+      href: "https://planixa.vercel.app/",
+      slug: "planixa",
     },
     
     // {
