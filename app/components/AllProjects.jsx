@@ -5,184 +5,136 @@ import { ExternalLink, Github } from "lucide-react";
 
 export default function AllProjects() {
   const projects = [
-    {
-      id: 1,
-      title: "HireSight-AI",
-      description:
-        "HireSight-AI is an AI-powered recruitment platform that parses PDF resumes using Groq LLMs, extracts candidate skills and experience, and generates match scores against job postings to automate early-stage candidate screening.",
-      image: "/images/hire.png",
-      tech: [
-        "Next.js 15",
-        "Groq AI (Llama)",
-        "MongoDB",
-        "Node.js",
-        "Tailwind CSS",
-        "React",
-        "PDF Parsing",
-        "JWT Authentication"
-      ],
-      github: "https://github.com/farhankhan0986/HireSight-AI",
-      status: "ONGOING",
-      highlight: "AI Resume Parsing & Candidate Ranking Engine",
-      href: "https://hire-sight-ai-sigma.vercel.app",
-      slug: "hiresight",
-    },
-    {
-      id: 8,
-      title: "Culinaria",
-      description:
-      "An AI-powered recipe platform where users can discover, create, and manage recipes while collaborating with an intelligent AI Sous-Chef. Features include AI recipe generation, favorites, ratings, shopping lists, and a modern full-stack MERN architecture.",
-      image: "/images/culinaria.png",
-      tech: [
-        "React",
-        "Vite",
-        "Node.js",
-        "Express",
-        "MongoDB Atlas",
-        "JWT Authentication",
-        "Groq AI (LLM)",
-        "REST API",
-        "Full-Stack MERN"
-      ],
-      github: "https://github.com/farhankhan0986/Culinaria",
-      status: "COMPLETED",
-      highlight: "AI-Powered Recipe Platform with Interactive AI Sous-Chef",
-      href: "https://culinaria-wheat.vercel.app/",
-      slug: "culinaria",
-    },
-    {
-      id: 2,
-      title: "Planixa",
-      description:
-      "A full-stack task management webapp built as part of the Anything.ai Full Stack Intern assignment, featuring secure authentication, profile management, and a modern tasks UI with search and filter.",
-      image: "/images/planixa.png",
-      tech: [
-        "Next.js 16",
-        "React",
-        "Tailwind CSS",
-        "MongoDB",
-        "JWT Authentication",
-        "Framer Motion",
-      ],
-      github: "https://github.com/farhankhan0986/Planixa",
-      status: "COMPLETED",
-      highlight: "Full-Stack Dashboard & Auth Flow",
-      href: "https://planixa.vercel.app/",
-      slug: "planixa",
-    },
-    {
-      id: 6,
-      title: "PromptForge",
-      description:
-        "A full-stack AI-powered prompt generator and manager that transforms rough ideas into production-grade AI prompts, with a personal library featuring categorization, tagging, search, and an analytics dashboard.",
-      image: "/images/promptforge.png",
-      tech: [
-        "React 19",
-        "Vite 7",
-        "Tailwind CSS 3",
-        "Node.js",
-        "Express 5",
-        "PostgreSQL",
-        "JWT Authentication",
-        "Groq API (LLaMA 3.3)",
-      ],
-      github: "https://github.com/farhankhan0986/promptforge",
-      status: "COMPLETED",
-      highlight: "AI Prompt Engineering & Analytics Dashboard",
-      href: "https://promptforge-blush.vercel.app",
-      slug: "promptforge",
-    },
-    
-    // {
-    //   id: 2,
-    //   title: "IDVault",
-    //   description:
-    //     "A secure identity and data management system focused on controlled access, validation, and backend-first security principles.",
-    //   image: "/images/idvault.png",
-    //   tech: ["Node.js", "Express", "Next.js", "MongoDB", "Auth"],
-    //   github: "https://github.com/farhankhan0986/IDVault",
-    //   status: "COMPLETED",
-    //   highlight: "Security-First Design",
-    //   href: "https://id-vault.vercel.app/",
-    //   slug: "idvault",
-    // },
-    // {
-    //   id: 3,
-    //   title: "Sentinel Guard",
-    //   description:
-    //     "A multi-tenant API firewall and security platform built with Next.js middleware. Provides request interception, rate limiting, attack detection, logging, and an admin dashboard for real-time security insights.",
-    //   image: "/images/sentinal.png",
-    //   tech: [
-    //     "Next.js",
-    //     "Node.js",
-    //     "Middleware",
-    //     "MongoDB",
-    //     "JWT",
-    //     "Security Engineering",
-    //   ],
-    //   github: "https://github.com/farhankhan0986/Sentinel-Guard",
-    //   status: "COMPLETED",
-    //   highlight: "Real-world API Firewall & Security Platform",
-    //   href: "https://sentinel-guard-eb9e.vercel.app/",
-    //   slug: "sentinel-guard",
-    // },
-    // {
-    //   id: 4,
-    //   title: "Chai Culture",
-    //   description:
-    //     "A premium 'Coming Soon' landing page for Chai Culture, designed to reflect royal Indian heritage through a calm, elegant, and modern digital experience.",
-    //   image: "/images/chai.png",
-    //   tech: ["Next.js", "React", "Tailwind CSS", "UI/UX Design"],
-    //   github: "https://github.com/farhankhan0986/ChaiCulture",
-    //   status: "COMPLETED",
-    //   highlight: "Luxury Brand UI & Product Thinking",
-    //   href: "https://chai-culture-dun.vercel.app/",
-    //   slug: "chai-culture",
-    // },
-    // {
-    //   id: 5,
-    //   title: "Planixa",
-    //   description:
-    //     "A full-stack task management webapp built as part of the Anything.ai Full Stack Intern assignment, featuring secure authentication, profile management, and a modern tasks UI with search and filter.",
-    //   image: "/images/planixa.png",
-    //   tech: [
-    //     "Next.js 16",
-    //     "React",
-    //     "Tailwind CSS",
-    //     "MongoDB",
-    //     "JWT Authentication",
-    //     "Framer Motion",
-    //   ],
-    //   github: "https://github.com/farhankhan0986/Planixa",
-    //   status: "COMPLETED",
-    //   highlight: "Full-Stack Dashboard & Auth Flow",
-    //   href: "https://planixa.vercel.app/",
-    //   slug: "planixa",
-    // },
-//     {
-//   id: 7,
-//   title: "Culinaria",
-//   description:
-//     "A modern AI-powered culinary platform where users can discover, create, and manage recipes while collaborating with an intelligent AI Sous-Chef. Built with a full-stack MERN architecture, Culinaria allows users to search recipes by cuisine and category, generate new recipes using AI, rate dishes, save favorites, maintain shopping lists, and interact with an AI assistant for cooking guidance and ingredient suggestions. The platform includes authentication, user profiles, real-time recipe management, and a beautifully designed editorial-style UI.",
-//   image: "/images/culinaria.png",
-//   tech: [
-//     "React",
-//     "Vite",
-//     "Node.js",
-//     "Express",
-//     "MongoDB Atlas",
-//     "JWT Authentication",
-//     "Groq AI (LLM)",
-//     "REST API",
-//     "Full-Stack MERN"
-//   ],
-//   github: "https://github.com/farhankhan0986/Culinaria",
-//   status: "COMPLETED",
-//   highlight: "AI-Powered Recipe Platform with Interactive AI Sous-Chef",
-//   href: "https://culinaria-editorial.vercel.app/",
-//   slug: "culinaria",
-// }
-  ];
+  {
+    id: 7,
+    title: "AI Expense Tracker",
+    description:
+      "A full-stack AI-powered expense management platform that helps users track daily spending, automatically categorize transactions using Groq-powered AI, analyze spending patterns through interactive analytics dashboards, and receive smart budgeting insights.",
+    image: "/images/expense.png",
+    tech: [
+      "React",
+      "Node.js",
+      "Express",
+      "MongoDB",
+      "JavaScript",
+      "Tailwind CSS",
+      "Groq AI",
+      "REST API",
+      "JWT Authentication",
+    ],
+    github: "https://github.com/farhankhan0986/AI-Expense-Tracker-",
+    status: "COMPLETED",
+    highlight:
+      "Groq AI-powered automatic expense categorization and financial insights",
+    href: "https://ai-expense-tracker-kappa-sooty.vercel.app/",
+    slug: "aiExpenseTracker",
+  },
+
+  {
+    id: 2,
+    title: "IDVault",
+    description:
+      "A secure identity and data management system focused on controlled access, validation, and backend-first security principles.",
+    image: "/images/idvault.png",
+    tech: ["Node.js", "Express", "Next.js", "MongoDB", "Auth"],
+    github: "https://github.com/farhankhan0986/IDVault",
+    status: "COMPLETED",
+    highlight: "Security-First Design",
+    href: "https://id-vault.vercel.app/",
+    slug: "idvault",
+  },
+
+  {
+    id: 3,
+    title: "Sentinel Guard",
+    description:
+      "A multi-tenant API firewall and security platform built with Next.js middleware. It provides request interception, rate limiting, attack detection, logging, and an admin dashboard for real-time security insights.",
+    image: "/images/sentinal.png",
+    tech: [
+      "Next.js",
+      "Node.js",
+      "Middleware",
+      "MongoDB",
+      "JWT",
+      "Security Engineering",
+    ],
+    github: "https://github.com/farhankhan0986/Sentinel-Guard",
+    status: "COMPLETED",
+    highlight: "Real-world API Firewall & Security Platform",
+    href: "https://sentinel-guard-eb9e.vercel.app/",
+    slug: "sentinel-guard",
+  },
+
+  {
+    id: 1,
+    title: "Chai Culture",
+    description:
+      "A premium 'Coming Soon' landing page for Chai Culture designed to reflect royal Indian heritage through a calm, elegant, and modern digital experience.",
+    image: "/images/chai.png",
+    tech: ["Next.js", "React", "Tailwind CSS", "UI/UX Design"],
+    github: "https://github.com/farhankhan0986/ChaiCulture",
+    status: "COMPLETED",
+    highlight: "Luxury Brand UI & Product Thinking",
+    href: "https://chai-culture-dun.vercel.app/",
+    slug: "chai-culture",
+  },
+
+  {
+    id: 4,
+    title: "Notes Server MERN",
+    description:
+      "A RESTful notes management backend built with the MERN stack supporting authentication, CRUD operations, and secure data storage.",
+    image: "/images/notes.png",
+    tech: ["MongoDB", "Express", "React", "Node.js", "JWT Auth"],
+    github: "https://github.com/farhankhan0986/Notes_Server_MERN",
+    status: "COMPLETED",
+    highlight: "Full-featured CRUD API with authentication",
+    href: "",
+    slug: "notes-server-mern",
+  },
+
+  {
+    id: 5,
+    title: "News Equator",
+    description:
+      "A news aggregation web application that fetches the latest headlines from multiple sources and allows users to filter news categories using React.",
+    image: "/images/news.png",
+    tech: ["React", "API Integration", "Bootstrap"],
+    github: "https://github.com/farhankhan0986/News_Equator_React",
+    status: "COMPLETED",
+    highlight: "Live news filtering",
+    href: "https://fluffy-heliotrope-addc19.netlify.app/",
+    slug: "news-equator-react",
+  },
+
+  {
+    id: 6,
+    title: "ToDo List",
+    description:
+      "A minimalistic task management application that helps users organize daily tasks with priorities and completion tracking.",
+    image: "/images/todo.png",
+    tech: ["React", "JavaScript", "CSS"],
+    github: "https://github.com/farhankhan0986/ToDo-List",
+    status: "COMPLETED",
+    highlight: "Simple and clean task management UI",
+    href: "https://endearing-tapioca-1dd038.netlify.app/",
+    slug: "todo-list",
+  },
+
+  {
+    id: 8,
+    title: "Text Utils",
+    description:
+      "A text utility toolkit providing features like word counting, case conversion, and whitespace cleanup through an interactive React interface.",
+    image: "/images/textutils.png",
+    tech: ["React", "JavaScript", "Bootstrap"],
+    github: "https://github.com/farhankhan0986/Text-Utils-react",
+    status: "COMPLETED",
+    highlight: "Comprehensive text manipulation tools",
+    href: "https://musical-clafoutis-734d23.netlify.app/",
+    slug: "text-utils-react",
+  },
+];
 
   return (
     <section className="relative select-none py-28 bg-background text-foreground">
