@@ -130,7 +130,7 @@ export default function Contact() {
                     WebkitBackdropFilter: "blur(12px)",
                   }}
                 >
-                  <Icon className="w-5 h-5 transition-transform duration-300 group-hover/social:scale-110" />
+                  <Icon className="w-5 h-5 transition-transform duration-300 group-active:scale-110 group-hover/social:scale-110" />
                   <span className="text-sm font-medium text-foreground group-hover/social:text-white transition-colors duration-300">
                     {link.label}
                   </span>
@@ -155,7 +155,7 @@ export default function Contact() {
               {/* Hover ambient glow */}
               <span
                 aria-hidden
-                className="pointer-events-none absolute inset-0 bg-[rgb(var(--primary))]/5 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
+                className="pointer-events-none absolute inset-0 bg-[rgb(var(--primary))]/5 blur-2xl opacity-0 transition-opacity duration-500 group-active:opacity-100 group-hover:opacity-100"
               />
 
               {/* Icon in gradient circle */}

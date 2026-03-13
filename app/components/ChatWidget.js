@@ -1,72 +1,18 @@
 "use client";
-
-/**
- * ═══════════════════════════════════════════════════════════════
- * CHATWIDGET — THE AI AGENT'S USER INTERFACE
- * ═══════════════════════════════════════════════════════════════
- * 
- * ARCHITECTURE DECISIONS:
- * 
- * 1. WHY a floating widget (not a full page)?
- *    → Non-intrusive. Recruiters can browse the portfolio AND chat simultaneously.
- *    → Common pattern: Intercom, Drift, Crisp all use floating widgets.
- * 
- * 2. WHY store messages in React state (not a database)?
- *    → These are ephemeral conversations. No need to persist.
- *    → If you wanted chat history (e.g., for analytics), you'd save to DB.
- * 
- * 3. WHY stream responses instead of waiting?
- *    → UX: A 3-second blank wait feels broken. Streaming feels instant.
- *    → This is why ChatGPT, Gemini, Claude all stream their responses.
- * 
- * 4. WHY suggested questions?
- *    → Reduces "blank page syndrome" — users don't know what to ask.
- *    → Guides recruiter to the MOST VALUABLE info about you.
- */
-
 import { useState, useRef, useEffect, useCallback } from "react";
 import { MessageCircle, X, Send, Loader2, Bot, User, Sparkles } from "lucide-react";
 import { SUGGESTED_QUESTIONS } from "@/lib/farhan-context";
 
 export default function ChatWidget() {
-  // ─── STATE MANAGEMENT ───
-  /**
-   * isOpen: Controls widget visibility (bubble vs full panel)
-   * messages: The conversation history array. Each message has:
-   *   - role: "user" | "assistant"
-   *   - content: The text content
-   * input: Current text in the input field (controlled component)
-   * isLoading: Whether we're waiting for AI response (disables input)
-   * hasInteracted: Tracks if user has sent at least one message
-   *   → Used to hide suggested questions after first interaction
-   */
   const [isOpen, setIsOpen] = useState(false);
   const [messages, setMessages] = useState([]);
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [hasInteracted, setHasInteracted] = useState(false);
 
-  /**
-   * REFS — Direct DOM references
-   * 
-   * messagesEndRef: Points to an invisible div at the bottom of the chat.
-   *   → We call scrollIntoView() on this to auto-scroll to latest message.
-   *   → WHY a ref instead of state? Because scrolling is a DOM side-effect,
-   *     not a data change. Refs are for "imperative" actions.
-   * 
-   * inputRef: Points to the text input field.
-   *   → We call .focus() on this to auto-focus after sending a message.
-   */
   const messagesEndRef = useRef(null);
   const inputRef = useRef(null);
 
-  // ─── AUTO-SCROLL ───
-  /**
-   * Every time messages change (new message added OR existing message updated
-   * during streaming), scroll to the bottom.
-   * 
-   * "smooth" gives a nice animation instead of a jarring jump.
-   */
   const scrollToBottom = useCallback(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
   }, []);
@@ -75,26 +21,12 @@ export default function ChatWidget() {
     scrollToBottom();
   }, [messages, scrollToBottom]);
 
-  // ─── FOCUS INPUT WHEN CHAT OPENS ───
   useEffect(() => {
     if (isOpen) {
-      // Small delay to wait for animation to finish
       setTimeout(() => inputRef.current?.focus(), 300);
     }
   }, [isOpen]);
-
-  // ─── SEND MESSAGE (THE CORE AGENT INTERACTION) ───
-  /**
-   * This function handles the entire message lifecycle:
-   * 1. Add user's message to the conversation
-   * 2. Send conversation history to our API
-   * 3. Read the streaming response
-   * 4. Update the assistant's message in real-time as tokens arrive
-   * 
-   * WHY useCallback?
-   * → Prevents recreating this function on every render.
-   * → Important because it's passed to child elements (form onSubmit).
-   */
+  
   const sendMessage = useCallback(
     async (messageText) => {
       const text = messageText || input;
@@ -109,18 +41,6 @@ export default function ChatWidget() {
       setHasInteracted(true);
 
       try {
-        // ── Step B: Call our API route ──
-        /**
-         * We send the FULL message history to the API.
-         * The API adds the system prompt and forwards to Groq.
-         * 
-         * WHY NOT call Groq directly from the browser?
-         * 1. SECURITY: API key would be exposed in browser network tab
-         * 2. CORS: Groq's API likely blocks browser-origin requests
-         * 3. CONTROL: Our API can add rate limiting, logging, etc.
-         * 
-         * This is called the "Backend-for-Frontend" (BFF) pattern.
-         */
         const response = await fetch("/api/chat", {
           method: "POST",
           headers: { "Content-Type": "application/json" },

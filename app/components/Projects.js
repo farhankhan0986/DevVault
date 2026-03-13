@@ -22,7 +22,7 @@ export default function Projects() {
         "JWT Authentication"
       ],
       github: "https://github.com/farhankhan0986/HireSight-AI",
-      status: "ONGOING",
+      status: "COMPLETED",
       highlight: "AI Resume Parsing & Candidate Ranking Engine",
       href: "https://hire-sight-ai-sigma.vercel.app",
       slug: "hiresight",
