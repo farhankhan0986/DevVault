@@ -142,11 +142,10 @@ export default function About() {
 
                     <div className="relative flex flex-col items-center gap-3">
                       <StatIcon
-                        className="w-5 h-5 transition-all duration-300 group-active:scale-110 group-hover:scale-110"
-                        style={{ color: "rgb(var(--primary))" }}
+                        className="w-5 h-5 transition-all duration-300 text-indigo-500 group-active:scale-110 group-hover:scale-110"
                       />
                       <p
-                        className="text-3xl font-extrabold tracking-tight bg-clip-text text-transparent transition-transform duration-500 group-active:-translate-y-1 group-hover:-translate-y-1"
+                        className="text-3xl font-extrabold tracking-tight bg-clip-text text-indigo-500 transition-transform duration-500 group-active:-translate-y-1 group-hover:-translate-y-1"
                         style={{
                           backgroundImage:
                             "linear-gradient(135deg, rgb(var(--primary)), rgb(var(--accent)))",
@@ -154,7 +153,7 @@ export default function About() {
                       >
                         {stat.value}
                       </p>
-                      <p className="text-sm text-muted transition-colors duration-300 group-active:text-foreground group-hover:text-foreground">
+                      <p className="text-sm text-muted transition-colors duration-300 group-active:text-foreground group-active:bg-clip-text group-active:bg-gradient-to-r group-active:from-indigo-500 group-active:to-indigo-600 group-hover:text-foreground group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-indigo-600">
                         {stat.label}
                       </p>
                     </div>
@@ -180,11 +179,8 @@ export default function About() {
                 >
                   {/* Left accent border */}
                   <span
-                    className="absolute left-0 top-0 h-full w-[3px] rounded-full transition-shadow duration-500 group-hover:shadow-[0_0_12px_rgba(var(--primary),0.6)]"
-                    style={{
-                      background:
-                        "linear-gradient(180deg, rgb(var(--primary)), rgb(var(--accent)))",
-                    }}
+                    className="absolute left-0 top-0 h-full w-[3px] rounded-full transition-colors duration-500 bg-indigo-500  group-active:bg-indigo-600  group-hover:bg-indigo-600 group-active:shadow-[0_0_12px_rgba(var(--primary),0.6)] group-hover:shadow-[0_0_12px_rgba(var(--primary),0.6)]"
+                    
                   />
 
                   <div className="relative flex items-start gap-4">
@@ -196,8 +192,8 @@ export default function About() {
                       }}
                     >
                       <Icon
-                        className="w-6 h-6 transition-all duration-300 ease-out group-active:-translate-y-0.5 group-hover:-translate-y-0.5 group-active:scale-110 group-hover:scale-110"
-                        style={{ color: "rgb(var(--primary))" }}
+                        className="w-6 h-6 transition-all duration-400 ease-out group-active:-translate-y-2 group-hover:-translate-y-2 text-indigo-500 group-active:scale-110 group-hover:scale-110"
+                       
                       />
                     </div>
 
@@ -257,16 +253,12 @@ export default function About() {
 
                   {/* Left accent line */}
                   <span
-                    className="absolute left-0 top-0 h-full w-1 transition-all duration-300 group-hover:shadow-[0_0_20px_rgba(var(--primary),0.6)]"
-                    style={{
-                      background:
-                        "linear-gradient(180deg, rgb(var(--primary)), rgb(var(--accent)))",
-                    }}
+                    className="absolute left-0 top-0 h-full w-1 transition-all duration-300 bg-indigo-500 group-active:bg-indigo-600 group-hover:bg-indigo-600 group-hover:shadow-[0_0_20px_rgba(var(--primary),0.6)]"
+                    
                   />
 
                   <CompIcon
-                    className="relative shrink-0 w-4 h-4 transition-transform duration-300 group-active:-translate-z-1 group-active:scale-110 group-hover:-translate-z-1 group-hover:scale-110"
-                    style={{ color: "rgb(var(--primary))" }}
+                    className="relative shrink-0 w-4 h-4 transition-transform duration-300 text-indigo-500  group-active:-translate-z-1 group-active:scale-110 group-hover:-translate-z-1 group-hover:scale-110"
                   />
 
                   <span className="relative text-sm font-medium text-foreground">

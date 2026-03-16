@@ -208,54 +208,78 @@ export default function Skills() {
         </div>
 
         {/* ── Skills Grid ── */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-          {skillCategories.map(({ category, skills }) => {
-            const Icon = categoryIcons[category];
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
+          {skillCategories.map(({ category, skills }, idx) => {
+            const Icon = categoryIcons[category] || DefaultIcon;
+            // Dark deep-glow gradients per category (feel free to tweak as you like)
+            const categoryColors = [
+              { bg: "from-[#32386B] to-[#2e1c64]", color: "#6366f1" }, // Indigo-Blue
+              { bg: "from-[#2c244b] to-[#46213b]", color: "#e92b88" }, // Pink-Violet
+              { bg: "from-[#18343E] to-[#22574A]", color: "#13dfa2" }, // Teal-Emerald
+              { bg: "from-[#3b3204] to-[#86620c]", color: "#ffaf36" }, // Gold-Sepia
+              { bg: "from-[#221d3a] to-[#302366]", color: "#a259fa" }, // Purple-Indigo
+              { bg: "from-[#113448] to-[#183E54]", color: "#2cb9f4" }, // Cyan-Darkblue
+            ];
+            const { bg, color } = categoryColors[idx % categoryColors.length];
 
             return (
               <div
                 key={category}
-                className="group relative rounded-2xl border active:border-indigo-500/40 hover:border-indigo-500/40 border-indigo-500/20 bg-white/[0.03] backdrop-blur-md p-7 transition-all duration-500 active:-translate-y-1.5 hover:-translate-y-1.5 hover:shadow-[0_0_32px_rgba(99,102,241,0.15)] active:shadow-[0_0_32px_rgba(99,102,241,0.15)]"
+                className={`
+          group relative rounded-2xl border border-white/10
+          bg-gradient-to-br bg-opacity-90
+          p-7 pt-8 backdrop-blur-lg 
+          transition-all duration-500 ease-out overflow-visible
+          shadow-[0_8px_32px_rgba(30,25,79,0.22)]
+          hover:-translate-y-2 active:-translate-y-1
+          `}
+                style={{
+                  boxShadow: `0 2px 24px 0 ${color}33, 0 4px 24px rgba(0,0,0,0.24)`,
+                }}
+                onMouseEnter={e => {
+                  e.currentTarget.style.borderColor = color;
+                  e.currentTarget.style.boxShadow =
+                    `0 0 40px 0 ${color}44, 0 10px 32px 0 rgba(0,0,0,0.25)`;
+                }}
+                onMouseLeave={e => {
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
+                  e.currentTarget.style.boxShadow =
+                    `0 2px 24px 0 ${color}33, 0 4px 24px rgba(0,0,0,0.24)`;
+                }}
               >
-                {/* Category header */}
-                <div className="flex items-center gap-3 mb-6">
-                  <span className="flex items-center justify-center w-10 h-10 rounded-xl bg-indigo-500/10 text-muted/10 ring-1  ring-indigo-500/20 transition-colors duration-300 group-active:bg-indigo-500/20 group-active:text-indigo-500 group-hover:bg-indigo-500/20 group-hover:text-indigo-500">
-                    <Icon size={20} strokeWidth={1.8} />
+                {/* Underglow */}
+                <div
+                  className="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-4 w-3/4 h-8 rounded-full blur-2xl opacity-0 group-hover:opacity-40 group-active:opacity-40 transition-opacity duration-700 z-0"
+                  style={{ background: color }}
+                />
+                {/* Header */}
+                <div className="relative z-10 flex items-center gap-3 mb-6">
+                  <span
+                    className="flex items-center justify-center w-11 h-11 rounded-xl bg-black/30 ring-2"
+                    style={{ color, borderColor: color }}
+                  >
+                    <span className="transition-transform duration-700 group-hover:-translate-y-1 group-hover:scale-110 group-active:scale-105">
+                      <Icon size={27} strokeWidth={1.8} />
+                    </span>
                   </span>
-                  <h3 className="text-lg font-bold text-foreground tracking-tight">
+                  <h3 className="text-lg font-extrabold tracking-tight bg-gradient-to-r from-white/90 via-slate-200/80 to-white/70 bg-clip-text text-transparent drop-shadow">
                     {category}
                   </h3>
                 </div>
-
-                {/* Skills list */}
-                <ul className="space-y-3">
+                {/* Skills */}
+                <ul className="space-y-2">
                   {skills.map((skill) => (
                     <li
                       key={skill.name}
-                      className="flex items-center gap-3 text-[15px] text-foreground/80"
+                      className="flex items-center gap-3 text-[15px] text-white/85 group/skill transition-all duration-700 active:bg-white/5 hover:bg-white/5 active:pl-2 hover:pl-2 rounded-lg px-1 py-1"
                     >
                       <img
                         src={skill.logo}
                         alt={`${skill.name} logo`}
-                        className="w-5 h-5 shrink-0 object-contain active:scale-120 hover:scale-120 transition-transform duration-300"
+                        className="w-5 h-5 shrink-0 object-contain transition-all duration-300 group-active/skill:scale-125 group-hover/skill:scale-125 group-active/skill:drop-shadow-[0_2px_18px_rgba(99,102,241,0.18)] group-hover/skill:drop-shadow-[0_2px_18px_rgba(99,102,241,0.18)]"
                         loading="lazy"
                       />
-
-                      <span
-                        className="hover:text-foreground active:text-foreground"
-                        onMouseEnter={(e) =>
-                          e.currentTarget.previousElementSibling.classList.add(
-                            "scale-120",
-                          )
-                        }
-                        onMouseLeave={(e) =>
-                          e.currentTarget.previousElementSibling.classList.remove(
-                            "scale-120",
-                          )
-                        }
-                      >
-                        {skill.name}
-                      </span>
+                      <span className="font-medium group-hover/skill:text-indigo-300">{skill.name}</span>
                     </li>
                   ))}
                 </ul>
@@ -301,15 +325,15 @@ export default function Skills() {
                       "hover:-translate-y-2 active:-translate-y-2 hover:border-indigo-500/40 active:border-indigo-500/40",
                       "hover:shadow-[0_0_40px_rgba(99,102,241,0.15),0_0_80px_rgba(99,102,241,0.05)] active:shadow-[0_0_40px_rgba(99,102,241,0.15),0_0_80px_rgba(99,102,241,0.05)]",
                       index === proficiencyData.length - 1 &&
-                      proficiencyData.length % 3 === 1
+                        proficiencyData.length % 3 === 1
                         ? "sm:col-span-2 lg:col-span-1 lg:col-start-2"
                         : "",
                       index === proficiencyData.length - 2 &&
-                      proficiencyData.length % 3 === 2
+                        proficiencyData.length % 3 === 2
                         ? "lg:col-start-1"
                         : "",
                       index === proficiencyData.length - 1 &&
-                      proficiencyData.length % 3 === 2
+                        proficiencyData.length % 3 === 2
                         ? "lg:col-start-2"
                         : "",
                     ]

@@ -12,7 +12,7 @@
     "@geist-ui/icons": "^1.0.2",
     "@vercel/analytics": "^1.6.1",
     "bcryptjs": "^3.0.3",
-    "framer-motion": "^12.29.2",
+    "framer-motion": "^12.36.0",
     "geist": "^1.7.0",
     "jsonwebtoken": "^9.0.3",
     "lucide-react": "^0.563.0",

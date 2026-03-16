@@ -14,7 +14,7 @@ export default function CustomCursor() {
   color="99,102,241"
   outerAlpha={0.25}
   innerScale={1.2}
-  outerScale={2.5}
+  outerScale={1}
   outerStyle={{
     mixBlendMode: "difference",
     border: "2px solid rgba(99,102,241,0.5)",

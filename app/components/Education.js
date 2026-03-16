@@ -54,7 +54,7 @@ export default function Education() {
           {/* Timeline */}
           <div className="relative">
             {/* Vertical timeline line */}
-            <div className="hidden md:block absolute left-[15px] top-2 bottom-2 w-px bg-gradient-to-b from-indigo-500/60 via-violet-500/40 to-transparent" />
+            <div className="hidden md:block absolute left-[15px] top-2 bottom-2 w-px bg-gradient-to-b from-indigo-500/60 via-indigo-500/40 to-transparent" />
 
             <div className="space-y-10">
               {education.map((edu, i) => {
@@ -84,7 +84,7 @@ export default function Education() {
                         <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
                           <div className="flex items-center gap-2 flex-wrap">
                             <Icon className="h-4 w-4 text-indigo-400 shrink-0" />
-                            <h3 className="text-lg font-semibold bg-gradient-to-r from-indigo-400 to-violet-400 bg-clip-text text-transparent">
+                            <h3 className="text-lg font-semibold bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
                               {edu.title}
                             </h3>
                           </div>
@@ -104,10 +104,10 @@ export default function Education() {
                             {edu.institution}
                           </span>
                           <span className="inline-flex items-center gap-1.5 text-sm text-muted">
-                            <MapPin className="h-3.5 w-3.5 text-indigo-400" />
+                            <MapPin className="h-3.5 w-3.5 text-indigo-500" />
                             {edu.location}
                           </span>
-                          <span className="inline-flex items-center gap-1.5 rounded-full bg-[rgba(var(--primary),0.1)] border border-[rgba(var(--primary),0.15)] px-3 py-1 text-xs font-medium text-[rgb(var(--primary))] whitespace-nowrap">
+                          <span className="inline-flex items-center gap-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 text-xs font-medium text-indigo-400 whitespace-nowrap">
                             <Calendar className="h-3 w-3" />
                             {edu.date}
                           </span>

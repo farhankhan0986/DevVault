@@ -105,7 +105,7 @@ useEffect(() => {
               <Logo size={40} />
             </div>
             <span className="text-foreground font-bold text-xl hidden sm:block">
-              Farhan<span className="text-[rgb(var(--primary))]">.dev</span>
+              Farhan<span className="text-indigo-500">.dev</span>
             </span>
           </Link>
 
@@ -127,7 +127,7 @@ useEffect(() => {
                   >
                     {item.label}
                     <span
-                      className={`absolute inset-x-1 -bottom-1 h-[2px] rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 transition-all duration-300 ${
+                      className={`absolute inset-x-1 -bottom-1 h-[2px] rounded-full bg-gradient-to-r from-indigo-500 to-indigo-600 transition-all duration-300 ${
                         isActive ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
                       }`}
                     />
