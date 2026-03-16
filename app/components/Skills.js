@@ -15,6 +15,7 @@ import {
   Brain,
   Bot,
   Cpu,
+  ExternalLink,
 } from "lucide-react";
 
 const categoryIcons = {
@@ -182,6 +183,49 @@ const proficiencyData = [
   { skill: "API Security", level: 85 },
 ];
 
+const certificatesData = [
+  {
+    id: 1,
+    title: "Postman API Fundamentals Student Expert",
+    issuer: "Postman",
+    date: "2025",
+    description: "Completed Postman’s API Fundamentals program covering API testing, request building, collections, environments, and automated API workflows using Postman.",
+    image: "https://fahadnahar.com/storage/app/public/blogs/k8fWgyHMLbmr4LHm8MBDJVZct3ny55yWT8P8uEUX.jpg",
+    link: "https://badges.parchment.com/public/assertions/TE9PC957Rt6eZtxVuynu2A",
+    tech: ["API Testing", "Postman", "REST APIs"],
+  },
+  {
+    id: 2,
+    title: "MongoDB Node.js Developer Path",
+    issuer: "MongoDB University",
+    date: "2025",
+    description: "Learned how to build scalable backend applications using MongoDB and Node.js, including CRUD operations, indexing, schema design, and aggregation pipelines.",
+    image: "https://facialix.com/wp-content/uploads/2023/05/curso-gratis-mongoDB-facialix.jpg",
+    link: "https://drive.google.com/file/d/1_R4HHSmT9e3nPGqvNl5T5GAwxI9TCltf/view",
+    tech: ["MongoDB", "Node.js", "Database Design"],
+  },
+  {
+    id: 3,
+    title: "AWS Cloud Practitioner Essentials",
+    issuer: "Amazon Web Services (AWS)",
+    date: "2025",
+    description: "Gained foundational knowledge of cloud computing, AWS core services, security, pricing models, and global infrastructure used in modern cloud applications.",
+    image: "https://www.paubox.com/hubfs/What%20is%20AWS.jpg",
+    link: "https://drive.google.com/file/d/16bJUSWOaC8qkYnQVxjtJRBLOc8N0LK5k/view",
+    tech: ["AWS", "Cloud Computing", "IAM", "EC2"],
+  },
+  {
+    id: 4,
+    title: "Python Essentials",
+    issuer: "Cisco Networking Academy",
+    date: "2025",
+    description: "Learned Python programming fundamentals including data structures, control flow, functions, and problem-solving using Python.",
+    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwMpxduhWYu_UxowH1fc9KOYPvmT_Mk-EMalTnyLQZZg&s&ec=121585071",
+    link: "https://drive.google.com/file/d/1ldHmMQZLodXTq90n09JgkKIedy0rrfBp/view",
+    tech: ["Python", "Programming Fundamentals", "Data Structures"],
+  },
+];
+
 export default function Skills() {
   return (
     <section className="relative select-none py-28 bg-background text-foreground overflow-hidden">
@@ -255,14 +299,14 @@ export default function Skills() {
                 {/* Header */}
                 <div className="relative z-10 flex items-center gap-3 mb-6">
                   <span
-                    className="flex items-center justify-center w-11 h-11 rounded-xl bg-black/30 ring-2"
+                    className="flex items-center justify-center w-11 h-11 rounded-xl ring-2"
                     style={{ color, borderColor: color }}
                   >
-                    <span className="transition-transform duration-700 group-hover:-translate-y-1 group-hover:scale-110 group-active:scale-105">
+                    <span className="transition-transform duration-700 group-hover:-translate-y-1 group-active:-translate-y-1 group-hover:scale-110 group-active:scale-105">
                       <Icon size={27} strokeWidth={1.8} />
                     </span>
                   </span>
-                  <h3 className="text-lg font-extrabold tracking-tight bg-gradient-to-r from-white/90 via-slate-200/80 to-white/70 bg-clip-text text-transparent drop-shadow">
+                  <h3 className="text-lg font-extrabold tracking-tight bg-gradient-to-r from-white/90 via-slate-200/80 to-white/70 bg-clip-text drop-shadow">
                     {category}
                   </h3>
                 </div>
@@ -271,15 +315,15 @@ export default function Skills() {
                   {skills.map((skill) => (
                     <li
                       key={skill.name}
-                      className="flex items-center gap-3 text-[15px] text-white/85 group/skill transition-all duration-700 active:bg-white/5 hover:bg-white/5 active:pl-2 hover:pl-2 rounded-lg px-1 py-1"
+                      className="flex items-center gap-3 text-[15px] group/skill transition-all duration-500 active:pl-2 hover:pl-2 rounded-lg px-1 py-1"
                     >
                       <img
                         src={skill.logo}
                         alt={`${skill.name} logo`}
-                        className="w-5 h-5 shrink-0 object-contain transition-all duration-300 group-active/skill:scale-125 group-hover/skill:scale-125 group-active/skill:drop-shadow-[0_2px_18px_rgba(99,102,241,0.18)] group-hover/skill:drop-shadow-[0_2px_18px_rgba(99,102,241,0.18)]"
+                        className="w-5 h-5 shrink-0 object-contain transition-all duration-500 group-active/skill:scale-125 group-hover/skill:scale-125 group-active/skill:drop-shadow-[0_2px_18px_rgba(99,102,241,0.18)] group-hover/skill:drop-shadow-[0_2px_18px_rgba(99,102,241,0.18)]"
                         loading="lazy"
                       />
-                      <span className="font-medium group-hover/skill:text-indigo-300">{skill.name}</span>
+                      <span className="font-medium transition-all duration-300 group-hover/skill:text-indigo-300">{skill.name}</span>
                     </li>
                   ))}
                 </ul>
@@ -419,6 +463,90 @@ export default function Skills() {
                 );
               })}
             </div>
+          </div>
+        </div>
+
+        {/* ── Certificates ── */}
+        <div className="mt-24 pt-16 border-t border-white/10">
+          <div className="mb-20">
+            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+              Licenses &{" "}
+              <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
+                Certifications
+              </span>
+            </h2>
+            <p className="max-w-2xl text-muted text-lg">
+              Professional credentials and achievements showcasing continuous learning and expertise.
+            </p>
+            <div className="section-line mt-4" />
+          </div>
+
+          <div className="space-y-24">
+            {certificatesData.map((cert, index) => (
+              <div
+                key={cert.id}
+                className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center"
+              >
+                {/* Image */}
+                <div
+                  className={`group relative rounded-2xl duration-500 active:-translate-z-2 active:scale-105 active:duration-500 active:transition-transform overflow-hidden border border-white/10 bg-white/5 ${
+                    index % 2 === 1 ? "lg:order-1" : ""
+                  }`}
+                >
+                  <img
+                    src={cert.image}
+                    alt={cert.title}
+                    className="w-full aspect-video object-cover group-hover:scale-110 transition duration-500"
+                    loading="lazy"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition" />
+                </div>
+
+                {/* Content */}
+                <div
+                  className={`space-y-6 ${index % 2 === 1 ? "lg:order-1" : ""}`}
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="inline-block text-xs bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 rounded-full text-indigo-400 font-medium">
+                      {cert.issuer} • {cert.date}
+                    </span>
+                  </div>
+
+                  <h3 className="text-3xl font-bold text-foreground">{cert.title}</h3>
+
+                  <p className="text-muted leading-relaxed text-base">
+                    {cert.description}
+                  </p>
+
+                  {/* Tech/Skills */}
+                  <div>
+                    <div className="flex flex-wrap gap-2">
+                      {cert.tech.map((tech) => (
+                        <span
+                          key={tech}
+                          className="text-xs text-indigo-300 px-3 py-1 rounded-full bg-indigo-500/5 border border-indigo-500/20"
+                        >
+                          {tech}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+
+                  {/* Links */}
+                  <div className="pt-4">
+                    <a
+                      href={cert.link}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition shadow-lg shadow-indigo-500/20"
+                    >
+                      <ExternalLink className="w-4 h-4" />
+                      Verify Credential
+                    </a>
+                  </div>
+                </div>
+              </div>
+            ))}
           </div>
         </div>
       </div>
