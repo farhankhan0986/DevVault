@@ -44,31 +44,31 @@ export default function AllProjects() {
     slug: "idvault",
   },
 
-  {
-  id: 3,
-  title: "Sentinel Guard",
-  description:
-    "A full-stack website security monitoring platform that helps users protect and observe incoming API traffic for their websites. It allows users to create an account, register their website, generate a unique API key, inspect request activity through a professional dashboard, apply request filtering and rate limiting, detect suspicious traffic patterns, and monitor blocked requests with real-time analytics.",
-  image: "/images/sentinal.png",
-  tech: [
-    "Next.js",
-    "React",
-    "MongoDB",
-    "Mongoose",
-    "JavaScript",
-    "Tailwind CSS",
-    "JWT Authentication",
-    "REST API",
-    "Middleware",
-    "Recharts",
-  ],
-  github: "https://github.com/farhankhan0986/Sentinel-Guard",
-  status: "COMPLETED",
-  highlight:
-    "Middleware-based traffic monitoring",
-  href: "https://sentinel-guard-eb9e.vercel.app/",
-  slug: "sentinel-guard",
-},
+//   {
+//   id: 3,
+//   title: "Sentinel Guard",
+//   description:
+//     "A full-stack website security monitoring platform that helps users protect and observe incoming API traffic for their websites. It allows users to create an account, register their website, generate a unique API key, inspect request activity through a professional dashboard, apply request filtering and rate limiting, detect suspicious traffic patterns, and monitor blocked requests with real-time analytics.",
+//   image: "/images/sentinal.png",
+//   tech: [
+//     "Next.js",
+//     "React",
+//     "MongoDB",
+//     "Mongoose",
+//     "JavaScript",
+//     "Tailwind CSS",
+//     "JWT Authentication",
+//     "REST API",
+//     "Middleware",
+//     "Recharts",
+//   ],
+//   github: "https://github.com/farhankhan0986/Sentinel-Guard",
+//   status: "COMPLETED",
+//   highlight:
+//     "Middleware-based traffic monitoring",
+//   href: "https://sentinel-guard-eb9e.vercel.app/",
+//   slug: "sentinel-guard",
+// },
 
   {
     id: 1,
