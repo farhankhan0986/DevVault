@@ -1,10 +1,5 @@
 "use client";
 
-/**
- * Skills Section Component
- * Design: Glass-morphism cards, gradient progress bars, icon-driven categories
- */
-
 import TrustBadges from "./TrustBadges";
 import {
   Code2,
@@ -255,14 +250,13 @@ export default function Skills() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-7">
           {skillCategories.map(({ category, skills }, idx) => {
             const Icon = categoryIcons[category] || DefaultIcon;
-            // Dark deep-glow gradients per category (feel free to tweak as you like)
             const categoryColors = [
-              { bg: "from-[#32386B] to-[#2e1c64]", color: "#6366f1" }, // Indigo-Blue
-              { bg: "from-[#2c244b] to-[#46213b]", color: "#e92b88" }, // Pink-Violet
-              { bg: "from-[#18343E] to-[#22574A]", color: "#13dfa2" }, // Teal-Emerald
-              { bg: "from-[#3b3204] to-[#86620c]", color: "#ffaf36" }, // Gold-Sepia
-              { bg: "from-[#221d3a] to-[#302366]", color: "#a259fa" }, // Purple-Indigo
-              { bg: "from-[#113448] to-[#183E54]", color: "#2cb9f4" }, // Cyan-Darkblue
+              { bg: "from-[#32386B] to-[#2e1c64]", color: "#6366f1" },
+              { bg: "from-[#2c244b] to-[#46213b]", color: "#e92b88" },
+              { bg: "from-[#18343E] to-[#22574A]", color: "#13dfa2" },
+              { bg: "from-[#3b3204] to-[#86620c]", color: "#ffaf36" },
+              { bg: "from-[#221d3a] to-[#302366]", color: "#a259fa" },
+              { bg: "from-[#113448] to-[#183E54]", color: "#2cb9f4" },
             ];
             const { bg, color } = categoryColors[idx % categoryColors.length];
 
