@@ -11,7 +11,7 @@ const TrustBadges = () => {
       name: "C++",
       description: "High-performance & compiled language",
       focus: "DSA, memory management",
-      logo: "https://www.svgrepo.com/show/303480/c-logo.svg",
+      logo: "https://www.svgrepo.com/show/373528/cpp3.svg",
       color: "#00599C",
     },
     {
