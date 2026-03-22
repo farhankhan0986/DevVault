@@ -4,49 +4,49 @@ export default async function ProjectDetail({ params }) {
   const { slug } = await params;
 
   const projects = {
-       hiresight: {
-  title: "HireSight-AI",
-  role: "Full-Stack AI Software Engineer",
-  description:
-    "HireSight-AI is an AI-powered recruitment intelligence platform designed to automate the early stages of the hiring pipeline. The system leverages Large Language Models (LLMs) through the Groq API to parse unstructured PDF resumes, extract structured candidate data such as technical skills, frameworks, years of experience, and education, and compute objective match scores against job requirements. The platform provides recruiters with an AI-ranked candidate pipeline while offering candidates a streamlined application experience. By combining AI-powered resume analysis with a modern applicant tracking interface, HireSight significantly reduces manual resume screening time and improves hiring efficiency.",
-  problem:
-    "Modern hiring pipelines often require recruiters to manually review hundreds of resumes for a single role. Most resumes are unstructured PDFs with inconsistent formatting, making it difficult to quickly extract relevant information such as skills, technologies, and experience. This manual process introduces bias, delays hiring cycles, and increases the risk of overlooking highly qualified candidates.",
-  solution:
-    "Developed a full-stack recruitment platform using Next.js 15 and Groq's Llama-3 models to automate resume analysis and candidate ranking. The system parses uploaded resumes, extracts structured candidate information, and evaluates each applicant against job-specific requirements using an AI-driven scoring pipeline. Recruiters access a dedicated dashboard where candidates are automatically ranked by relevance, while candidates can browse open roles and submit applications through a simple and intuitive interface.",
-  tech: [
-    "Next.js 15 (App Router)",
-    "React 19",
-    "Tailwind CSS",
-    "Node.js",
-    "MongoDB Atlas",
-    "Mongoose ODM",
-    "Groq AI (Llama-3)",
-    "PDF Parsing & Text Extraction",
-    "JWT Authentication / NextAuth",
-    "RESTful API Architecture"
-  ],
-  architecture: [
-    "Serverless API routes and Server Actions for scalable backend logic",
-    "AI-powered resume parsing pipeline using Groq LLM for structured candidate data extraction",
-    "Resume processing workflow for skill extraction, normalization, and match scoring",
-    "Dual-sided Role-Based Access Control (RBAC) for recruiters and candidates",
-    "Scalable MongoDB schema for job postings, applications, and candidate profiles",
-    "Secure authentication and protected dashboard routes using JWT/NextAuth",
-    "Component-driven UI architecture using React and Tailwind CSS",
-    "Optimized Next.js server components for improved performance and reduced client-side JavaScript"
-  ],
-  learnings: [
-    "Designing AI-powered pipelines for structured data extraction from unstructured documents",
-    "Prompt engineering techniques to reliably extract JSON-formatted candidate information using LLMs",
-    "Handling file uploads, storage, and PDF parsing in Node.js environments",
-    "Building scalable full-stack applications using Next.js App Router architecture",
-    "Designing recruiter-focused dashboards and candidate workflows for real-world hiring use cases",
-    "Implementing role-based access control and secure authentication flows",
-    "Optimizing server components and asynchronous data fetching in Next.js 15",
-    "Structuring MongoDB schemas for scalable applicant tracking systems"
-  ],
-  github: "https://github.com/farhankhan0986/HireSight-AI",
-},
+    hiresight: {
+      title: "HireSight-AI",
+      role: "Full-Stack AI Software Engineer",
+      description:
+        "HireSight-AI is an AI-powered recruitment intelligence platform designed to automate the early stages of the hiring pipeline. The system leverages Large Language Models (LLMs) through the Groq API to parse unstructured PDF resumes, extract structured candidate data such as technical skills, frameworks, years of experience, and education, and compute objective match scores against job requirements. The platform provides recruiters with an AI-ranked candidate pipeline while offering candidates a streamlined application experience. By combining AI-powered resume analysis with a modern applicant tracking interface, HireSight significantly reduces manual resume screening time and improves hiring efficiency.",
+      problem:
+        "Modern hiring pipelines often require recruiters to manually review hundreds of resumes for a single role. Most resumes are unstructured PDFs with inconsistent formatting, making it difficult to quickly extract relevant information such as skills, technologies, and experience. This manual process introduces bias, delays hiring cycles, and increases the risk of overlooking highly qualified candidates.",
+      solution:
+        "Developed a full-stack recruitment platform using Next.js 15 and Groq's Llama-3 models to automate resume analysis and candidate ranking. The system parses uploaded resumes, extracts structured candidate information, and evaluates each applicant against job-specific requirements using an AI-driven scoring pipeline. Recruiters access a dedicated dashboard where candidates are automatically ranked by relevance, while candidates can browse open roles and submit applications through a simple and intuitive interface.",
+      tech: [
+        "Next.js 15 (App Router)",
+        "React 19",
+        "Tailwind CSS",
+        "Node.js",
+        "MongoDB Atlas",
+        "Mongoose ODM",
+        "Groq AI (Llama-3)",
+        "PDF Parsing & Text Extraction",
+        "JWT Authentication / NextAuth",
+        "RESTful API Architecture"
+      ],
+      architecture: [
+        "Serverless API routes and Server Actions for scalable backend logic",
+        "AI-powered resume parsing pipeline using Groq LLM for structured candidate data extraction",
+        "Resume processing workflow for skill extraction, normalization, and match scoring",
+        "Dual-sided Role-Based Access Control (RBAC) for recruiters and candidates",
+        "Scalable MongoDB schema for job postings, applications, and candidate profiles",
+        "Secure authentication and protected dashboard routes using JWT/NextAuth",
+        "Component-driven UI architecture using React and Tailwind CSS",
+        "Optimized Next.js server components for improved performance and reduced client-side JavaScript"
+      ],
+      learnings: [
+        "Designing AI-powered pipelines for structured data extraction from unstructured documents",
+        "Prompt engineering techniques to reliably extract JSON-formatted candidate information using LLMs",
+        "Handling file uploads, storage, and PDF parsing in Node.js environments",
+        "Building scalable full-stack applications using Next.js App Router architecture",
+        "Designing recruiter-focused dashboards and candidate workflows for real-world hiring use cases",
+        "Implementing role-based access control and secure authentication flows",
+        "Optimizing server components and asynchronous data fetching in Next.js 15",
+        "Structuring MongoDB schemas for scalable applicant tracking systems"
+      ],
+      github: "https://github.com/farhankhan0986/HireSight-AI",
+    },
 
     idvault: {
       title: "IDVault",
@@ -155,54 +155,54 @@ export default async function ProjectDetail({ params }) {
       github: "https://github.com/farhankhan0986/promptforge",
     },
     "sentinel-guard": {
-  title: "Sentinel Guard",
-  role: "Full-Stack Developer & Security Engineer",
-  description:
-    "Sentinel Guard is a website security monitoring platform that helps users track and protect incoming API traffic for their websites. It combines request inspection, rate limiting, threat tracking, and a clean analytics dashboard to make suspicious traffic easier to detect and understand.",
-  problem:
-    "Web applications and APIs are often exposed to repeated requests, suspicious traffic, brute-force style behavior, and poor visibility into what is actually reaching the backend.",
-  solution:
-    "Built a middleware-based security layer that checks incoming requests before they reach protected endpoints, validates website-level API keys, applies firewall and rate-limiting rules, tracks suspicious behavior, and stores request activity for dashboard-based monitoring.",
-  tech: [
-    "Next.js (App Router)",
-    "React",
-    "Node.js",
-    "MongoDB",
-    "Mongoose",
-    "JWT Authentication",
-    "Tailwind CSS",
-    "Recharts",
-    "REST API",
-    "Middleware Architecture",
-  ],
-  architecture: [
-    "Request interception using Next.js middleware",
-    "Website-level API key identification for protected traffic",
-    "Rule engine for blocking paths, methods, and IPs",
-    "Rate limiting based on request volume per source",
-    "Threat scoring pipeline for suspicious request behavior",
-    "Centralized request logging and analytics dashboard",
-  ],
-  features: [
-    "User signup with website registration",
-    "Unique API key generation for each website",
-    "Firewall rules for blocking methods, paths, and IPs",
-    "Rate limiting with blocked request handling",
-    "Threat tracking and suspicious activity detection",
-    "Recent request logs and traffic analytics dashboard",
-    "Built-in demo traffic simulator for testing and presentation",
-    "JWT-based user authentication",
-  ],
-  learnings: [
-    "Designing middleware-first security systems",
-    "Implementing request logging and analytics pipelines",
-    "Building secure authentication flows with JWT",
-    "Applying rate limiting and threat detection concepts",
-    "Connecting backend protection logic with frontend dashboards",
-    "Designing a security-focused full-stack project that is simple to explain",
-  ],
-  github: "https://github.com/farhankhan0986/Sentinel-Guard",
-},
+      title: "Sentinel Guard",
+      role: "Full-Stack Developer & Security Engineer",
+      description:
+        "Sentinel Guard is a website security monitoring platform that helps users track and protect incoming API traffic for their websites. It combines request inspection, rate limiting, threat tracking, and a clean analytics dashboard to make suspicious traffic easier to detect and understand.",
+      problem:
+        "Web applications and APIs are often exposed to repeated requests, suspicious traffic, brute-force style behavior, and poor visibility into what is actually reaching the backend.",
+      solution:
+        "Built a middleware-based security layer that checks incoming requests before they reach protected endpoints, validates website-level API keys, applies firewall and rate-limiting rules, tracks suspicious behavior, and stores request activity for dashboard-based monitoring.",
+      tech: [
+        "Next.js (App Router)",
+        "React",
+        "Node.js",
+        "MongoDB",
+        "Mongoose",
+        "JWT Authentication",
+        "Tailwind CSS",
+        "Recharts",
+        "REST API",
+        "Middleware Architecture",
+      ],
+      architecture: [
+        "Request interception using Next.js middleware",
+        "Website-level API key identification for protected traffic",
+        "Rule engine for blocking paths, methods, and IPs",
+        "Rate limiting based on request volume per source",
+        "Threat scoring pipeline for suspicious request behavior",
+        "Centralized request logging and analytics dashboard",
+      ],
+      features: [
+        "User signup with website registration",
+        "Unique API key generation for each website",
+        "Firewall rules for blocking methods, paths, and IPs",
+        "Rate limiting with blocked request handling",
+        "Threat tracking and suspicious activity detection",
+        "Recent request logs and traffic analytics dashboard",
+        "Built-in demo traffic simulator for testing and presentation",
+        "JWT-based user authentication",
+      ],
+      learnings: [
+        "Designing middleware-first security systems",
+        "Implementing request logging and analytics pipelines",
+        "Building secure authentication flows with JWT",
+        "Applying rate limiting and threat detection concepts",
+        "Connecting backend protection logic with frontend dashboards",
+        "Designing a security-focused full-stack project that is simple to explain",
+      ],
+      github: "https://github.com/farhankhan0986/Sentinel-Guard",
+    },
 
     planixa: {
       title: "Planixa",
@@ -301,64 +301,113 @@ export default async function ProjectDetail({ params }) {
       github: "https://github.com/farhankhan0986/AI-Expense-Tracker-",
     },
     culinaria: {
-  title: "Culinaria",
-  role: "Full Stack Developer (AI Product Build)",
+      title: "Culinaria",
+      role: "Full Stack Developer (AI Product Build)",
+      description:
+        "Culinaria is an AI-powered culinary platform designed to help users discover, create, and interact with recipes through a modern full-stack application. The platform combines a curated recipe database with an AI Sous-Chef assistant that helps users generate recipes, answer cooking questions, and explore ingredients. Built using a MERN-style architecture with a Vite + React frontend and an Express + MongoDB backend, the project focuses on building a real-world AI-integrated consumer product with authentication, personalized favorites, recipe ratings, and an editorial-style UI.",
+
+      problem:
+        "Most recipe websites are static content libraries with limited interactivity and no intelligent assistance. Users cannot easily generate new recipes, ask contextual cooking questions, or personalize their cooking experience with saved favorites and ratings.",
+
+      solution:
+        "Built a full-stack recipe platform that integrates AI-assisted recipe generation and conversational cooking support through a custom AI Sous-Chef. The system enables users to browse recipes, create their own dishes, save favorites, rate recipes, and interact with an AI assistant that provides cooking guidance and generates new recipes dynamically.",
+
+      tech: [
+        "React",
+        "Vite",
+        "Node.js",
+        "Express",
+        "MongoDB Atlas",
+        "Mongoose",
+        "JWT Authentication",
+        "Groq AI (LLM)",
+        "REST APIs",
+        "Tailwind CSS",
+        "Framer Motion"
+      ],
+
+      architecture: [
+        "Full-stack MERN-style architecture with a React frontend and Express backend",
+        "RESTful API design for recipes, authentication, ratings, favorites, and AI features",
+        "MongoDB Atlas database storing users, recipes, ratings, and favorites",
+        "JWT-based authentication with secure token storage",
+        "AI integration via Groq API for recipe generation and conversational AI assistance",
+        "Component-driven frontend architecture with reusable UI and modal components",
+        "Client-side state management for recipes, favorites, chat messages, and filters",
+      ],
+
+      features: [
+        "User authentication with signup and login",
+        "Browse recipes with category and cuisine filters",
+        "Search recipes by ingredients, cuisine, or category",
+        "Create and publish custom recipes",
+        "Save favorite recipes for personalized cooking lists",
+        "Recipe rating system with comments",
+        "AI recipe generator that creates new dishes from prompts",
+        "AI Sous-Chef chat assistant for cooking help and ingredient suggestions",
+        "Shopping list builder from recipe ingredients",
+        "Cooking mode with step-by-step recipe guidance",
+      ],
+
+      learnings: [
+        "Integrating LLM APIs into full-stack applications",
+        "Designing scalable REST APIs for multi-feature platforms",
+        "Managing complex React state across modals, chat, and user interactions",
+        "Handling deployment for full-stack apps using Vercel (frontend) and Render (backend)",
+        "Implementing user-centric features like favorites, ratings, and shopping lists",
+        "Building AI-assisted consumer applications with conversational interfaces",
+      ],
+
+      github: "https://github.com/farhankhan0986/Culinaria",
+    },
+    flightstack: {
+  title: "FlightStack",
+  role: "Full Stack Developer",
   description:
-    "Culinaria is an AI-powered culinary platform designed to help users discover, create, and interact with recipes through a modern full-stack application. The platform combines a curated recipe database with an AI Sous-Chef assistant that helps users generate recipes, answer cooking questions, and explore ingredients. Built using a MERN-style architecture with a Vite + React frontend and an Express + MongoDB backend, the project focuses on building a real-world AI-integrated consumer product with authentication, personalized favorites, recipe ratings, and an editorial-style UI.",
-
+    "FlightStack is a modern full-stack flight management platform for airlines, travel agencies, and administrators to oversee flights, bookings, and real-time analytics. The system combines a streamlined frontend dashboard with a secure and extensible backend, supporting seamless user experiences and robust API integrations.",
   problem:
-    "Most recipe websites are static content libraries with limited interactivity and no intelligent assistance. Users cannot easily generate new recipes, ask contextual cooking questions, or personalize their cooking experience with saved favorites and ratings.",
-
+    "Managing flight operations, schedules, and bookings is complex and demands real-time updates, reliability, and an easy-to-use interface. Legacy software often lacks intuitive dashboards and integrated analytics, leading to inefficiencies for both administrators and end-users.",
   solution:
-    "Built a full-stack recipe platform that integrates AI-assisted recipe generation and conversational cooking support through a custom AI Sous-Chef. The system enables users to browse recipes, create their own dishes, save favorites, rate recipes, and interact with an AI assistant that provides cooking guidance and generates new recipes dynamically.",
-
+    "Developed a comprehensive full-stack application using React and Redux for a dynamic frontend, paired with Node.js, Express, and MongoDB to create secure, RESTful APIs and real-time data management. Features include interactive dashboards, booking workflows, analytics modules, and robust authentication with JWT.",
   tech: [
     "React",
-    "Vite",
+    "Redux",
+    "JavaScript",
     "Node.js",
     "Express",
-    "MongoDB Atlas",
-    "Mongoose",
+    "MongoDB",
     "JWT Authentication",
-    "Groq AI (LLM)",
-    "REST APIs",
-    "Tailwind CSS",
-    "Framer Motion"
+    "REST API",
+    "CSS",
+    "HTML"
   ],
-
   architecture: [
-    "Full-stack MERN-style architecture with a React frontend and Express backend",
-    "RESTful API design for recipes, authentication, ratings, favorites, and AI features",
-    "MongoDB Atlas database storing users, recipes, ratings, and favorites",
-    "JWT-based authentication with secure token storage",
-    "AI integration via Groq API for recipe generation and conversational AI assistance",
-    "Component-driven frontend architecture with reusable UI and modal components",
-    "Client-side state management for recipes, favorites, chat messages, and filters",
+    "Decoupled frontend (React/Redux) and backend (Node.js/Express) architecture",
+    "RESTful API design for data exchange and booking operations",
+    "MongoDB for persistent, scalable data storage",
+    "JWT-based authentication for secure user logins",
+    "Reusable components and client-side routing for flexible UI",
+    "Role-based access controls for administrators and users"
   ],
-
   features: [
-    "User authentication with signup and login",
-    "Browse recipes with category and cuisine filters",
-    "Search recipes by ingredients, cuisine, or category",
-    "Create and publish custom recipes",
-    "Save favorite recipes for personalized cooking lists",
-    "Recipe rating system with comments",
-    "AI recipe generator that creates new dishes from prompts",
-    "AI Sous-Chef chat assistant for cooking help and ingredient suggestions",
-    "Shopping list builder from recipe ingredients",
-    "Cooking mode with step-by-step recipe guidance",
+    "Intuitive dashboard for flight management and analytics",
+    "Booking and reservation system with user roles",
+    "Real-time updates on flights and booking status",
+    "Secure login and session management with JWT",
+    "Comprehensive analytics (flight stats, booking trends, etc.)",
+    "Responsive design for desktop and mobile experiences"
   ],
-
   learnings: [
-    "Integrating LLM APIs into full-stack applications",
-    "Designing scalable REST APIs for multi-feature platforms",
-    "Managing complex React state across modals, chat, and user interactions",
-    "Handling deployment for full-stack apps using Vercel (frontend) and Render (backend)",
-    "Implementing user-centric features like favorites, ratings, and shopping lists",
-    "Building AI-assisted consumer applications with conversational interfaces",
+    "Architecting decoupled full-stack applications for scalability",
+    "Designing intuitive UIs for complex workflows",
+    "Implementing JWT-based secure authentication and authorization",
+    "Managing relational data and booking logic in MongoDB",
+    "Building real-time dashboard components with React",
+    "Deploying full-stack services and maintaining API integrations"
   ],
-
-  github: "https://github.com/farhankhan0986/Culinaria",
+  github: [
+    "https://github.com/farhankhan0986/flightstack-frontend"
+  ],
 },
   };
 

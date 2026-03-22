@@ -5,141 +5,168 @@ import { ExternalLink, Github } from "lucide-react";
 
 export default function AllProjects() {
   const projects = [
-  {
-    id: 7,
-    title: "AI Expense Tracker",
-    description:
-      "A full-stack AI-powered expense management platform that helps users track daily spending, automatically categorize transactions using Groq-powered AI, analyze spending patterns through interactive analytics dashboards, and receive smart budgeting insights.",
-    image: "/images/expense.png",
-    tech: [
-      "React",
-      "Node.js",
-      "Express",
-      "MongoDB",
-      "JavaScript",
-      "Tailwind CSS",
-      "Groq AI",
-      "REST API",
-      "JWT Authentication",
-    ],
-    github: "https://github.com/farhankhan0986/AI-Expense-Tracker-",
-    status: "COMPLETED",
-    highlight:
-      "Groq AI-powered automatic expense categorization and financial insights",
-    href: "https://ai-expense-tracker-kappa-sooty.vercel.app/",
-    slug: "aiExpenseTracker",
-  },
+    {
+      id: 7,
+      title: "AI Expense Tracker",
+      description:
+        "A full-stack AI-powered expense management platform that helps users track daily spending, automatically categorize transactions using Groq-powered AI, analyze spending patterns through interactive analytics dashboards, and receive smart budgeting insights.",
+      image: "/images/expense.png",
+      tech: [
+        "React",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "JavaScript",
+        "Tailwind CSS",
+        "Groq AI",
+        "REST API",
+        "JWT Authentication",
+      ],
+      github: "https://github.com/farhankhan0986/AI-Expense-Tracker-",
+      status: "COMPLETED",
+      highlight:
+        "Groq AI-powered automatic expense categorization and financial insights",
+      href: "https://ai-expense-tracker-kappa-sooty.vercel.app/",
+      slug: "aiExpenseTracker",
+    },
 
-  {
-    id: 2,
-    title: "IDVault",
-    description:
-      "A secure identity and data management system focused on controlled access, validation, and backend-first security principles.",
-    image: "/images/idvault.png",
-    tech: ["Node.js", "Express", "Next.js", "MongoDB", "Auth"],
-    github: "https://github.com/farhankhan0986/IDVault",
-    status: "COMPLETED",
-    highlight: "Security-First Design",
-    href: "https://id-vault.vercel.app/",
-    slug: "idvault",
-  },
+    {
+      id: 2,
+      title: "IDVault",
+      description:
+        "A secure identity and data management system focused on controlled access, validation, and backend-first security principles.",
+      image: "/images/idvault.png",
+      tech: ["Node.js", "Express", "Next.js", "MongoDB", "Auth"],
+      github: "https://github.com/farhankhan0986/IDVault",
+      status: "COMPLETED",
+      highlight: "Security-First Design",
+      href: "https://id-vault.vercel.app/",
+      slug: "idvault",
+    },
 
-//   {
-//   id: 3,
-//   title: "Sentinel Guard",
-//   description:
-//     "A full-stack website security monitoring platform that helps users protect and observe incoming API traffic for their websites. It allows users to create an account, register their website, generate a unique API key, inspect request activity through a professional dashboard, apply request filtering and rate limiting, detect suspicious traffic patterns, and monitor blocked requests with real-time analytics.",
-//   image: "/images/sentinal.png",
-//   tech: [
-//     "Next.js",
-//     "React",
-//     "MongoDB",
-//     "Mongoose",
-//     "JavaScript",
-//     "Tailwind CSS",
-//     "JWT Authentication",
-//     "REST API",
-//     "Middleware",
-//     "Recharts",
-//   ],
-//   github: "https://github.com/farhankhan0986/Sentinel-Guard",
-//   status: "COMPLETED",
-//   highlight:
-//     "Middleware-based traffic monitoring",
-//   href: "https://sentinel-guard-eb9e.vercel.app/",
-//   slug: "sentinel-guard",
-// },
+    //   {
+    //   id: 3,
+    //   title: "Sentinel Guard",
+    //   description:
+    //     "A full-stack website security monitoring platform that helps users protect and observe incoming API traffic for their websites. It allows users to create an account, register their website, generate a unique API key, inspect request activity through a professional dashboard, apply request filtering and rate limiting, detect suspicious traffic patterns, and monitor blocked requests with real-time analytics.",
+    //   image: "/images/sentinal.png",
+    //   tech: [
+    //     "Next.js",
+    //     "React",
+    //     "MongoDB",
+    //     "Mongoose",
+    //     "JavaScript",
+    //     "Tailwind CSS",
+    //     "JWT Authentication",
+    //     "REST API",
+    //     "Middleware",
+    //     "Recharts",
+    //   ],
+    //   github: "https://github.com/farhankhan0986/Sentinel-Guard",
+    //   status: "COMPLETED",
+    //   highlight:
+    //     "Middleware-based traffic monitoring",
+    //   href: "https://sentinel-guard-eb9e.vercel.app/",
+    //   slug: "sentinel-guard",
+    // },
 
-  {
-    id: 1,
-    title: "Chai Culture",
-    description:
-      "A premium 'Coming Soon' landing page for Chai Culture designed to reflect royal Indian heritage through a calm, elegant, and modern digital experience.",
-    image: "/images/chai.png",
-    tech: ["Next.js", "React", "Tailwind CSS", "UI/UX Design"],
-    github: "https://github.com/farhankhan0986/ChaiCulture",
-    status: "COMPLETED",
-    highlight: "Luxury Brand UI & Product Thinking",
-    href: "https://chai-culture-dun.vercel.app/",
-    slug: "chai-culture",
-  },
+    {
+      id: 1,
+      title: "Chai Culture",
+      description:
+        "A premium 'Coming Soon' landing page for Chai Culture designed to reflect royal Indian heritage through a calm, elegant, and modern digital experience.",
+      image: "/images/chai.png",
+      tech: ["Next.js", "React", "Tailwind CSS", "UI/UX Design"],
+      github: "https://github.com/farhankhan0986/ChaiCulture",
+      status: "COMPLETED",
+      highlight: "Luxury Brand UI & Product Thinking",
+      href: "https://chai-culture-dun.vercel.app/",
+      slug: "chai-culture",
+    },
+    {
+      id: 9,
+      title: "FlightStack",
+      description:
+        "FlightStack is a robust full-stack platform for managing flights, bookings, and real-time analytics. It features a modern frontend for seamless user experience and a scalable backend offering secure APIs, authentication, and real-time data. Built to support both travelers and administrators with powerful, easy-to-use interfaces.",
+      image: "/images/flightstack.png", // Update the image path as needed
+      tech: [
+        "JavaScript",
+        "React",
+        "Redux",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "JWT Authentication",
+        "REST API",
+        "CSS",
+        "HTML"
+      ],
+      github: [
+        "https://github.com/farhankhan0986/flightstack-frontend"
+      ],
+      status: "ACTIVE",
+      highlight:
+        "Full-stack platform with real-time analytics and secure APIs",
+      href: "https://flightstack-frontend.vercel.app/",
+      slug: "flightstack",
+    },
 
-  {
-    id: 4,
-    title: "Notes Server MERN",
-    description:
-      "A RESTful notes management backend built with the MERN stack supporting authentication, CRUD operations, and secure data storage.",
-    image: "/images/notes.png",
-    tech: ["MongoDB", "Express", "React", "Node.js", "JWT Auth"],
-    github: "https://github.com/farhankhan0986/Notes_Server_MERN",
-    status: "COMPLETED",
-    highlight: "Full-featured CRUD API with authentication",
-    href: "",
-    slug: "notes-server-mern",
-  },
+    {
+      id: 4,
+      title: "Notes Server MERN",
+      description:
+        "A RESTful notes management backend built with the MERN stack supporting authentication, CRUD operations, and secure data storage.",
+      image: "/images/notes.png",
+      tech: ["MongoDB", "Express", "React", "Node.js", "JWT Auth"],
+      github: "https://github.com/farhankhan0986/Notes_Server_MERN",
+      status: "COMPLETED",
+      highlight: "Full-featured CRUD API with authentication",
+      href: "",
+      slug: "notes-server-mern",
+    },
 
-  {
-    id: 5,
-    title: "News Equator",
-    description:
-      "A news aggregation web application that fetches the latest headlines from multiple sources and allows users to filter news categories using React.",
-    image: "/images/news.png",
-    tech: ["React", "API Integration", "Bootstrap"],
-    github: "https://github.com/farhankhan0986/News_Equator_React",
-    status: "COMPLETED",
-    highlight: "Live news filtering",
-    href: "https://fluffy-heliotrope-addc19.netlify.app/",
-    slug: "news-equator-react",
-  },
+    {
+      id: 5,
+      title: "News Equator",
+      description:
+        "A news aggregation web application that fetches the latest headlines from multiple sources and allows users to filter news categories using React.",
+      image: "/images/news.png",
+      tech: ["React", "API Integration", "Bootstrap"],
+      github: "https://github.com/farhankhan0986/News_Equator_React",
+      status: "COMPLETED",
+      highlight: "Live news filtering",
+      href: "https://fluffy-heliotrope-addc19.netlify.app/",
+      slug: "news-equator-react",
+    },
 
-  {
-    id: 6,
-    title: "ToDo List",
-    description:
-      "A minimalistic task management application that helps users organize daily tasks with priorities and completion tracking.",
-    image: "/images/todo.png",
-    tech: ["React", "JavaScript", "CSS"],
-    github: "https://github.com/farhankhan0986/ToDo-List",
-    status: "COMPLETED",
-    highlight: "Simple and clean task management UI",
-    href: "https://endearing-tapioca-1dd038.netlify.app/",
-    slug: "todo-list",
-  },
+    {
+      id: 6,
+      title: "ToDo List",
+      description:
+        "A minimalistic task management application that helps users organize daily tasks with priorities and completion tracking.",
+      image: "/images/todo.png",
+      tech: ["React", "JavaScript", "CSS"],
+      github: "https://github.com/farhankhan0986/ToDo-List",
+      status: "COMPLETED",
+      highlight: "Simple and clean task management UI",
+      href: "https://endearing-tapioca-1dd038.netlify.app/",
+      slug: "todo-list",
+    },
 
-  {
-    id: 8,
-    title: "Text Utils",
-    description:
-      "A text utility toolkit providing features like word counting, case conversion, and whitespace cleanup through an interactive React interface.",
-    image: "/images/textutils.png",
-    tech: ["React", "JavaScript", "Bootstrap"],
-    github: "https://github.com/farhankhan0986/Text-Utils-react",
-    status: "COMPLETED",
-    highlight: "Comprehensive text manipulation tools",
-    href: "https://musical-clafoutis-734d23.netlify.app/",
-    slug: "text-utils-react",
-  },
-];
+    {
+      id: 8,
+      title: "Text Utils",
+      description:
+        "A text utility toolkit providing features like word counting, case conversion, and whitespace cleanup through an interactive React interface.",
+      image: "/images/textutils.png",
+      tech: ["React", "JavaScript", "Bootstrap"],
+      github: "https://github.com/farhankhan0986/Text-Utils-react",
+      status: "COMPLETED",
+      highlight: "Comprehensive text manipulation tools",
+      href: "https://musical-clafoutis-734d23.netlify.app/",
+      slug: "text-utils-react",
+    },
+  ];
 
   return (
     <section className="relative select-none py-28 bg-background text-foreground">
