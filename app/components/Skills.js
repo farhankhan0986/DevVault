@@ -143,26 +143,26 @@ const skillCategories = [
         name: "n8n",
         logo: "https://raw.githubusercontent.com/lobehub/lobe-icons/refs/heads/master/packages/static-png/dark/n8n-color.png",
       },
-      { name: "Cursor", logo: "https://www.cursor.com/favicon.ico" },
       {
-        name: "Vercel v0",
-        logo: "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABwAAAAcCAAAAABXZoBIAAAAhUlEQVR4Ae3PIRKCQBhH8f9JvIXVC1gMJuKmnbFvJO+MgbbFc2wjE79AJNPtlKfqAAN4BH71pafdVmrNrHH6q+ar0sRDkK7YnSgpApqVUEyxgp6LZg84nn8xgc+LqMxQfGJIcFO9jDIGLNKB1yaqh/YEOEl5HfWkG09KrR3MS6F5M6fR7gVNhV89Kw1F/QAAAABJRU5ErkJggg==",
+        name: "Antigravity",
+        logo: "https://antigravity.google/assets/image/brand/antigravity-icon__full-color.png",
       },
+      { name: "Cursor", logo: "https://www.cursor.com/favicon.ico" },
     ],
   },
   {
     category: "LLMs",
     skills: [
       {
-        name: "ChatGPT",
+        name: "OpenAI",
         logo: "https://upload.wikimedia.org/wikipedia/commons/0/04/ChatGPT_logo.svg",
       },
       {
-        name: "Claude",
+        name: "Anthropic",
         logo: "https://cdn.worldvectorlogo.com/logos/claude-logo.svg",
       },
       {
-        name: "Gemini / Groq",
+        name: "Gemini",
         logo: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1d/Google_Gemini_icon_2025.svg/1280px-Google_Gemini_icon_2025.svg.png?_=20250728014952",
       },
     ],
