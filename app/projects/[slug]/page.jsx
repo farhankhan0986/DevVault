@@ -361,54 +361,108 @@ export default async function ProjectDetail({ params }) {
       github: "https://github.com/farhankhan0986/Culinaria",
     },
     flightstack: {
-  title: "FlightStack",
-  role: "Full Stack Developer",
+      title: "FlightStack",
+      role: "Full Stack Developer",
+      description:
+        "FlightStack is a modern full-stack flight management platform for airlines, travel agencies, and administrators to oversee flights, bookings, and real-time analytics. The system combines a streamlined frontend dashboard with a secure and extensible backend, supporting seamless user experiences and robust API integrations.",
+      problem:
+        "Managing flight operations, schedules, and bookings is complex and demands real-time updates, reliability, and an easy-to-use interface. Legacy software often lacks intuitive dashboards and integrated analytics, leading to inefficiencies for both administrators and end-users.",
+      solution:
+        "Developed a comprehensive full-stack application using React and Redux for a dynamic frontend, paired with Node.js, Express, and MongoDB to create secure, RESTful APIs and real-time data management. Features include interactive dashboards, booking workflows, analytics modules, and robust authentication with JWT.",
+      tech: [
+        "React",
+        "Redux",
+        "JavaScript",
+        "Node.js",
+        "Express",
+        "MongoDB",
+        "JWT Authentication",
+        "REST API",
+        "CSS",
+        "HTML"
+      ],
+      architecture: [
+        "Decoupled frontend (React/Redux) and backend (Node.js/Express) architecture",
+        "RESTful API design for data exchange and booking operations",
+        "MongoDB for persistent, scalable data storage",
+        "JWT-based authentication for secure user logins",
+        "Reusable components and client-side routing for flexible UI",
+        "Role-based access controls for administrators and users"
+      ],
+      features: [
+        "Intuitive dashboard for flight management and analytics",
+        "Booking and reservation system with user roles",
+        "Real-time updates on flights and booking status",
+        "Secure login and session management with JWT",
+        "Comprehensive analytics (flight stats, booking trends, etc.)",
+        "Responsive design for desktop and mobile experiences"
+      ],
+      learnings: [
+        "Architecting decoupled full-stack applications for scalability",
+        "Designing intuitive UIs for complex workflows",
+        "Implementing JWT-based secure authentication and authorization",
+        "Managing relational data and booking logic in MongoDB",
+        "Building real-time dashboard components with React",
+        "Deploying full-stack services and maintaining API integrations"
+      ],
+      github: [
+        "https://github.com/farhankhan0986/flightstack-frontend"
+      ],
+    },
+    viblytics: {
+  title: "Viblytics",
+  role: "Product Engineer & AI Developer",
   description:
-    "FlightStack is a modern full-stack flight management platform for airlines, travel agencies, and administrators to oversee flights, bookings, and real-time analytics. The system combines a streamlined frontend dashboard with a secure and extensible backend, supporting seamless user experiences and robust API integrations.",
+    "Viblytics is an AI-powered YouTube competitor intelligence SaaS that empowers marketers and creators to analyze any public channel’s video performance, engagement rates, and trends with just a link. It combines live YouTube metrics, instant AI analysis, advanced data visualizations, and a polished SaaS experience.",
   problem:
-    "Managing flight operations, schedules, and bookings is complex and demands real-time updates, reliability, and an easy-to-use interface. Legacy software often lacks intuitive dashboards and integrated analytics, leading to inefficiencies for both administrators and end-users.",
+    "Decoding competitor strategies on YouTube is slow, manual, and often limited to raw metrics. Most tools require clumsy spreadsheet exports, lack smart insights, and offer little in the way of actionable, enterprise-ready analytics.",
   solution:
-    "Developed a comprehensive full-stack application using React and Redux for a dynamic frontend, paired with Node.js, Express, and MongoDB to create secure, RESTful APIs and real-time data management. Features include interactive dashboards, booking workflows, analytics modules, and robust authentication with JWT.",
+    "Built a modern web app leveraging Groq’s LLaMA 3.3 70B for instant AI-powered video/channel insights. The platform delivers performance analytics, engagement benchmarking, trend detection, and actionable recommendations with a clean, responsive UI. Added shareable URLs, advanced charting, and resilience for demos/failover.",
   tech: [
-    "React",
-    "Redux",
-    "JavaScript",
+    "Next.js 15",
+    "React 19",
+    "Tailwind CSS 4",
+    "Groq AI (LLaMA 3.3 70B)",
     "Node.js",
-    "Express",
-    "MongoDB",
-    "JWT Authentication",
-    "REST API",
-    "CSS",
-    "HTML"
+    "TypeScript",
+    "Recharts",
+    "YouTube Data API v3",
+    "CSV Export",
+    "Vercel"
   ],
   architecture: [
-    "Decoupled frontend (React/Redux) and backend (Node.js/Express) architecture",
-    "RESTful API design for data exchange and booking operations",
-    "MongoDB for persistent, scalable data storage",
-    "JWT-based authentication for secure user logins",
-    "Reusable components and client-side routing for flexible UI",
-    "Role-based access controls for administrators and users"
+    "Full-stack application using decoupled React UI and Next.js server routes",
+    "YouTube Data API integration wraps live and mock data for loading/failover resilience",
+    "Groq-powered Backend-for-Frontend (BFF) for all AI analysis and recommendations",
+    "Dynamic routing with shareable ?channel= URLs for reproducible analysis views",
+    "Custom hooks and useMemo for real-time filtering and insights computation",
+    "Responsive, SaaS-grade UI with consistent branding and dark mode",
+    "Microinteractions, tooltips, and skeleton loading for premium UX feel"
   ],
   features: [
-    "Intuitive dashboard for flight management and analytics",
-    "Booking and reservation system with user roles",
-    "Real-time updates on flights and booking status",
-    "Secure login and session management with JWT",
-    "Comprehensive analytics (flight stats, booking trends, etc.)",
-    "Responsive design for desktop and mobile experiences"
+    "Paste any public YouTube channel URL for analysis (supports @handle, channel ID, /c/ and /user/)",
+    "AI-powered channel analysis via Groq (LLaMA 3.3 70B): auto-generated summaries, key insights, content patterns, and recommendations",
+    "Rule-based instant channel insights card for engagement leader, cadence, trending, and performance momentum",
+    "Sortable, filterable video table with views, likes, comments, publish date, engagement rate (color-coded) & trending badges",
+    "Dual charting: top 5 bar chart and views vs. engagement scatter plot, toggle with one click",
+    "Shareable analysis URLs — ?channel= link auto-load and one-click example channels for demo/UX",
+    "CSV export including calculated engagement data for offline reporting",
+    "Polished, branded design with dark/light mode, animations, skeleton loaders, and custom SVG logo"
   ],
   learnings: [
-    "Architecting decoupled full-stack applications for scalability",
-    "Designing intuitive UIs for complex workflows",
-    "Implementing JWT-based secure authentication and authorization",
-    "Managing relational data and booking logic in MongoDB",
-    "Building real-time dashboard components with React",
-    "Deploying full-stack services and maintaining API integrations"
+    "Integrating Groq's LLaMA API for low-latency AI analytics (summaries, pattern detection, recommendations)",
+    "Designing instant-fallback architecture for reliable SaaS demos (mock/live data and error handling)",
+    "Building advanced interactive charts with Recharts and dynamic highlighting",
+    "Implementing rule-based and LLM-based insights in tandem (for speed/robustness)",
+    "Engineering for shareability with dynamic URL state and zero-auth access",
+    "Enhancing enterprise UX: responsive design, microinteractions, tooltips, and data export"
   ],
-  github: [
-    "https://github.com/farhankhan0986/flightstack-frontend"
-  ],
-},
+  github: "https://github.com/farhankhan0986/Viblytics",
+  href: "https://viblytics.vercel.app",
+  status: "COMPLETED",
+  highlight: "AI-Powered Channel Intelligence, Engagement Benchmarking, & Shareable Competitor Reports",
+  slug: "viblytics",
+}
   };
 
   const project = projects[slug];

@@ -117,6 +117,28 @@ export default function Projects() {
       href: "https://planixa.vercel.app/",
       slug: "planixa",
     },
+    {
+  id: 7,
+  title: "Viblytics",
+  description:
+    "Viblytics is an AI-powered YouTube competitor analytics SaaS that lets users analyze any public channel’s recent videos for top performance, engagement, and insights. It features AI-driven channel summaries, scatter and bar charts, shareable analysis links, and a polished modern UI for enterprise teams.",
+  image: "/images/viblytics.png",
+  tech: [
+    "Next.js 15",
+    "Groq AI (LLaMA 3.3 70B)",
+    "React",
+    "TypeScript",
+    "Recharts",
+    "YouTube Data API v3",
+    "Tailwind CSS",
+    "Node.js"
+  ],
+  github: "https://github.com/farhankhan0986/Viblytics",
+  status: "COMPLETED",
+  highlight: "AI Insights, Engagement Analytics & Shareable Competitor Reports",
+  href: "https://viblytics.vercel.app",
+  slug: "viblytics",
+},
     
     // {
     //   id: 2,
