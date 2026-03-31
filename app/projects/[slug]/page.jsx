@@ -462,6 +462,56 @@ export default async function ProjectDetail({ params }) {
   status: "COMPLETED",
   highlight: "AI-Powered Channel Intelligence, Engagement Benchmarking, & Shareable Competitor Reports",
   slug: "viblytics",
+},
+ragAiChatbot: {
+  title: "RAG AI Chatbot",
+  role: "Full-Stack Engineer & AI Integration Specialist",
+  description:
+    "RAG AI Chatbot is a production-ready, retrieval-augmented AI chatbot platform. It enables users to ask questions about any embedded dataset—websites, documentation, or personal content—using natural language. Answers are accurate, context-grounded, and cite their sources, all through a fast Next.js App Router UI with secure serverless backend, semantic search, and Groq/Cohere-powered LLM integration.",
+  problem:
+    "Traditional chatbots often hallucinate or fail to answer enterprise/documentation-specific queries, because their LLMs don’t know your custom content. Most solutions lack clear citations or require complex integration to work over private data, leaving teams and users uncertain about AI accuracy.",
+  solution:
+    "Developed a modern RAG workflow delivering instant, verifiable answers based strictly on user-embedded content. Combined Supabase pgvector search, chunked embeddings, and Groq/Cohere LLMs with an always-citing, auditable answer chain. Designed a clean, responsive chat UI (Next.js) and robust API route for serverless deployments. System is extensible to support website uploads, multi-turn chat, and custom domains.",
+  tech: [
+    "Next.js 14+ (App Router)",
+    "React 18+",
+    "Tailwind CSS",
+    "Groq AI (Llama 3.3 70B) / Cohere",
+    "Supabase (Postgres + pgvector)",
+    "Node.js",
+    "JavaScript",
+    "Vercel"
+  ],
+  architecture: [
+    "Frontend: App Router-based Next.js with modern chat UI, chat role state, context-citation rendering",
+    "Backend: Secure Next.js API route for vector search, prompt creation, and Groq/Cohere LLM calls (keys never exposed)",
+    "Semantic retrieval: Top-K embedding search using pgvector and custom SQL in Supabase",
+    "Chunking pipeline for long/complex docs and web scraping ingestion",
+    "Env-based secret management, Vercel-optimized for serverless cold starts",
+    "Easy extensibility for document upload, per-user sessions, and multi-provider LLM fallback"
+  ],
+  features: [
+    "Ask questions about your website, docs, or any chunked/embedded dataset (supports website scraping, docs ingest, or manual text)",
+    "Retrieval-augmented answer generation with always-cited context chunks",
+    "Ultra-fast LLM calls via Groq API (Llama 3.3 70B) or Cohere",
+    "Modern chat UI with user/assistant role separation and scroll-to-recent UX",
+    "Source-citation panel for every answer so users ‘trust but verify’",
+    "Seamless deployment to Vercel: all API keys and secret operations done server-side only",
+    "Production-minded: input validation, chunk deduplication, clean error handling, and scalable serverless pattern"
+  ],
+  learnings: [
+    "Building fully-typed RAG pipelines that combine LLMs, vector DBs, and custom ingest logic",
+    "Securing cloud deployments: API key isolation, usage throttling, and zero client leak",
+    "Effective OpenAI/Groq/Cohere prompt engineering for transparent, context-restricted answers",
+    "Engineering maintainable full-stack chat UI with React state and App Router",
+    "Balancing chunk size/overlap for best RAG retrieval precision",
+    "Deploying and configuring serverless vector search (Supabase/pgvector) at scale"
+  ],
+  github: "https://github.com/farhankhan0986/rag-ai-chatbot",
+  href: "https://rag-ai-chatbot-piae.vercel.app/",
+  status: "COMPLETED",
+  highlight: "Retrieval-Augmented Answers with Always-Cited Context, Deployed as a Modern Serverless Chatbot",
+  slug: "rag-ai-chatbot"
 }
   };
 
