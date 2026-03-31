@@ -6,6 +6,72 @@ import { ExternalLink, Github } from "lucide-react";
 export default function AllProjects() {
   const projects = [
     {
+    id: 8,
+      title: "Culinaria",
+      description:
+      "An AI-powered recipe platform where users can discover, create, and manage recipes while collaborating with an intelligent AI Sous-Chef. Features include AI recipe generation, favorites, ratings, shopping lists, and a modern full-stack MERN architecture.",
+      image: "/images/culinaria.png",
+      tech: [
+        "React",
+        "Vite",
+        "Node.js",
+        "Express",
+        "MongoDB Atlas",
+        "JWT Authentication",
+        "Groq AI (LLM)",
+        "REST API",
+        "Full-Stack MERN"
+      ],
+      github: "https://github.com/farhankhan0986/Culinaria",
+      status: "COMPLETED",
+      highlight: "AI-Powered Recipe Platform with Interactive AI Sous-Chef",
+      href: "https://culinaria-wheat.vercel.app/",
+      slug: "culinaria",
+    },
+    {
+      id: 6,
+      title: "PromptForge",
+      description:
+        "A full-stack AI-powered prompt generator and manager that transforms rough ideas into production-grade AI prompts, with a personal library featuring categorization, tagging, search, and an analytics dashboard.",
+      image: "/images/promptforge.png",
+      tech: [
+        "React 19",
+        "Vite 7",
+        "Tailwind CSS 3",
+        "Node.js",
+        "Express 5",
+        "PostgreSQL",
+        "JWT Authentication",
+        "Groq API (LLaMA 3.3)",
+      ],
+      github: "https://github.com/farhankhan0986/promptforge",
+      status: "COMPLETED",
+      highlight: "AI Prompt Engineering & Analytics Dashboard",
+      href: "https://promptforge-blush.vercel.app",
+      slug: "promptforge",
+    },
+    {
+      id: 2,
+      title: "Planixa",
+      description:
+      "A full-stack task management webapp built as part of the Anything.ai Full Stack Intern assignment, featuring secure authentication, profile management, and a modern tasks UI with search and filter.",
+      image: "/images/planixa.png",
+      tech: [
+        "Next.js 16",
+        "React",
+        "Tailwind CSS",
+        "MongoDB",
+        "JWT Authentication",
+        "Framer Motion",
+      ],
+      github: "https://github.com/farhankhan0986/Planixa",
+      status: "COMPLETED",
+      highlight: "Full-Stack Dashboard & Auth Flow",
+      href: "https://planixa.vercel.app/",
+      slug: "planixa",
+    },
+    
+    {
       id: 7,
       title: "AI Expense Tracker",
       description:
@@ -31,7 +97,7 @@ export default function AllProjects() {
     },
 
     {
-      id: 2,
+      id: 10,
       title: "IDVault",
       description:
         "A secure identity and data management system focused on controlled access, validation, and backend-first security principles.",
@@ -140,7 +206,7 @@ export default function AllProjects() {
     },
 
     {
-      id: 6,
+      id: 12,
       title: "ToDo List",
       description:
         "A minimalistic task management application that helps users organize daily tasks with priorities and completion tracking.",
@@ -154,7 +220,7 @@ export default function AllProjects() {
     },
 
     {
-      id: 8,
+      id: 14,
       title: "Text Utils",
       description:
         "A text utility toolkit providing features like word counting, case conversion, and whitespace cleanup through an interactive React interface.",
