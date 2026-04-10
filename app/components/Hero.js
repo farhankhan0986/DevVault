@@ -61,7 +61,7 @@ export default function Hero() {
               </a>
 
               <a
-                href="https://drive.google.com/file/d/13tq18GTGeGZ_zoRhuh30OFjQsegtgEFf/view?usp=sharing"
+                href="https://drive.google.com/file/d/1QfLFjq3H-eXuRo4fqzAxOBuNo0HK7IGn/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border hover:bg-[rgb(var(--border))] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
