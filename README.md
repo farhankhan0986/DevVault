@@ -141,7 +141,7 @@ User Message → POST /api/chat → Build Context → Groq API (stream: true) �
 seed.js (one-time) → bcrypt hash → MongoDB User → JWT sign → Protected routes
 ```
 
-- No public signup — admin access is provisioned once via `seed.js`
+- No public signup — admin access is provisioned once via `seed.js` only.
 - Role-based user model with `admin` and `user` enum
 
 ### Dynamic Project Pages
