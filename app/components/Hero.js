@@ -39,17 +39,19 @@ function ParticleCanvas() {
     }
 
     const CONNECTION_DIST = 120;
+    const CONNECTION_DIST_SQ = CONNECTION_DIST * CONNECTION_DIST;
 
     function draw() {
       ctx.clearRect(0, 0, W, H);
 
-      // Draw connections
+      // Draw connections — use distance² to avoid Math.sqrt on most pairs
       for (let i = 0; i < particles.length; i++) {
         for (let j = i + 1; j < particles.length; j++) {
           const dx = particles[i].x - particles[j].x;
           const dy = particles[i].y - particles[j].y;
-          const dist = Math.sqrt(dx * dx + dy * dy);
-          if (dist < CONNECTION_DIST) {
+          const distSq = dx * dx + dy * dy;
+          if (distSq < CONNECTION_DIST_SQ) {
+            const dist = Math.sqrt(distSq);
             const a = (1 - dist / CONNECTION_DIST) * 0.12;
             ctx.beginPath();
             ctx.moveTo(particles[i].x, particles[i].y);
@@ -86,7 +88,13 @@ function ParticleCanvas() {
     ro.observe(canvas);
     resize();
     init();
-    draw();
+
+    // Respect prefers-reduced-motion — skip animation if user prefers
+    const prefersReduced =
+      window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (!prefersReduced) {
+      draw();
+    }
 
     return () => {
       cancelAnimationFrame(animId);
@@ -256,8 +264,8 @@ export default function Hero() {
           {/* ── Right column — photo ── */}
           <div className="hero-enter-img flex justify-center">
             <div className="flex flex-col lg:flex-row justify-center relative lg:-top-13 lg:left-15 mt-10">
-              {/* Spinning border — 10s rotation on all breakpoints */}
-              <div className="absolute h-full w-full border-2 border-dashed border-indigo-400/30 animate-[spin_10s_linear_infinite]" />
+              {/* Spinning border — 10s rotation, paused for reduced-motion users */}
+              <div className="absolute h-full w-full border-2 border-dashed border-indigo-400/30 animate-[spin_10s_linear_infinite] motion-reduce:animate-none" />
               <div className="relative w-full max-w-md aspect-square">
                 {/* Glow behind image */}
                 <div className="absolute inset-0 bg-indigo-600/20 blur-3xl scale-75" />
