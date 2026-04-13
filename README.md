@@ -88,7 +88,7 @@ DevVault/
 │   │   ├── Contact.js            # Contact CTA and social links
 │   │   ├── Education.js          # Education timeline
 │   │   ├── Experience.js         # Work experience timeline
-│   │   ├── Footer.js             # Site footer with navigation
+│   │   ├── Footer.js             # Site footer with navigation links
 │   │   ├── Header.js             # Responsive navbar with scroll tracking
 │   │   ├── Hero.js               # Landing hero section
 │   │   ├── Projects.js           # Project cards grid
