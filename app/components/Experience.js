@@ -31,9 +31,9 @@ const experiences = [
 
 export default function Experience() {
   return (
-    <section className="relative select-none isolate bg-background text-foreground pt-28">
+    <section className="relative select-none isolate bg-[#0D0D0D] text-white pt-28">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="border-t border-border pt-16">
+        <div className="border-t border-white/8 pt-16">
 
           {/* Section header */}
           <div className="mb-16">
@@ -62,18 +62,18 @@ export default function Experience() {
                   <div className="hidden md:flex absolute left-0 top-6 z-10 items-center justify-center">
                     {exp.current ? (
                       <span className="relative flex h-[14px] w-[14px]">
-                        <span className="timeline-dot-pulse absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                        <span className="relative inline-flex h-[14px] w-[14px] rounded-full bg-emerald-500 border-2 border-emerald-300 shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
+                        <span className="timeline-dot-pulse absolute inline-flex h-full w-full  bg-emerald-400 opacity-75" />
+                        <span className="relative inline-flex h-[14px] w-[14px]  bg-emerald-500 border-2 border-emerald-300 shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
                       </span>
                     ) : (
-                      <span className="inline-flex h-3 w-3 rounded-full border-2 border-indigo-400 bg-[rgb(var(--background))]" />
+                      <span className="inline-flex h-3 w-3  border-2 border-indigo-400 bg-[rgb(var(--background))]" />
                     )}
                   </div>
 
                   {/* Card */}
-                  <div className="group relative rounded-xl border border-indigo-500/40 bg-[rgba(var(--card),0.6)] backdrop-blur-xl p-6 transition-all duration-300 active:-translate-y-1 active:shadow-[0_8px_32px_rgba(99,102,241,0.15)] active:border-indigo-500/30 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(99,102,241,0.15)] hover:border-indigo-500/30">
+                  <div className="group relative  border border-indigo-500/40 bg-[rgba(var(--card),0.6)] backdrop-blur-xl p-6 transition-all duration-300 active:-translate-y-1 active:shadow-[0_8px_32px_rgba(99,102,241,0.15)] active:border-indigo-500/30 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(99,102,241,0.15)] hover:border-indigo-500/30">
                     {/* Hover glow */}
-                    <span className="pointer-events-none absolute inset-0 rounded-xl bg-indigo-500/5 blur-2xl opacity-0 transition-opacity duration-500 group-active:opacity-100 group-hover:opacity-100" />
+                    <span className="pointer-events-none absolute inset-0  bg-indigo-500/5 blur-2xl opacity-0 transition-opacity duration-500 group-active:opacity-100 group-hover:opacity-100" />
 
                     <div className="relative space-y-4">
                       {/* Top row: role + date badge */}
@@ -84,13 +84,13 @@ export default function Experience() {
                             {exp.role}
                           </h3>
                           {exp.current && (
-                            <span className="inline-flex items-center gap-1 rounded-full bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 text-xs font-medium text-emerald-400">
-                              <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
+                            <span className="inline-flex items-center gap-1  bg-emerald-500/10 border border-emerald-500/20 px-2.5 py-0.5 text-xs font-medium text-emerald-400">
+                              <span className="h-1.5 w-1.5  bg-emerald-400 animate-pulse" />
                               Current
                             </span>
                           )}
                         </div>
-                        <span className="inline-flex items-center gap-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 text-xs font-medium text-indigo-400 whitespace-nowrap">
+                        <span className="inline-flex items-center gap-1.5  bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 text-xs font-medium text-indigo-400 whitespace-nowrap">
                           <Calendar className="h-3 w-3" />
                           {exp.date}
                         </span>
@@ -98,7 +98,7 @@ export default function Experience() {
 
                       {/* Company + location row */}
                       <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-                        <span className="inline-flex items-center gap-1.5 rounded-md bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 text-sm font-medium text-indigo-400 whitespace-nowrap">
+                        <span className="inline-flex items-center gap-1.5  bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 text-sm font-medium text-indigo-400 whitespace-nowrap">
                           <Building2 className="h-3.5 w-3.5 text-indigo-400" />
                           {exp.company}
                         </span>
@@ -112,7 +112,7 @@ export default function Experience() {
                       <ul className="mt-2 space-y-2 text-sm text-muted">
                         {exp.bullets.map((text, j) => (
                           <li key={j} className="flex gap-3 items-start">
-                            <span className="mt-[7px] h-1.5 w-1.5 shrink-0 rounded-full bg-indigo-400" />
+                            <span className="mt-[7px] h-1.5 w-1.5 shrink-0  bg-indigo-400" />
                             <span>{text}</span>
                           </li>
                         ))}

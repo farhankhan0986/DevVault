@@ -29,14 +29,14 @@ const fadeUp = {
 export default function Home() {
   return (
     <>
-      <main className="relative overflow-hidden bg-background text-foreground select-none">
-        {/* subtle background glow */}
+      <main className="relative overflow-hidden bg-[#0D0D0D] text-white select-none">
+        {/* Subtle background glow */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(600px_circle_at_20%_0%,rgba(99,102,241,0.12),transparent_40%)]"
+          className="pointer-events-none absolute inset-0 -z-10 bg-[radial-gradient(600px_circle_at_20%_0%,rgba(99,102,241,0.10),transparent_40%)]"
         />
 
-        <section className="min-h-screen bg-background text-foreground">
+        <section className="min-h-screen bg-[#0D0D0D] text-white">
 
           {/* HOME */}
           <section id="home" className="scroll-mt-28 md:scroll-mt-5">

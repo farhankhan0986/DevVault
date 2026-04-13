@@ -33,9 +33,9 @@ const education = [
 
 export default function Education() {
   return (
-    <section className="relative isolate bg-background text-foreground pt-10 mb-10">
+    <section className="relative isolate bg-[#0D0D0D] text-white pt-10 mb-10">
       <div className="max-w-6xl mx-auto px-6">
-        <div className="border-t border-border pt-16">
+        <div className="border-t border-white/8 pt-16">
           {/* Section header */}
           <div className="mb-16">
             <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
@@ -65,19 +65,19 @@ export default function Education() {
                     <div className="hidden md:flex absolute left-0 top-6 z-10 items-center justify-center">
                       {edu.current && (
                         <>
-                         <span className="timeline-dot-pulse absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75" />
-                        <span className="relative inline-flex h-[14px] w-[14px] rounded-full bg-emerald-500 border-2 border-emerald-300 shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
+                         <span className="timeline-dot-pulse absolute inline-flex h-full w-full  bg-emerald-400 opacity-75" />
+                        <span className="relative inline-flex h-[14px] w-[14px]  bg-emerald-500 border-2 border-emerald-300 shadow-[0_0_8px_rgba(16,185,129,0.6)]" />
                         </>
                       )}
                       {edu.done && (
-                        <span className="inline-flex h-3 w-3 rounded-full border-2 border-indigo-400 bg-[rgb(var(--background))]" />
+                        <span className="inline-flex h-3 w-3  border-2 border-indigo-400 bg-[#0D0D0D]" />
                       )}
                     </div>
 
                     {/* Card */}
-                    <div className="group relative rounded-2xl border border-indigo-500/40 bg-[rgba(var(--card),0.6)] backdrop-blur-xl p-6 transition-all duration-300 active:-translate-y-1 active:shadow-[0_8px_32px_rgba(99,102,241,0.15)] active:border-indigo-500/30 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(99,102,241,0.15)] hover:border-indigo-500/30">
+                    <div className="group relative  border border-indigo-500/40 bg-[rgba(var(--card),0.6)] backdrop-blur-xl p-6 transition-all duration-300 active:-translate-y-1 active:shadow-[0_8px_32px_rgba(99,102,241,0.15)] active:border-indigo-500/30 hover:-translate-y-1 hover:shadow-[0_8px_32px_rgba(99,102,241,0.15)] hover:border-indigo-500/30">
                       {/* Hover glow */}
-                      <span className="pointer-events-none absolute inset-0 rounded-2xl bg-indigo-500/5 blur-2xl opacity-0 transition-opacity duration-500 group-active:opacity-100 group-hover:opacity-100" />
+                      <span className="pointer-events-none absolute inset-0  bg-indigo-500/5 blur-2xl opacity-0 transition-opacity duration-500 group-active:opacity-100 group-hover:opacity-100" />
 
                       <div className="relative space-y-4">
                         {/* Top row: title + score badge */}
@@ -88,7 +88,7 @@ export default function Education() {
                               {edu.title}
                             </h3>
                           </div>
-                          <span className="inline-flex items-center gap-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 text-xs font-medium text-indigo-400 whitespace-nowrap">
+                          <span className="inline-flex items-center gap-1.5  bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 text-xs font-medium text-indigo-400 whitespace-nowrap">
                             {edu.score}
                             {edu.scoreNote && (
                               <span className="text-indigo-400/70">
@@ -100,14 +100,14 @@ export default function Education() {
 
                         {/* Institution + location + date */}
                         <div className="flex flex-col sm:flex-row sm:items-center gap-3">
-                          <span className="inline-flex items-center gap-1.5 rounded-md bg-[rgba(var(--primary),0.08)] px-3 py-1 text-sm font-medium text-foreground">
+                          <span className="inline-flex items-center gap-1.5  bg-[rgba(var(--primary),0.08)] px-3 py-1 text-sm font-medium text-foreground">
                             {edu.institution}
                           </span>
                           <span className="inline-flex items-center gap-1.5 text-sm text-muted">
                             <MapPin className="h-3.5 w-3.5 text-indigo-500" />
                             {edu.location}
                           </span>
-                          <span className="inline-flex items-center gap-1.5 rounded-full bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 text-xs font-medium text-indigo-400 whitespace-nowrap">
+                          <span className="inline-flex items-center gap-1.5  bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 text-xs font-medium text-indigo-400 whitespace-nowrap">
                             <Calendar className="h-3 w-3" />
                             {edu.date}
                           </span>

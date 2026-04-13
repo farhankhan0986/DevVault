@@ -24,7 +24,6 @@ export default function Header() {
   const [activeSection, setActiveSection] = useState("home");
   const [mounted, setMounted] = useState(false);
 
-
   // Track scroll position for shadow effect
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 10);
@@ -34,32 +33,32 @@ export default function Header() {
   }, []);
 
   useEffect(() => {
-  setMounted(true);
-}, []);
+    setMounted(true);
+  }, []);
 
-useEffect(() => {
-  if (!mounted) return;
+  useEffect(() => {
+    if (!mounted) return;
 
-  const sectionIds = navItems.map((item) => item.href.slice(1));
-  const observers = [];
+    const sectionIds = navItems.map((item) => item.href.slice(1));
+    const observers = [];
 
-  sectionIds.forEach((id) => {
-    const el = document.getElementById(id);
-    if (!el) return;
+    sectionIds.forEach((id) => {
+      const el = document.getElementById(id);
+      if (!el) return;
 
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setActiveSection(id);
-      },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
-    );
+      const observer = new IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) setActiveSection(id);
+        },
+        { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+      );
 
-    observer.observe(el);
-    observers.push(observer);
-  });
+      observer.observe(el);
+      observers.push(observer);
+    });
 
-  return () => observers.forEach((o) => o.disconnect());
-}, [mounted, pathname]);
+    return () => observers.forEach((o) => o.disconnect());
+  }, [mounted, pathname]);
 
   // Close mobile menu on route change or hash navigation
   useEffect(() => {
@@ -95,17 +94,20 @@ useEffect(() => {
     <header className="sticky top-0 z-50 -mt-[75px]">
       <nav
         aria-label="Primary navigation"
-        className="bg-background/80 backdrop-blur border-b border-border"
+        className={`border-b transition-all duration-300 ${
+          scrolled
+            ? "bg-[#1A1A1A]/90 backdrop-blur-md border-white/8 shadow-[0_4px_24px_rgba(0,0,0,0.5)]"
+            : "bg-[#1A1A1A]/80 backdrop-blur border-white/6"
+        }`}
       >
         <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-3 group">
-            {/* Logo with hover effect */}
             <div className="transition-transform duration-300 group-hover:scale-110">
               <Logo size={40} />
             </div>
-            <span className="text-foreground font-bold text-xl hidden sm:block">
-              Farhan<span className="text-indigo-500">.dev</span>
+            <span className="text-white font-bold text-xl hidden sm:block">
+              Farhan<span className="text-indigo-400">.dev</span>
             </span>
           </Link>
 
@@ -119,15 +121,15 @@ useEffect(() => {
                 <li key={item.href}>
                   <Link
                     href={item.href}
-                    className={`relative px-3 py-2 rounded-lg transition-colors duration-300 ${
+                    className={`relative px-3 py-2 transition-colors duration-300 ${
                       isActive
-                        ? "text-[rgb(var(--foreground))]"
-                        : "text-muted hover:text-[rgb(var(--foreground))]"
+                        ? "text-white"
+                        : "text-[#8A8F98] hover:text-white"
                     }`}
                   >
                     {item.label}
                     <span
-                      className={`absolute inset-x-1 -bottom-1 h-[2px] rounded-full bg-gradient-to-r from-indigo-500 to-indigo-600 transition-all duration-300 ${
+                      className={`absolute inset-x-1 -bottom-1 h-[2px] bg-gradient-to-r from-indigo-500 to-indigo-400 transition-all duration-300 ${
                         isActive ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
                       }`}
                     />
@@ -142,7 +144,7 @@ useEffect(() => {
             <ThemeToggle />
             <Link
               href="#contact"
-              className="rounded-xl px-5 py-2.5 bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition"
+              className="px-5 py-2.5 bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 hover:shadow-[0_0_18px_rgba(99,102,241,0.4)] hover:-translate-y-0.5 transition-all duration-250"
             >
               Get in Touch
             </Link>
@@ -155,7 +157,7 @@ useEffect(() => {
               onClick={() => setMobileOpen((prev) => !prev)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
-              className="p-2 rounded-lg border border-border text-foreground hover:bg-white/10 transition"
+              className="p-2 border border-white/10 text-white hover:bg-white/10 transition"
             >
               {mobileOpen ? (
                 <X className="w-5 h-5" />
@@ -171,7 +173,7 @@ useEffect(() => {
 
       {/* Backdrop overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
           mobileOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none"
@@ -182,19 +184,19 @@ useEffect(() => {
 
       {/* Slide-in panel */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-72 bg-background border-l border-border shadow-2xl transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 right-0 z-50 h-full w-72 bg-[#1A1A1A] border-l border-white/8 shadow-2xl transform transition-transform duration-300 ease-in-out md:hidden ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
       >
         {/* Close button inside panel */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-border">
-          <span className="text-lg font-extrabold bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+        <div className="flex items-center justify-between px-6 py-4 border-b border-white/8">
+          <span className="text-lg font-extrabold bg-gradient-to-r from-indigo-400 to-indigo-500 bg-clip-text text-transparent">
             FA
           </span>
           <button
             onClick={() => setMobileOpen(false)}
             aria-label="Close menu"
-            className="p-2 rounded-lg border border-border text-foreground hover:bg-white/10 transition"
+            className="p-2 border border-white/10 text-white hover:bg-white/10 transition"
           >
             <X className="w-5 h-5" />
           </button>
@@ -207,12 +209,12 @@ useEffect(() => {
               <Link
                 href={item.href}
                 onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-muted hover:text-foreground hover:bg-white/5 transition-all duration-200"
+                className="flex items-center gap-3 px-4 py-3 text-base font-medium text-[#8A8F98] hover:text-white hover:bg-white/5 transition-all duration-200"
                 style={{
                   animationDelay: `${i * 50}ms`,
                 }}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                <span className="w-1.5 h-1.5 bg-indigo-500 inline-block" />
                 {item.label}
               </Link>
             </li>
@@ -220,11 +222,11 @@ useEffect(() => {
         </ul>
 
         {/* CTA in mobile menu */}
-        <div className="px-6 pt-4 border-t border-border">
+        <div className="px-6 pt-4 border-t border-white/8">
           <Link
             href="#contact"
             onClick={() => setMobileOpen(false)}
-            className="block w-full text-center rounded-xl px-5 py-3 bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition"
+            className="block w-full text-center px-5 py-3 bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition"
           >
             Get in Touch
           </Link>

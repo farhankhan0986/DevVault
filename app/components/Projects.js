@@ -254,7 +254,7 @@ slug: "viblytics",
   ];
 
   return (
-    <section className="relative select-none py-28 bg-background text-foreground">
+    <section className="relative select-none py-28 bg-[#0D0D0D] text-white">
       <div
         aria-hidden
         className="absolute inset-0 -z-10 bg-[radial-gradient(600px_circle_at_20%_20%,rgba(99,102,241,0.12),transparent_45%)]"
@@ -273,7 +273,7 @@ slug: "viblytics",
             A selection of projects showcasing backend architecture, API design,
             and full-stack development.
           </p>
-          <div className="mt-4 w-16 h-1 bg-gradient-to-r from-indigo-500 to-indigo-700 rounded-full" />
+          <div className="mt-4 w-16 h-1 bg-gradient-to-r from-indigo-500 to-indigo-700 " />
         </div>
 
         {/* Projects */}
@@ -285,7 +285,7 @@ slug: "viblytics",
             >
               {/* Image */}
               <div
-                className={`group relative rounded-2xl duration-500 active:-translate-z-2 active:scale-105 active:duration-500 active:transition-transform overflow-hidden border border-border bg-card ${index % 2 === 1 ? "lg:order-2" : ""
+                className={`group relative  duration-500 active:-translate-z-2 active:scale-105 active:duration-500 active:transition-transform overflow-hidden border border-border bg-card ${index % 2 === 1 ? "lg:order-2" : ""
                   }`}
               >
                 <img
@@ -296,7 +296,7 @@ slug: "viblytics",
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-0 group-hover:opacity-100 transition" />
                 <span
-                  className={`absolute top-4 right-4 px-3 py-1 text-xs font-semibold rounded-full ${project.status === "ONGOING"
+                  className={`absolute top-4 right-4 px-3 py-1 text-xs font-semibold  ${project.status === "ONGOING"
                     ? "bg-cyan-400 text-black"
                     : "bg-emerald-400 text-black"
                     }`}
@@ -309,7 +309,7 @@ slug: "viblytics",
               <div
                 className={`space-y-6 ${index % 2 === 1 ? "lg:order-1" : ""}`}
               >
-                <span className="inline-block text-xs bg-white/5 border border-indigo-600 px-3 py-1 rounded-full text-indigo-500 font-medium">
+                <span className="inline-block text-xs bg-white/5 border border-indigo-600 px-3 py-1  text-indigo-500 font-medium">
                   {project.highlight}
                 </span>
 
@@ -326,7 +326,7 @@ slug: "viblytics",
                     {project.tech.map((tech) => (
                       <span
                         key={tech}
-                        className="text-xs text-indigo-500 px-3 py-1 rounded-full bg-indigo-500/5 border border-indigo-600"
+                        className="text-xs text-indigo-500 px-3 py-1  bg-indigo-500/5 border border-indigo-600"
                       >
                         {tech}
                       </span>
@@ -340,7 +340,7 @@ slug: "viblytics",
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 transition"
+                    className="inline-flex items-center gap-2 px-5 py-2.5  bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-700 transition"
                   >
                     <Github className="w-4 h-4" />
                     View Code
@@ -348,7 +348,7 @@ slug: "viblytics",
 
                   <Link
                     href={`/projects/${project.slug}`}
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border hover:bg-[rgb(var(--border))] transition"
+                    className="inline-flex items-center gap-2 px-5 py-2.5  border border-border hover:bg-[rgb(var(--border))] transition"
                   >
                     View Details
                   </Link>
@@ -357,7 +357,7 @@ slug: "viblytics",
                     href={project.href}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl border border-border text-sm hover:bg-[rgb(var(--border))] transition"
+                    className="inline-flex items-center gap-2 px-5 py-2.5  border border-border text-sm hover:bg-[rgb(var(--border))] transition"
                   >
                     <ExternalLink className="w-4 h-4" />
                     Live Demo
@@ -379,14 +379,14 @@ slug: "viblytics",
               href="https://github.com/farhankhan0986"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition"
+              className="inline-flex items-center gap-2 px-6 py-3  bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition"
             >
               <Github className="w-4 h-4" />
               Explore on GitHub
             </a>
             <a
               href="/projects/allprojects"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition"
+              className="inline-flex items-center gap-2 px-6 py-3  bg-indigo-600 text-white font-semibold hover:bg-indigo-500 transition"
             >
               <Folder className="w-4 h-4" />
               View All Projects

@@ -519,19 +519,19 @@ ragAiChatbot: {
 
   if (!project) {
     return (
-      <div className="min-h-screen flex items-center justify-center bg-background">
-        <p className="text-xl text-muted font-medium">Project not found</p>
+      <div className="min-h-screen flex items-center justify-center bg-[#0D0D0D]">
+        <p className="text-xl text-[#8A8F98] font-medium">Project not found</p>
       </div>
     );
   }
 
   return (
-    <div className="min-h-screen bg-background text-foreground selection:bg-primary/30">
+    <div className="min-h-screen bg-[#0D0D0D] text-white selection:bg-primary/30">
       <div className="max-w-4xl mx-auto px-6 py-16 md:py-24">
         {/* Back Button */}
         <a
           href="/#projects"
-          className="inline-flex items-center gap-2 text-sm font-medium text-muted hover:text-foreground transition-colors mb-12 group"
+          className="inline-flex items-center gap-2 text-sm font-medium text-[#8A8F98] hover:text-white transition-colors mb-12 group"
         >
           <ArrowLeft className="w-4 h-4 transition-transform group-hover:-translate-x-1" />
           Back to Projects
@@ -539,16 +539,16 @@ ragAiChatbot: {
 
         {/* Header Section */}
         <header className="space-y-6 mb-16">
-          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-foreground">
+          <h1 className="text-4xl md:text-5xl font-bold tracking-tight text-white">
             {project.title}
           </h1>
-          <div className="flex flex-wrap items-center gap-4 text-sm font-medium text-muted">
-            <span className="flex items-center gap-1.5 px-3 py-1 rounded-full bg-card border border-border">
+          <div className="flex flex-wrap items-center gap-4 text-sm font-medium text-[#8A8F98]">
+            <span className="flex items-center gap-1.5 px-3 py-1  bg-[#1A1A1A] border border-white/10">
               <Zap className="w-4 h-4 text-primary" />
               {project.role}
             </span>
           </div>
-          <p className="text-lg md:text-xl text-muted leading-relaxed max-w-3xl">
+          <p className="text-lg md:text-xl text-[#8A8F98] leading-relaxed max-w-3xl">
             {project.description}
           </p>
         </header>
@@ -557,23 +557,23 @@ ragAiChatbot: {
         {(project.problem || project.solution) && (
           <div className="grid md:grid-cols-2 gap-6 mb-16">
             {project.problem && (
-              <div className="bg-card border border-border rounded-2xl p-6 md:p-8 flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-full bg-red-500/10 flex items-center justify-center mb-2">
+              <div className="bg-[#1A1A1A] border border-white/10  p-6 md:p-8 flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-10 h-10  bg-red-500/10 flex items-center justify-center mb-2">
                   <Target className="w-5 h-5 text-red-500" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">The Challenge</h3>
-                <p className="text-muted leading-relaxed">
+                <h3 className="text-lg font-semibold text-white">The Challenge</h3>
+                <p className="text-[#8A8F98] leading-relaxed">
                   {project.problem}
                 </p>
               </div>
             )}
             {project.solution && (
-              <div className="bg-card border border-border rounded-2xl p-6 md:p-8 flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
-                <div className="w-10 h-10 rounded-full bg-green-500/10 flex items-center justify-center mb-2">
+              <div className="bg-[#1A1A1A] border border-white/10  p-6 md:p-8 flex flex-col gap-4 shadow-sm hover:shadow-md transition-shadow">
+                <div className="w-10 h-10  bg-green-500/10 flex items-center justify-center mb-2">
                   <Lightbulb className="w-5 h-5 text-green-500" />
                 </div>
-                <h3 className="text-lg font-semibold text-foreground">The Solution</h3>
-                <p className="text-muted leading-relaxed">
+                <h3 className="text-lg font-semibold text-white">The Solution</h3>
+                <p className="text-[#8A8F98] leading-relaxed">
                   {project.solution}
                 </p>
               </div>
@@ -584,12 +584,12 @@ ragAiChatbot: {
         {/* Tech Stack */}
         {project.tech && project.tech.length > 0 && (
           <div className="mb-16">
-            <h2 className="text-2xl font-bold tracking-tight text-foreground mb-6">Technologies Used</h2>
+            <h2 className="text-2xl font-bold tracking-tight text-white mb-6">Technologies Used</h2>
             <div className="flex flex-wrap gap-2">
               {project.tech.map((t, i) => (
                 <span
                   key={i}
-                  className="px-3 py-1.5 bg-card text-foreground text-sm font-medium rounded-lg border border-border shadow-sm"
+                  className="px-3 py-1.5 bg-[#1A1A1A] text-white text-sm font-medium  border border-white/10 shadow-sm"
                 >
                   {t}
                 </span>
@@ -602,7 +602,7 @@ ragAiChatbot: {
           {/* Architecture (if applies) */}
           {project.architecture && project.architecture.length > 0 && (
             <div>
-              <h2 className="text-2xl font-bold tracking-tight text-foreground mb-6 flex items-center gap-2">
+              <h2 className="text-2xl font-bold tracking-tight text-white mb-6 flex items-center gap-2">
                 <Layers className="w-5 h-5 text-primary" />
                 Architecture
               </h2>
@@ -610,7 +610,7 @@ ragAiChatbot: {
                 {project.architecture.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
                     <CheckCircle2 className="w-5 h-5 text-primary shrink-0 mt-0.5" />
-                    <span className="text-muted leading-relaxed">{item}</span>
+                    <span className="text-[#8A8F98] leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -620,15 +620,15 @@ ragAiChatbot: {
           {/* Key Learnings (if applies) */}
           {project.learnings && project.learnings.length > 0 && (
             <div>
-              <h2 className="text-2xl font-bold tracking-tight text-foreground mb-6 flex items-center gap-2">
+              <h2 className="text-2xl font-bold tracking-tight text-white mb-6 flex items-center gap-2">
                 <Lightbulb className="w-5 h-5 text-accent" />
                 Key Learnings
               </h2>
               <ul className="space-y-4">
                 {project.learnings.map((item, i) => (
                   <li key={i} className="flex items-start gap-3">
-                    <div className="w-1.5 h-1.5 rounded-full bg-foreground/30 shrink-0 mt-2.5" />
-                    <span className="text-muted leading-relaxed">{item}</span>
+                    <div className="w-1.5 h-1.5  bg-foreground/30 shrink-0 mt-2.5" />
+                    <span className="text-[#8A8F98] leading-relaxed">{item}</span>
                   </li>
                 ))}
               </ul>
@@ -638,12 +638,12 @@ ragAiChatbot: {
 
         {/* Call to Action */}
         {project.github && (
-          <div className="pt-8 border-t border-border flex justify-center md:justify-start">
+          <div className="pt-8 border-t border-white/10 flex justify-center md:justify-start">
             <a
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-900 text-background text-sm font-semibold hover:opacity-90 transition-opacity shadow-lg border border-border hover:shadow-none hover:bg-slate-900/50"
+              className="inline-flex items-center gap-2 px-6 py-3  bg-slate-900 text-background text-sm font-semibold hover:opacity-90 transition-opacity shadow-lg border border-white/10 hover:shadow-none hover:bg-slate-900/50"
             >
               <Github className="w-4 h-4" />
               View Source Code

@@ -48,11 +48,11 @@ export default function About() {
   ];
 
   return (
-    <section className="relative select-none py-28 bg-background text-foreground overflow-hidden">
+    <section className="relative select-none py-28 bg-[#0D0D0D] text-foreground overflow-hidden">
       {/* Ambient background glows */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-0 right-[20%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(var(--primary),0.10),transparent_70%)]" />
-        <div className="absolute bottom-0 left-[10%] h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(var(--accent),0.08),transparent_70%)]" />
+        <div className="absolute top-0 right-[20%] h-[500px] w-[500px]  bg-[radial-gradient(circle,rgba(var(--primary),0.10),transparent_70%)]" />
+        <div className="absolute bottom-0 left-[10%] h-[400px] w-[400px]  bg-[radial-gradient(circle,rgba(var(--accent),0.08),transparent_70%)]" />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-6">
@@ -131,14 +131,14 @@ export default function About() {
                 return (
                   <div
                     key={stat.label}
-                    className="group relative rounded-2xl border border-border p-6 text-center transition-all duration-500 hover:shadow-[0_0_30px_rgba(var(--primary),0.2)]"
+                    className="group relative  border border-border p-6 text-center transition-all duration-500 hover:shadow-[0_0_30px_rgba(var(--primary),0.2)]"
                     style={{
                       background: "rgba(var(--card), 0.5)",
                       backdropFilter: "blur(12px)",
                       WebkitBackdropFilter: "blur(12px)",
                     }}
                   >
-                    <span className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-active:opacity-100 group-hover:opacity-100 bg-[radial-gradient(circle_at_50%_0%,rgba(var(--primary),0.12),transparent_70%)]" />
+                    <span className="pointer-events-none absolute inset-0  opacity-0 transition-opacity duration-500 group-active:opacity-100 group-hover:opacity-100 bg-[radial-gradient(circle_at_50%_0%,rgba(var(--primary),0.12),transparent_70%)]" />
 
                     <div className="relative flex flex-col items-center gap-3">
                       <StatIcon
@@ -170,7 +170,7 @@ export default function About() {
               return (
                 <div
                   key={index}
-                  className="group relative overflow-hidden rounded-2xl border border-border p-6 transition-all duration-500 hover:-translate-y-1 active:-translate-y-1 hover:shadow-[0_0_30px_rgba(var(--primary),0.15)]"
+                  className="group relative overflow-hidden  border border-border p-6 transition-all duration-500 hover:-translate-y-1 active:-translate-y-1 hover:shadow-[0_0_30px_rgba(var(--primary),0.15)]"
                   style={{
                     background: "rgba(var(--card), 0.5)",
                     backdropFilter: "blur(12px)",
@@ -179,13 +179,13 @@ export default function About() {
                 >
                   {/* Left accent border */}
                   <span
-                    className="absolute left-0 top-0 h-full w-[3px] rounded-full transition-colors duration-500 bg-indigo-500  group-active:bg-indigo-600  group-hover:bg-indigo-600 group-active:shadow-[0_0_12px_rgba(var(--primary),0.6)] group-hover:shadow-[0_0_12px_rgba(var(--primary),0.6)]"
+                    className="absolute left-0 top-0 h-full w-[3px]  transition-colors duration-500 bg-indigo-500  group-active:bg-indigo-600  group-hover:bg-indigo-600 group-active:shadow-[0_0_12px_rgba(var(--primary),0.6)] group-hover:shadow-[0_0_12px_rgba(var(--primary),0.6)]"
                     
                   />
 
                   <div className="relative flex items-start gap-4">
                     <div
-                      className="shrink-0 p-3 rounded-xl transition-all duration-300 ease-out group-hover:shadow-lg"
+                      className="shrink-0 p-3  transition-all duration-300 ease-out group-hover:shadow-lg"
                       style={{
                         background:
                           "linear-gradient(135deg, rgba(var(--primary), 0.15), rgba(var(--accent), 0.15))",
@@ -236,7 +236,7 @@ export default function About() {
               return (
                 <div
                   key={item.label}
-                  className="group relative flex items-center gap-3 overflow-hidden rounded-xl border border-border px-5 py-4 transition-all duration-300
+                  className="group relative flex items-center gap-3 overflow-hidden  border border-border px-5 py-4 transition-all duration-300
           hover:-translate-y-1 active:-translate-y-1
           hover:bg-card hover:shadow-[0_0_30px_rgba(var(--primary),0.25)]"
                   style={{

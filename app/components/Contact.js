@@ -49,7 +49,7 @@ export default function Contact() {
   ];
 
   return (
-    <section className="relative select-none py-28 bg-background text-foreground overflow-hidden">
+    <section className="relative select-none py-28 bg-[#0D0D0D] text-white overflow-hidden">
       {/* Ambient glow */}
       <div
         aria-hidden
@@ -74,7 +74,7 @@ export default function Contact() {
 
         {/* Main CTA Glass Card */}
         <div
-          className="relative rounded-2xl border border-indigo-500/40 p-10 md:p-14 mb-16 text-center overflow-hidden"
+          className="relative  border border-indigo-500/40 p-10 md:p-14 mb-16 text-center overflow-hidden"
           style={{
             background: "rgba(var(--card), 0.6)",
             backdropFilter: "blur(16px)",
@@ -84,7 +84,7 @@ export default function Contact() {
           {/* Inner ambient glow */}
           <div
             aria-hidden
-            className="pointer-events-none absolute -top-24 left-1/2 group-active:-translate-y-1 group-hover:-translate-y-1 -translate-x-1/2 h-48 w-96 rounded-full bg-[rgb(var(--primary))]/10 blur-3xl"
+            className="pointer-events-none absolute -top-24 left-1/2 group-active:-translate-y-1 group-hover:-translate-y-1 -translate-x-1/2 h-48 w-96  bg-[rgb(var(--primary))]/10 blur-3xl"
           />
 
           <p className="relative text-sm font-semibold uppercase tracking-widest text-[rgb(var(--primary))] mb-3">
@@ -99,7 +99,7 @@ export default function Contact() {
 
           <a
             href="mailto:farhankhan080304@gmail.com"
-            className="group/btn relative inline-flex items-center gap-2.5 px-8 py-3.5 rounded-xl bg-gradient-to-r from-indigo-500 to-indigo-600 text-white font-semibold text-lg shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:brightness-110 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))] focus-visible:ring-offset-2"
+            className="group/btn relative inline-flex items-center gap-2.5 px-8 py-3.5  bg-gradient-to-r from-indigo-500 to-indigo-600 text-white font-semibold text-lg shadow-lg shadow-indigo-500/25 hover:shadow-indigo-500/40 hover:brightness-110 hover:scale-[1.03] active:scale-[0.98] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))] focus-visible:ring-offset-2"
           >
             <Mail className="w-5 h-5 transition-transform duration-300 group-hover/btn:-translate-y-0.5" />
             Send me an Email
@@ -123,7 +123,7 @@ export default function Contact() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={link.label}
-                  className="group/social inline-flex items-center gap-2.5 px-5 py-3 rounded-xl border border-indigo-500/40 text-[rgb(var(--primary))] hover:text-white hover:border-[rgb(var(--primary))]/60 hover:-translate-y-1 hover:shadow-[0_0_24px_rgba(99,102,241,0.25)] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))]"
+                  className="group/social inline-flex items-center gap-2.5 px-5 py-3  border border-indigo-500/40 text-[rgb(var(--primary))] hover:text-white hover:border-[rgb(var(--primary))]/60 hover:-translate-y-1 hover:shadow-[0_0_24px_rgba(99,102,241,0.25)] transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-[rgb(var(--primary))]"
                   style={{
                     background: "rgba(var(--card), 0.6)",
                     backdropFilter: "blur(12px)",
@@ -145,7 +145,7 @@ export default function Contact() {
           {infoCards.map((item) => (
             <div
               key={item.title}
-              className="group relative overflow-hidden rounded-2xl border border-indigo-500/40 p-7 text-center transition-all duration-500 active:-translate-y-2 active:shadow-[0_8px_40px_rgba(99,102,241,0.15)] active:border-[rgb(var(--primary))]/40 hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(99,102,241,0.15)] hover:border-[rgb(var(--primary))]/40"
+              className="group relative overflow-hidden  border border-indigo-500/40 p-7 text-center transition-all duration-500 active:-translate-y-2 active:shadow-[0_8px_40px_rgba(99,102,241,0.15)] active:border-[rgb(var(--primary))]/40 hover:-translate-y-2 hover:shadow-[0_8px_40px_rgba(99,102,241,0.15)] hover:border-[rgb(var(--primary))]/40"
               style={{
                 background: "rgba(var(--card), 0.6)",
                 backdropFilter: "blur(16px)",
@@ -159,7 +159,7 @@ export default function Contact() {
               />
 
               {/* Icon in gradient circle */}
-              <div className="relative mx-auto mb-5 flex h-14 w-14 items-center group-active:translate-y-1 group-hover:translate-y-1 justify-center rounded-full bg-gradient-to-br from-[rgb(var(--primary))]/20 to-[rgb(var(--accent))]/20 text-[rgb(var(--primary))] ring-1 ring-[rgb(var(--primary))]/20 transition-all duration-500 active:ring-[rgb(var(--primary))]/40 active:shadow-[0_0_20px_rgba(99,102,241,0.25)] group-hover:ring-[rgb(var(--primary))]/40 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.25)]">
+              <div className="relative mx-auto mb-5 flex h-14 w-14 items-center group-active:translate-y-1 group-hover:translate-y-1 justify-center  bg-gradient-to-br from-[rgb(var(--primary))]/20 to-[rgb(var(--accent))]/20 text-[rgb(var(--primary))] ring-1 ring-[rgb(var(--primary))]/20 transition-all duration-500 active:ring-[rgb(var(--primary))]/40 active:shadow-[0_0_20px_rgba(99,102,241,0.25)] group-hover:ring-[rgb(var(--primary))]/40 group-hover:shadow-[0_0_20px_rgba(99,102,241,0.25)]">
                 <item.Icon className="h-6 w-6 transition-transform duration-700 " />
               </div>
 

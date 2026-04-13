@@ -163,10 +163,10 @@ export default function ChatWidget() {
         >
           <div className="relative">
             {/* Glow effect behind the button */}
-            <div className="absolute inset-0 bg-indigo-500/40 rounded-full blur-xl group-hover:bg-indigo-500/60 transition-all duration-300" />
+            <div className="absolute inset-0 bg-indigo-500/40  blur-xl group-hover:bg-indigo-500/60 transition-all duration-300" />
 
             {/* The actual button */}
-            <div className="relative flex items-center gap-2 px-5 py-3 rounded-full bg-indigo-600 text-white font-semibold shadow-lg hover:bg-indigo-500 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
+            <div className="relative flex items-center gap-2 px-5 py-3  bg-indigo-600 text-white font-semibold shadow-lg hover:bg-indigo-500 hover:shadow-xl hover:-translate-y-0.5 transition-all duration-300">
               <MessageCircle className="w-5 h-5" />
               <span className="hidden sm:inline text-sm">Ask about Farhan</span>
             </div>
@@ -178,33 +178,33 @@ export default function ChatWidget() {
       {/* CHAT PANEL                                */}
       {/* ══════════════════════════════════════════ */}
       {isOpen && (
-        <div className="fixed bottom-4 right-4 z-[9999] w-[380px] max-w-[calc(100vw-2rem)] h-[560px] max-h-[calc(100vh-2rem)] flex flex-col rounded-2xl border border-border bg-background shadow-2xl overflow-hidden">
+        <div className="fixed bottom-4 right-4 z-[9999] w-[380px] max-w-[calc(100vw-2rem)] h-[560px] max-h-[calc(100vh-2rem)] flex flex-col  border border-white/10 bg-[#0D0D0D] shadow-2xl overflow-hidden">
           {/* ── HEADER ── */}
           {/**
            * Shows the bot identity and a close button.
            * The green dot (●) is a visual indicator that the "agent is online"
            * — a common pattern in customer support widgets.
            */}
-          <div className="flex items-center justify-between px-4 py-3 border-b border-border bg-indigo-600/10">
+          <div className="flex items-center justify-between px-4 py-3 border-b border-white/10 bg-indigo-600/10">
             <div className="flex items-center gap-3">
               <div className="relative">
-                <div className="w-9 h-9 rounded-full bg-indigo-600 flex items-center justify-center">
+                <div className="w-9 h-9  bg-indigo-600 flex items-center justify-center">
                   <Bot className="w-5 h-5 text-white" />
                 </div>
                 {/* Online indicator dot */}
-                <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500 rounded-full border-2 border-background" />
+                <span className="absolute -bottom-0.5 -right-0.5 w-3 h-3 bg-green-500  border-2 border-background" />
               </div>
               <div>
-                <h3 className="text-sm font-semibold text-foreground">
+                <h3 className="text-sm font-semibold text-white">
                   AskFarhan
                 </h3>
-                <p className="text-xs text-muted">AI Assistant • Online</p>
+                <p className="text-xs text-[#8A8F98]">AI Assistant • Online</p>
               </div>
             </div>
 
             <button
               onClick={() => setIsOpen(false)}
-              className="p-1.5 rounded-lg hover:bg-white/10 transition text-muted hover:text-foreground"
+              className="p-1.5  hover:bg-white/10 transition text-[#8A8F98] hover:text-white"
               aria-label="Close chat"
             >
               <X className="w-5 h-5" />
@@ -222,14 +222,14 @@ export default function ChatWidget() {
              */}
             {messages.length === 0 && (
               <div className="text-center py-6 space-y-4">
-                <div className="w-14 h-14 rounded-2xl bg-indigo-600/20 flex items-center justify-center mx-auto">
+                <div className="w-14 h-14  bg-indigo-600/20 flex items-center justify-center mx-auto">
                   <Sparkles className="w-7 h-7 text-indigo-500" />
                 </div>
                 <div>
-                  <h4 className="font-semibold text-foreground text-base">
+                  <h4 className="font-semibold text-white text-base">
                     Hey there! 👋
                   </h4>
-                  <p className="text-sm text-muted mt-1 max-w-[260px] mx-auto">
+                  <p className="text-sm text-[#8A8F98] mt-1 max-w-[260px] mx-auto">
                     I&apos;m Farhan&apos;s AI assistant. Ask me anything about his skills,
                     projects, experience, or availability!
                   </p>
@@ -247,7 +247,7 @@ export default function ChatWidget() {
               >
                 {/* Bot avatar (only for assistant messages) */}
                 {msg.role === "assistant" && (
-                  <div className="w-7 h-7 rounded-full bg-indigo-600 flex items-center justify-center shrink-0 mt-1">
+                  <div className="w-7 h-7  bg-indigo-600 flex items-center justify-center shrink-0 mt-1">
                     <Bot className="w-4 h-4 text-white" />
                   </div>
                 )}
@@ -262,10 +262,10 @@ export default function ChatWidget() {
                  * Without this, bullet-point lists would collapse into one line.
                  */}
                 <div
-                  className={`max-w-[80%] px-3.5 py-2.5 rounded-2xl text-sm leading-relaxed ${
+                  className={`max-w-[80%] px-3.5 py-2.5  text-sm leading-relaxed ${
                     msg.role === "user"
                       ? "bg-indigo-600 text-white rounded-br-md"
-                      : "bg-white/5 border border-border text-foreground rounded-bl-md"
+                      : "bg-white/5 border border-white/10 text-white rounded-bl-md"
                   }`}
                 >
                   <p className="whitespace-pre-wrap break-words">
@@ -275,7 +275,7 @@ export default function ChatWidget() {
 
                 {/* User avatar (only for user messages) */}
                 {msg.role === "user" && (
-                  <div className="w-7 h-7 rounded-full bg-indigo-500/20 flex items-center justify-center shrink-0 mt-1">
+                  <div className="w-7 h-7  bg-indigo-500/20 flex items-center justify-center shrink-0 mt-1">
                     <User className="w-4 h-4 text-indigo-400" />
                   </div>
                 )}
@@ -290,14 +290,14 @@ export default function ChatWidget() {
              */}
             {isLoading && messages[messages.length - 1]?.role === "user" && (
               <div className="flex gap-2.5 justify-start">
-                <div className="w-7 h-7 rounded-full bg-indigo-600 flex items-center justify-center shrink-0">
+                <div className="w-7 h-7  bg-indigo-600 flex items-center justify-center shrink-0">
                   <Bot className="w-4 h-4 text-white" />
                 </div>
-                <div className="px-4 py-3 rounded-2xl rounded-bl-md bg-white/5 border border-border">
+                <div className="px-4 py-3  rounded-bl-md bg-white/5 border border-white/10">
                   <div className="flex gap-1.5">
-                    <span className="w-2 h-2 rounded-full bg-indigo-400 animate-bounce" style={{ animationDelay: "0ms" }} />
-                    <span className="w-2 h-2 rounded-full bg-indigo-400 animate-bounce" style={{ animationDelay: "200ms" }} />
-                    <span className="w-2 h-2 rounded-full bg-indigo-400 animate-bounce" style={{ animationDelay: "400ms" }} />
+                    <span className="w-2 h-2  bg-indigo-400 animate-bounce" style={{ animationDelay: "0ms" }} />
+                    <span className="w-2 h-2  bg-indigo-400 animate-bounce" style={{ animationDelay: "200ms" }} />
+                    <span className="w-2 h-2  bg-indigo-400 animate-bounce" style={{ animationDelay: "400ms" }} />
                   </div>
                 </div>
               </div>
@@ -325,7 +325,7 @@ export default function ChatWidget() {
                   <button
                     key={i}
                     onClick={() => handleSuggestion(q)}
-                    className="shrink-0 px-3 py-1.5 text-xs rounded-full border border-indigo-500/30 text-indigo-400 hover:bg-indigo-500/10 hover:border-indigo-500/50 transition-all whitespace-nowrap"
+                    className="shrink-0 px-3 py-1.5 text-xs  border border-indigo-500/30 text-indigo-400 hover:bg-indigo-500/10 hover:border-indigo-500/50 transition-all whitespace-nowrap"
                   >
                     {q}
                   </button>
@@ -345,7 +345,7 @@ export default function ChatWidget() {
            */}
           <form
             onSubmit={handleSubmit}
-            className="flex items-center gap-2 px-3 py-3 border-t border-border bg-background"
+            className="flex items-center gap-2 px-3 py-3 border-t border-white/10 bg-[#0D0D0D]"
           >
             <input
               ref={inputRef}
@@ -354,12 +354,12 @@ export default function ChatWidget() {
               onChange={(e) => setInput(e.target.value)}
               placeholder="Ask about Farhan..."
               disabled={isLoading}
-              className="flex-1 px-3 py-2 text-sm rounded-xl border border-border bg-white/5 text-foreground placeholder:text-muted/50 focus:outline-none focus:ring-1 focus:ring-indigo-500 disabled:opacity-50 transition"
+              className="flex-1 px-3 py-2 text-sm  border border-white/10 bg-white/5 text-white placeholder:text-[#8A8F98]/50 focus:outline-none focus:ring-1 focus:ring-indigo-500 disabled:opacity-50 transition"
             />
             <button
               type="submit"
               disabled={isLoading || !input.trim()}
-              className="p-2 rounded-xl bg-indigo-600 text-white hover:bg-indigo-500 disabled:opacity-40 disabled:cursor-not-allowed transition shrink-0"
+              className="p-2  bg-indigo-600 text-white hover:bg-indigo-500 disabled:opacity-40 disabled:cursor-not-allowed transition shrink-0"
               aria-label="Send message"
             >
               {isLoading ? (

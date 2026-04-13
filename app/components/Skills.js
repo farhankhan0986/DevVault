@@ -223,7 +223,7 @@ const certificatesData = [
 
 export default function Skills() {
   return (
-    <section className="relative select-none py-28 bg-background text-foreground overflow-hidden">
+    <section className="relative select-none py-28 bg-[#0D0D0D] text-white overflow-hidden">
       {/* Ambient glow */}
       <div
         aria-hidden
@@ -264,7 +264,7 @@ export default function Skills() {
               <div
                 key={category}
                 className={`
-          group relative rounded-2xl border border-white/10
+          group relative  border border-white/10
           bg-gradient-to-br bg-opacity-90
           p-7 pt-8 backdrop-blur-lg 
           transition-all duration-500 ease-out overflow-visible
@@ -287,13 +287,13 @@ export default function Skills() {
               >
                 {/* Underglow */}
                 <div
-                  className="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-4 w-3/4 h-8 rounded-full blur-2xl opacity-0 group-hover:opacity-40 group-active:opacity-40 transition-opacity duration-700 z-0"
+                  className="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-4 w-3/4 h-8  blur-2xl opacity-0 group-hover:opacity-40 group-active:opacity-40 transition-opacity duration-700 z-0"
                   style={{ background: color }}
                 />
                 {/* Header */}
                 <div className="relative z-10 flex items-center gap-3 mb-6">
                   <span
-                    className="flex items-center justify-center w-11 h-11 rounded-xl ring-2"
+                    className="flex items-center justify-center w-11 h-11  ring-2"
                     style={{ color, borderColor: color }}
                   >
                     <span className="transition-transform duration-700 group-hover:-translate-y-1 group-active:-translate-y-1 group-hover:scale-110 group-active:scale-105">
@@ -309,7 +309,7 @@ export default function Skills() {
                   {skills.map((skill) => (
                     <li
                       key={skill.name}
-                      className="flex items-center gap-3 text-[15px] group/skill transition-all duration-500 active:pl-2 hover:pl-2 rounded-lg px-1 py-1"
+                      className="flex items-center gap-3 text-[15px] group/skill transition-all duration-500 active:pl-2 hover:pl-2  px-1 py-1"
                     >
                       <img
                         src={skill.logo}
@@ -358,7 +358,7 @@ export default function Skills() {
                   <div
                     key={item.skill}
                     className={[
-                      "group relative rounded-3xl border border-indigo-500/40 bg-white/[0.03] backdrop-blur-xl p-8",
+                      "group relative  border border-indigo-500/40 bg-white/[0.03] backdrop-blur-xl p-8",
                       "transition-all duration-500 ease-out",
                       "hover:-translate-y-2 active:-translate-y-2 hover:border-indigo-500/40 active:border-indigo-500/40",
                       "hover:shadow-[0_0_40px_rgba(99,102,241,0.15),0_0_80px_rgba(99,102,241,0.05)] active:shadow-[0_0_40px_rgba(99,102,241,0.15),0_0_80px_rgba(99,102,241,0.05)]",
@@ -379,7 +379,7 @@ export default function Skills() {
                       .join(" ")}
                   >
                     {/* Ambient glow on hover */}
-                    <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.08),transparent_70%)]" />
+                    <div className="pointer-events-none absolute inset-0  opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.08),transparent_70%)]" />
 
                     <div className="relative flex flex-col items-center text-center">
                       {/* Circular progress ring */}
@@ -437,7 +437,7 @@ export default function Skills() {
                         </div>
 
                         {/* Pulse ring on hover */}
-                        <div className="absolute inset-0 rounded-full border-2 border-indigo-500/0 group-hover:border-indigo-500/20 group-active:border-indigo-500/20 group-hover:scale-110 group-active:scale-110 transition-all duration-700 ease-out" />
+                        <div className="absolute inset-0  border-2 border-indigo-500/0 group-hover:border-indigo-500/20 group-active:border-indigo-500/20 group-hover:scale-110 group-active:scale-110 transition-all duration-700 ease-out" />
                       </div>
 
                       {/* Skill name */}
@@ -446,9 +446,9 @@ export default function Skills() {
                       </h4>
 
                       {/* Mini bar underneath */}
-                      <div className="w-16 h-1 rounded-full bg-white/[0.06] overflow-hidden">
+                      <div className="w-16 h-1  bg-white/[0.06] overflow-hidden">
                         <div
-                          className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 transition-all duration-700 ease-out"
+                          className="h-full  bg-gradient-to-r from-indigo-500 to-violet-500 transition-all duration-700 ease-out"
                           style={{ width: `${item.level}%` }}
                         />
                       </div>
@@ -483,7 +483,7 @@ export default function Skills() {
               >
                 {/* Image */}
                 <div
-                  className={`group relative rounded-2xl duration-500 active:-translate-z-2 active:scale-105 active:duration-500 active:transition-transform overflow-hidden border border-white/10 bg-white/5 ${
+                  className={`group relative  duration-500 active:-translate-z-2 active:scale-105 active:duration-500 active:transition-transform overflow-hidden border border-white/10 bg-white/5 ${
                     index % 2 === 1 ? "lg:order-1" : ""
                   }`}
                 >
@@ -501,7 +501,7 @@ export default function Skills() {
                   className={`space-y-6 ${index % 2 === 1 ? "lg:order-1" : ""}`}
                 >
                   <div className="flex items-center gap-2">
-                    <span className="inline-block text-xs bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 rounded-full text-indigo-400 font-medium">
+                    <span className="inline-block text-xs bg-indigo-500/10 border border-indigo-500/20 px-3 py-1  text-indigo-400 font-medium">
                       {cert.issuer} • {cert.date}
                     </span>
                   </div>
@@ -518,7 +518,7 @@ export default function Skills() {
                       {cert.tech.map((tech) => (
                         <span
                           key={tech}
-                          className="text-xs text-indigo-300 px-3 py-1 rounded-full bg-indigo-500/5 border border-indigo-500/20"
+                          className="text-xs text-indigo-300 px-3 py-1  bg-indigo-500/5 border border-indigo-500/20"
                         >
                           {tech}
                         </span>
@@ -532,7 +532,7 @@ export default function Skills() {
                       href={cert.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition shadow-lg shadow-indigo-500/20"
+                      className="inline-flex items-center gap-2 px-5 py-2.5  bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition shadow-lg shadow-indigo-500/20"
                     >
                       <ExternalLink className="w-4 h-4" />
                       Verify Credential

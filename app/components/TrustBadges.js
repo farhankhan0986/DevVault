@@ -52,7 +52,7 @@ const TrustBadges = () => {
   ];
 
   return (
-    <section className="py-20 md:py-28 bg-background">
+    <section className="py-20 md:py-28 bg-[#0D0D0D]">
       <style>{scrollbarHideStyles}</style>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -87,13 +87,13 @@ const TrustBadges = () => {
             >
               {/* Underglow */}
               <div
-                className="pointer-events-none absolute -bottom-2 left-1/2 -translate-x-1/2 h-8 w-3/4 rounded-full blur-xl opacity-0 group-active:opacity-40 group-hover:opacity-40 transition-opacity duration-500"
+                className="pointer-events-none absolute -bottom-2 left-1/2 -translate-x-1/2 h-8 w-3/4  blur-xl opacity-0 group-active:opacity-40 group-hover:opacity-40 transition-opacity duration-500"
                 style={{ backgroundColor: item.color }}
               />
 
               {/* Card */}
               <div
-                className="relative rounded-2xl px-4 py-6 text-center border border-white/10 bg-white/5 backdrop-blur-md shadow-sm transition-all duration-300 ease-out group-active:-translate-y-1.5 group-hover:-translate-y-1.5 group-active:shadow-lg group-hover:shadow-lg"
+                className="relative px-4 py-6 text-center border border-white/10 bg-[#1A1A1A] backdrop-blur-md shadow-sm transition-all duration-300 ease-out group-hover:-translate-y-1.5 group-hover:shadow-lg"
                 style={{ borderColor: "rgba(255,255,255,0.1)" }}
                 onMouseEnter={(e) => {
                   e.currentTarget.style.borderColor = item.color;
