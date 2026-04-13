@@ -14,7 +14,7 @@ function ParticleCanvas() {
     let animId;
     let W, H;
 
-    const PARTICLE_COUNT = 60;
+    const PARTICLE_COUNT = 45;
     const particles = [];
 
     function resize() {
@@ -256,8 +256,8 @@ export default function Hero() {
           {/* ── Right column — photo ── */}
           <div className="hero-enter-img flex justify-center">
             <div className="flex flex-col lg:flex-row justify-center relative lg:-top-13 lg:left-15 mt-10">
-              {/* Spinning border */}
-              <div className="absolute h-full w-full border-2 border-dashed border-indigo-400/30 lg:animate-[spin_10s_linear_infinite] animate-spin" />
+              {/* Spinning border — 10s rotation on all breakpoints */}
+              <div className="absolute h-full w-full border-2 border-dashed border-indigo-400/30 animate-[spin_10s_linear_infinite]" />
               <div className="relative w-full max-w-md aspect-square">
                 {/* Glow behind image */}
                 <div className="absolute inset-0 bg-indigo-600/20 blur-3xl scale-75" />

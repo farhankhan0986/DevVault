@@ -40,7 +40,10 @@
 }
 
 /* ========= GLOBAL SQUARE CORNERS ========= */
-/* The design system mandates zero border-radius across all UI elements */
+/* The design system mandates zero border-radius across all UI elements.
+   Intentional exceptions that need circular shapes (cursor dots, canvas
+   particles) override this rule with their own explicit `border-radius`
+   declarations that also use !important (see .tap-dot / .tap-ring below). */
 *,
 *::before,
 *::after {
@@ -257,16 +260,6 @@ a:hover {
   to { opacity: 1; }
 }
 
-@keyframes slide-in-left {
-  from { opacity: 0; transform: translateX(-30px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slide-in-right {
-  from { opacity: 0; transform: translateX(30px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
 @keyframes timeline-dot-pulse {
   0%, 100% { transform: scale(1); opacity: 0.75; }
   50% { transform: scale(1.8); opacity: 0; }
@@ -300,8 +293,6 @@ a:hover {
 .animate-gradient      { background-size: 200% 200%; animation: gradient-shift 4s ease infinite; }
 .animate-slide-up      { animation: slide-up 0.6s ease-out forwards; }
 .animate-fade-in       { animation: fade-in 0.7s ease-out forwards; }
-.animate-slide-in-left { animation: slide-in-left 0.7s ease-out forwards; }
-.animate-slide-in-right{ animation: slide-in-right 0.7s ease-out forwards; }
 .animate-name-glow     { animation: name-glow 3s ease-in-out infinite; }
 
 /* Hero content entrance — staggered */
@@ -311,7 +302,7 @@ a:hover {
 .hero-enter-4 { opacity: 0; animation: slide-up 0.7s ease-out 0.55s forwards; }
 .hero-enter-5 { opacity: 0; animation: slide-up 0.7s ease-out 0.7s forwards; }
 
-.hero-enter-img { opacity: 0; animation: slide-in-right 0.8s ease-out 0.3s forwards; }
+.hero-enter-img { opacity: 0; animation: fade-in 0.9s ease-out 0.3s forwards; }
 
 /* Stagger children animation */
 .stagger-children > * {

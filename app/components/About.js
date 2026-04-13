@@ -48,7 +48,7 @@ export default function About() {
   ];
 
   return (
-    <section className="relative select-none py-28 bg-[#0D0D0D] text-foreground overflow-hidden">
+    <section className="relative select-none py-28 bg-[#0D0D0D] text-white overflow-hidden">
       {/* Ambient background glows */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
         <div className="absolute top-0 right-[20%] h-[500px] w-[500px]  bg-[radial-gradient(circle,rgba(var(--primary),0.10),transparent_70%)]" />
