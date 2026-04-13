@@ -144,7 +144,7 @@ export default function Hero() {
             "linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px), " +
             "linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px)",
           backgroundSize: "44px 44px",
-          animation: "grid-pan 8s linear infinite alternate",
+          animation: "grid-pan-vertical 8s linear infinite alternate",
         }}
       />
 
@@ -264,8 +264,8 @@ export default function Hero() {
           {/* ── Right column — photo ── */}
           <div className="hero-enter-img flex justify-center">
             <div className="flex flex-col lg:flex-row justify-center relative lg:-top-13 lg:left-15 mt-10">
-              {/* Spinning border — 10s rotation, paused for reduced-motion users */}
-              <div className="absolute h-full w-full border-2 border-dashed border-indigo-400/30 animate-[spin_10s_linear_infinite] motion-reduce:animate-none" />
+              {/* Spinning border — 10s rotation, hidden for reduced-motion users */}
+              <div className="absolute h-full w-full border-2 border-dashed border-indigo-400/30 animate-[spin_10s_linear_infinite] motion-reduce:hidden" />
               <div className="relative w-full max-w-md aspect-square">
                 {/* Glow behind image */}
                 <div className="absolute inset-0 bg-indigo-600/20 blur-3xl scale-75" />
