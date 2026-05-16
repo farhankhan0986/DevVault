@@ -1,39 +1,63 @@
 import React from "react";
 
+/**
+ * Logo — Vercel-aligned monochrome mark
+ *
+ * Design:
+ *   - Dark rounded square background
+ *   - Thin white border (hairline)
+ *   - Bold "F" constructed from clean geometric strokes
+ *   - Subtle "A" dot accent — a single white pixel/circle beneath the F
+ *     reading as "Farhan Abid" initial mark
+ *   - No colors, no gradients, no playful decorations
+ */
 const Logo = ({ size = 40, className = "" }) => {
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
-      viewBox="0 0 512 512"
+      viewBox="0 0 100 100"
       fill="none"
       width={size}
       height={size}
       className={className}
+      aria-label="Farhan Abid logo"
     >
-      {/* Background */}
-      <rect width="512" height="512" rx="80" fill="#0f172a" />
-      {/* Glowing border */}
-      <rect x="8" y="8" width="496" height="496" rx="74" fill="none" stroke="url(#logoGrad)" strokeWidth="4" />
-      {/* Terminal prompt > */}
-      <path d="M100 200L170 256L100 312" stroke="#6366f1" strokeWidth="26" strokeLinecap="round" strokeLinejoin="round" />
-      {/* Cursor */}
-      <rect x="195" y="290" width="50" height="26" rx="4" fill="#6366f1" opacity="0.6" />
-      {/* FA Text */}
-      <text x="340" y="290" textAnchor="middle" fontFamily="'Courier New', monospace" fontWeight="bold" fontSize="150" fill="white">
-        FA
-      </text>
-      {/* Window dots */}
-      <circle cx="70" cy="60" r="14" fill="#ef4444" />
-      <circle cx="115" cy="60" r="14" fill="#eab308" />
-      <circle cx="160" cy="60" r="14" fill="#22c55e" />
-      {/* Separator */}
-      <line x1="30" y1="100" x2="482" y2="100" stroke="white" strokeWidth="2" opacity="0.1" />
-      <defs>
-        <linearGradient id="logoGrad" x1="0" y1="0" x2="512" y2="512">
-          <stop offset="0%" stopColor="#6366f1" />
-          <stop offset="100%" stopColor="#a855f7" />
-        </linearGradient>
-      </defs>
+      {/* Background — near-black square */}
+      <rect width="100" height="100" rx="18" fill="#0a0a0a" />
+
+      {/* Hairline border */}
+      <rect
+        x="1"
+        y="1"
+        width="98"
+        height="98"
+        rx="17"
+        fill="none"
+        stroke="rgba(255,255,255,0.14)"
+        strokeWidth="1"
+      />
+
+      {/* ── Lettermark: F ── */}
+      {/* Vertical stem */}
+      <rect x="28" y="24" width="8" height="52" rx="2" fill="white" />
+      {/* Top horizontal bar — full width */}
+      <rect x="28" y="24" width="38" height="8" rx="2" fill="white" />
+      {/* Middle horizontal bar — slightly shorter */}
+      <rect x="28" y="44" width="28" height="7" rx="2" fill="rgba(255,255,255,0.85)" />
+
+      {/* ── Accent dot: "A" initial — bottom right ── */}
+      <circle cx="70" cy="72" r="5" fill="white" opacity="0.9" />
+
+      {/* Thin connecting line from stem bottom to dot */}
+      <line
+        x1="36"
+        y1="76"
+        x2="65"
+        y2="72"
+        stroke="rgba(255,255,255,0.2)"
+        strokeWidth="1.5"
+        strokeLinecap="round"
+      />
     </svg>
   );
 };

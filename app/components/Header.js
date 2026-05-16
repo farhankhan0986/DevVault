@@ -104,9 +104,9 @@ useEffect(() => {
             <div className="transition-transform duration-300 group-hover:scale-110">
               <Logo size={40} />
             </div>
-            <span className="text-foreground font-bold text-xl hidden sm:block">
-              Farhan<span className="text-indigo-500">.dev</span>
-            </span>
+            {/* <span className="text-foreground font-bold text-xl hidden sm:block">
+              Farhan<span style={{color:"rgba(var(--muted))"}}>.dev</span>
+            </span> */}
           </Link>
 
           {/* Desktop Nav Links */}
@@ -127,9 +127,8 @@ useEffect(() => {
                   >
                     {item.label}
                     <span
-                      className={`absolute inset-x-1 -bottom-1 h-[2px] rounded-full bg-gradient-to-r from-indigo-500 to-indigo-600 transition-all duration-300 ${
-                        isActive ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"
-                      }`}
+                      className={`absolute inset-x-1 -bottom-1 h-[2px] rounded-full transition-all duration-300 ${isActive ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"}`}
+                      style={{ background: "rgb(var(--foreground))" }}
                     />
                   </Link>
                 </li>
@@ -142,7 +141,8 @@ useEffect(() => {
             {/* <ThemeToggle /> */}
             <Link
               href="#contact"
-              className="rounded-xl px-5 py-2.5 bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition"
+              className="rounded-xl px-5 py-2.5 text-sm font-semibold transition hover:opacity-90"
+              style={{ background: "rgb(var(--foreground))", color: "rgb(var(--background))" }}
             >
               Get in Touch
             </Link>
@@ -150,7 +150,7 @@ useEffect(() => {
 
           {/* Mobile: Theme Toggle + Hamburger */}
           <div className="flex md:hidden items-center gap-3">
-            <ThemeToggle />
+            {/* <ThemeToggle /> */}
             <button
               onClick={() => setMobileOpen((prev) => !prev)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
@@ -188,7 +188,7 @@ useEffect(() => {
       >
         {/* Close button inside panel */}
         <div className="flex items-center justify-between px-6 py-4 border-b border-border">
-          <span className="text-lg font-extrabold bg-gradient-to-r from-indigo-400 to-indigo-600 bg-clip-text text-transparent">
+          <span className="text-lg font-extrabold text-foreground">
             FA
           </span>
           <button
@@ -212,7 +212,7 @@ useEffect(() => {
                   animationDelay: `${i * 50}ms`,
                 }}
               >
-                <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
+                <span className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(var(--foreground),0.4)" }} />
                 {item.label}
               </Link>
             </li>
@@ -224,7 +224,8 @@ useEffect(() => {
           <Link
             href="#contact"
             onClick={() => setMobileOpen(false)}
-            className="block w-full text-center rounded-xl px-5 py-3 bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition"
+            className="block w-full text-center rounded-xl px-5 py-3 text-sm font-semibold transition hover:opacity-90"
+            style={{ background: "rgb(var(--foreground))", color: "rgb(var(--background))" }}
           >
             Get in Touch
           </Link>

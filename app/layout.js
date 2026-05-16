@@ -7,8 +7,23 @@ import CustomCursor from "./components/CustomCursor";
 import PointerEffects from "./components/PointerEffects";
 
 export const metadata = {
-  title: "Farhan A. | Developer Portfolio",
-  description: "Full-stack developer portfolio showcasing projects and skills.",
+  title: "Farhan Abid | Software Developer",
+  description: "Full-stack software engineer specializing in backend systems, AI agents, and scalable web applications. Explore my projects, experience, and technical writing.",
+  keywords: ["Farhan Abid", "Software Developer", "Full-Stack Developer", "AI Developer", "Next.js", "React", "Node.js", "Portfolio"],
+  authors: [{ name: "Farhan Abid", url: "https://github.com/farhankhan0986" }],
+  creator: "Farhan Abid",
+  openGraph: {
+    title: "Farhan Abid | Software Developer",
+    description: "Full-stack software engineer specializing in backend systems, AI agents, and scalable web applications.",
+    type: "website",
+    locale: "en_US",
+    siteName: "Farhan Abid Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Farhan Abid | Software Developer",
+    description: "Full-stack software engineer specializing in backend systems, AI agents, and scalable web applications.",
+  },
 };
 
 export default function RootLayout({ children }) {

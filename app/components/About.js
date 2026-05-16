@@ -33,7 +33,7 @@ export default function About() {
   ];
 
   const stats = [
-{ value: "15+", label: "Projects Built", icon: Cpu },
+    { value: "15+", label: "Projects Built", icon: Cpu },
     { value: "50k+", label: "Lines of Code", icon: Code2 },
     { value: "100%", label: "Dedication", icon: Flame },
   ];
@@ -49,10 +49,10 @@ export default function About() {
 
   return (
     <section className="relative select-none py-28 bg-background text-foreground overflow-hidden">
-      {/* Ambient background glows */}
+      {/* Very subtle ambient gradient */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        <div className="absolute top-0 right-[20%] h-[500px] w-[500px] rounded-full bg-[radial-gradient(circle,rgba(var(--primary),0.10),transparent_70%)]" />
-        <div className="absolute bottom-0 left-[10%] h-[400px] w-[400px] rounded-full bg-[radial-gradient(circle,rgba(var(--accent),0.08),transparent_70%)]" />
+        <div className="absolute top-0 right-[20%] h-[500px] w-[500px] rounded-full" style={{ background: "radial-gradient(circle, rgba(255,255,255,0.025), transparent 70%)" }} />
+        <div className="absolute bottom-0 left-[10%] h-[400px] w-[400px] rounded-full" style={{ background: "radial-gradient(circle, rgba(255,255,255,0.015), transparent 70%)" }} />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-6">
@@ -60,15 +60,7 @@ export default function About() {
         <div className="mb-16">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             About{" "}
-            <span
-              className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-indigo-600"
-              // style={{
-              //   backgroundImage:
-              //     "linear-gradient(135deg, rgb(var(--primary)), rgb(var(--accent)))",
-              // }}
-            >
-              Me
-            </span>
+            <span className="text-foreground opacity-50">Me</span>
           </h2>
           <div className="section-line" />
         </div>
@@ -83,18 +75,12 @@ export default function About() {
                 Full-Stack Web Developer
               </span>{" "}
               with a strong passion for{" "}
-              <span
-                className="font-medium"
-                style={{ color: "rgb(var(--primary))" }}
-              >
+              <span className="font-medium text-foreground">
                 backend systems
               </span>
               , API design, and security-focused architectures. Currently
               working as a Web Developer Intern at{" "}
-              <span
-                className="font-semibold"
-                style={{ color: "rgb(var(--primary))" }}
-              >
+              <span className="font-semibold text-foreground">
                 Tripify India
               </span>
               , where I build real-world web solutions with production intent.
@@ -131,29 +117,21 @@ export default function About() {
                 return (
                   <div
                     key={stat.label}
-                    className="group relative rounded-2xl border border-border p-6 text-center transition-all duration-500 hover:shadow-[0_0_30px_rgba(var(--primary),0.2)]"
+                    className="group relative rounded-2xl border p-6 text-center transition-all duration-300 hover:-translate-y-1"
                     style={{
-                      background: "rgba(var(--card), 0.5)",
+                      borderColor: "rgba(255,255,255,0.08)",
+                      background: "rgba(var(--card), 0.6)",
                       backdropFilter: "blur(12px)",
-                      WebkitBackdropFilter: "blur(12px)",
                     }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}
                   >
-                    <span className="pointer-events-none absolute inset-0 rounded-2xl opacity-0 transition-opacity duration-500 group-active:opacity-100 group-hover:opacity-100 bg-[radial-gradient(circle_at_50%_0%,rgba(var(--primary),0.12),transparent_70%)]" />
-
                     <div className="relative flex flex-col items-center gap-3">
-                      <StatIcon
-                        className="w-5 h-5 transition-all duration-300 text-indigo-500 group-active:scale-110 group-hover:scale-110"
-                      />
-                      <p
-                        className="text-3xl font-extrabold tracking-tight bg-clip-text text-indigo-500 transition-transform duration-500 group-active:-translate-y-1 group-hover:-translate-y-1"
-                        style={{
-                          backgroundImage:
-                            "linear-gradient(135deg, rgb(var(--primary)), rgb(var(--accent)))",
-                        }}
-                      >
+                      <StatIcon className="w-5 h-5 text-muted transition-all duration-300 group-hover:text-foreground group-hover:scale-110" />
+                      <p className="text-3xl font-extrabold tracking-tight text-foreground">
                         {stat.value}
                       </p>
-                      <p className="text-sm text-muted transition-colors duration-300 group-active:text-foreground group-active:bg-clip-text group-active:bg-gradient-to-r group-active:from-indigo-500 group-active:to-indigo-600 group-hover:text-foreground group-hover:bg-clip-text group-hover:bg-gradient-to-r group-hover:from-indigo-500 group-hover:to-indigo-600">
+                      <p className="text-sm text-muted">
                         {stat.label}
                       </p>
                     </div>
@@ -170,31 +148,27 @@ export default function About() {
               return (
                 <div
                   key={index}
-                  className="group relative overflow-hidden rounded-2xl border border-border p-6 transition-all duration-500 hover:-translate-y-1 active:-translate-y-1 hover:shadow-[0_0_30px_rgba(var(--primary),0.15)]"
+                  className="group relative overflow-hidden rounded-2xl border p-6 transition-all duration-300 hover:-translate-y-1 active:-translate-y-1"
                   style={{
+                    borderColor: "rgba(255,255,255,0.08)",
                     background: "rgba(var(--card), 0.5)",
                     backdropFilter: "blur(12px)",
-                    WebkitBackdropFilter: "blur(12px)",
                   }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}
                 >
                   {/* Left accent border */}
                   <span
-                    className="absolute left-0 top-0 h-full w-[3px] rounded-full transition-colors duration-500 bg-indigo-500  group-active:bg-indigo-600  group-hover:bg-indigo-600 group-active:shadow-[0_0_12px_rgba(var(--primary),0.6)] group-hover:shadow-[0_0_12px_rgba(var(--primary),0.6)]"
-                    
+                    className="absolute left-0 top-0 h-full w-[2px] rounded-full"
+                    style={{ background: "rgba(255,255,255,0.2)" }}
                   />
 
                   <div className="relative flex items-start gap-4">
                     <div
-                      className="shrink-0 p-3 rounded-xl transition-all duration-300 ease-out group-hover:shadow-lg"
-                      style={{
-                        background:
-                          "linear-gradient(135deg, rgba(var(--primary), 0.15), rgba(var(--accent), 0.15))",
-                      }}
+                      className="shrink-0 p-3 rounded-xl"
+                      style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.08)" }}
                     >
-                      <Icon
-                        className="w-6 h-6 transition-all duration-400 ease-out group-active:-translate-y-2 group-hover:-translate-y-2 text-indigo-500 group-active:scale-110 group-hover:scale-110"
-                       
-                      />
+                      <Icon className="w-6 h-6 text-foreground transition-all duration-300 group-hover:-translate-y-1 group-hover:scale-110" />
                     </div>
 
                     <div>
@@ -213,53 +187,37 @@ export default function About() {
         </div>
 
         {/* Core Competencies */}
-        <div className="mt-24 pt-16 border-t border-border">
+        <div className="mt-24 pt-16 border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
           <h2 className="text-2xl font-extrabold tracking-tight mb-3">
             Core{" "}
-            <span
-              className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-indigo-600"
-              // style={{
-              //   backgroundImage:
-              //     "linear-gradient(135deg, rgb(var(--primary)), rgb(var(--accent)))",
-              // }}
-            >
-              Competencies
-            </span>
+            <span className="text-foreground opacity-50">Competencies</span>
           </h2>
 
           <div className="section-line mb-10" />
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {competencies.map((item) => {
               const CompIcon = item.icon;
 
               return (
                 <div
                   key={item.label}
-                  className="group relative flex items-center gap-3 overflow-hidden rounded-xl border border-border px-5 py-4 transition-all duration-300
-          hover:-translate-y-1 active:-translate-y-1
-          hover:bg-card hover:shadow-[0_0_30px_rgba(var(--primary),0.25)]"
+                  className="group relative flex items-center gap-3 overflow-hidden rounded-xl border px-5 py-4 transition-all duration-300 hover:-translate-y-1 active:-translate-y-1"
                   style={{
-                    background: "rgba(var(--card),0.6)",
+                    borderColor: "rgba(255,255,255,0.08)",
+                    background: "rgba(var(--card),0.5)",
                     backdropFilter: "blur(8px)",
-                    WebkitBackdropFilter: "blur(8px)",
                   }}
+                  onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; }}
+                  onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; }}
                 >
-                  {/* Glow overlay */}
-                  <span
-                    className="pointer-events-none absolute inset-0 blur-2xl opacity-0 transition-opacity duration-500 group-hover:opacity-100"
-                    style={{ background: "rgba(var(--primary),0.1)" }}
-                  />
-
                   {/* Left accent line */}
                   <span
-                    className="absolute left-0 top-0 h-full w-1 transition-all duration-300 bg-indigo-500 group-active:bg-indigo-600 group-hover:bg-indigo-600 group-hover:shadow-[0_0_20px_rgba(var(--primary),0.6)]"
-                    
+                    className="absolute left-0 top-0 h-full w-1 transition-all duration-300"
+                    style={{ background: "rgba(255,255,255,0.15)" }}
                   />
 
-                  <CompIcon
-                    className="relative shrink-0 w-4 h-4 transition-transform duration-300 text-indigo-500  group-active:-translate-z-1 group-active:scale-110 group-hover:-translate-z-1 group-hover:scale-110"
-                  />
+                  <CompIcon className="relative shrink-0 w-4 h-4 text-muted group-hover:text-foreground group-hover:scale-110 transition-all duration-300" />
 
                   <span className="relative text-sm font-medium text-foreground">
                     {item.label}

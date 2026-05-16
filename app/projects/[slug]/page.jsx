@@ -47,7 +47,6 @@ export default async function ProjectDetail({ params }) {
       ],
       github: "https://github.com/farhankhan0986/HireSight-AI",
     },
-
     idvault: {
       title: "IDVault",
       role: "Backend & Security Engineer",
@@ -410,108 +409,188 @@ export default async function ProjectDetail({ params }) {
       ],
     },
     viblytics: {
-  title: "Viblytics",
-  role: "Product Engineer & AI Developer",
+      title: "Viblytics",
+      role: "Product Engineer & AI Developer",
+      description:
+        "Viblytics is an AI-powered YouTube competitor intelligence SaaS that empowers marketers and creators to analyze any public channel’s video performance, engagement rates, and trends with just a link. It combines live YouTube metrics, instant AI analysis, advanced data visualizations, and a polished SaaS experience.",
+      problem:
+        "Decoding competitor strategies on YouTube is slow, manual, and often limited to raw metrics. Most tools require clumsy spreadsheet exports, lack smart insights, and offer little in the way of actionable, enterprise-ready analytics.",
+      solution:
+        "Built a modern web app leveraging Groq’s LLaMA 3.3 70B for instant AI-powered video/channel insights. The platform delivers performance analytics, engagement benchmarking, trend detection, and actionable recommendations with a clean, responsive UI. Added shareable URLs, advanced charting, and resilience for demos/failover.",
+      tech: [
+        "Next.js 15",
+        "React 19",
+        "Tailwind CSS 4",
+        "Groq AI (LLaMA 3.3 70B)",
+        "Node.js",
+        "TypeScript",
+        "Recharts",
+        "YouTube Data API v3",
+        "CSV Export",
+        "Vercel"
+      ],
+      architecture: [
+        "Full-stack application using decoupled React UI and Next.js server routes",
+        "YouTube Data API integration wraps live and mock data for loading/failover resilience",
+        "Groq-powered Backend-for-Frontend (BFF) for all AI analysis and recommendations",
+        "Dynamic routing with shareable ?channel= URLs for reproducible analysis views",
+        "Custom hooks and useMemo for real-time filtering and insights computation",
+        "Responsive, SaaS-grade UI with consistent branding and dark mode",
+        "Microinteractions, tooltips, and skeleton loading for premium UX feel"
+      ],
+      features: [
+        "Paste any public YouTube channel URL for analysis (supports @handle, channel ID, /c/ and /user/)",
+        "AI-powered channel analysis via Groq (LLaMA 3.3 70B): auto-generated summaries, key insights, content patterns, and recommendations",
+        "Rule-based instant channel insights card for engagement leader, cadence, trending, and performance momentum",
+        "Sortable, filterable video table with views, likes, comments, publish date, engagement rate (color-coded) & trending badges",
+        "Dual charting: top 5 bar chart and views vs. engagement scatter plot, toggle with one click",
+        "Shareable analysis URLs — ?channel= link auto-load and one-click example channels for demo/UX",
+        "CSV export including calculated engagement data for offline reporting",
+        "Polished, branded design with dark/light mode, animations, skeleton loaders, and custom SVG logo"
+      ],
+      learnings: [
+        "Integrating Groq's LLaMA API for low-latency AI analytics (summaries, pattern detection, recommendations)",
+        "Designing instant-fallback architecture for reliable SaaS demos (mock/live data and error handling)",
+        "Building advanced interactive charts with Recharts and dynamic highlighting",
+        "Implementing rule-based and LLM-based insights in tandem (for speed/robustness)",
+        "Engineering for shareability with dynamic URL state and zero-auth access",
+        "Enhancing enterprise UX: responsive design, microinteractions, tooltips, and data export"
+      ],
+      github: "https://github.com/farhankhan0986/Viblytics",
+      href: "https://viblytics.vercel.app",
+      status: "COMPLETED",
+      highlight: "AI-Powered Channel Intelligence, Engagement Benchmarking, & Shareable Competitor Reports",
+      slug: "viblytics",
+    },
+    ragAiChatbot: {
+      title: "RAG AI Chatbot",
+      role: "Full-Stack Engineer & AI Integration Specialist",
+      description:
+        "RAG AI Chatbot is a production-ready, retrieval-augmented AI chatbot platform. It enables users to ask questions about any embedded dataset—websites, documentation, or personal content—using natural language. Answers are accurate, context-grounded, and cite their sources, all through a fast Next.js App Router UI with secure serverless backend, semantic search, and Groq/Cohere-powered LLM integration.",
+      problem:
+        "Traditional chatbots often hallucinate or fail to answer enterprise/documentation-specific queries, because their LLMs don’t know your custom content. Most solutions lack clear citations or require complex integration to work over private data, leaving teams and users uncertain about AI accuracy.",
+      solution:
+        "Developed a modern RAG workflow delivering instant, verifiable answers based strictly on user-embedded content. Combined Supabase pgvector search, chunked embeddings, and Groq/Cohere LLMs with an always-citing, auditable answer chain. Designed a clean, responsive chat UI (Next.js) and robust API route for serverless deployments. System is extensible to support website uploads, multi-turn chat, and custom domains.",
+      tech: [
+        "Next.js 14+ (App Router)",
+        "React 18+",
+        "Tailwind CSS",
+        "Groq AI (Llama 3.3 70B) / Cohere",
+        "Supabase (Postgres + pgvector)",
+        "Node.js",
+        "JavaScript",
+        "Vercel"
+      ],
+      architecture: [
+        "Frontend: App Router-based Next.js with modern chat UI, chat role state, context-citation rendering",
+        "Backend: Secure Next.js API route for vector search, prompt creation, and Groq/Cohere LLM calls (keys never exposed)",
+        "Semantic retrieval: Top-K embedding search using pgvector and custom SQL in Supabase",
+        "Chunking pipeline for long/complex docs and web scraping ingestion",
+        "Env-based secret management, Vercel-optimized for serverless cold starts",
+        "Easy extensibility for document upload, per-user sessions, and multi-provider LLM fallback"
+      ],
+      features: [
+        "Ask questions about your website, docs, or any chunked/embedded dataset (supports website scraping, docs ingest, or manual text)",
+        "Retrieval-augmented answer generation with always-cited context chunks",
+        "Ultra-fast LLM calls via Groq API (Llama 3.3 70B) or Cohere",
+        "Modern chat UI with user/assistant role separation and scroll-to-recent UX",
+        "Source-citation panel for every answer so users ‘trust but verify’",
+        "Seamless deployment to Vercel: all API keys and secret operations done server-side only",
+        "Production-minded: input validation, chunk deduplication, clean error handling, and scalable serverless pattern"
+      ],
+      learnings: [
+        "Building fully-typed RAG pipelines that combine LLMs, vector DBs, and custom ingest logic",
+        "Securing cloud deployments: API key isolation, usage throttling, and zero client leak",
+        "Effective OpenAI/Groq/Cohere prompt engineering for transparent, context-restricted answers",
+        "Engineering maintainable full-stack chat UI with React state and App Router",
+        "Balancing chunk size/overlap for best RAG retrieval precision",
+        "Deploying and configuring serverless vector search (Supabase/pgvector) at scale"
+      ],
+      github: "https://github.com/farhankhan0986/rag-ai-chatbot",
+      href: "https://rag-ai-chatbot-piae.vercel.app/",
+      status: "COMPLETED",
+      highlight: "Retrieval-Augmented Answers with Always-Cited Context, Deployed as a Modern Serverless Chatbot",
+      slug: "rag-ai-chatbot"
+    },
+    entry: {
+      title: "Entry",
+      role: "Creator, Full-Stack Engineer",
+      description:
+        "Entry is a modern editorial platform for writers and creators, aiming to provide distraction-free publishing with the design quality of premium online magazines. Beyond personal blogging and journaling, Entry provides a suite of productivity tools—including a personality discovery quiz, AI prompt optimizer using Groq LLMs, a Pomodoro focus timer, a market salary checker, and a multi-format text converter. Users get seamless publishing, dynamic themes, OAuth logins, and analytics. The platform features real-time likes/views/comments, portfolios, rich tech editorial content, and a robust dashboard for writers.",
+      problem:
+        "Most blogging platforms split between overly technical CMSs, noisy social feeds, or underpowered minimal journals—rarely offering both editorial polish and creators-first productivity. Writers lack a place to publish and showcase their work with fine typography, distraction-free interface, and built-in tools that genuinely aid both writing and discovery. There is also no open, beautiful, and social space that fuses blog publishing, portfolio building, and habit-forming productivity tools in one coherent product.",
+      solution:
+        "Developed Entry from scratch as a full-stack Next.js 16 application, combining classic editorial UX with productivity-oriented components (AI-powered prompt optimizer, Pomodoro, salary checker, converter). Server components fetch data (blogs, comments, stats) directly, while MongoDB & static content are merged at the server. Features include a full markdown/HTML editor, Google/GitHub OAuth, public author profiles, animated multi-theme support, live engagement stats (likes/views with IP deduplication), Cloudinary image handling, and proactive design/tech like React Compiler, Framer Motion, and Vercel Analytics. Everything is built with a typography-first, performance-by-default mindset.",
+      tech: [
+        "Next.js 16 (App Router)",
+        "React 19 (with Compiler)",
+        "Tailwind CSS v4",
+        "Framer Motion 12",
+        "MongoDB Atlas (Mongoose 9)",
+        "NextAuth v5 (Google & GitHub OAuth)",
+        "Cloudinary (server upload proxy)",
+        "Groq LLM SDK (for AI Prompt Optimizer)",
+        "Resend (email)",
+        "Sonner (notifications)",
+        "Lucide React (icons)"
+      ],
+      architecture: [
+        "App Router (server + client components); data fetching via server functions",
+        "Hybrid content model: hand-curated static posts merged with live MongoDB content, unified at the API",
+        "JWT Auth (NextAuth v5, MongoDB adapter), Google/GitHub OAuth",
+        "Server-side Cloudinary proxy prevents API key leakage, signed uploads",
+        "Full markdown/HTML editor with cloud image upload, word count, formatting toolbar",
+        "Six theme palettes (all CSS variable-driven), SSR theme switching, Next Themes",
+        "Per-article views and likes are tracked with IP deduplication, animated charts via Framer Motion",
+        "Productivity tools (AI Prompt Optimizer, Pomodoro, Salary Checker, Text Converter, Discovery Quiz) as independent, reusable modules",
+        "Component-driven UI (all major logic encapsulated), React Compiler auto-memoization",
+        "Extensive usage of Vercel Analytics/Speed Insights, SEO with dynamic sitemap & OpenGraph"
+      ],
+      learnings: [
+        "Engineering fast, SSR-first data flows with React 19/Next.js 16 App Router",
+        "Designing scalable MongoDB schemas for blogs, comments, authors, engagement stats, and portfolios",
+        "Building a dual MongoDB connection pattern (Mongoose for models, MongoClient for NextAuth 5)",
+        "Implementing IP-deduped stat tracking for real user engagement, not just vanity metrics",
+        "Optimizing React UI for animated experiences (Framer Motion) and rapid client/server rendering",
+        "Best practices for secure cloud image uploads and signed requests (Cloudinary proxy route)",
+        "Building a multi-theme SSR system with zero flicker and CSS variables",
+        "Integrating LLM-powered AI tooling (Groq SDK) for real, helpful writing assistance",
+        "UX lessons in merging editorial polish, social layer, and productivity for creators"
+      ],
+      github: "https://github.com/farhankhan0986/Entry"
+    },
+    fact_check_agent: {
+  title: "Fact_Check_Agent",
+  role: "Developer",
   description:
-    "Viblytics is an AI-powered YouTube competitor intelligence SaaS that empowers marketers and creators to analyze any public channel’s video performance, engagement rates, and trends with just a link. It combines live YouTube metrics, instant AI analysis, advanced data visualizations, and a polished SaaS experience.",
+    "Fact_Check_Agent is a comprehensive fact-checking platform designed to help users verify information quickly and accurately. It bridges the gap between raw claims and verified facts by leveraging powerful backend technologies. Users can input text, upload PDF documents, or paste URLs for analysis. The agent then utilizes Groq's LLaMA 3.3 70B Versatile model to evaluate content, cross-references claims with real-time web data via the Tavily Search API, and parses PDFs with unpdf to extract textual information. All results are presented in a clean, interactive dashboard featuring Recharts visualizations for data insights, alongside clear indicators of accuracy and supporting evidence. The platform is built on Next.js 16 with a robust App Router architecture and a modern Tailwind CSS v4 design system.",
   problem:
-    "Decoding competitor strategies on YouTube is slow, manual, and often limited to raw metrics. Most tools require clumsy spreadsheet exports, lack smart insights, and offer little in the way of actionable, enterprise-ready analytics.",
+    "In an era of rapid information dissemination, distinguishing verified facts from misinformation is increasingly challenging. Users frequently encounter claims, news articles, and PDF documents that require immediate scrutiny, but lack accessible tools to verify their accuracy. The lack of integrated solutions for text, URL, and PDF analysis often forces users to consult multiple platforms or manually cross-reference information, which is time-consuming and inefficient. Furthermore, many existing verification tools fail to provide transparent reasoning or visual data insights, leaving users to question the credibility of the results.",
   solution:
-    "Built a modern web app leveraging Groq’s LLaMA 3.3 70B for instant AI-powered video/channel insights. The platform delivers performance analytics, engagement benchmarking, trend detection, and actionable recommendations with a clean, responsive UI. Added shareable URLs, advanced charting, and resilience for demos/failover.",
+    "Developed Fact_Check_Agent as a unified, high-performance fact-checking platform leveraging the latest advancements in AI and web technologies. The system features a seamless interface for analyzing text, URLs, and PDF documents, providing users with immediate veracity assessments. By integrating Groq's state-of-the-art LLaMA 3.3 70B Versatile model, the platform delivers nuanced evaluation of claims, while the Tavily Search API ensures real-time data correlation for up-to-date results. The inclusion of unpdf for PDF parsing ensures that textual content from documents is accurately extracted and analyzed without data loss. Architected on Next.js 16 with App Router and styled with Tailwind CSS v4, Fact_Check_Agent offers a responsive, intuitive user experience. Visual insights are enhanced through Recharts, allowing users to interpret complex data through clear, interactive charts. This solution addresses the critical need for rapid, reliable, and transparent information verification in the digital age.",
   tech: [
-    "Next.js 15",
-    "React 19",
-    "Tailwind CSS 4",
-    "Groq AI (LLaMA 3.3 70B)",
-    "Node.js",
-    "TypeScript",
+    "Next.js 16 (App Router)",
+    "JavaScript (ES Modules)",
+    "Tailwind CSS v4",
+    "Groq API (LLaMA 3.3 70B Versatile)",
+    "Tavily Search API",
+    "unpdf (pdfjs-dist)",
     "Recharts",
-    "YouTube Data API v3",
-    "CSV Export",
+    "Vercel Analytics",
     "Vercel"
   ],
   architecture: [
-    "Full-stack application using decoupled React UI and Next.js server routes",
-    "YouTube Data API integration wraps live and mock data for loading/failover resilience",
-    "Groq-powered Backend-for-Frontend (BFF) for all AI analysis and recommendations",
-    "Dynamic routing with shareable ?channel= URLs for reproducible analysis views",
-    "Custom hooks and useMemo for real-time filtering and insights computation",
-    "Responsive, SaaS-grade UI with consistent branding and dark mode",
-    "Microinteractions, tooltips, and skeleton loading for premium UX feel"
-  ],
-  features: [
-    "Paste any public YouTube channel URL for analysis (supports @handle, channel ID, /c/ and /user/)",
-    "AI-powered channel analysis via Groq (LLaMA 3.3 70B): auto-generated summaries, key insights, content patterns, and recommendations",
-    "Rule-based instant channel insights card for engagement leader, cadence, trending, and performance momentum",
-    "Sortable, filterable video table with views, likes, comments, publish date, engagement rate (color-coded) & trending badges",
-    "Dual charting: top 5 bar chart and views vs. engagement scatter plot, toggle with one click",
-    "Shareable analysis URLs — ?channel= link auto-load and one-click example channels for demo/UX",
-    "CSV export including calculated engagement data for offline reporting",
-    "Polished, branded design with dark/light mode, animations, skeleton loaders, and custom SVG logo"
+    "Client-side validation and UI in JavaScript",
+    "Styled components or CSS sheets for UI",
+    "Integrates with public fact-checking APIs or LLM endpoints (if provided)",
+    "Possibly includes an input area for pasting statements and a visual output (true/false or scoring)"
   ],
   learnings: [
-    "Integrating Groq's LLaMA API for low-latency AI analytics (summaries, pattern detection, recommendations)",
-    "Designing instant-fallback architecture for reliable SaaS demos (mock/live data and error handling)",
-    "Building advanced interactive charts with Recharts and dynamic highlighting",
-    "Implementing rule-based and LLM-based insights in tandem (for speed/robustness)",
-    "Engineering for shareability with dynamic URL state and zero-auth access",
-    "Enhancing enterprise UX: responsive design, microinteractions, tooltips, and data export"
+    "Working with async API calls for information retrieval",
+    "Designing simple and comprehensible UIs for critical applications",
+    "Handling uncertain or ambiguous data when verifying facts"
   ],
-  github: "https://github.com/farhankhan0986/Viblytics",
-  href: "https://viblytics.vercel.app",
-  status: "COMPLETED",
-  highlight: "AI-Powered Channel Intelligence, Engagement Benchmarking, & Shareable Competitor Reports",
-  slug: "viblytics",
-},
-ragAiChatbot: {
-  title: "RAG AI Chatbot",
-  role: "Full-Stack Engineer & AI Integration Specialist",
-  description:
-    "RAG AI Chatbot is a production-ready, retrieval-augmented AI chatbot platform. It enables users to ask questions about any embedded dataset—websites, documentation, or personal content—using natural language. Answers are accurate, context-grounded, and cite their sources, all through a fast Next.js App Router UI with secure serverless backend, semantic search, and Groq/Cohere-powered LLM integration.",
-  problem:
-    "Traditional chatbots often hallucinate or fail to answer enterprise/documentation-specific queries, because their LLMs don’t know your custom content. Most solutions lack clear citations or require complex integration to work over private data, leaving teams and users uncertain about AI accuracy.",
-  solution:
-    "Developed a modern RAG workflow delivering instant, verifiable answers based strictly on user-embedded content. Combined Supabase pgvector search, chunked embeddings, and Groq/Cohere LLMs with an always-citing, auditable answer chain. Designed a clean, responsive chat UI (Next.js) and robust API route for serverless deployments. System is extensible to support website uploads, multi-turn chat, and custom domains.",
-  tech: [
-    "Next.js 14+ (App Router)",
-    "React 18+",
-    "Tailwind CSS",
-    "Groq AI (Llama 3.3 70B) / Cohere",
-    "Supabase (Postgres + pgvector)",
-    "Node.js",
-    "JavaScript",
-    "Vercel"
-  ],
-  architecture: [
-    "Frontend: App Router-based Next.js with modern chat UI, chat role state, context-citation rendering",
-    "Backend: Secure Next.js API route for vector search, prompt creation, and Groq/Cohere LLM calls (keys never exposed)",
-    "Semantic retrieval: Top-K embedding search using pgvector and custom SQL in Supabase",
-    "Chunking pipeline for long/complex docs and web scraping ingestion",
-    "Env-based secret management, Vercel-optimized for serverless cold starts",
-    "Easy extensibility for document upload, per-user sessions, and multi-provider LLM fallback"
-  ],
-  features: [
-    "Ask questions about your website, docs, or any chunked/embedded dataset (supports website scraping, docs ingest, or manual text)",
-    "Retrieval-augmented answer generation with always-cited context chunks",
-    "Ultra-fast LLM calls via Groq API (Llama 3.3 70B) or Cohere",
-    "Modern chat UI with user/assistant role separation and scroll-to-recent UX",
-    "Source-citation panel for every answer so users ‘trust but verify’",
-    "Seamless deployment to Vercel: all API keys and secret operations done server-side only",
-    "Production-minded: input validation, chunk deduplication, clean error handling, and scalable serverless pattern"
-  ],
-  learnings: [
-    "Building fully-typed RAG pipelines that combine LLMs, vector DBs, and custom ingest logic",
-    "Securing cloud deployments: API key isolation, usage throttling, and zero client leak",
-    "Effective OpenAI/Groq/Cohere prompt engineering for transparent, context-restricted answers",
-    "Engineering maintainable full-stack chat UI with React state and App Router",
-    "Balancing chunk size/overlap for best RAG retrieval precision",
-    "Deploying and configuring serverless vector search (Supabase/pgvector) at scale"
-  ],
-  github: "https://github.com/farhankhan0986/rag-ai-chatbot",
-  href: "https://rag-ai-chatbot-piae.vercel.app/",
-  status: "COMPLETED",
-  highlight: "Retrieval-Augmented Answers with Always-Cited Context, Deployed as a Modern Serverless Chatbot",
-  slug: "rag-ai-chatbot"
+  github: "https://github.com/farhankhan0986/Fact_Check_Agent"
 }
   };
 
@@ -643,10 +722,25 @@ ragAiChatbot: {
               href={project.github}
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-2 px-6 py-3 rounded-lg bg-slate-900 text-background text-sm font-semibold hover:opacity-90 transition-opacity shadow-lg border border-border hover:shadow-none hover:bg-slate-900/50"
+              className="group inline-flex items-center gap-2.5 px-6 py-3 rounded-xl bg-foreground text-background text-sm font-semibold tracking-wide transition-all duration-300 border border-white/10 shadow-[0_10px_30px_rgba(0,0,0,0.18)] hover:-translate-y-0.5 hover:shadow-[0_14px_40px_rgba(0,0,0,0.24)]"
             >
-              <Github className="w-4 h-4" />
-              View Source Code
+              <Github className="w-4 h-4 transition-transform duration-300 group-hover:rotate-[-8deg]" />
+
+              <span>View Source Code</span>
+
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                strokeWidth="2"
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                className="w-4 h-4 opacity-70 transition-transform duration-300 group-hover:translate-x-1"
+              >
+                <path d="M5 12h14" />
+                <path d="m12 5 7 7-7 7" />
+              </svg>
             </a>
           </div>
         )}

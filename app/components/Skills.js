@@ -205,7 +205,7 @@ const certificatesData = [
     issuer: "Amazon Web Services (AWS)",
     date: "2025",
     description: "Gained foundational knowledge of cloud computing, AWS core services, security, pricing models, and global infrastructure used in modern cloud applications.",
-    image: "https://www.paubox.com/hubfs/What%20is%20AWS.jpg",
+    image: "https://zoomgroup.com/public/storage/images/courses/Amazon-Web-Services-slider.webp",
     link: "https://drive.google.com/file/d/16bJUSWOaC8qkYnQVxjtJRBLOc8N0LK5k/view",
     tech: ["AWS", "Cloud Computing", "IAM", "EC2"],
   },
@@ -215,7 +215,7 @@ const certificatesData = [
     issuer: "Cisco Networking Academy",
     date: "2025",
     description: "Learned Python programming fundamentals including data structures, control flow, functions, and problem-solving using Python.",
-    image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTwMpxduhWYu_UxowH1fc9KOYPvmT_Mk-EMalTnyLQZZg&s&ec=121585071",
+    image: "https://storage.ghost.io/c/ab/2a/ab2aa77e-39bd-44e8-9ccb-d55a2093edde/content/images/2023/10/Logo_-Cisco.png",
     link: "https://drive.google.com/file/d/1ldHmMQZLodXTq90n09JgkKIedy0rrfBp/view",
     tech: ["Python", "Programming Fundamentals", "Data Structures"],
   },
@@ -227,7 +227,8 @@ export default function Skills() {
       {/* Ambient glow */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[radial-gradient(700px_circle_at_50%_0%,rgba(99,102,241,0.10),transparent_50%)]"
+        className="absolute inset-0 -z-10"
+        style={{ background: "radial-gradient(700px circle at 50% 0%, rgba(255,255,255,0.025), transparent 55%)" }}
       />
 
       <div className="max-w-6xl mx-auto px-6">
@@ -235,7 +236,7 @@ export default function Skills() {
         <div className="mb-20">
           <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
             Skills &{" "}
-            <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
+            <span className="text-foreground opacity-50">
               Expertise
             </span>
           </h2>
@@ -251,56 +252,48 @@ export default function Skills() {
           {skillCategories.map(({ category, skills }, idx) => {
             const Icon = categoryIcons[category] || DefaultIcon;
             const categoryColors = [
-              { bg: "from-[#32386B] to-[#2e1c64]", color: "#6366f1" },
-              { bg: "from-[#2c244b] to-[#46213b]", color: "#e92b88" },
-              { bg: "from-[#18343E] to-[#22574A]", color: "#13dfa2" },
-              { bg: "from-[#3b3204] to-[#86620c]", color: "#ffaf36" },
-              { bg: "from-[#221d3a] to-[#302366]", color: "#a259fa" },
-              { bg: "from-[#113448] to-[#183E54]", color: "#2cb9f4" },
+              "rgba(255,255,255,0.9)",
+              "rgba(220,220,220,0.85)",
+              "rgba(200,200,200,0.8)",
+              "rgba(180,180,180,0.75)",
+              "rgba(160,160,160,0.7)",
+              "rgba(140,140,140,0.65)",
             ];
-            const { bg, color } = categoryColors[idx % categoryColors.length];
+            const color = categoryColors[idx % categoryColors.length];
 
             return (
               <div
                 key={category}
-                className={`
-          group relative rounded-2xl border border-white/10
-          bg-gradient-to-br bg-opacity-90
-          p-7 pt-8 backdrop-blur-lg 
-          transition-all duration-500 ease-out overflow-visible
-          shadow-[0_8px_32px_rgba(30,25,79,0.22)]
-          hover:-translate-y-2 active:-translate-y-1
-          `}
+                className="group relative rounded-2xl p-7 pt-8 backdrop-blur-lg transition-all duration-500 ease-out overflow-visible hover:-translate-y-2 active:-translate-y-1"
                 style={{
-                  boxShadow: `0 2px 24px 0 ${color}33, 0 4px 24px rgba(0,0,0,0.24)`,
+                  border: "1px solid rgba(255,255,255,0.08)",
+                  background: "rgba(var(--card), 0.7)",
                 }}
                 onMouseEnter={e => {
-                  e.currentTarget.style.borderColor = color;
-                  e.currentTarget.style.boxShadow =
-                    `0 0 40px 0 ${color}44, 0 10px 32px 0 rgba(0,0,0,0.25)`;
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.18)";
+                  e.currentTarget.style.boxShadow = "0 12px 40px rgba(0,0,0,0.5)";
                 }}
                 onMouseLeave={e => {
-                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.1)";
-                  e.currentTarget.style.boxShadow =
-                    `0 2px 24px 0 ${color}33, 0 4px 24px rgba(0,0,0,0.24)`;
+                  e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)";
+                  e.currentTarget.style.boxShadow = "none";
                 }}
               >
                 {/* Underglow */}
                 <div
-                  className="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-4 w-3/4 h-8 rounded-full blur-2xl opacity-0 group-hover:opacity-40 group-active:opacity-40 transition-opacity duration-700 z-0"
-                  style={{ background: color }}
+                  className="pointer-events-none absolute left-1/2 -translate-x-1/2 -bottom-4 w-3/4 h-6 rounded-full blur-2xl opacity-0 group-hover:opacity-20 group-active:opacity-20 transition-opacity duration-700 z-0"
+                  style={{ background: "rgba(255,255,255,0.4)" }}
                 />
                 {/* Header */}
                 <div className="relative z-10 flex items-center gap-3 mb-6">
                   <span
-                    className="flex items-center justify-center w-11 h-11 rounded-xl ring-2"
-                    style={{ color, borderColor: color }}
+                    className="flex items-center justify-center w-11 h-11 rounded-xl"
+                    style={{ background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.12)", color: "rgb(var(--foreground))" }}
                   >
                     <span className="transition-transform duration-700 group-hover:-translate-y-1 group-active:-translate-y-1 group-hover:scale-110 group-active:scale-105">
-                      <Icon size={27} strokeWidth={1.8} />
+                      <Icon size={24} strokeWidth={1.8} />
                     </span>
                   </span>
-                  <h3 className="text-lg font-extrabold tracking-tight bg-gradient-to-r from-white/90 via-slate-200/80 to-white/70 bg-clip-text drop-shadow">
+                  <h3 className="text-lg font-extrabold tracking-tight text-foreground">
                     {category}
                   </h3>
                 </div>
@@ -317,7 +310,7 @@ export default function Skills() {
                         className="w-5 h-5 shrink-0 object-contain transition-all duration-500 group-active/skill:scale-125 group-hover/skill:scale-125 group-active/skill:drop-shadow-[0_2px_18px_rgba(99,102,241,0.18)] group-hover/skill:drop-shadow-[0_2px_18px_rgba(99,102,241,0.18)]"
                         loading="lazy"
                       />
-                      <span className="font-medium transition-all duration-300 group-hover/skill:text-indigo-300">{skill.name}</span>
+                      <span className="font-medium transition-all duration-300 group-hover/skill:text-foreground text-muted">{skill.name}</span>
                     </li>
                   ))}
                 </ul>
@@ -327,17 +320,17 @@ export default function Skills() {
         </div>
 
         {/* ── TrustBadges ── */}
-        <div className="mt-24 pt-16 border-t border-white/10 text-center">
+        <div className="mt-24 pt-16 border-t text-center" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
           <TrustBadges />
         </div>
 
         {/* ── Proficiency Radar ── */}
-        <div className="mt-24 pt-16 border-t border-white/10">
+        <div className="mt-24 pt-16 border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
           <div className="max-w-5xl mx-auto">
             <div className="text-center space-y-2 mb-14">
               <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
                 Proficiency{" "}
-                <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
+                <span className="text-foreground opacity-50">
                   Radar
                 </span>
               </h3>
@@ -348,7 +341,7 @@ export default function Skills() {
             </div>
 
             {/* Hexagonal bento grid */}
-            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+            <div className="grid grid-cols-3 gap-2 sm:gap-5">
               {proficiencyData.map((item, index) => {
                 const circumference = 2 * Math.PI * 54;
                 const offset =
@@ -358,98 +351,63 @@ export default function Skills() {
                   <div
                     key={item.skill}
                     className={[
-                      "group relative rounded-3xl border border-indigo-500/40 bg-white/[0.03] backdrop-blur-xl p-8",
-                      "transition-all duration-500 ease-out",
-                      "hover:-translate-y-2 active:-translate-y-2 hover:border-indigo-500/40 active:border-indigo-500/40",
-                      "hover:shadow-[0_0_40px_rgba(99,102,241,0.15),0_0_80px_rgba(99,102,241,0.05)] active:shadow-[0_0_40px_rgba(99,102,241,0.15),0_0_80px_rgba(99,102,241,0.05)]",
+                      "group relative rounded-2xl sm:rounded-3xl backdrop-blur-xl p-3 sm:p-8 flex flex-col items-center",
+                      "transition-all duration-500 ease-out text-center",
+                      "hover:-translate-y-1 sm:hover:-translate-y-2 active:-translate-y-1 sm:active:-translate-y-2",
                       index === proficiencyData.length - 1 &&
                         proficiencyData.length % 3 === 1
-                        ? "sm:col-span-2 lg:col-span-1 lg:col-start-2"
-                        : "",
-                      index === proficiencyData.length - 2 &&
-                        proficiencyData.length % 3 === 2
-                        ? "lg:col-start-1"
-                        : "",
-                      index === proficiencyData.length - 1 &&
-                        proficiencyData.length % 3 === 2
-                        ? "lg:col-start-2"
+                        ? "col-span-3 sm:col-span-2 lg:col-span-1 lg:col-start-2"
                         : "",
                     ]
                       .filter(Boolean)
                       .join(" ")}
+                    style={{ border: "1px solid rgba(255,255,255,0.08)", background: "rgba(var(--card),0.6)" }}
+                    onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.15)"; e.currentTarget.style.boxShadow = "0 16px 40px rgba(0,0,0,0.5)"; }}
+                    onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.08)"; e.currentTarget.style.boxShadow = "none"; }}
                   >
                     {/* Ambient glow on hover */}
-                    <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-500 bg-[radial-gradient(circle_at_50%_50%,rgba(99,102,241,0.08),transparent_70%)]" />
+                    <div className="pointer-events-none absolute inset-0 rounded-3xl opacity-0 group-hover:opacity-100 group-active:opacity-100 transition-opacity duration-500" style={{ background: "radial-gradient(circle at 50% 50%, rgba(255,255,255,0.04), transparent 70%)" }} />
 
                     <div className="relative flex flex-col items-center text-center">
                       {/* Circular progress ring */}
-                      <div className="relative w-32 h-32 mb-6">
-                        {/* Background ring */}
-                        <svg
-                          className="w-full h-full -rotate-90"
-                          viewBox="0 0 120 120"
-                        >
+                      <div className="relative w-16 h-16 sm:w-32 sm:h-32 mb-4 sm:mb-6">
+                        <svg className="w-full h-full -rotate-90" viewBox="0 0 120 120">
+                          <circle cx="60" cy="60" r="54" fill="none" stroke="rgba(255,255,255,0.06)" strokeWidth="8" />
                           <circle
-                            cx="60"
-                            cy="60"
-                            r="54"
-                            fill="none"
-                            stroke="rgba(255,255,255,0.06)"
-                            strokeWidth="8"
-                          />
-                          {/* Progress ring */}
-                          <circle
-                            cx="60"
-                            cy="60"
-                            r="54"
-                            fill="none"
-                            strokeWidth="8"
-                            strokeLinecap="round"
+                            cx="60" cy="60" r="54" fill="none" strokeWidth="8" strokeLinecap="round"
                             className="transition-all duration-1000 ease-out"
-                            style={{
-                              stroke: "url(#progressGradient)",
-                              strokeDasharray: circumference,
-                              strokeDashoffset: offset,
-                              filter:
-                                "drop-shadow(0 0 8px rgba(99,102,241,0.5))",
-                            }}
+                            style={{ stroke: "url(#progressGradient)", strokeDasharray: circumference, strokeDashoffset: offset, filter: "drop-shadow(0 0 6px rgba(255,255,255,0.25))" }}
                           />
                           <defs>
-                            <linearGradient
-                              id="progressGradient"
-                              x1="0%"
-                              y1="0%"
-                              x2="100%"
-                              y2="100%"
-                            >
-                              <stop offset="0%" stopColor="#6366f1" />
-                              <stop offset="100%" stopColor="#8b5cf6" />
+                            <linearGradient id="progressGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                              <stop offset="0%" stopColor="rgba(255,255,255,0.9)" />
+                              <stop offset="100%" stopColor="rgba(200,200,200,0.7)" />
                             </linearGradient>
                           </defs>
                         </svg>
 
                         {/* Percentage in center */}
                         <div className="absolute inset-0 flex items-center justify-center">
-                          <span className="text-2xl font-black tabular-nums bg-gradient-to-br from-indigo-400 to-violet-400 bg-clip-text text-transparent">
-                            {item.level}
-                            <span className="text-sm">%</span>
-                          </span>
+                          <span className="text-[12px] sm:text-2xl font-black tabular-nums text-foreground">
+                             {item.level}
+                             <span className="text-[8px] sm:text-sm text-muted">%</span>
+                           </span>
                         </div>
 
                         {/* Pulse ring on hover */}
-                        <div className="absolute inset-0 rounded-full border-2 border-indigo-500/0 group-hover:border-indigo-500/20 group-active:border-indigo-500/20 group-hover:scale-110 group-active:scale-110 transition-all duration-700 ease-out" />
+                        <div className="absolute inset-0 rounded-full border border-transparent group-hover:border-white/15 group-active:border-white/15 group-hover:scale-110 group-active:scale-110 transition-all duration-700 ease-out" />
                       </div>
 
                       {/* Skill name */}
-                      <h4 className="text-lg font-bold text-foreground tracking-tight mb-2 group-hover:text-indigo-300 group-active:text-indigo-300 transition-colors duration-300">
+                      <h4 className="text-xs sm:text-lg font-bold text-foreground tracking-tight sm:mb-2 transition-colors duration-300">
                         {item.skill}
                       </h4>
 
                       {/* Mini bar underneath */}
-                      <div className="w-16 h-1 rounded-full bg-white/[0.06] overflow-hidden">
+                      <div className="w-8 sm:w-16 h-[2px] rounded-full bg-white/[0.06] overflow-hidden hidden sm:block">
                         <div
-                          className="h-full rounded-full bg-gradient-to-r from-indigo-500 to-violet-500 transition-all duration-700 ease-out"
-                          style={{ width: `${item.level}%` }}
+                          className="h-full rounded-full transition-all duration-700 ease-out"
+                          style={{ width: `${item.level}%`, background: "rgba(255,255,255,0.4)" }}
                         />
                       </div>
                     </div>
@@ -461,13 +419,13 @@ export default function Skills() {
         </div>
 
         {/* ── Certificates ── */}
-        <div className="mt-24 pt-16 border-t border-white/10">
+        <div className="mt-24 pt-16 border-t" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
           <div className="mb-20">
-            <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-              Licenses &{" "}
-              <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
-                Certifications
-              </span>
+              <h2 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+               Licenses &{" "}
+               <span className="text-foreground opacity-50">
+                  Certifications
+                </span>
             </h2>
             <p className="max-w-2xl text-muted text-lg">
               Professional credentials and achievements showcasing continuous learning and expertise.
@@ -483,14 +441,15 @@ export default function Skills() {
               >
                 {/* Image */}
                 <div
-                  className={`group relative rounded-2xl duration-500 active:-translate-z-2 active:scale-105 active:duration-500 active:transition-transform overflow-hidden border border-white/10 bg-white/5 ${
+                  className={`group relative rounded-2xl duration-500 active:scale-105 active:duration-500 active:transition-transform overflow-hidden ${
                     index % 2 === 1 ? "lg:order-1" : ""
                   }`}
+                  style={{ border: "1px solid rgba(255,255,255,0.08)", background: "rgba(255,255,255,0.03)" }}
                 >
                   <img
                     src={cert.image}
                     alt={cert.title}
-                    className="w-full aspect-video object-cover group-hover:scale-110 transition duration-500"
+                    className="w-full aspect-video object-cover transition duration-500"
                     loading="lazy"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition" />
@@ -501,7 +460,7 @@ export default function Skills() {
                   className={`space-y-6 ${index % 2 === 1 ? "lg:order-1" : ""}`}
                 >
                   <div className="flex items-center gap-2">
-                    <span className="inline-block text-xs bg-indigo-500/10 border border-indigo-500/20 px-3 py-1 rounded-full text-indigo-400 font-medium">
+                    <span className="inline-block text-xs px-3 py-1 rounded-full font-medium" style={{ background: "rgba(255,255,255,0.06)", border: "1px solid rgba(255,255,255,0.1)", color: "rgb(var(--muted))" }}>
                       {cert.issuer} • {cert.date}
                     </span>
                   </div>
@@ -515,10 +474,11 @@ export default function Skills() {
                   {/* Tech/Skills */}
                   <div>
                     <div className="flex flex-wrap gap-2">
-                      {cert.tech.map((tech) => (
+                        {cert.tech.map((tech) => (
                         <span
                           key={tech}
-                          className="text-xs text-indigo-300 px-3 py-1 rounded-full bg-indigo-500/5 border border-indigo-500/20"
+                          className="text-xs px-3 py-1 rounded-full"
+                          style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.1)", color: "rgb(var(--muted))" }}
                         >
                           {tech}
                         </span>
@@ -532,7 +492,8 @@ export default function Skills() {
                       href={cert.link}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-indigo-600 text-white text-sm font-semibold hover:bg-indigo-500 transition shadow-lg shadow-indigo-500/20"
+                      className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl text-sm font-semibold transition active:scale-95 active:duration-300 active:transition-transform hover:opacity-90"
+                      style={{ background: "rgb(var(--foreground))", color: "rgb(var(--background))" }}
                     >
                       <ExternalLink className="w-4 h-4" />
                       Verify Credential

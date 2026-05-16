@@ -58,24 +58,21 @@ const TrustBadges = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header */}
         <div className="text-center mb-16">
-          <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
-            Core{" "}
-            <span
-              className="bg-clip-text text-transparent bg-gradient-to-r from-indigo-500 to-indigo-600 "
-              // style={{
-              //   backgroundImage:
-              //     "linear-gradient(135deg, var(--gradient-from, #6366f1), var(--gradient-via, #8b5cf6), var(--gradient-to, #a78bfa))",
-              // }}
-            >
-              Tech Stack
-            </span>
-          </h3>
-          <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
-            Technologies I use to build scalable, secure, and production-ready
-            full-stack applications with a focus on backend architecture and API
-            design.
-          </p>
-        </div>
+  <h3 className="text-4xl md:text-5xl font-extrabold tracking-tight mb-4">
+    Core{" "}
+    <span className="bg-clip-text text-foreground opacity-40">
+      Tech Stack
+    </span>
+  </h3>
+
+  <p className="text-muted-foreground mt-4 max-w-2xl mx-auto text-base md:text-lg leading-relaxed">
+    Technologies I use to build scalable, secure, and production-ready
+    full-stack applications with a focus on backend architecture and API
+    design.
+  </p>
+
+  <div className="section-line mx-auto mt-6" />
+</div>
 
         {/* Responsive Grid */}
         <div className="grid grid-cols-2 gap-4 md:grid-cols-3 lg:grid-cols-6">

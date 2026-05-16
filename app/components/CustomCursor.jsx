@@ -9,28 +9,23 @@ export default function CustomCursor() {
 
   return (
     <AnimatedCursor
-  innerSize={8}
-  outerSize={28}
-  color="99,102,241"
-  outerAlpha={0.25}
-  innerScale={1.2}
-  outerScale={1}
-  outerStyle={{
-    mixBlendMode: "difference",
-    border: "2px solid rgba(99,102,241,0.5)",
-    delay: 100,
-  }}
-  innerStyle={{
-    backgroundColor: "rgb(99,102,241)",
-  }}
-  clickables={[
-    "a",
-    "button",
-    ".cursor-pointer",
-    "input",
-    "textarea",
-    ".link",
-  ]}
-/>
+      innerSize={8}
+      outerSize={0}
+      color="255,255,255"
+      outerAlpha={0}
+      innerScale={1.5}
+      outerScale={0}
+      innerStyle={{
+        backgroundColor: "rgba(255,255,255,0.95)",
+      }}
+      clickables={[
+        "a",
+        "button",
+        ".cursor-pointer",
+        "input",
+        "textarea",
+        ".link",
+      ]}
+    />
   );
 }

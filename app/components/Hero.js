@@ -6,17 +6,22 @@ export default function Hero() {
       aria-labelledby="hero-title"
       className="relative min-h-screen -top-8 md:top-0 lg:top-0 flex items-center isolate bg-background text-foreground pt-28"
     >
-      {/* Background glow */}
+      {/* Subtle noise grid */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 bg-[radial-gradient(800px_circle_at_30%_10%,rgba(99,102,241,0.18),transparent_45%)]"
+        className="absolute inset-0 -z-10 opacity-[0.04]"
+        style={{
+          backgroundImage: `linear-gradient(rgba(255,255,255,0.15) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.15) 1px, transparent 1px)`,
+          backgroundSize: "40px 40px",
+        }}
       />
-      
-      
-      {/* Subtle grid */}
+      {/* Very subtle top glow */}
       <div
         aria-hidden
-        className="absolute inset-0 -z-10 opacity-[0.06] bg-[linear-gradient(to_right,rgba(0,0,0,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(0,0,0,0.12)_1px,transparent_1px)] dark:bg-[linear-gradient(to_right,rgba(255,255,255,0.12)_1px,transparent_1px),linear-gradient(to_bottom,rgba(255,255,255,0.12)_1px,transparent_1px)] bg-[size:40px_40px]"
+        className="absolute inset-0 -z-10"
+        style={{
+          background: "radial-gradient(900px circle at 30% 10%, rgba(255,255,255,0.03), transparent 50%)",
+        }}
       />
 
       <div className="relative max-w-6xl mx-auto px-6 w-full mt-10">
@@ -29,7 +34,7 @@ export default function Hero() {
                 className="text-4xl sm:text-5xl md:text-6xl font-extrabold tracking-tight"
               >
                 Farhan{" "}
-                <span className="bg-gradient-to-r from-indigo-500 to-indigo-600 bg-clip-text text-transparent">
+                <span className="text-foreground opacity-90">
                   Abid
                 </span>
               </h1>
@@ -38,7 +43,7 @@ export default function Hero() {
                 Full-Stack Web Developer
               </p>
 
-              <p className="text-sm sm:text-base font-mono text-muted">
+              <p className="text-sm sm:text-base font-mono text-muted opacity-60">
                 MERN • Next.js • Backend-Focused
               </p>
             </div>
@@ -54,17 +59,22 @@ export default function Hero() {
             <div className="flex flex-wrap gap-4 pt-2 lg:justify-start justify-center">
               <a
                 href="#projects"
-                className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-indigo-600 text-white font-semibold hover:bg-indigo-500 active:bg-indigo-700 transition-all focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-500"
+                className="group inline-flex items-center gap-2 px-6 py-3 rounded-xl font-semibold transition-all focus-visible:outline-none"
+                style={{
+                  background: "rgb(var(--foreground))",
+                  color: "rgb(var(--background))",
+                }}
               >
                 View My Work
-                <ArrowRight className="w-4 h-4 text-white transition-transform group-hover:translate-x-1" />
+                <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
               </a>
 
               <a
-                href="https://drive.google.com/file/d/1QfLFjq3H-eXuRo4fqzAxOBuNo0HK7IGn/view?usp=sharing"
+                href="https://drive.google.com/file/d/1LktN70GtKD1NiPYmovxbazutCELFE4aW/view?usp=sharing"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border border-border hover:bg-[rgb(var(--border))] transition focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/30"
+                className="inline-flex items-center gap-2 px-6 py-3 rounded-xl border transition focus-visible:outline-none hover:bg-white/5"
+                style={{ borderColor: "rgb(var(--border))", color: "rgb(var(--foreground))" }}
               >
                 Download Resume
               </a>
@@ -73,21 +83,9 @@ export default function Hero() {
             {/* Socials */}
             <div className="flex gap-3 pt-1 lg:justify-start justify-center">
               {[
-                {
-                  href: "https://github.com/farhankhan0986",
-                  label: "GitHub",
-                  Icon: Github,
-                },
-                {
-                  href: "https://www.linkedin.com/in/farhan-abid-38967a259/",
-                  label: "LinkedIn",
-                  Icon: Linkedin,
-                },
-                {
-                  href: "mailto:farhankhan080304@gmail.com",
-                  label: "Email",
-                  Icon: Mail,
-                },
+                { href: "https://github.com/farhankhan0986", label: "GitHub", Icon: Github },
+                { href: "https://www.linkedin.com/in/farhan-abid-38967a259/", label: "LinkedIn", Icon: Linkedin },
+                { href: "mailto:farhankhan080304@gmail.com", label: "Email", Icon: Mail },
               ].map(({ href, label, Icon }) => (
                 <a
                   key={label}
@@ -95,7 +93,8 @@ export default function Hero() {
                   target="_blank"
                   rel="noopener noreferrer"
                   aria-label={label}
-                  className="flex h-11 w-11 items-center justify-center rounded-xl border border-border bg-background/60 text-muted backdrop-blur-sm transition-all duration-200 hover:scale-110 hover:border-indigo-500/50 hover:text-indigo-400 hover:shadow-[0_0_20px_rgba(99,102,241,0.25)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-indigo-400"
+                  className="flex h-11 w-11 items-center justify-center rounded-xl border text-muted backdrop-blur-sm transition-all duration-200 hover:scale-110 hover:text-foreground focus-visible:outline-none"
+                  style={{ borderColor: "rgb(var(--border))", background: "rgba(var(--card),0.6)" }}
                 >
                   <Icon className="h-[22px] w-[22px]" />
                 </a>
@@ -105,169 +104,97 @@ export default function Hero() {
 
           {/* Right */}
           <div className="flex justify-center">
-            {/* Mobile initials */}
-            {/* <div className="flex md:hidden items-center justify-center w-full">
-              <div
-                className="relative flex items-center justify-center"
-                style={{
-                  position: "relative",
-                  top: "-460px",
-                  right: "-140px",
-                }}
-              >
-                Glow behind avatar
-                <div className="absolute h-32 w-32 bg-indigo-500/30 blur-2xl rounded-full" />
-
-                Spinning ring
-                <div className="absolute h-28 w-28 rounded-full border-2 border-dashed border-indigo-400/40 animate-[spin_6s_linear_infinite]" />
-
-                Avatar image
-                <div className="relative h-20 w-20 rounded-full overflow-hidden ring-2 ring-indigo-500/30 shadow-lg shadow-indigo-500/20 hover:ring-indigo-400/60 hover:scale-105 transition-all duration-300 cursor-pointer">
-                  <img
-                    src="/images/farhan.jpg"
-                    alt="Farhan Abid"
-                    className="w-full h-full object-cover"
-                    loading="lazy"
-                  />
-                </div>
-
-                Floating tech markers
-                {[
-                  {
-                    text: "React",
-                    pos: "-top-5 left-1/2 -translate-x-1/2",
-                    border: "border-indigo-500/30",
-                    fg: "text-indigo-400",
-                    delay: "0s",
-                    duration: "6s",
-                  },
-                  {
-                    text: "Node.js",
-                    pos: "top-1/2 -translate-y-1/2 -right-10",
-                    border: "border-purple-500/30",
-                    fg: "text-purple-400",
-                    delay: "1s",
-                    duration: "7s",
-                  },
-                  {
-                    text: "Next.js",
-                    pos: "top-1/2 -translate-y-1/2 -left-16",
-                    border: "border-emerald-500/30",
-                    fg: "text-emerald-400",
-                    delay: "0.5s",
-                    duration: "9s",
-                  },
-                  {
-                    text: "Express.js",
-                    pos: "-bottom-5 left-1/2 -translate-x-1/2",
-                    border: "border-pink-500/30",
-                    fg: "text-pink-400",
-                    delay: "2.5s",
-                    duration: "7s",
-                  },
-                ].map(({ text, pos, border, fg, delay, duration }) => (
-                  <div
-                    key={text}
-                    className={[
-                      "absolute z-20",
-                      pos,
-                      "rounded-md border",
-                      border,
-                      "bg-background/80 px-2 py-1 text-[10px] font-semibold",
-                      fg,
-                      "shadow-md backdrop-blur-sm",
-                    ].join(" ")}
-                    style={{
-                      animation: `float ${duration} ease-in-out ${delay} infinite`,
-                    }}
-                  >
-                    {text}
-                  </div>
-                ))}
-              </div>
-            </div> */}
-
-            {/* Desktop image */}
             <div className="flex flex-col lg:flex-row justify-center relative lg:-top-13 lg:left-15 mt-10">
-              <div className="absolute h-full w-full rounded-full border-2 border-dashed border-indigo-400/40 lg:animate-[spin_3s_linear_infinite] animate-spin" />
+              <div
+                className="absolute h-full w-full rounded-full border-dashed lg:animate-[spin_12s_linear_infinite] animate-spin"
+                style={{
+                  borderColor: "transparent",
+                  border: "1.5px dashed rgba(255,255,255,0.28)",
+                }}
+              />
               <div className="relative w-full max-w-md aspect-square">
-                {/* Glow behind image */}
-                <div className="absolute inset-0 bg-indigo-500/30 blur-3xl rounded-full scale-75" />
+                {/* Glow behind photo */}
+                <div
+                  className="absolute inset-0 blur-3xl rounded-full scale-110 -z-10"
+                  style={{ background: "radial-gradient(circle, rgba(255,255,255,0.55) 0%, rgba(255,255,255,0.18) 45%, transparent 72%)" }}
+                />
+                <div
+                  className="absolute inset-0 blur-xl rounded-full scale-75 -z-10"
+                  style={{ background: "radial-gradient(circle, rgba(255,255,255,0.85) 0%, rgba(255,255,255,0.3) 40%, transparent 70%)" }}
+                />
 
-                {/* Image — centered */}
                 <img
                   src="/images/farhan.jpg"
                   alt="Farhan Abid"
-                  className="relative z-10 lg:w-full lg:h-full w-72 h-72 object-cover rounded-2xl shadow-2xl"
+                  className="relative brightness-[0.85] transition-all duration-700 z-10 lg:w-full lg:h-full w-72 h-72 object-cover rounded-2xl shadow-2xl"
                   loading="lazy"
                 />
 
-                {/* Inner gradient ring */}
-                <div className="absolute inset-8 rounded-full bg-gradient-to-br from-indigo-500/10 via-purple-500/10 to-violet-900/10 backdrop-blur-sm" />
-
-                {/* Floating tech markers */}
+                {/* Floating tech markers — coloured */}
                 {[
                   {
                     text: "React",
                     pos: "-top-4 left-1/2 -translate-x-1/2",
-                    border: "border-indigo-500/30",
-                    fg: "text-indigo-400",
                     delay: "0s",
                     duration: "6s",
+                    color: "#7CB8D6",
+                    glow: "rgba(124,184,214,0.22)"
                   },
                   {
                     text: "Node.js",
                     pos: "top-1/4 -right-6",
-                    border: "border-purple-500/30",
-                    fg: "text-purple-400",
                     delay: "1s",
                     duration: "7s",
+                    color: "#7A9B6E",
+                    glow: "rgba(122,155,110,0.22)"
                   },
                   {
                     text: "PostgreSQL",
                     pos: "bottom-1/4 -left-6",
-                    border: "border-violet-500/30",
-                    fg: "text-violet-400",
                     delay: "2s",
                     duration: "8s",
+                    color: "#5C748A",
+                    glow: "rgba(92,116,138,0.24)"
                   },
                   {
                     text: "MongoDB",
                     pos: "-bottom-8 left-1/2 -translate-x-1/2",
-                    border: "border-indigo-500/30",
-                    fg: "text-indigo-400",
                     delay: "3s",
                     duration: "6s",
+                    color: "#6F9A63",
+                    glow: "rgba(111,154,99,0.22)"
                   },
                   {
                     text: "Next.js",
                     pos: "top-[12%] -left-4",
-                    border: "border-emerald-500/30",
-                    fg: "text-emerald-400",
                     delay: "0.5s",
                     duration: "9s",
+                    color: "#D6D6D6",
+                    glow: "rgba(214,214,214,0.12)"
                   },
                   {
                     text: "C++",
                     pos: "bottom-[15%] right-1",
-                    border: "border-pink-500/30",
-                    fg: "text-pink-400",
                     delay: "2.5s",
                     duration: "7s",
-                  },
-                ].map(({ text, pos, border, fg, delay, duration }) => (
+                    color: "#4E6E8C",
+                    glow: "rgba(78,110,140,0.26)"
+                  }
+                ].map(({ text, pos, delay, duration, color, glow }) => (
                   <div
                     key={text}
                     className={[
                       "absolute z-20",
                       pos,
-                      "rounded-lg border",
-                      border,
-                      "bg-background/80 px-3 py-1.5 text-xs font-semibold",
-                      fg,
-                      "shadow-lg backdrop-blur-sm",
+                      "rounded-lg",
+                      "px-3 py-1.5 text-xs font-bold",
+                      "backdrop-blur-sm",
                     ].join(" ")}
                     style={{
+                      border: `1px solid ${color}44`,
+                      background: "rgba(10,10,10,0.88)",
+                      color: color,
+                      boxShadow: `0 0 12px ${glow}, 0 2px 8px rgba(0,0,0,0.4)`,
                       animation: `float ${duration} ease-in-out ${delay} infinite`,
                     }}
                   >
@@ -285,7 +212,7 @@ export default function Hero() {
         <a
           href="#projects"
           aria-label="Scroll to projects"
-          className="flex flex-col items-center gap-1.5 text-muted transition-colors hover:text-indigo-400"
+          className="flex flex-col items-center gap-1.5 text-muted transition-colors hover:text-foreground"
         >
           <span className="text-xs tracking-wider">Scroll</span>
           <ChevronDown className="h-5 w-5 animate-bounce" />
