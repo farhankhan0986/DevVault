@@ -178,13 +178,14 @@ export default function Hero() {
             </div>
 
             {/* Socials */}
-            <div className="flex gap-2 justify-center lg:justify-start">
+            <div className="flex gap-2 justify-center mb-10 lg:justify-start">
               {[
-                { href: "https://github.com/farhankhan0986", label: "GitHub", Icon: Github },
-                { href: "https://www.linkedin.com/in/farhan-abid-38967a259/", label: "LinkedIn", Icon: Linkedin },
-                { href: "mailto:farhankhan080304@gmail.com", label: "Email", Icon: Mail },
-              ].map(({ href, label, Icon }) => (
-                <a key={label} href={href} target="_blank" rel="noopener noreferrer"
+                { href: "https://github.com/farhankhan0986", label: "GitHub", Icon: Github, external: true },
+                { href: "https://www.linkedin.com/in/farhan-abid-38967a259/", label: "LinkedIn", Icon: Linkedin, external: true },
+                { href: "mailto:farhankhan080304@gmail.com", label: "Email", Icon: Mail, external: false },
+              ].map(({ href, label, Icon, external }) => (
+                <a key={label} href={href}
+                  {...(external ? { target: "_blank", rel: "noopener noreferrer" } : {})}
                   aria-label={label} className="hero-social">
                   <Icon className="h-[18px] w-[18px]" />
                 </a>
@@ -399,17 +400,23 @@ export default function Hero() {
         /* ── Socials ── */
         .hero-social {
           display: flex; align-items: center; justify-content: center;
-          width: 36px; height: 36px; border-radius: 9px;
+          width: 44px; height: 44px; border-radius: 10px;
           border: 1px solid rgba(255,255,255,0.1);
           background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.45);
           transition: border-color 0.2s, color 0.2s, transform 0.2s, background 0.2s;
           text-decoration: none; backdrop-filter: blur(8px);
+          touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+          cursor: pointer;
         }
-        .hero-social:hover {
+        .hero-social:hover, .hero-social:focus-visible {
           border-color: rgba(255,255,255,0.2);
           color: rgb(var(--foreground));
           background: rgba(255,255,255,0.08);
           transform: translateY(-2px);
+        }
+        .hero-social:active {
+          transform: scale(0.94);
+          background: rgba(255,255,255,0.12);
         }
 
         /* ── Photo ── */

@@ -282,9 +282,10 @@ export default function About() {
                 <span className="text-xs font-semibold text-muted uppercase tracking-widest">My Journey</span>
               </div>
               {[
+                { year: "2020", event: "Made my first website" },
                 { year: "2022", event: "Started B.Tech Computer Science" },
                 { year: "2024", event: "Built first production app" },
-                { year: "2025", event: "Joined Tripify India as intern" },
+                { year: "2025", event: "Joined Tripify India as AI Agent Developer Intern" },
                 { year: "Now", event: "Shipping & always learning" },
               ].map((item, i) => (
                 <div key={i} className="about-journey-row">

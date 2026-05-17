@@ -60,7 +60,7 @@ export default function Contact() {
   ];
 
   const infoCards = [
-    { title: "Current Role",  Icon: Briefcase, text: "Final-year B.Tech student & Web Dev Intern at Tripify India — building production-grade systems." },
+    { title: "Current Role",  Icon: Briefcase, text: "Final-year B.Tech student & AI Agent Developer Intern at Tripify India - building production-grade systems." },
     { title: "Open To",       Icon: Target,    text: "Backend-heavy full-stack roles, SWE internships, and projects focused on scalable architecture." },
     { title: "Response Time", Icon: Clock,     text: "I reply within 24 hours. Let's talk about your project, role, or any technical challenge." },
   ];
@@ -129,10 +129,11 @@ export default function Contact() {
             })}
 
             {/* Social links */}
-            <div className="space-y-3 relative left-0 top-0 sm:relative sm:left-[360px] sm:top-[52px] pt-2">
+            <div className="space-y-3 pt-2">
               <p className="text-xs font-bold flex justify-center items-center text-muted uppercase tracking-widest">Find me on</p>
               {socialLinks.map(({ icon: Icon, label, sub, url }) => (
-                <a key={label} href={url} target="_blank" rel="noopener noreferrer"
+                <a key={label} href={url}
+                  {...(url.startsWith('mailto:') ? {} : { target: "_blank", rel: "noopener noreferrer" })}
                   className="ct-social-row">
                   <div className="ct-social-icon-wrap"><Icon className="w-4 h-4 text-foreground" /></div>
                   <div className="min-w-0">
@@ -145,7 +146,7 @@ export default function Contact() {
             </div>
 
             {/* Location */}
-            <div className="ct-location-card relative left-0 top-0 sm:relative sm:left-[360px] sm:top-[52px] pt-4">
+            <div className="ct-location-card">
               <MapPin className="w-4 h-4 text-muted flex-shrink-0" />
               <div>
                 <p className="text-sm font-semibold text-foreground">India</p>
@@ -333,16 +334,22 @@ export default function Contact() {
         /* ── Social rows ── */
         .ct-social-row {
           display: flex; align-items: center; gap: 12px;
-          padding: 12px 14px; border-radius: 12px;
+          padding: 14px 16px; border-radius: 12px;
           border: 1px solid rgba(255,255,255,0.07);
           background: rgba(17,17,17,0.6); backdrop-filter: blur(10px);
           text-decoration: none;
           transition: border-color 0.2s, transform 0.2s, background 0.2s;
+          touch-action: manipulation; -webkit-tap-highlight-color: transparent;
+          cursor: pointer; min-height: 60px;
         }
-        .ct-social-row:hover {
+        .ct-social-row:hover, .ct-social-row:focus-visible {
           border-color: rgba(255,255,255,0.15);
           background: rgba(30,30,30,0.7);
           transform: translateY(-2px);
+        }
+        .ct-social-row:active {
+          transform: scale(0.98);
+          background: rgba(40,40,40,0.8);
         }
         .ct-social-icon-wrap {
           flex-shrink: 0; padding: 8px; border-radius: 9px;
