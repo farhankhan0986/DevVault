@@ -3,234 +3,240 @@
 import { useState, useEffect } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { Menu, X } from "lucide-react";
+import { Menu, X, ArrowRight } from "lucide-react";
 import Logo from "./Logo";
-import { ThemeToggle } from "../components/theme-toggle";
 
 const navItems = [
-  { href: "#home", label: "Home" },
-  { href: "#about", label: "About" },
+  { href: "#home",       label: "Home" },
+  { href: "#about",      label: "About" },
   { href: "#experience", label: "Experience" },
-  { href: "#projects", label: "Projects" },
-  { href: "#skills", label: "Skills" },
-  { href: "#education", label: "Education" },
-  { href: "#contact", label: "Contact" },
+  { href: "#projects",   label: "Projects" },
+  { href: "#skills",     label: "Skills" },
+  { href: "#education",  label: "Education" },
+  { href: "#contact",    label: "Contact" },
 ];
 
 export default function Header() {
   const pathname = usePathname();
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [scrolled, setScrolled]     = useState(false);
   const [activeSection, setActiveSection] = useState("home");
-  const [mounted, setMounted] = useState(false);
+  const [mounted, setMounted]        = useState(false);
 
+  useEffect(() => { setMounted(true); }, []);
 
-  // Track scroll position for shadow effect
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 10);
-    window.addEventListener("scroll", handleScroll, { passive: true });
-    handleScroll();
-    return () => window.removeEventListener("scroll", handleScroll);
+    const handle = () => setScrolled(window.scrollY > 12);
+    window.addEventListener("scroll", handle, { passive: true });
+    handle();
+    return () => window.removeEventListener("scroll", handle);
   }, []);
 
   useEffect(() => {
-  setMounted(true);
-}, []);
+    if (!mounted) return;
+    const ids = navItems.map(i => i.href.slice(1));
+    const observers = [];
+    ids.forEach(id => {
+      const el = document.getElementById(id);
+      if (!el) return;
+      const obs = new IntersectionObserver(
+        ([entry]) => { if (entry.isIntersecting) setActiveSection(id); },
+        { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
+      );
+      obs.observe(el);
+      observers.push(obs);
+    });
+    return () => observers.forEach(o => o.disconnect());
+  }, [mounted, pathname]);
 
-useEffect(() => {
-  if (!mounted) return;
+  useEffect(() => { setMobileOpen(false); }, [pathname]);
 
-  const sectionIds = navItems.map((item) => item.href.slice(1));
-  const observers = [];
-
-  sectionIds.forEach((id) => {
-    const el = document.getElementById(id);
-    if (!el) return;
-
-    const observer = new IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) setActiveSection(id);
-      },
-      { rootMargin: "-40% 0px -55% 0px", threshold: 0 }
-    );
-
-    observer.observe(el);
-    observers.push(observer);
-  });
-
-  return () => observers.forEach((o) => o.disconnect());
-}, [mounted, pathname]);
-
-  // Close mobile menu on route change or hash navigation
   useEffect(() => {
-    setMobileOpen(false);
-  }, [pathname]);
-
-  // Lock body scroll when mobile menu is open
-  useEffect(() => {
-    if (mobileOpen) {
-      document.body.style.overflow = "hidden";
-    } else {
-      document.body.style.overflow = "";
-    }
-    return () => {
-      document.body.style.overflow = "";
-    };
+    document.body.style.overflow = mobileOpen ? "hidden" : "";
+    return () => { document.body.style.overflow = ""; };
   }, [mobileOpen]);
 
-  // Close menu on Escape key
   useEffect(() => {
-    const handleEscape = (e) => {
-      if (e.key === "Escape") setMobileOpen(false);
-    };
-    document.addEventListener("keydown", handleEscape);
-    return () => document.removeEventListener("keydown", handleEscape);
+    const esc = (e) => { if (e.key === "Escape") setMobileOpen(false); };
+    document.addEventListener("keydown", esc);
+    return () => document.removeEventListener("keydown", esc);
   }, []);
 
-  if (pathname.startsWith("/projects/")) {
-    return null;
-  }
+  if (pathname.startsWith("/projects/")) return null;
 
   return (
-    <header className="sticky top-0 z-50 -mt-[75px]">
-      <nav
-        aria-label="Primary navigation"
-        className="bg-background/80 backdrop-blur border-b border-border"
-      >
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          {/* Logo */}
-          <Link href="/" className="flex items-center gap-3 group">
-            {/* Logo with hover effect */}
-            <div className="transition-transform duration-300 group-hover:scale-110">
-              <Logo size={40} />
-            </div>
-            {/* <span className="text-foreground font-bold text-xl hidden sm:block">
-              Farhan<span style={{color:"rgba(var(--muted))"}}>.dev</span>
-            </span> */}
-          </Link>
+    <>
+      <header className={`sticky top-0 z-50 -mt-[75px] transition-all duration-300`}>
+        <nav
+          aria-label="Primary navigation"
+          className="transition-all duration-300"
+          style={{
+            background: scrolled ? "rgba(0,0,0,0.82)" : "rgba(0,0,0,0.5)",
+            backdropFilter: "blur(20px)",
+            WebkitBackdropFilter: "blur(20px)",
+            borderBottom: scrolled
+              ? "1px solid rgba(255,255,255,0.08)"
+              : "1px solid rgba(255,255,255,0.04)",
+            boxShadow: scrolled ? "0 4px 32px rgba(0,0,0,0.4)" : "none",
+          }}
+        >
+          <div className="max-w-6xl mx-auto px-6 h-[72px] flex items-center justify-between gap-6">
 
-          {/* Desktop Nav Links */}
-          <ul className="hidden md:flex items-center gap-1 text-sm font-medium">
-            {navItems.map((item) => {
-              const sectionId = item.href.slice(1);
-              const isActive = activeSection === sectionId;
-
-              return (
-                <li key={item.href}>
-                  <Link
-                    href={item.href}
-                    className={`relative px-3 py-2 rounded-lg transition-colors duration-300 ${
-                      isActive
-                        ? "text-[rgb(var(--foreground))]"
-                        : "text-muted hover:text-[rgb(var(--foreground))]"
-                    }`}
-                  >
-                    {item.label}
-                    <span
-                      className={`absolute inset-x-1 -bottom-1 h-[2px] rounded-full transition-all duration-300 ${isActive ? "opacity-100 scale-x-100" : "opacity-0 scale-x-0"}`}
-                      style={{ background: "rgb(var(--foreground))" }}
-                    />
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-
-          {/* Desktop CTA + Theme Toggle */}
-          <div className="hidden md:flex items-center gap-4">
-            {/* <ThemeToggle /> */}
-            <Link
-              href="#contact"
-              className="rounded-xl px-5 py-2.5 text-sm font-semibold transition hover:opacity-90"
-              style={{ background: "rgb(var(--foreground))", color: "rgb(var(--background))" }}
-            >
-              Get in Touch
+            {/* Logo */}
+            <Link href="/" className="flex items-center gap-2.5 group flex-shrink-0">
+              <div className="transition-transform duration-300 group-hover:scale-110">
+                <Logo size={36} />
+              </div>
+              <span className="hdr-logo-text">
+                Farhan<span className="hdr-logo-dim">.dev</span>
+              </span>
             </Link>
-          </div>
 
-          {/* Mobile: Theme Toggle + Hamburger */}
-          <div className="flex md:hidden items-center gap-3">
-            {/* <ThemeToggle /> */}
+            {/* Desktop nav */}
+            <ul className="hidden md:flex items-center gap-0.5 text-sm font-medium">
+              {navItems.map(({ href, label }) => {
+                const id = href.slice(1);
+                const active = activeSection === id;
+                return (
+                  <li key={href}>
+                    <Link
+                      href={href}
+                      className={`relative px-3.5 py-2 rounded-lg transition-colors duration-200 ${
+                        active ? "text-foreground" : "text-muted hover:text-foreground"
+                      }`}
+                    >
+                      {label}
+                      {active && (
+                        <span
+                          className="absolute inset-x-2 -bottom-[1px] h-[2px] rounded-full"
+                          style={{ background: "rgba(255,255,255,0.8)", boxShadow: "0 0 8px rgba(255,255,255,0.6)" }}
+                        />
+                      )}
+                    </Link>
+                  </li>
+                );
+              })}
+            </ul>
+
+            {/* Desktop CTA */}
+            <div className="hidden md:flex items-center gap-3 flex-shrink-0">
+              <Link href="#contact" className="hdr-cta">
+                Get in Touch <ArrowRight className="w-3.5 h-3.5" />
+              </Link>
+            </div>
+
+            {/* Mobile hamburger */}
             <button
-              onClick={() => setMobileOpen((prev) => !prev)}
+              className="flex md:hidden items-center justify-center w-9 h-9 rounded-lg border transition-all duration-200"
+              style={{ borderColor: "rgba(255,255,255,0.1)", background: "rgba(255,255,255,0.04)" }}
+              onClick={() => setMobileOpen(p => !p)}
               aria-label={mobileOpen ? "Close menu" : "Open menu"}
               aria-expanded={mobileOpen}
-              className="p-2 rounded-lg border border-border text-foreground hover:bg-white/10 transition"
             >
-              {mobileOpen ? (
-                <X className="w-5 h-5" />
-              ) : (
-                <Menu className="w-5 h-5" />
-              )}
+              {mobileOpen
+                ? <X className="w-5 h-5 text-foreground" />
+                : <Menu className="w-5 h-5 text-foreground" />}
             </button>
           </div>
-        </div>
-      </nav>
+        </nav>
+      </header>
 
-      {/* ─── Mobile Slide-In Menu ─── */}
-
-      {/* Backdrop overlay */}
+      {/* Mobile backdrop */}
       <div
-        className={`fixed inset-0 z-40 bg-black/50 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
-          mobileOpen
-            ? "opacity-100 pointer-events-auto"
-            : "opacity-0 pointer-events-none"
+        className={`fixed inset-0 z-40 bg-black/60 backdrop-blur-sm transition-opacity duration-300 md:hidden ${
+          mobileOpen ? "opacity-100 pointer-events-auto" : "opacity-0 pointer-events-none"
         }`}
         onClick={() => setMobileOpen(false)}
-        aria-hidden="true"
+        aria-hidden
       />
 
-      {/* Slide-in panel */}
+      {/* Mobile slide-in panel */}
       <div
-        className={`fixed top-0 right-0 z-50 h-full w-72 bg-background border-l border-border shadow-2xl transform transition-transform duration-300 ease-in-out md:hidden ${
+        className={`fixed top-0 right-0 z-50 h-full w-[280px] flex flex-col md:hidden transform transition-transform duration-300 ease-in-out ${
           mobileOpen ? "translate-x-0" : "translate-x-full"
         }`}
+        style={{
+          background: "rgba(8,8,8,0.97)",
+          borderLeft: "1px solid rgba(255,255,255,0.08)",
+          backdropFilter: "blur(24px)",
+        }}
       >
-        {/* Close button inside panel */}
-        <div className="flex items-center justify-between px-6 py-4 border-b border-border">
-          <span className="text-lg font-extrabold text-foreground">
-            FA
+        {/* Panel header */}
+        <div className="flex items-center justify-between px-6 py-5"
+          style={{ borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
+          <span className="text-xs font-bold uppercase tracking-[0.15em] text-muted">
+            Navigation
           </span>
           <button
             onClick={() => setMobileOpen(false)}
             aria-label="Close menu"
-            className="p-2 rounded-lg border border-border text-foreground hover:bg-white/10 transition"
+            className="p-2 rounded-lg transition-colors hover:bg-white/8"
+            style={{ border: "1px solid rgba(255,255,255,0.1)" }}
           >
-            <X className="w-5 h-5" />
+            <X className="w-4 h-4 text-foreground" />
           </button>
         </div>
 
         {/* Nav links */}
-        <ul className="flex flex-col px-6 py-6 gap-1">
-          {navItems.map((item, i) => (
-            <li key={item.href}>
-              <Link
-                href={item.href}
-                onClick={() => setMobileOpen(false)}
-                className="flex items-center gap-3 px-4 py-3 rounded-xl text-base font-medium text-muted hover:text-foreground hover:bg-white/5 transition-all duration-200"
-                style={{
-                  animationDelay: `${i * 50}ms`,
-                }}
-              >
-                <span className="w-1.5 h-1.5 rounded-full" style={{ background: "rgba(var(--foreground),0.4)" }} />
-                {item.label}
-              </Link>
-            </li>
-          ))}
+        <ul className="flex flex-col px-4 py-5 gap-1 flex-1">
+          {navItems.map(({ href, label }, i) => {
+            const id = href.slice(1);
+            const active = activeSection === id;
+            return (
+              <li key={href}>
+                <Link
+                  href={href}
+                  onClick={() => setMobileOpen(false)}
+                  className={`flex items-center gap-3 px-4 py-3 rounded-xl text-sm font-medium transition-all duration-200 ${
+                    active
+                      ? "text-foreground bg-white/6"
+                      : "text-muted hover:text-foreground hover:bg-white/4"
+                  }`}
+                  style={{ animationDelay: `${i * 40}ms` }}
+                >
+                  <span
+                    className="w-1.5 h-1.5 rounded-full flex-shrink-0"
+                    style={{ background: active ? "rgba(255,255,255,0.7)" : "rgba(255,255,255,0.2)" }}
+                  />
+                  {label}
+                </Link>
+              </li>
+            );
+          })}
         </ul>
 
-        {/* CTA in mobile menu */}
-        <div className="px-6 pt-4 border-t border-border">
+        {/* CTA */}
+        <div className="px-5 py-6" style={{ borderTop: "1px solid rgba(255,255,255,0.07)" }}>
           <Link
             href="#contact"
             onClick={() => setMobileOpen(false)}
-            className="block w-full text-center rounded-xl px-5 py-3 text-sm font-semibold transition hover:opacity-90"
+            className="flex items-center justify-center gap-2 w-full py-3 rounded-xl text-sm font-bold transition-all hover:opacity-90 active:scale-95"
             style={{ background: "rgb(var(--foreground))", color: "rgb(var(--background))" }}
           >
-            Get in Touch
+            Get in Touch <ArrowRight className="w-3.5 h-3.5" />
           </Link>
         </div>
       </div>
-    </header>
+
+      <style>{`
+        .hdr-logo-text {
+          font-size: 0.95rem; font-weight: 800; letter-spacing: -0.02em;
+          color: rgb(var(--foreground));
+        }
+        .hdr-logo-dim { color: rgba(255,255,255,0.3); }
+        .hdr-cta {
+          display: inline-flex; align-items: center; gap: 6px;
+          padding: 8px 18px; border-radius: 10px;
+          font-size: 0.82rem; font-weight: 700;
+          background: rgb(var(--foreground)); color: rgb(var(--background));
+          text-decoration: none;
+          transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+        .hdr-cta:hover {
+          opacity: 0.9; transform: translateY(-1px);
+          box-shadow: 0 6px 20px rgba(255,255,255,0.15);
+        }
+      `}</style>
+    </>
   );
 }

@@ -13,13 +13,13 @@
 
 /* ========= LIGHT THEME ========= */
 .light {
-  --background: 250 250 250;
-  --foreground: 10 10 10;
-  --muted: 102 102 102;
-  --card: 255 255 255;
-  --border: 228 228 228;
-  --primary: 10 10 10;
-  --accent: 80 80 80;
+  --background: 0 0 0;
+  --foreground: 237 237 237;
+  --muted: 136 136 136;
+  --card: 17 17 17;
+  --border: 34 34 34;
+  --primary: 255 255 255;
+  --accent: 200 200 200;
 }
 
 body {

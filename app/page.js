@@ -8,6 +8,7 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
+import InteractiveTerminal from "./components/InteractiveTerminal";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
 
@@ -88,6 +89,13 @@ export default function Home() {
               viewport={{ once: true }}
             >
               <Skills />
+            </MotionDiv>
+          </section>
+
+          {/* TERMINAL */}
+          <section id="terminal" className="scroll-mt-5">
+            <MotionDiv variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
+              <InteractiveTerminal />
             </MotionDiv>
           </section>
 
