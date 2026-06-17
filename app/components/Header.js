@@ -9,6 +9,7 @@ import Logo from "./Logo";
 const navItems = [
   { href: "#home",       label: "Home" },
   { href: "#about",      label: "About" },
+  { href: "#services",   label: "Services" },
   { href: "#experience", label: "Experience" },
   { href: "#projects",   label: "Projects" },
   { href: "#skills",     label: "Skills" },
@@ -62,7 +63,7 @@ export default function Header() {
     return () => document.removeEventListener("keydown", esc);
   }, []);
 
-  if (pathname.startsWith("/projects/")) return null;
+  if (pathname.startsWith("/projects/") || pathname.startsWith("/ui-styles/")) return null;
 
   return (
     <>

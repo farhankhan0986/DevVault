@@ -22,8 +22,8 @@
   --accent: 200 200 200;
 }
 
-body {
-  cursor: none;
+@media (pointer: fine) {
+  body { cursor: none; }
 }
 
 .tap-dot {

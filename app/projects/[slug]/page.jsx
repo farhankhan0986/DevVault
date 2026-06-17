@@ -591,6 +591,117 @@ export default async function ProjectDetail({ params }) {
     "Handling uncertain or ambiguous data when verifying facts"
   ],
   github: "https://github.com/farhankhan0986/Fact_Check_Agent"
+},
+notes_server_mern:{
+  title: "Notes Server MERN",
+  role: "Developer",
+  description:
+    "A RESTful notes management backend built with the MERN stack supporting authentication, CRUD operations, and secure data storage.",
+  problem:
+    "Users needed a reliable and secure way to manage their notes across different devices. Existing solutions were either too complex or lacked the necessary features for seamless note-taking and organization.",
+  solution:
+    "Developed Notes Server MERN as a robust backend solution for managing notes with a focus on security and ease of use. The platform provides a RESTful API for creating, reading, updating, and deleting notes, along with user authentication to ensure data privacy. Built on the MERN stack (MongoDB, Express, React, Node.js), it offers a modern and scalable approach to note management.",
+  tech: [
+    "MongoDB",
+    "Express",
+    "React",
+    "Node.js",
+    "JWT Auth"
+  ],
+  architecture: [
+    "Client-side validation and UI in JavaScript",
+    "Styled components or CSS sheets for UI",
+    "Integrates with public fact-checking APIs or LLM endpoints (if provided)",
+    "Possibly includes an input area for pasting statements and a visual output (true/false or scoring)"
+  ],
+  learnings: [
+    "Working with async API calls for information retrieval",
+    "Designing simple and comprehensible UIs for critical applications",
+    "Handling uncertain or ambiguous data when verifying facts"
+  ],
+  github: "https://github.com/farhankhan0986/Notes_Server_MERN"
+},
+news_equator_react: {
+  title: "News Equator React",
+  role: "Developer",
+  description:
+    "A React-based news aggregation platform that curates and presents news articles from various sources in a user-friendly interface.",
+  problem:
+    "Users struggled to find a centralized platform that aggregates news from multiple sources while providing a clean and intuitive user experience. Existing news platforms were often cluttered and overwhelming, making it difficult for users to stay informed without feeling inundated.",
+  solution:
+    "Developed News Equator React as a modern news aggregation platform that curates articles from various sources and presents them in a clean, user-friendly interface. The platform allows users to easily browse and read news articles, with features such as categorization, search functionality, and personalized recommendations.",
+  tech: [
+    "React",
+    "JavaScript",
+    "CSS",
+    "News API"
+  ],
+  architecture: [
+    "Client-side validation and UI in JavaScript",
+    "Styled components or CSS sheets for UI",
+    "Integrates with public fact-checking APIs or LLM endpoints (if provided)",
+    "Possibly includes an input area for pasting statements and a visual output (true/false or scoring)"
+  ],
+  learnings: [
+    "Working with async API calls for information retrieval",
+    "Designing simple and comprehensible UIs for critical applications",
+    "Handling uncertain or ambiguous data when verifying facts"
+  ],
+  github: "https://github.com/farhankhan0986/News_Equator_React"
+},
+todo_list:{
+  title: "Todo List",
+  role: "Developer",
+  description:
+    "A simple and intuitive todo list application that helps users manage their tasks effectively.",
+  problem:
+    "Users needed a straightforward way to keep track of their tasks and stay organized. Existing solutions were often too complex or lacked the necessary features for effective task management.",
+  solution:
+    "Developed Todo List as a user-friendly application that allows users to easily create, manage, and organize their tasks. The platform provides features such as task categorization, due dates, and priority levels to help users stay on top of their responsibilities.",
+  tech: [
+    "JavaScript",
+    "HTML",
+    "CSS"
+  ],
+  architecture: [
+    "Client-side validation and UI in JavaScript",
+    "Styled components or CSS sheets for UI",
+    "Integrates with public fact-checking APIs or LLM endpoints (if provided)",
+    "Possibly includes an input area for pasting statements and a visual output (true/false or scoring)"
+  ],
+  learnings: [
+    "Working with async API calls for information retrieval",
+    "Designing simple and comprehensible UIs for critical applications",
+    "Handling uncertain or ambiguous data when verifying facts"
+  ],
+  github: "https://github.com/farhankhan0986/ToDo-List"
+},
+text_utils_react:{
+  title: "Text Utils React",
+  role: "Developer",
+  description:
+    "A React-based utility application that provides various text manipulation and analysis features to enhance user productivity.",
+  problem:
+    "Users needed a convenient tool to perform various text manipulations and analyses without having to switch between different applications. Existing solutions were often fragmented and lacked a cohesive user experience.",
+  solution:
+    "Developed Text Utils React as a comprehensive text utility application that offers a range of features such as text transformation, word count, character count, and readability analysis. The platform provides an intuitive interface for users to easily manipulate and analyze their text, improving productivity and efficiency.",
+  tech: [
+    "React",
+    "JavaScript",
+    "CSS"
+  ],
+  architecture: [
+    "Client-side validation and UI in JavaScript",
+    "Styled components or CSS sheets for UI",
+    "Integrates with public fact-checking APIs or LLM endpoints (if provided)",
+    "Possibly includes an input area for pasting statements and a visual output (true/false or scoring)"
+  ],
+  learnings: [
+    "Working with async API calls for information retrieval",
+    "Designing simple and comprehensible UIs for critical applications",
+    "Handling uncertain or ambiguous data when verifying facts"
+  ],
+  github: "https://github.com/farhankhan0986/Text-Utils-react"
 }
   };
 

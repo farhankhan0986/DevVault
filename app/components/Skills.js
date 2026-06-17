@@ -23,9 +23,9 @@ const categoryIcons = {
 };
 
 const skillCategories = [
-  { category: "Languages", skills: [{ name: "JavaScript", logo: "https://www.svgrepo.com/show/349419/javascript.svg" }, { name: "TypeScript", logo: "https://www.svgrepo.com/show/354478/typescript-icon.svg" }, { name: "C++", logo: "https://www.svgrepo.com/show/373528/cpp3.svg" }] },
+  { category: "Languages", skills: [{ name: "JavaScript", logo: "https://www.svgrepo.com/show/349419/javascript.svg" }, { name: "TypeScript", logo: "https://www.svgrepo.com/show/354478/typescript-icon.svg" }, { name: "Python", logo: "https://www.svgrepo.com/show/354238/python.svg" }] },
   { category: "Frontend", skills: [{ name: "React.js", logo: "https://www.svgrepo.com/show/354259/react.svg" }, { name: "Next.js", logo: "https://cdn.simpleicons.org/nextdotjs/white" }, { name: "Tailwind CSS", logo: "https://www.svgrepo.com/show/374118/tailwind.svg" }] },
-  { category: "Backend", skills: [{ name: "Node.js", logo: "https://www.svgrepo.com/show/354119/nodejs-icon.svg" }, { name: "Express.js", logo: "https://img.icons8.com/?size=512w&id=9Gfx4Dfxl0JK&format=png" }, { name: "REST APIs", logo: "https://img.icons8.com/?size=512w&id=21895&format=png" }] },
+  { category: "Backend", skills: [{ name: "Node.js", logo: "https://www.svgrepo.com/show/354119/nodejs-icon.svg" }, { name: "Python", logo: "https://www.svgrepo.com/show/354238/python.svg" }, { name: "FastAPI", logo: "https://cdn.worldvectorlogo.com/logos/fastapi-1.svg" }] },
   { category: "SQL Databases", skills: [{ name: "PostgreSQL", logo: "https://www.svgrepo.com/show/354200/postgresql.svg" }, { name: "MySQL", logo: "https://www.svgrepo.com/show/373848/mysql.svg" }, { name: "Prisma", logo: "https://www.svgrepo.com/show/374002/prisma.svg" }] },
   { category: "NoSQL Databases", skills: [{ name: "MongoDB", logo: "https://www.svgrepo.com/show/331488/mongodb.svg" }, { name: "Mongoose", logo: "https://icon.icepanel.io/Technology/svg/MongoDB.svg" }, { name: "Redis", logo: "https://www.svgrepo.com/show/303460/redis-logo.svg" }] },
   { category: "Tools & Platforms", skills: [{ name: "Git/GitHub", logo: "https://www.svgrepo.com/show/475654/github-color.svg" }, { name: "Postman", logo: "https://www.svgrepo.com/show/354202/postman-icon.svg" }, { name: "Vercel", logo: "https://assets.vercel.com/image/upload/front/favicon/vercel/favicon.ico" }] },
@@ -35,12 +35,12 @@ const skillCategories = [
 ];
 
 const proficiencyData = [
-  { skill: "Backend Development", level: 90 },
-  { skill: "Full-Stack MERN", level: 85 },
+  { skill: "Backend Development (Node.js / Python)", level: 90 },
+  { skill: "Full-Stack (MERN / Next.js)", level: 85 },
+  { skill: "Python & FastAPI", level: 82 },
   { skill: "Frontend (React / Next.js)", level: 80 },
-  { skill: "Database Design & Optimization", level: 85 },
-  { skill: "System Design", level: 80 },
-  { skill: "API Security", level: 85 },
+  { skill: "Database Design & Optimisation", level: 85 },
+  { skill: "API Security & System Design", level: 85 },
 ];
 
 const certificatesData = [
@@ -92,7 +92,7 @@ export default function Skills() {
           <h2 className="text-5xl md:text-6xl font-black tracking-tight leading-[1.05] mb-2">
             My <span className="sk-dim-text">Tech</span> Stack
           </h2>
-          <p className="text-muted text-lg max-w-xl mt-3">A focused overview of my technical strengths, tools, and engineering fundamentals.</p>
+          <p className="text-muted text-lg max-w-xl mt-3">A focused overview of my technical strengths across full-stack, Python/FastAPI, mobile, and AI — the right tool for every project.</p>
           <div className="section-line mt-5" />
         </div>
 
@@ -255,7 +255,6 @@ export default function Skills() {
         }
 
         /* ── Proficiency Bars ── */
-        .sk-prof-row { opacity: 0; animation: none; }
         .sk-prof-row { opacity: 1; }
         .sk-prof-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
         .sk-prof-name { font-size: 0.875rem; font-weight: 600; color: rgba(255,255,255,0.85); }

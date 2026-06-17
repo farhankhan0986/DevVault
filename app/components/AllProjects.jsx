@@ -140,8 +140,8 @@ const projects = [
     github: "https://github.com/farhankhan0986/Notes_Server_MERN",
     status: "COMPLETED",
     highlight: "Full-featured CRUD API with authentication",
-    href: "",
-    slug: "notes-server-mern",
+    href: "https://github.com/farhankhan0986/Notes_Server_MERN",
+    slug: "notes_server_mern",
   },
   {
     id: 5,
@@ -154,7 +154,7 @@ const projects = [
     status: "COMPLETED",
     highlight: "Live news filtering",
     href: "https://fluffy-heliotrope-addc19.netlify.app/",
-    slug: "news-equator-react",
+    slug: "news_equator_react",
   },
   {
     id: 12,
@@ -167,7 +167,7 @@ const projects = [
     status: "COMPLETED",
     highlight: "Simple and clean task management UI",
     href: "https://endearing-tapioca-1dd038.netlify.app/",
-    slug: "todo-list",
+    slug: "todo_list",
   },
   {
     id: 14,
@@ -180,7 +180,7 @@ const projects = [
     status: "COMPLETED",
     highlight: "Comprehensive text manipulation tools",
     href: "https://musical-clafoutis-734d23.netlify.app/",
-    slug: "text-utils-react",
+    slug: "text_utils_react",
   },
 ];
 

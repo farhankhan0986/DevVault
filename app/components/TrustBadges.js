@@ -22,11 +22,11 @@ const TrustBadges = () => {
       color: "#47A248",
     },
     {
-      name: "Express.js",
-      description: "Minimal and flexible Node.js framework",
-      focus: "REST APIs, middleware, auth",
-      logo: "https://www.manektech.com/storage/technology/image/1646733600.webp",
-      color: "#ffffff",
+      name: "Python",
+      description: "Versatile language for backends & AI",
+      focus: "FastAPI, automation, data processing",
+      logo: "https://www.svgrepo.com/show/354238/python.svg",
+      color: "#3776AB",
     },
     {
       name: "React",

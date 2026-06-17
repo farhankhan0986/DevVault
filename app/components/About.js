@@ -100,17 +100,21 @@ export default function About() {
   ];
 
   const competencies = [
-    { label: "Backend Architecture & System Design", icon: Server },
-    { label: "API Security & Authentication", icon: Lock },
-    { label: "Database Design & Optimisation", icon: Database },
-    { label: "RESTful API Development", icon: Globe },
-    { label: "Full-Stack MERN Development", icon: Layers },
-    { label: "Next.js & Modern Frontend", icon: Monitor },
+    { label: "Scalable Web Applications", desc: "Fast, responsive, maintainable apps that grow with your business — from MVP to millions of users.", icon: Globe },
+    { label: "Secure Backend APIs", desc: "Reliable APIs with authentication, authorisation, validation, and full database integration.", icon: Lock },
+    { label: "AI-Powered Products", desc: "Integrate modern AI — chatbots, content generation, automation, and intelligent workflows.", icon: Sparkles },
+    { label: "Business Automation Tools", desc: "Custom tools that eliminate repetitive work and let your team focus on what matters.", icon: Zap },
+    { label: "Admin Dashboards & Panels", desc: "Data-rich control centres with real-time analytics, user management, and CRUD interfaces.", icon: Monitor },
+    { label: "Booking & Management Systems", desc: "End-to-end reservation, appointment, and resource management systems for any industry.", icon: Layers },
+    { label: "SaaS Platforms", desc: "Multi-tenant SaaS products with billing, role-based access, and production-ready infrastructure.", icon: Server },
+    { label: "Responsive Mobile Apps", desc: "Cross-platform mobile applications with native-like performance for iOS and Android.", icon: Network },
+    { label: "Database Architecture", desc: "Optimised schema design, indexing, query tuning, and migration strategies across SQL and NoSQL.", icon: Database },
+    { label: "Performance Optimisation", desc: "Profiling and tuning backends for throughput, low latency, and smooth user experiences.", icon: Cpu },
   ];
 
   const terminalLines = [
     { prefix: "~", cmd: "whoami", color: "#a3e635" },
-    { prefix: ">", cmd: "Farhan Khan · Full-Stack Developer", color: "#e2e8f0" },
+    { prefix: ">", cmd: "Farhan Khan · Software Engineer", color: "#e2e8f0" },
     { prefix: "~", cmd: "cat mission.txt", color: "#a3e635" },
     { prefix: ">", cmd: "Build systems that scale, secure, and inspire.", color: "#94a3b8" },
     { prefix: "~", cmd: "git status", color: "#a3e635" },
@@ -214,7 +218,7 @@ export default function About() {
             >
               <p className="text-base md:text-[1.07rem] leading-[1.85] text-muted">
                 I&apos;m a final-year B.Tech student and{" "}
-                <span className="about-inline-highlight">Full-Stack Developer</span>{" "}
+                <span className="about-inline-highlight">Software Engineer</span>{" "}
                 with a deep passion for{" "}
                 <span className="font-semibold text-foreground">backend systems</span>,
                 API design, and security-focused architectures. Currently working as a{" "}
@@ -282,6 +286,7 @@ export default function About() {
                 <span className="text-xs font-semibold text-muted uppercase tracking-widest">My Journey</span>
               </div>
               {[
+                { year: "2019", event: "Made my first web page" },
                 { year: "2020", event: "Made my first website" },
                 { year: "2022", event: "Started B.Tech Computer Science" },
                 { year: "2024", event: "Built first production app" },
@@ -298,7 +303,7 @@ export default function About() {
           </div>
         </div>
 
-        {/* ── Core Competencies ── */}
+        {/* ── What I Help Businesses Build ── */}
         <div
           className={`mt-24 pt-16 about-fade-in ${inView ? "about-visible" : ""}`}
           style={{
@@ -309,27 +314,31 @@ export default function About() {
           <div className="flex items-end justify-between mb-10 gap-4 flex-wrap">
             <div>
               <h2 className="text-2xl md:text-3xl font-extrabold tracking-tight mb-2">
-                Core{" "}
-                <span style={{ color: "rgba(255,255,255,0.4)" }}>Competencies</span>
+                What I Help{" "}
+                <span style={{ color: "rgba(255,255,255,0.4)" }}>Businesses Build</span>
               </h2>
               <div className="section-line" />
             </div>
             <p className="text-sm text-muted max-w-xs text-right hidden sm:block">
-              The domains I&apos;ve gone deep on — not just touched.
+              Real outcomes — not just a list of technologies.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 stagger-children">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
             {competencies.map((item, i) => {
               const CompIcon = item.icon;
               return (
-                <div key={item.label} className="about-comp-card">
+                <div key={item.label} className="about-comp-card about-comp-card-rich">
                   <span className="about-comp-accent" />
-                  <div className="about-comp-icon-wrap">
-                    <CompIcon className="w-4 h-4 text-foreground" />
+                  <div className="flex items-start gap-3">
+                    <div className="about-comp-icon-wrap flex-shrink-0">
+                      <CompIcon className="w-4 h-4 text-foreground" />
+                    </div>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-bold text-foreground leading-snug mb-1">{item.label}</p>
+                      <p className="text-xs text-muted leading-relaxed">{item.desc}</p>
+                    </div>
                   </div>
-                  <span className="text-sm font-medium text-foreground leading-tight">{item.label}</span>
-                  <ArrowRight className="about-comp-arrow" />
                 </div>
               );
             })}
@@ -620,12 +629,12 @@ export default function About() {
           background: rgba(255,255,255,0.09);
           transform: scale(1.1);
         }
+        .about-comp-card-rich { padding: 18px 18px 18px 20px; align-items: flex-start; flex-direction: column; gap: 0; }
+        .about-comp-card-rich:hover { transform: translateY(-3px); }
         .about-comp-arrow {
-          width: 13px;
-          height: 13px;
+          width: 13px; height: 13px;
           color: rgba(255,255,255,0.15);
-          margin-left: auto;
-          flex-shrink: 0;
+          margin-left: auto; flex-shrink: 0;
           transition: color 0.25s, transform 0.25s;
         }
         .about-comp-card:hover .about-comp-arrow {

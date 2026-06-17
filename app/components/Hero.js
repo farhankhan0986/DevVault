@@ -1,14 +1,15 @@
 "use client";
 
 import { useEffect, useState, useRef } from "react";
-import { ArrowRight, Github, Linkedin, Mail, ChevronDown, Download, Sparkles, MapPin, Circle } from "lucide-react";
+import { ArrowRight, Github, Linkedin, Mail, ChevronDown, Download, MapPin } from "lucide-react";
 
 const ROLES = [
-  "Full-Stack Developer",
-  "Backend Engineer",
-  "API Architect",
-  "MERN Specialist",
-  "Next.js Developer",
+  "Full Stack Developer",
+  "Python & FastAPI Developer",
+  "MERN Stack Developer",
+  "Mobile App Developer",
+  "Backend Architect",
+  "AI Integration Engineer",
 ];
 
 function useTypewriter(words, speed = 80, pause = 1800) {
@@ -45,8 +46,8 @@ const STATS = [
 
 const TECH_TAGS = [
   { text: "React", color: "#7CB8D6", glow: "rgba(124,184,214,0.3)", pos: "-top-5 left-1/2 -translate-x-1/2", delay: "0s", dur: "6s" },
-  { text: "Node.js", color: "#7DC472", glow: "rgba(125,196,114,0.28)", pos: "top-1/4 -right-8", delay: "1s", dur: "7s" },
-  { text: "PostgreSQL", color: "#6B9FBF", glow: "rgba(107,159,191,0.28)", pos: "bottom-1/4 -left-8", delay: "2s", dur: "8s" },
+  { text: "Python", color: "#F7C948", glow: "rgba(247,201,72,0.28)", pos: "top-1/4 -right-8", delay: "1s", dur: "7s" },
+  { text: "FastAPI", color: "#05998B", glow: "rgba(5,153,139,0.28)", pos: "bottom-1/4 -left-8", delay: "2s", dur: "8s" },
   { text: "MongoDB", color: "#70A463", glow: "rgba(112,164,99,0.28)", pos: "-bottom-5 left-1/2 -translate-x-1/2", delay: "3s", dur: "6s" },
   { text: "Next.js", color: "#D6D6D6", glow: "rgba(214,214,214,0.18)", pos: "top-[10%] -left-6", delay: "0.5s", dur: "9s" },
   { text: "TypeScript", color: "#5B8DD9", glow: "rgba(91,141,217,0.28)", pos: "bottom-[12%] -right-5", delay: "2.5s", dur: "7s" },
@@ -58,15 +59,16 @@ export default function Hero() {
   const photoRef = useRef(null);
 
   useEffect(() => {
-    // Stagger entrance
     const t = setTimeout(() => setMounted(true), 80);
     return () => clearTimeout(t);
   }, []);
 
-  // Subtle parallax tilt on photo
+  // Subtle parallax tilt — desktop only
   useEffect(() => {
     const el = photoRef.current;
     if (!el) return;
+    const isTouchDevice = window.matchMedia("(hover: none)").matches;
+    if (isTouchDevice) return;
     const handle = (e) => {
       const { left, top, width, height } = el.getBoundingClientRect();
       const x = ((e.clientX - left) / width - 0.5) * 10;
@@ -83,33 +85,29 @@ export default function Hero() {
     <section
       id="hero"
       aria-labelledby="hero-title"
-      className="relative h-screen max-h-screen flex items-center isolate bg-background text-foreground overflow-hidden"
-      style={{ paddingTop: "72px" }}
+      className="relative min-h-screen flex items-center isolate bg-background text-foreground overflow-hidden"
+      style={{ paddingTop: "80px", paddingBottom: "60px" }}
     >
       {/* ── Layered background ── */}
       <div aria-hidden className="pointer-events-none absolute inset-0 -z-10">
-        {/* Large radial top-left */}
         <div className="absolute -top-40 -left-40 w-[700px] h-[700px] rounded-full"
           style={{ background: "radial-gradient(circle, rgba(255,255,255,0.055) 0%, transparent 65%)" }} />
-        {/* Large radial bottom-right */}
         <div className="absolute -bottom-60 -right-40 w-[600px] h-[600px] rounded-full"
           style={{ background: "radial-gradient(circle, rgba(255,255,255,0.03) 0%, transparent 65%)" }} />
-        {/* Dot grid */}
         <div className="absolute inset-0"
           style={{ backgroundImage: "radial-gradient(rgba(255,255,255,0.045) 1px, transparent 1px)", backgroundSize: "36px 36px" }} />
-        {/* Horizontal separator glow */}
         <div className="absolute bottom-0 inset-x-0 h-px"
           style={{ background: "linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent)" }} />
       </div>
 
       <div className="relative max-w-6xl mx-auto px-6 w-full">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-14 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 lg:gap-14 items-center">
 
           {/* ── LEFT: Content ── */}
           <div className={`space-y-4 text-center lg:text-left hero-enter ${mounted ? "hero-visible" : ""}`}>
 
             {/* Availability badge */}
-            <div className="flex items-center gap-2 justify-center lg:justify-start">
+            <div className="flex items-center gap-2 justify-center lg:justify-start flex-wrap">
               <span className="hero-badge">
                 <span className="hero-badge-dot" />
                 Open to Opportunities
@@ -135,21 +133,20 @@ export default function Hero() {
               </div>
 
               {/* Stack tags */}
-              <p className="hero-stack-line">
-                {["MERN", "Next.js", "PostgreSQL", "Redis", "API Security"].map((t, i) => (
+              <div className="hero-stack-line">
+                {["Full Stack", "Python / FastAPI", "MERN Stack", "Mobile Apps", "AI Products"].map((t, i) => (
                   <span key={t}>
                     <span className="hero-stack-tag">{t}</span>
                     {i < 4 && <span className="hero-stack-sep">·</span>}
                   </span>
                 ))}
-              </p>
+              </div>
             </div>
 
             {/* Bio */}
             <p className="hero-bio">
-              I engineer <strong>scalable backend systems</strong>, harden APIs, and ship
-              production-ready apps — interning at{" "}
-              <span className="hero-highlight">Tripify India</span> while finishing B.Tech.
+              I build <strong>full-stack web apps, Python & FastAPI backends</strong>, and cross-platform mobile apps — shipping production-ready products while finishing B.Tech at{" "}
+              <span className="hero-highlight">Tripify India</span>.
               Focused on system design, clean code, and things that actually scale.
             </p>
 
@@ -178,7 +175,7 @@ export default function Hero() {
             </div>
 
             {/* Socials */}
-            <div className="flex gap-2 justify-center mb-10 lg:justify-start">
+            <div className="flex gap-2 justify-center lg:justify-start">
               {[
                 { href: "https://github.com/farhankhan0986", label: "GitHub", Icon: Github, external: true },
                 { href: "https://www.linkedin.com/in/farhan-abid-38967a259/", label: "LinkedIn", Icon: Linkedin, external: true },
@@ -194,24 +191,24 @@ export default function Hero() {
           </div>
 
           {/* ── RIGHT: Photo ── */}
-          <div className={`flex justify-center hero-enter hero-enter-right ${mounted ? "hero-visible" : ""}`}
+          <div className={`flex flex-col items-center justify-center mt-6 lg:mt-0 hero-enter hero-enter-right ${mounted ? "hero-visible" : ""}`}
             style={{ animationDelay: "0.2s" }}>
-            <div className="relative w-full max-w-[300px] lg:max-w-[380px]" ref={photoRef}
+
+            {/* Photo wrapper — relative container so status card positions inside it */}
+            <div className="relative w-full max-w-[260px] md:max-w-[300px] lg:max-w-[380px]"
+              ref={photoRef}
               style={{ transition: "transform 0.18s ease-out", aspectRatio: "1" }}>
 
-              {/* Spinning orbit ring */}
-              <div className="hero-orbit" />
-              {/* Second slower ring */}
-              <div className="hero-orbit hero-orbit-2" />
+              {/* Orbit rings — desktop only to avoid clutter on mobile */}
+              <div className="hero-orbit hidden md:block" />
+              <div className="hero-orbit hero-orbit-2 hidden md:block" />
 
-              {/* Glow — large outer bloom */}
+              {/* Glow layers */}
               <div className="absolute -z-10 hero-glow-outer" />
-              {/* Glow — mid ring */}
               <div className="absolute -z-10 hero-glow-mid" />
-              {/* Glow — tight core under photo */}
               <div className="absolute -z-10 hero-glow-core" />
 
-              {/* Photo with faded edges */}
+              {/* Photo */}
               <img
                 src="/images/farhan.jpg"
                 alt="Farhan Abid — Full-Stack Developer"
@@ -223,10 +220,10 @@ export default function Hero() {
               <div className="absolute -bottom-3 -right-3 w-24 h-24 rounded-full -z-10"
                 style={{ background: "radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%)", filter: "blur(16px)" }} />
 
-              {/* Floating tech badges */}
+              {/* Floating tech badges — desktop only (overflow on narrow screens) */}
               {TECH_TAGS.map(({ text, color, glow, pos, delay, dur }) => (
                 <div key={text}
-                  className={`absolute z-20 ${pos} hero-tech-tag`}
+                  className={`hidden md:flex absolute z-20 ${pos} hero-tech-tag`}
                   style={{
                     border: `1px solid ${color}50`,
                     background: "rgba(8,8,8,0.88)",
@@ -240,14 +237,15 @@ export default function Hero() {
                 </div>
               ))}
 
-              {/* Status card — bottom-left */}
-            </div>
-              <div className="hero-status-card relative left-[150px]">
+              {/* Status card — centered on mobile, bottom-left on md+ */}
+              <div className="hero-status-card">
                 <span className="hero-status-dot" />
                 <span>Currently building</span>
                 <span className="hero-status-project">@ Tripify</span>
               </div>
+            </div>
           </div>
+
         </div>
       </div>
 
@@ -268,7 +266,12 @@ export default function Hero() {
           transition: opacity 0.85s cubic-bezier(.22,.68,0,1), transform 0.85s cubic-bezier(.22,.68,0,1);
         }
         .hero-enter-right {
-          transform: translateX(24px) translateY(0px);
+          transform: translateY(32px);
+        }
+        @media (min-width: 1024px) {
+          .hero-enter-right {
+            transform: translateX(24px) translateY(0px);
+          }
         }
         .hero-enter.hero-visible {
           opacity: 1;
@@ -303,7 +306,7 @@ export default function Hero() {
 
         /* ── Name ── */
         .hero-name {
-          font-size: clamp(2rem, 5vw, 3.4rem);
+          font-size: clamp(2.2rem, 6vw, 3.4rem);
           font-weight: 900;
           letter-spacing: -0.035em;
           line-height: 1.05;
@@ -318,10 +321,10 @@ export default function Hero() {
 
         /* ── Typewriter ── */
         .hero-role-prefix {
-          font-size: 1rem; color: rgba(255,255,255,0.35); font-weight: 500; white-space: nowrap;
+          font-size: 0.95rem; color: rgba(255,255,255,0.35); font-weight: 500; white-space: nowrap;
         }
         .hero-role-text {
-          font-size: 1rem; font-weight: 700;
+          font-size: 0.95rem; font-weight: 700;
           color: rgb(var(--foreground));
           white-space: nowrap;
         }
@@ -348,8 +351,10 @@ export default function Hero() {
         /* ── Bio ── */
         .hero-bio {
           font-size: 0.93rem; line-height: 1.72;
-          color: rgba(255,255,255,0.5); max-width: 500px;
+          color: rgba(255,255,255,0.5);
+          max-width: 500px; margin: 0 auto;
         }
+        @media (min-width: 1024px) { .hero-bio { margin: 0; } }
         .hero-bio strong { color: rgba(255,255,255,0.85); font-weight: 600; }
         .hero-highlight {
           color: rgba(255,255,255,0.85); font-weight: 600;
@@ -371,7 +376,7 @@ export default function Hero() {
         /* ── CTAs ── */
         .hero-cta-primary {
           display: inline-flex; align-items: center; gap: 7px;
-          padding: 10px 20px; border-radius: 10px;
+          padding: 11px 22px; border-radius: 10px;
           font-size: 0.85rem; font-weight: 700;
           background: rgb(var(--foreground)); color: rgb(var(--background));
           transition: opacity 0.2s, transform 0.2s, box-shadow 0.2s;
@@ -384,7 +389,7 @@ export default function Hero() {
         .hero-cta-primary:active { transform: scale(0.97); }
         .hero-cta-secondary {
           display: inline-flex; align-items: center; gap: 7px;
-          padding: 10px 18px; border-radius: 10px;
+          padding: 11px 18px; border-radius: 10px;
           font-size: 0.85rem; font-weight: 600;
           border: 1px solid rgba(255,255,255,0.12);
           background: rgba(255,255,255,0.04); color: rgba(255,255,255,0.7);
@@ -426,7 +431,6 @@ export default function Hero() {
           object-fit: cover;
           border-radius: 0;
           filter: brightness(0.9) contrast(1.04);
-          /* Fade all four edges — eliminates the hard rectangular boundary */
           -webkit-mask-image: radial-gradient(ellipse 82% 82% at 50% 50%, black 40%, transparent 100%);
           mask-image: radial-gradient(ellipse 82% 82% at 50% 50%, black 40%, transparent 100%);
         }
@@ -484,7 +488,11 @@ export default function Hero() {
 
         /* ── Status card ── */
         .hero-status-card {
-          position: absolute; bottom: -18px; left: -16px; z-index: 30;
+          position: absolute;
+          bottom: -14px;
+          left: 50%;
+          transform: translateX(-50%);
+          z-index: 30;
           display: flex; align-items: center; gap: 7px;
           padding: 9px 14px; border-radius: 12px;
           border: 1px solid rgba(255,255,255,0.1);
@@ -492,6 +500,13 @@ export default function Hero() {
           font-size: 0.72rem; color: rgba(255,255,255,0.55);
           box-shadow: 0 8px 32px rgba(0,0,0,0.5);
           white-space: nowrap;
+        }
+        @media (min-width: 768px) {
+          .hero-status-card {
+            left: -16px;
+            bottom: -18px;
+            transform: none;
+          }
         }
         .hero-status-dot {
           width: 7px; height: 7px; border-radius: 50%;

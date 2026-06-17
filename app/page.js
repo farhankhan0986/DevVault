@@ -8,9 +8,11 @@ import Skills from "./components/Skills";
 import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import Education from "./components/Education";
-import InteractiveTerminal from "./components/InteractiveTerminal";
+import DevActivity from "./components/DevActivity";
 import Hero from "./components/Hero";
 import Footer from "./components/Footer";
+import Services from "./components/Services";
+import UIStyles from "./components/UIStyles";
 
 // Client-only Motion wrapper
 const MotionDiv = dynamic(
@@ -56,6 +58,18 @@ export default function Home() {
             </MotionDiv>
           </section>
 
+          {/* SERVICES */}
+          <section id="services" className="scroll-mt-5 md:scroll-mt-5">
+            <MotionDiv
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <Services />
+            </MotionDiv>
+          </section>
+
           {/* EXPERIENCE */}
           <section id="experience" className="scroll-mt-5 md:scroll-mt-5">
             <MotionDiv
@@ -92,10 +106,22 @@ export default function Home() {
             </MotionDiv>
           </section>
 
-          {/* TERMINAL */}
-          <section id="terminal" className="scroll-mt-5">
+          {/* UI STYLES */}
+          <section id="ui-styles" className="scroll-mt-5 md:scroll-mt-5">
+            <MotionDiv
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <UIStyles />
+            </MotionDiv>
+          </section>
+
+          {/* DEV ACTIVITY */}
+          <section id="activity" className="scroll-mt-5">
             <MotionDiv variants={fadeUp} initial="hidden" whileInView="visible" viewport={{ once: true }}>
-              <InteractiveTerminal />
+              <DevActivity />
             </MotionDiv>
           </section>
 

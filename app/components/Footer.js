@@ -74,9 +74,9 @@ export default function Footer() {
             <div className="grid grid-cols-2 gap-3">
               {socials.map(({ href, label, Icon, target }) => (
                 <a key={label} href={href} target={target} rel="noopener noreferrer"
-                  aria-label={label} className="ftr-social-card">
+                  aria-label={label} className="ftr-social-card group">
                   <Icon className="w-4 h-4 text-muted transition-colors duration-200 group-hover:text-foreground" />
-                  <span className="text-sm font-medium text-muted">{label}</span>
+                  <span className="text-sm font-medium text-muted group-hover:text-foreground transition-colors duration-200">{label}</span>
                 </a>
               ))}
             </div>

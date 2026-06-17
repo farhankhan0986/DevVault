@@ -25,7 +25,7 @@ const experiences = [
   {
     role: "AI Agent Developer Intern",
     company: "Tripify Pvt. Ltd.",
-    date: "Jan 2025 – Present",
+    date: "Dec 2025 – Present",
     location: "Remote · Greater Noida",
     current: true,
     type: "Full-Stack + AI",
@@ -48,7 +48,7 @@ const experiences = [
   {
     role: "MERN Stack Developer Intern",
     company: "Codec Technologies",
-    date: "Dec 2025 · 4 Weeks",
+    date: "Nov 2025 · 4 Weeks",
     location: "Online",
     current: false,
     type: "Full-Stack",
