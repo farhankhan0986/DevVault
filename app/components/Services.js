@@ -709,7 +709,7 @@ export default function Services() {
             </div>
             {/* Stats strip */}
             <div className="flex gap-8 flex-shrink-0">
-              {[["10+","Service types"],["3","Tech stacks"],["50k+","Lines shipped"]].map(([v,l])=>(
+              {[["10+","Service types"],["5+","Tech stacks"],["100k+","Lines shipped"]].map(([v,l])=>(
                 <div key={l} className="text-center">
                   <p className="text-2xl font-black text-white/90 leading-none">{v}</p>
                   <p className="text-xs text-white/35 mt-1 whitespace-nowrap">{l}</p>

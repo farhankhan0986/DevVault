@@ -62,8 +62,8 @@ export default function About() {
   ];
 
   const stats = [
-    { value: "15+",  label: "Projects Built", icon: Cpu   },
-    { value: "50k+", label: "Lines of Code",  icon: Code2 },
+    { value: "20+",  label: "Projects Built", icon: Cpu   },
+    { value: "100k+", label: "Lines of Code",  icon: Code2 },
     { value: "100%", label: "Dedication",     icon: Flame },
   ];
 

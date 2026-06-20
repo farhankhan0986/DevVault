@@ -39,9 +39,9 @@ function useTypewriter(words, speed = 80, pause = 1800) {
 }
 
 const STATS = [
-  { value: "15+", label: "Projects" },
+  { value: "20+", label: "Projects" },
   { value: "1+", label: "Yr Experience" },
-  { value: "50k+", label: "Lines of Code" },
+  { value: "100k+", label: "Lines of Code" },
 ];
 
 const TECH_TAGS = [
