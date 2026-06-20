@@ -80,7 +80,7 @@ body {
 .bg-card { background-color: rgb(var(--card)); }
 .border-border { border-color: rgb(var(--border)); }
 
-/* Glass morphism — matte Vercel style */
+/* Glass morphism  matte Vercel style */
 .glass {
   background: rgba(var(--card), 0.7);
   backdrop-filter: blur(12px);
@@ -88,7 +88,7 @@ body {
   border: 1px solid rgba(var(--border), 0.8);
 }
 
-/* Section divider line — Vercel gradient accent */
+/* Section divider line  Vercel gradient accent */
 .section-line {
   width: 8rem;
   height: 3px;

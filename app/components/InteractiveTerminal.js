@@ -8,7 +8,7 @@ const PROMPT = "visitor@farhan.dev:~$";
 const COMMANDS = {
   help: {
     output: [
-      { t: "comment", v: "# Available commands — type one and press Enter" },
+      { t: "comment", v: "# Available commands  type one and press Enter" },
       { t: "gap" },
       { t: "cmd-row", cmd: "hi",              desc: "Say hi to Farhan!" },
       { t: "cmd-row", cmd: "whoami",          desc: "Learn about Farhan" },
@@ -27,7 +27,7 @@ const COMMANDS = {
   },
   whoami: {
     output: [ 
-      { t: "comment", v: "# Farhan Abid — Software Engineer" },
+      { t: "comment", v: "# Farhan Abid  Software Engineer" },
       { t: "gap" },
       { t: "kv", k: "Name",       v: "Farhan Abid" },
       { t: "kv", k: "Role",       v: "Software Engineer · Backend-Focused" },
@@ -37,7 +37,7 @@ const COMMANDS = {
       { t: "kv", k: "Location",   v: "India · Remote-Ready" },
       { t: "gap" },
       { t: "text", v: "I engineer scalable backends, harden APIs, and ship full-stack" },
-      { t: "text", v: "products that work in production — not just in demos." },
+      { t: "text", v: "products that work in production  not just in demos." },
     ],
   },
   skills: {
@@ -64,7 +64,7 @@ const COMMANDS = {
       { t: "comment", v: "# Featured Projects" },
       { t: "gap" },
       { t: "proj", name: "DevVault",          tech: "Next.js · MongoDB · Tailwind",  desc: "Personal portfolio with blog, projects & AI tools" },
-      { t: "proj", name: "Tripify Dashboard",  tech: "React · Node · PostgreSQL",     desc: "Production internship — booking & analytics platform" },
+      { t: "proj", name: "Tripify Dashboard",  tech: "React · Node · PostgreSQL",     desc: "Production internship  booking & analytics platform" },
       { t: "proj", name: "Sentinel Guard",     tech: "Next.js · Redis · Rate-Limiting",desc: "Security middleware: threat engine + IP blocking" },
       { t: "proj", name: "Fact_Check_Agent",   tech: "Next.js · Groq · Tavily",       desc: "AI fact-checker for text, URLs & PDFs" },
       { t: "gap" },
@@ -135,7 +135,7 @@ function renderLine(line, i) {
     case "cmd-row": return (
       <div key={i} className="trm-cmd-row">
         <span className="trm-cmd-name">{line.cmd}</span>
-        <span className="trm-cmd-sep">—</span>
+        <span className="trm-cmd-sep"></span>
         <span className="trm-cmd-desc">{line.desc}</span>
       </div>
     );
@@ -266,7 +266,7 @@ export default function InteractiveTerminal() {
             Explore <span style={{ color: "rgba(255,255,255,0.3)" }}>My Profile</span>
           </h2>
           <p className="text-muted mt-3 text-base max-w-lg">
-            Type commands below to learn about my skills, projects, and experience — like a real dev would.
+            Type commands below to learn about my skills, projects, and experience  like a real dev would.
           </p>
           <div className="section-line mt-5" />
         </div>
@@ -293,7 +293,7 @@ export default function InteractiveTerminal() {
               <span className="trm-dot" style={{ background: "#28c840" }} />
             </div>
             <span className="trm-title-text">
-              <Terminal className="w-3 h-3" /> farhan@devvault — interactive profile
+              <Terminal className="w-3 h-3" /> farhan@devvault  interactive profile
             </span>
             <span />
           </div>

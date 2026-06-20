@@ -92,7 +92,7 @@ export default function Skills() {
           <h2 className="text-5xl md:text-6xl font-black tracking-tight leading-[1.05] mb-2">
             My <span className="sk-dim-text">Tech</span> Stack
           </h2>
-          <p className="text-muted text-lg max-w-xl mt-3">A focused overview of my technical strengths across full-stack, Python/FastAPI, mobile, and AI — the right tool for every project.</p>
+          <p className="text-muted text-lg max-w-xl mt-3">A focused overview of my technical strengths across full-stack, Python/FastAPI, mobile, and AI  the right tool for every project.</p>
           <div className="section-line mt-5" />
         </div>
 
@@ -142,7 +142,7 @@ export default function Skills() {
               <h3 className="text-4xl md:text-5xl font-black tracking-tight mb-3">
                 Skill <span className="sk-dim-text">Depth</span>
               </h3>
-              <p className="text-muted leading-relaxed">Focused expertise with a backend-first mindset — these reflect real project experience, not just familiarity.</p>
+              <p className="text-muted leading-relaxed">Focused expertise with a backend-first mindset  these reflect real project experience, not just familiarity.</p>
               <div className="section-line mt-5" />
             </div>
             <div className="space-y-5">

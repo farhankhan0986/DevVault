@@ -2,9 +2,9 @@
 
 # 🏗️ DevVault
 
-**Personal Developer Portfolio — Engineered, Not Templated**
+**Personal Developer Portfolio  Engineered, Not Templated**
 
-A full-stack developer portfolio built with Next.js 16, featuring an AI-powered chatbot, dynamic project showcases, dark/light theming, and smooth Framer Motion animations — all backed by MongoDB and deployed on Vercel.
+A full-stack developer portfolio built with Next.js 16, featuring an AI-powered chatbot, dynamic project showcases, dark/light theming, and smooth Framer Motion animations  all backed by MongoDB and deployed on Vercel.
 
 [![Next.js](https://img.shields.io/badge/Next.js-16-000000?style=flat-square&logo=next.js&logoColor=white)](https://nextjs.org)
 [![React](https://img.shields.io/badge/React-19-61DAFB?style=flat-square&logo=react&logoColor=white)](https://react.dev)
@@ -21,7 +21,7 @@ A full-stack developer portfolio built with Next.js 16, featuring an AI-powered 
 
 ## 📖 About
 
-**DevVault** is not a template-based portfolio — it's a fully engineered, full-stack web application designed to showcase real engineering thinking, backend-heavy skills, and a personal technical brand.
+**DevVault** is not a template-based portfolio  it's a fully engineered, full-stack web application designed to showcase real engineering thinking, backend-heavy skills, and a personal technical brand.
 
 At its core, DevVault is a Next.js 16 App Router application with:
 - An **AI-powered chatbot** ("AskFarhan") that acts as a digital representative, answering questions about skills, projects, and experience using **Groq's LLaMA 3.3 70B** with real-time streaming
@@ -32,11 +32,11 @@ At its core, DevVault is a Next.js 16 App Router application with:
 
 ### Why DevVault?
 
-- 🤖 **AI-Powered** — An embedded chatbot that streams responses in real-time, making the portfolio interactive and recruiter-friendly
-- 🏗️ **Engineered Architecture** — Built with Next.js App Router, API routes, MongoDB models, and JWT auth — not just a static HTML page
-- 🎨 **Polished UI** — Gradient accents, ambient glows, responsive grid layouts, and Framer Motion animations
-- 🔒 **Secure by Design** — Admin provisioning, bcrypt password hashing, and JWT-based access control
-- ⚡ **Production-Ready** — Deployed on Vercel with optimized builds, SSR, and edge-compatible architecture
+- 🤖 **AI-Powered**  An embedded chatbot that streams responses in real-time, making the portfolio interactive and recruiter-friendly
+- 🏗️ **Engineered Architecture**  Built with Next.js App Router, API routes, MongoDB models, and JWT auth  not just a static HTML page
+- 🎨 **Polished UI**  Gradient accents, ambient glows, responsive grid layouts, and Framer Motion animations
+- 🔒 **Secure by Design**  Admin provisioning, bcrypt password hashing, and JWT-based access control
+- ⚡ **Production-Ready**  Deployed on Vercel with optimized builds, SSR, and edge-compatible architecture
 
 ---
 
@@ -81,7 +81,7 @@ DevVault/
 ├── app/
 │   ├── api/
 │   │   └── chat/
-│   │       └── route.js          # AI chatbot API — Groq streaming endpoint
+│   │       └── route.js          # AI chatbot API  Groq streaming endpoint
 │   ├── components/
 │   │   ├── About.js              # About section with highlights
 │   │   ├── ChatWidget.js         # AI chatbot UI with streaming support
@@ -130,10 +130,10 @@ DevVault/
 User Message → POST /api/chat → Build Context → Groq API (stream: true) → SSE → Browser ReadableStream → Live UI
 ```
 
-- **Conversation Memory** — Full message history sent with each request for context-aware responses
-- **Streaming** — Server-Sent Events piped through a `ReadableStream` for word-by-word rendering
-- **System Prompt** — Rich context file (`lib/farhan-context.js`) with career data, project details, and formatting rules
-- **Model** — LLaMA 3.3 70B via Groq's LPU (500+ tokens/sec inference)
+- **Conversation Memory**  Full message history sent with each request for context-aware responses
+- **Streaming**  Server-Sent Events piped through a `ReadableStream` for word-by-word rendering
+- **System Prompt**  Rich context file (`lib/farhan-context.js`) with career data, project details, and formatting rules
+- **Model**  LLaMA 3.3 70B via Groq's LPU (500+ tokens/sec inference)
 
 ### Authentication Flow
 
@@ -141,7 +141,7 @@ User Message → POST /api/chat → Build Context → Groq API (stream: true) �
 seed.js (one-time) → bcrypt hash → MongoDB User → JWT sign → Protected routes
 ```
 
-- No public signup — admin access is provisioned once via `seed.js` only.
+- No public signup  admin access is provisioned once via `seed.js` only.
 - Role-based user model with `admin` and `user` enum
 
 ### Dynamic Project Pages
@@ -160,8 +160,8 @@ seed.js (one-time) → bcrypt hash → MongoDB User → JWT sign → Protected r
 ### Prerequisites
 
 - **Node.js** v18 or higher
-- **MongoDB** database (local or cloud — [MongoDB Atlas](https://www.mongodb.com/atlas), [Railway](https://railway.app))
-- **Groq API Key** — Free at [console.groq.com](https://console.groq.com)
+- **MongoDB** database (local or cloud  [MongoDB Atlas](https://www.mongodb.com/atlas), [Railway](https://railway.app))
+- **Groq API Key**  Free at [console.groq.com](https://console.groq.com)
 
 ### 1. Clone the Repository
 
@@ -220,7 +220,7 @@ npm start
    - `MONGODB_URI`
    - `JWT_SECRET`
    - `GROQ_API_KEY`
-3. Deploy — Next.js is auto-detected
+3. Deploy  Next.js is auto-detected
 
 The live deployment is available at: **[dev-vault-alpha.vercel.app](https://dev-vault-alpha.vercel.app)**
 
@@ -230,10 +230,10 @@ The live deployment is available at: **[dev-vault-alpha.vercel.app](https://dev-
 
 DevVault is built to:
 
-- **Demonstrate real engineering thinking** — not a template, but an architected full-stack application
-- **Showcase backend-heavy full-stack skills** — API design, auth flows, database modeling, AI integration
-- **Act as a personal technical brand** — a living, interactive representation of capabilities
-- **Serve as a foundation for future projects and experiments** — modular, extensible, production-ready.
+- **Demonstrate real engineering thinking**  not a template, but an architected full-stack application
+- **Showcase backend-heavy full-stack skills**  API design, auth flows, database modeling, AI integration
+- **Act as a personal technical brand**  a living, interactive representation of capabilities
+- **Serve as a foundation for future projects and experiments**  modular, extensible, production-ready.
 
 ---
 

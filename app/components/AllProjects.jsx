@@ -17,7 +17,7 @@ const projects = [
     id: 19,
     title: "Viblytics",
     description:
-      "AI-powered YouTube competitor analytics SaaS — analyze any public channel's recent videos for top performance, engagement insights, and AI-driven summaries with shareable reports.",
+      "AI-powered YouTube competitor analytics SaaS  analyze any public channel's recent videos for top performance, engagement insights, and AI-driven summaries with shareable reports.",
     image: "/images/viblytics.png",
     tech: ["Next.js 15", "Groq AI (LLaMA 3.3)", "TypeScript", "Recharts", "YouTube Data API v3"],
     github: "https://github.com/farhankhan0986/Viblytics",
@@ -30,7 +30,7 @@ const projects = [
     id: 3,
     title: "Sentinel Guard",
     description:
-      "Full-stack website security monitoring platform — register your site, generate an API key, inspect request activity, apply rate limiting, detect suspicious traffic, and view real-time analytics.",
+      "Full-stack website security monitoring platform  register your site, generate an API key, inspect request activity, apply rate limiting, detect suspicious traffic, and view real-time analytics.",
     image: "/images/sentinal.png",
     tech: ["Next.js", "MongoDB", "JWT Auth", "REST API", "Middleware", "Recharts"],
     github: "https://github.com/farhankhan0986/Sentinel-Guard",
@@ -233,7 +233,7 @@ export default function AllProjects() {
             <span className="text-foreground opacity-30">Projects</span>
           </h1>
           <p className="max-w-2xl text-muted text-lg leading-relaxed mb-2">
-            A comprehensive showcase of my full-stack development work — from AI integrations and backend systems to frontend UI and product thinking.
+            A comprehensive showcase of my full-stack development work  from AI integrations and backend systems to frontend UI and product thinking.
           </p>
           <div className="section-line mt-5" />
         </div>

@@ -63,7 +63,7 @@ export default function Hero() {
     return () => clearTimeout(t);
   }, []);
 
-  // Subtle parallax tilt — desktop only
+  // Subtle parallax tilt  desktop only
   useEffect(() => {
     const el = photoRef.current;
     if (!el) return;
@@ -145,7 +145,7 @@ export default function Hero() {
 
             {/* Bio */}
             <p className="hero-bio">
-              I build <strong>full-stack web apps, Python & FastAPI backends</strong>, and cross-platform mobile apps — shipping production-ready products while finishing B.Tech at{" "}
+              I build <strong>full-stack web apps, Python & FastAPI backends</strong>, and cross-platform mobile apps  shipping production-ready products while finishing B.Tech at{" "}
               <span className="hero-highlight">Tripify India</span>.
               Focused on system design, clean code, and things that actually scale.
             </p>
@@ -194,12 +194,12 @@ export default function Hero() {
           <div className={`flex flex-col items-center justify-center mt-6 lg:mt-0 hero-enter hero-enter-right ${mounted ? "hero-visible" : ""}`}
             style={{ animationDelay: "0.2s" }}>
 
-            {/* Photo wrapper — relative container so status card positions inside it */}
+            {/* Photo wrapper  relative container so status card positions inside it */}
             <div className="relative w-full max-w-[260px] md:max-w-[300px] lg:max-w-[380px]"
               ref={photoRef}
               style={{ transition: "transform 0.18s ease-out", aspectRatio: "1" }}>
 
-              {/* Orbit rings — desktop only to avoid clutter on mobile */}
+              {/* Orbit rings  desktop only to avoid clutter on mobile */}
               <div className="hero-orbit hidden md:block" />
               <div className="hero-orbit hero-orbit-2 hidden md:block" />
 
@@ -211,7 +211,7 @@ export default function Hero() {
               {/* Photo */}
               <img
                 src="/images/farhan.jpg"
-                alt="Farhan Abid — Full-Stack Developer"
+                alt="Farhan Abid  Full-Stack Developer"
                 className="hero-photo"
                 loading="eager"
               />
@@ -220,7 +220,7 @@ export default function Hero() {
               <div className="absolute -bottom-3 -right-3 w-24 h-24 rounded-full -z-10"
                 style={{ background: "radial-gradient(circle, rgba(255,255,255,0.12), transparent 70%)", filter: "blur(16px)" }} />
 
-              {/* Floating tech badges — desktop only (overflow on narrow screens) */}
+              {/* Floating tech badges  desktop only (overflow on narrow screens) */}
               {TECH_TAGS.map(({ text, color, glow, pos, delay, dur }) => (
                 <div key={text}
                   className={`hidden md:flex absolute z-20 ${pos} hero-tech-tag`}
@@ -237,7 +237,7 @@ export default function Hero() {
                 </div>
               ))}
 
-              {/* Status card — centered on mobile, bottom-left on md+ */}
+              {/* Status card  centered on mobile, bottom-left on md+ */}
               <div className="hero-status-card">
                 <span className="hero-status-dot" />
                 <span>Currently building</span>

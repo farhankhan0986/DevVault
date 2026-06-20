@@ -23,7 +23,7 @@ const education = [
     icon: GraduationCap,
     current: true,
     description:
-      "Pursuing a four-year engineering degree with a specialization in Artificial Intelligence & Data Science — covering machine learning, data systems, neural networks, and applied software engineering.",
+      "Pursuing a four-year engineering degree with a specialization in Artificial Intelligence & Data Science  covering machine learning, data systems, neural networks, and applied software engineering.",
     highlights: [
       { icon: Cpu, label: "AI & ML Focus" },
       { icon: TrendingUp, label: "Consistent Progress" },

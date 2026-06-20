@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, useMemo } from "react";
 import { Activity, GitCommit, Flame, Code2 } from "lucide-react";
 
-// Deterministic LCG — consistent heatmap every render
+// Deterministic LCG  consistent heatmap every render
 function seededRand(seed) {
   let s = seed >>> 0;
   return () => {
@@ -125,7 +125,7 @@ export default function DevActivity() {
             Coding <span style={{ color:"rgba(255,255,255,0.3)" }}>Footprint</span>
           </h2>
           <p className="mt-3 text-base max-w-lg" style={{ color:"rgba(255,255,255,0.45)" }}>
-            A year of consistent commits — every square is a day of building something.
+            A year of consistent commits  every square is a day of building something.
           </p>
           <div className="act-line mt-5" />
         </div>

@@ -151,7 +151,7 @@ export default function ChatWidget() {
           >
             <div className="flex items-center gap-3">
               <div className="relative">
-                {/* Bot avatar — white on dark */}
+                {/* Bot avatar  white on dark */}
                 <div
                   className="w-9 h-9 rounded-full flex items-center justify-center"
                   style={{ background: "rgba(255,255,255,0.1)", border: `1px solid ${V.border}` }}

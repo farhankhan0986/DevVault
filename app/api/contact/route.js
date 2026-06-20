@@ -26,7 +26,7 @@ export async function POST(req) {
       from: "Portfolio Contact <onboarding@resend.dev>",
       to: [process.env.TO_EMAIL],
       replyTo: email,
-      subject: `New message from ${name} — Portfolio`,
+      subject: `New message from ${name}  Portfolio`,
       html: `
         <div style="font-family: system-ui, sans-serif; max-width: 600px; margin: 0 auto; background: #0a0a0a; color: #ededed; padding: 40px; border-radius: 12px; border: 1px solid #1f1f1f;">
           <h2 style="margin: 0 0 8px; font-size: 22px; color: #fff;">New Contact Message</h2>

@@ -96,7 +96,7 @@ export default function Footer() {
         {/* ── Bottom bar ── */}
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
           <p className="text-xs text-muted" suppressHydrationWarning>
-            © {new Date().getFullYear()} Farhan Abid — Built with Next.js &amp; ☕
+            © {new Date().getFullYear()} Farhan Abid  Built with Next.js &amp; ☕
           </p>
           <div className="flex items-center gap-3">
             <span className="text-xs text-muted">Designed &amp; developed by me</span>

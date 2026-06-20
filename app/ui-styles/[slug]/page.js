@@ -42,7 +42,7 @@ function MinimalistPage() {
       id: "01", title: "Meridian Studio", type: "Brand Identity & Visual Language",
       year: "2025", tags: ["Identity", "Typography", "Print"],
       color: "#f2ede7", accent: "#8b7355",
-      desc: "Complete rebrand for a Copenhagen-based architecture firm — from mark to material.",
+      desc: "Complete rebrand for a Copenhagen-based architecture firm  from mark to material.",
     },
     {
       id: "02", title: "Forma App", type: "Product Design & Design System",
@@ -149,12 +149,12 @@ function MinimalistPage() {
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 48 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
             <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#22c55e", animation: "pulse-dot 2s ease-in-out infinite" }} />
-            <span style={{ fontSize: "0.72rem", letterSpacing: ".12em", textTransform: "uppercase", color: "#999", fontWeight: 500 }}>Available for projects — 2025</span>
+            <span style={{ fontSize: "0.72rem", letterSpacing: ".12em", textTransform: "uppercase", color: "#999", fontWeight: 500 }}>Available for projects  2025</span>
           </div>
           <span style={{ fontSize: "0.72rem", color: "#bbb", letterSpacing: ".08em" }}>Based in Berlin, DE</span>
         </div>
 
-        {/* Main headline — mix of serif and sans */}
+        {/* Main headline  mix of serif and sans */}
         <h1 style={{ fontSize: "clamp(3rem,7.5vw,8rem)", fontWeight: 300, lineHeight: 1.0, letterSpacing: "-0.04em", marginBottom: 48, color: "#0a0a0a", maxWidth: 1000 }}>
           <span style={{ fontFamily: T.sans, display: "block" }}>Design that</span>
           <span style={{ fontFamily: T.serif, fontStyle: "italic", fontWeight: 300, display: "block", color: "#555" }}>speaks</span>
@@ -164,7 +164,7 @@ function MinimalistPage() {
         {/* Bottom row */}
         <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end" }}>
           <p style={{ fontSize: "1rem", color: "#666", lineHeight: 1.75, maxWidth: 380, fontWeight: 300 }}>
-            A design practice building minimal, purpose-driven digital products — where every element earns its place.
+            A design practice building minimal, purpose-driven digital products  where every element earns its place.
           </p>
           <div style={{ display: "flex", flexDirection: "column", alignItems: "flex-end", gap: 16 }}>
             <a href="#work" style={{
@@ -271,7 +271,7 @@ function MinimalistPage() {
             <p style={{ fontFamily: T.serif, fontStyle: "italic", fontSize: "clamp(1.6rem,3.5vw,3rem)", fontWeight: 300, color: "#fff", letterSpacing: "-0.03em", lineHeight: 1.3, marginBottom: 24 }}>
               &ldquo;Remove what&apos;s unnecessary until only truth remains. Then remove a little more.&rdquo;
             </p>
-            <cite style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.35)", fontStyle: "normal", letterSpacing: ".08em", textTransform: "uppercase" }}>— Studio Design Manifesto, 2019</cite>
+            <cite style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.35)", fontStyle: "normal", letterSpacing: ".08em", textTransform: "uppercase" }}> Studio Design Manifesto, 2019</cite>
           </blockquote>
         </div>
       </section>
@@ -363,7 +363,7 @@ function MinimalistPage() {
       <footer style={{ borderTop: "1px solid #ebebeb", padding: "28px 40px" }}>
         <div style={{ maxWidth: 1160, margin: "0 auto", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
           <span style={{ fontFamily: T.serif, fontStyle: "italic", fontSize: "0.95rem", color: "#aaa" }}>Studio.</span>
-          <span style={{ fontSize: "0.72rem", color: "#ccc", letterSpacing: ".06em" }}>© 2025 — Crafted with intention</span>
+          <span style={{ fontSize: "0.72rem", color: "#ccc", letterSpacing: ".06em" }}>© 2025  Crafted with intention</span>
           <BackBtn light />
         </div>
       </footer>
@@ -395,7 +395,7 @@ function SaaSPage() {
     { icon: TrendingUp, title: "Retention Curves", desc: "See exactly where users drop off. Visualise day-1, day-7, and day-30 retention by any segment or feature." },
     { icon: FileText, title: "Custom Reports", desc: "Drag-and-drop report builder. Export to CSV, schedule email digests, or embed in Notion and Confluence." },
     { icon: Shield, title: "SOC 2 Certified", desc: "End-to-end encryption, role-based access, SSO via SAML, and a private cloud option for regulated industries." },
-    { icon: Zap, title: "Sub-50ms Queries", desc: "Built on ClickHouse. Query billions of rows in under 50ms — no pre-aggregation, no sampling, no waiting." },
+    { icon: Zap, title: "Sub-50ms Queries", desc: "Built on ClickHouse. Query billions of rows in under 50ms  no pre-aggregation, no sampling, no waiting." },
   ];
 
   const testimonials = [
@@ -454,7 +454,7 @@ function SaaSPage() {
       <div style={{ background: C.accentDim, borderBottom: `1px solid ${C.border}`, padding: "9px 32px", display: "flex", alignItems: "center", justifyContent: "center", gap: 8 }}>
         <div style={{ width: 6, height: 6, borderRadius: "50%", background: C.accent }} />
         <span style={{ fontSize: "0.78rem", color: "rgba(255,255,255,0.7)", fontWeight: 400 }}>
-          Metrica v3.0 — Custom SQL explorer, SOC 2 Type II, and 3× faster queries.
+          Metrica v3.0  Custom SQL explorer, SOC 2 Type II, and 3× faster queries.
         </span>
         <a href="#" style={{ fontSize: "0.78rem", color: C.accent, textDecoration: "none", fontWeight: 600 }}>What's new →</a>
       </div>
@@ -468,10 +468,10 @@ function SaaSPage() {
           Product analytics that<br />your team will actually use.
         </h1>
         <p style={{ fontSize: "1.05rem", color: C.muted, maxWidth: 520, margin: "0 auto 40px", lineHeight: 1.75, fontWeight: 400 }}>
-          Track events, build funnels, understand retention, and ship better features — without a data team or a PhD in SQL.
+          Track events, build funnels, understand retention, and ship better features  without a data team or a PhD in SQL.
         </p>
         <div style={{ display: "flex", gap: 10, justifyContent: "center", marginBottom: 20 }}>
-          <a href="#" style={{ fontSize: "0.88rem", fontWeight: 600, color: "#fff", background: C.accent, padding: "11px 24px", borderRadius: 8, textDecoration: "none" }}>Start free — no card needed</a>
+          <a href="#" style={{ fontSize: "0.88rem", fontWeight: 600, color: "#fff", background: C.accent, padding: "11px 24px", borderRadius: 8, textDecoration: "none" }}>Start free  no card needed</a>
           <a href="#" style={{ fontSize: "0.88rem", fontWeight: 500, color: C.text, background: C.surface, border: `1px solid ${C.border}`, padding: "11px 24px", borderRadius: 8, textDecoration: "none" }}>Book a 20-min demo</a>
         </div>
         <p style={{ fontSize: "0.72rem", color: C.faint }}>14-day free trial · Migrate from Mixpanel in 10 minutes · Cancel anytime</p>
@@ -526,7 +526,7 @@ function SaaSPage() {
               {/* Chart */}
               <div style={{ background: C.bg, border: `1px solid ${C.border}`, borderRadius: 8, padding: "14px 16px" }}>
                 <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 12 }}>
-                  <span style={{ fontSize: "0.72rem", fontWeight: 600, color: C.text }}>Active Users — 12 months</span>
+                  <span style={{ fontSize: "0.72rem", fontWeight: 600, color: C.text }}>Active Users  12 months</span>
                   <span style={{ fontSize: "0.68rem", color: C.green, fontWeight: 600 }}>↑ 34% YoY</span>
                 </div>
                 <div style={{ display: "flex", alignItems: "flex-end", gap: 4, height: 90 }}>
@@ -886,7 +886,7 @@ function BrutalismPage() {
           <h1 style={{ fontSize: "clamp(1.5rem,4vw,2.5rem)", fontWeight: 900, letterSpacing: "-0.02em", lineHeight: 1, textTransform: "uppercase" }}>
             BRUTAL<span style={{ background: "#FFE000", padding: "0 6px" }}>FORM</span>
           </h1>
-          <p style={{ fontSize: "0.68rem", letterSpacing: ".1em", marginTop: 5, color: "#555" }}>CREATIVE STUDIO — EST. 2019</p>
+          <p style={{ fontSize: "0.68rem", letterSpacing: ".1em", marginTop: 5, color: "#555" }}>CREATIVE STUDIO  EST. 2019</p>
         </div>
         <div style={{ padding: "20px 24px", display: "flex", alignItems: "center" }}>
           <BackBtn light />
@@ -900,7 +900,7 @@ function BrutalismPage() {
             WE MAKE UGLY<br />BEAUTIFUL.
           </h2>
           <p style={{ fontSize: "0.88rem", lineHeight: 1.7, color: "#333", borderLeft: "4px solid #FFE000", paddingLeft: 14, maxWidth: 400, marginBottom: 28 }}>
-            We reject templates, safe choices, and beige design. Every pixel is intentional — loud and unapologetic.
+            We reject templates, safe choices, and beige design. Every pixel is intentional  loud and unapologetic.
           </p>
           <div style={{ display: "flex" }}>
             <a href="#" style={{ border, background: "#000", color: "#fff", padding: "14px 28px", fontFamily: "inherit", fontWeight: 900, fontSize: "0.88rem", textDecoration: "none", textTransform: "uppercase", letterSpacing: ".06em" }}>HIRE US</a>
@@ -1173,7 +1173,7 @@ function AIAssistantPage() {
   const messages = [
     { role: "ai", text: "Hello! I'm Nexus AI. I can help you with code, analysis, writing, and complex problem-solving. What would you like to explore today?" },
     { role: "user", text: "Can you explain the difference between useCallback and useMemo in React?" },
-    { role: "ai", text: "Great question! Both are React hooks that memoize values to prevent unnecessary re-computations:\n\n• useCallback memoizes a function — returns the same reference between renders unless dependencies change. Best for passing stable callbacks to child components.\n\n• useMemo memoizes a computed value — runs a function and caches the result. Use it for expensive calculations.\n\nKey insight: useCallback(fn, deps) ≡ useMemo(() => fn, deps)." },
+    { role: "ai", text: "Great question! Both are React hooks that memoize values to prevent unnecessary re-computations:\n\n• useCallback memoizes a function  returns the same reference between renders unless dependencies change. Best for passing stable callbacks to child components.\n\n• useMemo memoizes a computed value  runs a function and caches the result. Use it for expensive calculations.\n\nKey insight: useCallback(fn, deps) ≡ useMemo(() => fn, deps)." },
     { role: "user", text: "When should I actually use them vs just writing normal functions?" },
   ];
   return (
@@ -1280,7 +1280,7 @@ function EcommercePage() {
       </nav>
 
       <div style={{ background: "#111", color: "#fff", textAlign: "center", padding: "11px", fontSize: "0.75rem", letterSpacing: ".06em" }}>
-        FREE SHIPPING ON ORDERS OVER $100 — USE CODE <strong>FORMA25</strong>
+        FREE SHIPPING ON ORDERS OVER $100  USE CODE <strong>FORMA25</strong>
       </div>
 
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px" }}>
@@ -1376,7 +1376,7 @@ function LandingPage() {
           <span style={{ background: "linear-gradient(90deg,#6366f1,#8b5cf6,#ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Scale further.</span>
         </h1>
         <p style={{ fontSize: "1.15rem", color: "rgba(255,255,255,0.45)", maxWidth: 540, margin: "0 auto 44px", lineHeight: 1.7, position: "relative" }}>
-          The all-in-one platform for modern startups. From idea to production in a single afternoon — no DevOps PhD required.
+          The all-in-one platform for modern startups. From idea to production in a single afternoon  no DevOps PhD required.
         </p>
         <div style={{ display: "flex", gap: 12, justifyContent: "center", marginBottom: 24, flexWrap: "wrap", position: "relative" }}>
           <a href="#" style={{ background: "linear-gradient(135deg,#6366f1,#8b5cf6)", color: "#fff", padding: "15px 36px", borderRadius: 12, fontSize: "1rem", fontWeight: 700, textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>

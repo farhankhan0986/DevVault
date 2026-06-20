@@ -100,7 +100,7 @@ export default function Contact() {
         {/* ── Main two-column grid ── */}
         <div className="grid grid-cols-1 lg:grid-cols-5 gap-8 items-start">
 
-          {/* LEFT — Info panel (2 cols) */}
+          {/* LEFT  Info panel (2 cols) */}
           <div className={`lg:col-span-2 space-y-5 ct-fade ${inView ? "ct-visible" : ""}`}
             style={{ animationDelay: "0.1s" }}>
 
@@ -155,7 +155,7 @@ export default function Contact() {
             </div>
           </div>
 
-          {/* RIGHT — Form card (3 cols) */}
+          {/* RIGHT  Form card (3 cols) */}
           <div className={`lg:col-span-3 ct-fade ${inView ? "ct-visible" : ""}`}
             style={{ animationDelay: "0.2s" }}>
             <div className="ct-form-card">
@@ -186,7 +186,7 @@ export default function Contact() {
                     </div>
                     <div>
                       <h4 className="text-lg font-bold text-foreground mb-1">Message sent! 🎉</h4>
-                      <p className="text-sm text-muted">Thanks for reaching out — I&apos;ll be in touch shortly.</p>
+                      <p className="text-sm text-muted">Thanks for reaching out  I&apos;ll be in touch shortly.</p>
                     </div>
                     <button onClick={() => setStatus("idle")}
                       className="text-xs font-semibold text-muted hover:text-foreground transition-colors mt-1 underline underline-offset-4">

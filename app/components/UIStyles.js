@@ -189,12 +189,12 @@ function LandingPagePreview() {
 const UI_STYLES = [
   { slug: "minimalist",    name: "Minimalist UI",       desc: "Clean, spacious, content-first design with generous whitespace and no visual noise.",                  useCases: ["Portfolios", "Blogs", "Docs"],           Preview: MinimalistPreview, accent: "#888" },
   { slug: "saas",          name: "Modern SaaS UI",      desc: "Dark-themed, data-rich interfaces with accent colors, metric cards, and smooth interactions.",         useCases: ["SaaS Apps", "Analytics", "Dashboards"],  Preview: SaaSPreview, accent: "#6366f1" },
-  { slug: "glassmorphism", name: "Glassmorphism",       desc: "Frosted glass panels with blur, translucency, and subtle glow — visually rich and premium.",           useCases: ["Landing Pages", "Apps", "Music"],        Preview: GlassPreview, accent: "#764ba2" },
-  { slug: "neumorphism",   name: "Neumorphism",         desc: "Soft extruded UI with light and shadow — tactile, calm, and uniquely modern.",                        useCases: ["Dashboards", "Health", "Finance"],       Preview: NeumorphismPreview, accent: "#6b9fca" },
-  { slug: "brutalism",     name: "Brutalism",           desc: "Raw, high-contrast, unapologetically bold — aesthetics that demand attention.",                        useCases: ["Agencies", "Art", "Media"],              Preview: BrutalismPreview, accent: "#FFE000" },
-  { slug: "material",      name: "Material Design",     desc: "Google's design system — elevation shadows, bold colour, and structured layouts.",                     useCases: ["Mobile Apps", "Enterprise", "Web Apps"], Preview: MaterialPreview, accent: "#6200ea" },
+  { slug: "glassmorphism", name: "Glassmorphism",       desc: "Frosted glass panels with blur, translucency, and subtle glow  visually rich and premium.",           useCases: ["Landing Pages", "Apps", "Music"],        Preview: GlassPreview, accent: "#764ba2" },
+  { slug: "neumorphism",   name: "Neumorphism",         desc: "Soft extruded UI with light and shadow  tactile, calm, and uniquely modern.",                        useCases: ["Dashboards", "Health", "Finance"],       Preview: NeumorphismPreview, accent: "#6b9fca" },
+  { slug: "brutalism",     name: "Brutalism",           desc: "Raw, high-contrast, unapologetically bold  aesthetics that demand attention.",                        useCases: ["Agencies", "Art", "Media"],              Preview: BrutalismPreview, accent: "#FFE000" },
+  { slug: "material",      name: "Material Design",     desc: "Google's design system  elevation shadows, bold colour, and structured layouts.",                     useCases: ["Mobile Apps", "Enterprise", "Web Apps"], Preview: MaterialPreview, accent: "#6200ea" },
   { slug: "dashboard",     name: "Dashboard / Admin UI",desc: "Data-heavy interfaces with charts, tables, KPI cards, and efficient information density.",             useCases: ["Admin Panels", "Analytics", "CRMs"],     Preview: DashboardPreview, accent: "#3b82f6" },
-  { slug: "ai-assistant",  name: "AI Assistant UI",     desc: "Conversational chat interfaces inspired by ChatGPT and Perplexity — minimal and focused.",            useCases: ["Chatbots", "AI Tools", "Assistants"],    Preview: AIAssistantPreview, accent: "#8b5cf6" },
+  { slug: "ai-assistant",  name: "AI Assistant UI",     desc: "Conversational chat interfaces inspired by ChatGPT and Perplexity  minimal and focused.",            useCases: ["Chatbots", "AI Tools", "Assistants"],    Preview: AIAssistantPreview, accent: "#8b5cf6" },
   { slug: "ecommerce",     name: "E-commerce UI",       desc: "Product-first layouts with clear CTAs, clean cards, and conversion-optimised flows.",                  useCases: ["Online Stores", "Marketplaces", "Shops"], Preview: EcommercePreview, accent: "#e5e7eb" },
   { slug: "landing-page",  name: "Landing Page UI",     desc: "Hero-first, persuasive layouts designed to convert visitors into leads or customers.",                  useCases: ["Startups", "Products", "Campaigns"],     Preview: LandingPagePreview, accent: "#6366f1" },
 ];
@@ -240,7 +240,7 @@ export default function UIStyles() {
             Design <span style={{ color: "rgba(255,255,255,0.25)" }}>Styles</span>
           </h2>
           <p className="text-muted text-lg max-w-2xl leading-relaxed">
-            Every project gets the design direction that fits its audience. Here are the styles I can build — pick one or blend them to match your brand.
+            Every project gets the design direction that fits its audience. Here are the styles I can build  pick one or blend them to match your brand.
           </p>
           <div className="section-line mt-6" />
         </div>

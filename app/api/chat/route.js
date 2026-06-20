@@ -1,6 +1,6 @@
 /**
  * ═══════════════════════════════════════════════════════════════
- * /api/chat — THE AI AGENT ENDPOINT
+ * /api/chat  THE AI AGENT ENDPOINT
  * ═══════════════════════════════════════════════════════════════
  * 
  * ARCHITECTURE:
@@ -13,15 +13,15 @@
  *   Feels instant and interactive (like ChatGPT).
  * 
  * HOW STREAMING WORKS:
- * 1. We tell Groq to "stream: true" — it sends Server-Sent Events (SSE)
+ * 1. We tell Groq to "stream: true"  it sends Server-Sent Events (SSE)
  * 2. Each SSE chunk contains 1-3 tokens (words/word-parts)
  * 3. We read these chunks and pipe them to the browser via ReadableStream
  * 4. The browser reads the stream and appends each chunk to the UI
  * 
  * WHY GROQ?
  * - Free tier with generous limits
- * - Runs Llama 3.3 70B — extremely fast (500+ tokens/sec on Groq's LPU)
- * - OpenAI-compatible API — easy to swap to OpenAI/Anthropic later
+ * - Runs Llama 3.3 70B  extremely fast (500+ tokens/sec on Groq's LPU)
+ * - OpenAI-compatible API  easy to swap to OpenAI/Anthropic later
  */
 
 import { FARHAN_SYSTEM_PROMPT } from "@/lib/farhan-context";
@@ -35,7 +35,7 @@ export async function POST(request) {
     /**
      * WHY we receive the full message history (not just the latest message):
      * 
-     * LLMs are STATELESS — they don't remember previous conversations.
+     * LLMs are STATELESS  they don't remember previous conversations.
      * Every API call is independent. To maintain context, we must send
      * the ENTIRE conversation history each time.
      * 
@@ -46,7 +46,7 @@ export async function POST(request) {
      *     has NO IDEA what "the backend ones" refers to.
      *   - By sending the full history, it understands the context.
      * 
-     * This is called "conversation memory" — the simplest form.
+     * This is called "conversation memory"  the simplest form.
      * More advanced forms: summarization memory, vector memory, etc.
      */
 
@@ -182,8 +182,8 @@ export async function POST(request) {
     const stream = new ReadableStream({
       async start(controller) {
         /**
-         * controller.enqueue() — pushes data into the stream (browser receives it)
-         * controller.close() — signals "I'm done, no more data"
+         * controller.enqueue()  pushes data into the stream (browser receives it)
+         * controller.close()  signals "I'm done, no more data"
          * 
          * We're inside an async generator pattern here.
          */
@@ -238,7 +238,7 @@ export async function POST(request) {
                   controller.enqueue(encoder.encode(content));
                 }
               } catch {
-                // Malformed JSON chunk — skip it
+                // Malformed JSON chunk  skip it
                 // This can happen with SSE; it's normal
               }
             }
@@ -257,9 +257,9 @@ export async function POST(request) {
      * We return a standard Response with our ReadableStream as the body.
      * 
      * Headers explained:
-     * - Content-Type: text/plain — we're sending raw text, not JSON
-     * - Cache-Control: no-cache — don't cache AI responses (they should be fresh)
-     * - Transfer-Encoding: chunked — tells the browser to expect streaming data
+     * - Content-Type: text/plain  we're sending raw text, not JSON
+     * - Cache-Control: no-cache  don't cache AI responses (they should be fresh)
+     * - Transfer-Encoding: chunked  tells the browser to expect streaming data
      */
     return new Response(stream, {
       headers: {

@@ -30,7 +30,7 @@ const projects = [
     id: 2,
     title: "Entry",
     description:
-      "A full-stack editorial platform for writers, thinkers, and creators. Entry blends a premium minimalist blog CMS, journal features, and a suite of productivity tools—including a personality quiz, AI prompt optimizer, Pomodoro timer, salary benchmarking tool, and text converter—for a focused, beautiful writing and reading experience.",
+      "A full-stack editorial platform for writers, thinkers, and creators. Entry blends a premium minimalist blog CMS, journal features, and a suite of productivity toolsincluding a personality quiz, AI prompt optimizer, Pomodoro timer, salary benchmarking tool, and text converterfor a focused, beautiful writing and reading experience.",
     image: "images/entry.png",
     tech: [
       "Next.js 16 (App Router)",

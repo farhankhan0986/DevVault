@@ -133,12 +133,12 @@ export default async function ProjectDetail({ params }) {
         "Frontend deployed on Vercel with separate backend hosting",
       ],
       features: [
-        "AI prompt generation — transform rough ideas into production-grade prompts using LLaMA 3.3 70B via Groq",
+        "AI prompt generation  transform rough ideas into production-grade prompts using LLaMA 3.3 70B via Groq",
         "Save and organize prompts with custom titles, categories, and comma-separated tags",
         "Full-text search across titles, categories, tags, and prompt content",
         "Analytics dashboard with bar charts for category distribution, top tags breakdown, and recent prompts",
         "Secure user registration and login with bcrypt hashing and JWT tokens",
-        "Account management — change password, delete all prompts, or delete account",
+        "Account management  change password, delete all prompts, or delete account",
         "One-click copy to clipboard for generated prompts",
         "Responsive design that works seamlessly on desktop and mobile",
       ],
@@ -444,7 +444,7 @@ export default async function ProjectDetail({ params }) {
         "Rule-based instant channel insights card for engagement leader, cadence, trending, and performance momentum",
         "Sortable, filterable video table with views, likes, comments, publish date, engagement rate (color-coded) & trending badges",
         "Dual charting: top 5 bar chart and views vs. engagement scatter plot, toggle with one click",
-        "Shareable analysis URLs — ?channel= link auto-load and one-click example channels for demo/UX",
+        "Shareable analysis URLs  ?channel= link auto-load and one-click example channels for demo/UX",
         "CSV export including calculated engagement data for offline reporting",
         "Polished, branded design with dark/light mode, animations, skeleton loaders, and custom SVG logo"
       ],
@@ -466,7 +466,7 @@ export default async function ProjectDetail({ params }) {
       title: "RAG AI Chatbot",
       role: "Full-Stack Engineer & AI Integration Specialist",
       description:
-        "RAG AI Chatbot is a production-ready, retrieval-augmented AI chatbot platform. It enables users to ask questions about any embedded dataset—websites, documentation, or personal content—using natural language. Answers are accurate, context-grounded, and cite their sources, all through a fast Next.js App Router UI with secure serverless backend, semantic search, and Groq/Cohere-powered LLM integration.",
+        "RAG AI Chatbot is a production-ready, retrieval-augmented AI chatbot platform. It enables users to ask questions about any embedded datasetwebsites, documentation, or personal contentusing natural language. Answers are accurate, context-grounded, and cite their sources, all through a fast Next.js App Router UI with secure serverless backend, semantic search, and Groq/Cohere-powered LLM integration.",
       problem:
         "Traditional chatbots often hallucinate or fail to answer enterprise/documentation-specific queries, because their LLMs don’t know your custom content. Most solutions lack clear citations or require complex integration to work over private data, leaving teams and users uncertain about AI accuracy.",
       solution:
@@ -516,9 +516,9 @@ export default async function ProjectDetail({ params }) {
       title: "Entry",
       role: "Creator, Full-Stack Engineer",
       description:
-        "Entry is a modern editorial platform for writers and creators, aiming to provide distraction-free publishing with the design quality of premium online magazines. Beyond personal blogging and journaling, Entry provides a suite of productivity tools—including a personality discovery quiz, AI prompt optimizer using Groq LLMs, a Pomodoro focus timer, a market salary checker, and a multi-format text converter. Users get seamless publishing, dynamic themes, OAuth logins, and analytics. The platform features real-time likes/views/comments, portfolios, rich tech editorial content, and a robust dashboard for writers.",
+        "Entry is a modern editorial platform for writers and creators, aiming to provide distraction-free publishing with the design quality of premium online magazines. Beyond personal blogging and journaling, Entry provides a suite of productivity toolsincluding a personality discovery quiz, AI prompt optimizer using Groq LLMs, a Pomodoro focus timer, a market salary checker, and a multi-format text converter. Users get seamless publishing, dynamic themes, OAuth logins, and analytics. The platform features real-time likes/views/comments, portfolios, rich tech editorial content, and a robust dashboard for writers.",
       problem:
-        "Most blogging platforms split between overly technical CMSs, noisy social feeds, or underpowered minimal journals—rarely offering both editorial polish and creators-first productivity. Writers lack a place to publish and showcase their work with fine typography, distraction-free interface, and built-in tools that genuinely aid both writing and discovery. There is also no open, beautiful, and social space that fuses blog publishing, portfolio building, and habit-forming productivity tools in one coherent product.",
+        "Most blogging platforms split between overly technical CMSs, noisy social feeds, or underpowered minimal journalsrarely offering both editorial polish and creators-first productivity. Writers lack a place to publish and showcase their work with fine typography, distraction-free interface, and built-in tools that genuinely aid both writing and discovery. There is also no open, beautiful, and social space that fuses blog publishing, portfolio building, and habit-forming productivity tools in one coherent product.",
       solution:
         "Developed Entry from scratch as a full-stack Next.js 16 application, combining classic editorial UX with productivity-oriented components (AI-powered prompt optimizer, Pomodoro, salary checker, converter). Server components fetch data (blogs, comments, stats) directly, while MongoDB & static content are merged at the server. Features include a full markdown/HTML editor, Google/GitHub OAuth, public author profiles, animated multi-theme support, live engagement stats (likes/views with IP deduplication), Cloudinary image handling, and proactive design/tech like React Compiler, Framer Motion, and Vercel Analytics. Everything is built with a typography-first, performance-by-default mindset.",
       tech: [
