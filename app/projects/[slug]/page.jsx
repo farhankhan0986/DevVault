@@ -702,7 +702,209 @@ text_utils_react:{
     "Handling uncertain or ambiguous data when verifying facts"
   ],
   github: "https://github.com/farhankhan0986/Text-Utils-react"
-}
+},
+tripile_crm: {
+  title: "Tripile_CRM",
+  role: "Developer",
+  description:
+    "Tripile_CRM is a comprehensive full-stack Customer Relationship Management system tailored for travel agencies. It centralizes customer records, booking operations, follow-up task tracking, and pending work management within a secure, role-aware dashboard. Built with Next.js 16 App Router and React 19, the platform uses JWT authentication with httpOnly cookies, MongoDB Atlas via Mongoose, and Zod-powered server validation. Sensitive customer fields are protected with AES-256 encryption, while bcryptjs secures user passwords. The system also includes an audit logging layer for traceability, plus role-scoped data access so agents only see their assigned accounts and work items.",
+  problem:
+    "Travel agencies often rely on fragmented tools and manual tracking for customer communication, booking status updates, and internal follow-ups. This creates poor visibility, missed deadlines, duplicate work, and inconsistent accountability across teams. In addition, generic CRM systems may not support strict role-based data scoping, operational queues, and sensitive data handling needed in travel workflows.",
+  solution:
+    "Developed Tripile_CRM as a purpose-built CRM solution for travel operations, combining customer lifecycle management, booking management, task workflows, and a pending-work queue in one platform. Implemented robust RBAC for Super Admin, Manager, and Agent roles to enforce data and action boundaries at the API query level. Added secure authentication with JWT cookies, encrypted sensitive fields using AES-256, and protected credentials with bcryptjs. Integrated dashboard insights for overdue tasks and high-priority work, plus a structured audit trail (last 200 events) to improve transparency and accountability. This unified architecture significantly improves operational efficiency, security, and team coordination.",
+  tech: [
+    "Next.js 16 (App Router)",
+    "React 19",
+    "JavaScript (ES Modules)",
+    "Tailwind CSS v4",
+    "MongoDB Atlas",
+    "Mongoose 9",
+    "JWT Authentication (httpOnly cookies, 7-day expiry)",
+    "Zod 4",
+    "bcryptjs (salt rounds: 10)",
+    "AES-256 Field-Level Encryption",
+    "Lucide React"
+  ],
+  architecture: [
+    "App Router structure with auth routes and protected dashboard routes",
+    "REST-style API routes for auth, customers, bookings, tasks, pending-work, users, dashboard, and audit-logs",
+    "MongoDB data layer with Mongoose models: User, Customer, Booking, Task, PendingWork, SensitiveData, AuditLog",
+    "JWT auth utilities with cookie helpers in lib/auth.js",
+    "Zod schema validation on server-side request handling",
+    "Role-scoped query enforcement at API/database level for secure multi-role access",
+    "AES-256 utility for encrypting sensitive customer information",
+    "Audit logging helper for structured activity trail across key entities",
+    "Reusable component system for layout, forms, and UI primitives"
+  ],
+  learnings: [
+    "Designing production-grade RBAC with role-specific permissions and query-level scoping",
+    "Building secure auth flows using JWT in httpOnly cookies within Next.js",
+    "Implementing field-level encryption for sensitive business data",
+    "Designing workflow-centric modules (tasks and pending work) with priority/status lifecycle",
+    "Using audit logs for accountability, traceability, and operational diagnostics",
+    "Structuring scalable full-stack apps with App Router + modular API architecture"
+  ],
+  github: "https://github.com/farhankhan0986/tripile-crm"
+},
+
+brute: {
+  title: "BRUTE.",
+  role: "Developer",
+  description:
+    "BRUTE. is a comprehensive Neo-Brutalist editorial and agency portfolio platform designed to present culture-driven content and creative case studies with maximum visual impact. The project blends magazine-style storytelling with agency showcase architecture, using Next.js 16 App Router and Tailwind CSS v4 to deliver a rigid, high-contrast, no-compromise interface. It supports dynamic article and work detail routes, animated micro-interactions, ticker-based motion, and glitch-card effects, while integrating MongoDB through Mongoose for scalable project data management. A static data fallback system ensures the app remains fully previewable even without database configuration.",
+  problem:
+    "Most portfolio and editorial websites overuse polished, homogeneous design patterns that weaken brand distinctiveness and reduce emotional impact. Creative agencies and design-led studios need platforms that can communicate strong identity, experimental art direction, and structured storytelling in one place. At the same time, relying entirely on live database infrastructure can make development previews and deployments fragile when environment variables are missing.",
+  solution:
+    "Developed BRUTE. as a Neo-Brutalist, performance-oriented web platform that merges editorial publishing and case-study presentation in a unified architecture. Built on Next.js 16 with App Router and Turbopack, the application uses Tailwind CSS v4 to enforce strict visual rules (thick black borders, electric yellow accents, square geometry, and bold typography). The system includes dynamic routes for articles and work pages, reusable layout components, API-driven project retrieval, and MongoDB/Mongoose integration for flexible content expansion. To improve reliability and developer experience, the app includes static seed fallbacks from local data files when MONGODB_URI is not provided. Interactive animations (glitch effects, marquee ticker, fade-up transitions, and sidebar hover state transitions) create a memorable, brand-consistent user experience.",
+  tech: [
+    "Next.js 16 (App Router, Turbopack)",
+    "JavaScript (ES Modules)",
+    "Tailwind CSS v4",
+    "MongoDB",
+    "Mongoose",
+    "PostCSS",
+    "Google Fonts (Space Grotesk via next/font/google)",
+    "Custom SVG Icon System"
+  ],
+  architecture: [
+    "App Router structure with route segments for article/[slug] and work/[slug]",
+    "API endpoint at /api/projects for dynamic project retrieval",
+    "Database connectivity through lib/mongodb.js singleton client",
+    "Mongoose Project schema in models/Project.js for structured case-study data",
+    "Static seed fallback via data/articles.js and data/projects.js when DB is unavailable",
+    "Component-driven UI architecture (Sidebar, Hero, ArticleGrid, Manifesto, Editorial, Footer, ArticleLayout)",
+    "Global animation and theme behaviors centralized in app/globals.css"
+  ],
+  learnings: [
+    "Implementing strict Neo-Brutalist systems with Tailwind CSS v4 tokens and constraints",
+    "Designing resilient data architecture with static fallback + dynamic MongoDB integration",
+    "Building expressive, GPU-friendly micro-interactions without compromising readability",
+    "Balancing editorial storytelling and portfolio navigation using dynamic Next.js routing",
+    "Creating strong visual identity through typography, border logic, and interactive states"
+  ],
+  github: "https://github.com/farhankhan0986/Brute"
+},
+lumina: {
+  title: "Forma",
+  role: "Developer",
+  description:
+    "Forma is a multi-artist virtual gallery platform designed to present digital art through immersive, artist-specific exhibition spaces instead of static portfolio pages. The system delivers a cinematic browsing experience through 3D wireframe scenes, interactive motion effects, custom cursor dynamics, and fluid page transitions. Built with Next.js 14 App Router, react-three-fiber, Framer Motion, and MongoDB via Mongoose, the platform dynamically renders artists and artworks from database collections and auto-generates gallery routes for scalable curation.",
+  problem:
+    "Traditional online portfolios and galleries often provide flat, repetitive viewing patterns that fail to capture the atmosphere and emotional depth of digital art. Artists working with generative, computational, and experimental media need environments that feel curated, interactive, and identity-driven. Without a flexible multi-artist architecture, maintaining custom artist spaces and scalable artwork storytelling becomes difficult.",
+  solution:
+    "Developed Forma as an immersive digital exhibition platform where each artist is represented through a dedicated virtual room and structured narrative flow. Implemented dynamic routing and database-driven rendering so artist rooms and artwork pages are generated automatically from MongoDB records. Enhanced visual storytelling with react-three-fiber wireframe scenes, custom neon/glow styling, Framer Motion transitions, and advanced UI interactions such as parallax sections and radial navigation. Added a controlled seeding workflow for rapid environment bootstrapping and demo setup. This approach transforms online art discovery into a richer, more experiential journey while keeping the platform scalable for future artists and collections.",
+  tech: [
+    "Next.js 14 (App Router)",
+    "React",
+    "JavaScript (ES Modules)",
+    "Tailwind CSS",
+    "Custom CSS (neon glow, keyframes, cursor effects)",
+    "react-three-fiber",
+    "@react-three/drei",
+    "Three.js",
+    "Framer Motion",
+    "MongoDB",
+    "Mongoose (global connection caching)",
+    "Space Grotesk + Inter Typography"
+  ],
+  architecture: [
+    "App Router-based structure with API routes and dynamic gallery routes",
+    "MongoDB-backed artist/artwork collections with Mongoose schemas",
+    "Dynamic route generation for /gallery/[artistSlug] and /gallery/[artistSlug]/[artworkId]",
+    "Server/API endpoints for artist lists, artist detail, artwork lists, and artwork detail",
+    "3D hero scene rendered with react-three-fiber + drei and WebGL boundary handling",
+    "Motion layer using Framer Motion for loaders, transitions, and scroll-linked effects",
+    "Componentized UI system (ArtistGrid, ArtworkGrid, navigation, sections, transition wrappers)",
+    "Seed route to initialize curated demo dataset and ordering metadata"
+  ],
+  learnings: [
+    "Designing immersive frontend systems that blend 3D rendering with traditional React UI",
+    "Building scalable dynamic content architecture using slug/id-based route generation",
+    "Optimizing visual storytelling with motion design and interactive navigation patterns",
+    "Managing MongoDB/Mongoose connections reliably in Next.js App Router environments",
+    "Balancing aesthetic complexity with maintainable component structure"
+  ],
+  github: "https://github.com/farhankhan0986/Forma"
+},
+lumen_rentals: {
+  title: "Lumen Rentals",
+  role: "Full Stack Developer & Product Designer",
+  description:
+    "Lumen Rentals is a modern rental platform designed to serve two primary user groups: individuals searching for new rental properties and existing renters looking to pay their landlords through a centralized platform. Inspired by the business model of Bilt Rewards and the discovery experience of Airbnb, the platform introduces a rewards-driven rental ecosystem where users can explore listings, view property details, and simulate rent payments using credit cards while earning travel rewards and airline miles. The application features a premium, editorial-inspired user experience, interactive property exploration, rewards tracking, map-based property visualization, and a scalable architecture prepared for future integrations with payment processors and property data providers.",
+  problem:
+    "The rental ecosystem is fragmented. Users searching for properties often use separate platforms from those used to manage rent payments. Existing renters rarely receive benefits from one of their largest monthly expenses, while property discovery platforms generally lack integrated financial incentives. There is a growing opportunity to connect rental payments with rewards programs, allowing renters to earn travel benefits while creating a unified experience for both discovering and managing housing.",
+  solution:
+    "Developed Lumen Rentals as a premium rental marketplace and rewards platform that combines property discovery with rent payment experiences. The platform allows users to browse curated rental listings, explore detailed property pages, view interactive maps, and understand the travel rewards they could earn through rent payments. A simulated payment experience demonstrates how renters could pay landlords through the platform using credit cards while accumulating points, airline miles, and travel benefits. The frontend architecture was designed to validate the business concept and user experience before integrating real-world payment infrastructure, rewards systems, and rental listing APIs.",
+  tech: [
+    "TanStack Start",
+    "React 19",
+    "JavaScript (ES Modules)",
+    "Tailwind CSS v4",
+    "shadcn/ui",
+    "Framer Motion",
+    "OpenStreetMap",
+    "Leaflet",
+    "React Query",
+    "Vercel"
+  ],
+  architecture: [
+    "File-based routing using TanStack Start",
+    "Component-driven UI architecture with reusable design system",
+    "Mock property and rewards data layer for MVP validation",
+    "Interactive property listings and detail pages",
+    "OpenStreetMap and Leaflet integration for location visualization",
+    "Frontend-only rewards calculation engine",
+    "Multi-step rent payment simulation workflow",
+    "Responsive mobile-first design with premium UI patterns"
+  ],
+  learnings: [
+    "Designing fintech-inspired user experiences for non-traditional payment flows",
+    "Structuring products around multiple user journeys and business models",
+    "Creating scalable frontend architectures before backend implementation",
+    "Building realistic MVPs using mock data and simulated workflows",
+    "Combining rental discovery experiences with rewards ecosystems",
+    "Implementing modern map experiences using OpenStreetMap and Leaflet"
+  ],
+  github: "https://github.com/farhankhan0986/lumennnnn-9290f35e"
+},
+laptop_compass: {
+  title: "Laptopia",
+  role: "Developer",
+  description:
+    "Laptopia is a full-stack modern web platform built to simplify laptop selection for users with different requirements, budgets, and use cases. Developed using a Lovable starter with TanStack Start, TypeScript, and Vite (running on Bun), the project focuses on delivering a fast, maintainable, and user-friendly decision-support experience. The interface is styled with Tailwind CSS and shadcn/ui components, while ESLint and Prettier ensure consistent code quality across the codebase.",
+  problem:
+    "Choosing the right laptop is often confusing due to a wide variety of specifications, brands, and pricing tiers. Many users are unsure which device best fits their personal or professional needs, and generic product listings rarely provide structured guidance. This can lead to poor purchase decisions, wasted budget, and frustration during the research process.",
+  solution:
+    "Developed Laptopia as a guided laptop discovery experience that helps users navigate options more effectively and align choices with their goals. By leveraging TanStack Start for full-stack structure, TypeScript for safer development, and Vite+Bun for fast iteration and performance, the platform provides a smooth and modern UX foundation. Tailwind CSS and shadcn/ui were used to build a clean, responsive interface with reusable UI primitives. The result is a maintainable, scalable product that reduces decision friction and supports more confident laptop selection.",
+  tech: [
+    "TanStack Start (Full-stack React Framework)",
+    "React",
+    "TypeScript",
+    "Vite",
+    "Bun (package manager + runtime)",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "ESLint",
+    "Prettier"
+  ],
+  architecture: [
+    "Full-stack app structure powered by TanStack Start",
+    "Type-safe frontend/application logic with TypeScript",
+    "Vite-based development and build pipeline",
+    "Bun-managed dependency and script execution workflow",
+    "Component-driven UI architecture with shadcn/ui configuration",
+    "Tailwind CSS utility-first styling for responsive layouts",
+    "Static asset handling via public directory and Vite config"
+  ],
+  learnings: [
+    "Building full-stack React applications with TanStack Start",
+    "Improving reliability and maintainability through TypeScript",
+    "Using Bun + Vite for faster developer workflows",
+    "Designing reusable UI systems with shadcn/ui and Tailwind CSS",
+    "Maintaining cleaner codebases with ESLint and Prettier automation"
+  ],
+  github: "https://github.com/farhankhan0986/laptop-compass"
+},
   };
 
   const project = projects[slug];

@@ -13,6 +13,83 @@ const V = {
 };
 
 const projects = [
+  
+  {
+    id: 65,
+    title: "HireSight-AI",
+    description:
+      "AI-powered recruitment platform that parses PDF resumes using Groq LLMs, extracts candidate skills & experience, and generates match scores against job postings to automate early-stage candidate screening.",
+    image: "/images/hire.png",
+    tech: ["Next.js 15", "Groq AI (Llama)", "MongoDB", "Node.js", "Tailwind CSS", "PDF Parsing", "JWT Auth"],
+    github: "https://github.com/farhankhan0986/HireSight-AI",
+    status: "COMPLETED",
+    highlight: "AI Resume Parsing & Candidate Ranking Engine",
+    href: "https://hire-sight-ai-sigma.vercel.app",
+    slug: "hiresight",
+    featured: true,
+  },
+  
+  {
+  id: 88,
+  title: "Tripile-CRM",
+  description:
+    "Tripile_CRM is a full-stack CRM platform for travel agencies to manage customers, flight bookings, follow-up tasks, and operational work queues. It includes role-based access control so Super Admins, Managers, and Agents can only access permitted data and actions.",
+  image: "/images/tripile-crm.png",
+  tech: [
+    "Next.js 16 (App Router)",
+    "React 19",
+    "JavaScript (ES Modules)",
+    "Tailwind CSS v4",
+    "MongoDB Atlas",
+    "Mongoose 9",
+    "JWT Authentication (httpOnly cookies)",
+    "Zod 4",
+    "bcryptjs",
+    "AES-256 Encryption",
+    "Lucide React"
+  ],
+  github: "https://github.com/farhankhan0986/tripile-crm",
+  status: "COMPLETED",
+  highlight: "Travel Agency CRM with RBAC, Audit Logs, and Operational Workflows",
+  href: "https://tripile-crm.vercel.app",
+  slug: "tripile_crm",
+},
+  {
+    id: 66,
+    title: "Fact-Check-Agent",
+    description:
+      "Fact_Check_Agent is a tool for automated fact verification and information accuracy checking. It assists users in distinguishing factual content from misinformation or unsupported claims, likely using web APIs or LLMs in the backend.",
+    image: "/images/fact.png",
+    tech: [
+      "Next.js 16 (App Router)",
+      "JavaScript (ES Modules)",
+      "Tailwind CSS v4",
+      "Groq API (LLaMA 3.3 70B Versatile)",
+      "Tavily Search API",
+      "unpdf (pdfjs-dist)",
+      "Recharts",
+      "Vercel Analytics",
+      "Vercel"
+    ],
+    github: "https://github.com/farhankhan0986/Fact_Check_Agent",
+    status: "COMPLETED",
+    highlight: "Automated Fact Verification Assistant",
+    href: "https://fact-check-agent.vercel.app/",
+    slug: "fact_check_agent",
+  },
+  {
+    id: 67,
+    title: "RAG AI Chatbot",
+    description:
+      "Production-grade retrieval-augmented chatbot ask questions about your own data using semantic search, chunked embeddings, and verifiable Groq-powered AI answers with citations for every response.",
+    image: "/images/rag.png",
+    tech: ["Next.js 14+", "Groq AI (Llama 3 70B)", "Supabase pgvector", "OpenAI Embeddings", "Tailwind CSS"],
+    github: "https://github.com/farhankhan0986/rag-ai-chatbot",
+    status: "COMPLETED",
+    highlight: "RAG · Cited Context · Semantic Search",
+    href: "https://rag-ai-chatbot-piae.vercel.app/",
+    slug: "ragAiChatbot",
+  },
   {
     id: 19,
     title: "Viblytics",
@@ -39,6 +116,29 @@ const projects = [
     href: "https://sentinel-guard-eb9e.vercel.app/",
     slug: "sentinel-guard",
   },
+  {
+  id: 20,
+  title: "Laptopia",
+  description:
+    "Laptopia is a modern web application that helps users discover and choose the most suitable laptop based on their specific needs and preferences through a guided, user-focused experience.",
+  image: "/images/laptopia.png",
+  tech: [
+    "TanStack Start",
+    "React",
+    "TypeScript",
+    "Vite",
+    "Bun",
+    "Tailwind CSS",
+    "shadcn/ui",
+    "ESLint",
+    "Prettier"
+  ],
+  github: "https://github.com/farhankhan0986/laptop-compass",
+  status: "COMPLETED",
+  highlight: "Smart Laptop Discovery & Recommendation Platform",
+  href: "https://laptopiaaa.lovable.app/",
+  slug: "laptop_compass",
+},
   {
     id: 8,
     title: "Culinaria",
@@ -182,6 +282,7 @@ const projects = [
     href: "https://musical-clafoutis-734d23.netlify.app/",
     slug: "text_utils_react",
   },
+  
 ];
 
 const statusStyles = {

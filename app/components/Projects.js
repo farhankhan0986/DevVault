@@ -13,19 +13,25 @@ const V = {
 
 const projects = [
   {
-    id: 1,
-    title: "HireSight-AI",
-    description:
-      "AI-powered recruitment platform that parses PDF resumes using Groq LLMs, extracts candidate skills & experience, and generates match scores against job postings to automate early-stage candidate screening.",
-    image: "/images/hire.png",
-    tech: ["Next.js 15", "Groq AI (Llama)", "MongoDB", "Node.js", "Tailwind CSS", "PDF Parsing", "JWT Auth"],
-    github: "https://github.com/farhankhan0986/HireSight-AI",
-    status: "COMPLETED",
-    highlight: "AI Resume Parsing & Candidate Ranking Engine",
-    href: "https://hire-sight-ai-sigma.vercel.app",
-    slug: "hiresight",
-    featured: true,
-  },
+  id: 89,
+  title: "BRUTE.",
+  description:
+    "BRUTE. is a minimalist, high-contrast Neo-Brutalist magazine and agency portfolio website focused on design, typography, and culture. It combines editorial storytelling with case-study presentation through confrontational layouts, glitch interactions, and bold visual hierarchy.",
+  image: "/images/brute.png",
+  tech: [
+    "Next.js 16 (App Router)",
+    "JavaScript",
+    "Tailwind CSS v4",
+    "MongoDB",
+    "Framer Motion 12",
+    "Vercel"
+  ],
+  github: "https://github.com/farhankhan0986/Brute",
+  status: "COMPLETED",
+  highlight: "Neo-Brutalist Magazine & Agency Portfolio Experience",
+  href: "https://brute-z5o2.vercel.app/",
+  slug: "brute",
+},
   {
     id: 2,
     title: "Entry",
@@ -52,41 +58,55 @@ const projects = [
     featured: true
   },
   {
-    id: 17,
-    title: "Fact_Check_Agent",
-    description:
-      "Fact_Check_Agent is a tool for automated fact verification and information accuracy checking. It assists users in distinguishing factual content from misinformation or unsupported claims, likely using web APIs or LLMs in the backend.",
-    image: "images/fact.png",
-    tech: [
-      "Next.js 16 (App Router)",
-      "JavaScript (ES Modules)",
-      "Tailwind CSS v4",
-      "Groq API (LLaMA 3.3 70B Versatile)",
-      "Tavily Search API",
-      "unpdf (pdfjs-dist)",
-      "Recharts",
-      "Vercel Analytics",
-      "Vercel"
-    ],
-    github: "https://github.com/farhankhan0986/Fact_Check_Agent",
-    status: "COMPLETED",
-    highlight: "Automated Fact Verification Assistant",
-    href: "https://fact-check-agent.vercel.app/",
-    slug: "fact_check_agent",
-  },
+  id: 90,
+  title: "Forma",
+  description:
+    "Forma is an immersive virtual art gallery platform where multiple digital artists host dedicated exhibition rooms for computational, generative, and pixel-based artworks. It combines interactive 3D visuals, animated transitions, and dynamic content delivery for a curated digital museum experience.",
+  image: "/images/forma.png",
+  tech: [
+    "Next.js 14 (App Router)",
+    "React",
+    "JavaScript (ES Modules)",
+    "Tailwind CSS",
+    "Custom CSS Animations",
+    "react-three-fiber",
+    "@react-three/drei",
+    "Three.js",
+    "Framer Motion",
+    "MongoDB",
+    "Mongoose"
+  ],
+  github: "https://github.com/farhankhan0986/Forma",
+  status: "COMPLETED",
+  highlight: "Immersive Multi-Artist Virtual Gallery Experience",
+  href: "https://forma-black-two.vercel.app/",
+  slug: "lumina",
+},
   {
-    id: 9,
-    title: "RAG AI Chatbot",
-    description:
-      "Production-grade retrieval-augmented chatbot ask questions about your own data using semantic search, chunked embeddings, and verifiable Groq-powered AI answers with citations for every response.",
-    image: "/images/rag.png",
-    tech: ["Next.js 14+", "Groq AI (Llama 3 70B)", "Supabase pgvector", "OpenAI Embeddings", "Tailwind CSS"],
-    github: "https://github.com/farhankhan0986/rag-ai-chatbot",
-    status: "COMPLETED",
-    highlight: "RAG · Cited Context · Semantic Search",
-    href: "https://rag-ai-chatbot-piae.vercel.app/",
-    slug: "ragAiChatbot",
-  },
+  id: 18,
+  title: "Lumen Rentals",
+  description:
+    "Lumen Rentals is a premium rental marketplace and rent-payment platform that combines property discovery with travel rewards. Users can browse rental properties, explore detailed listings, and simulate paying rent through credit cards while earning travel points and rewards. Inspired by Airbnb's rental experience and Bilt's rewards ecosystem, the platform focuses on creating a seamless bridge between housing and travel benefits.",
+  image: "/images/lumen-rentals.png",
+  tech: [
+    "TanStack Start",
+    "React 19",
+    "JavaScript (ES Modules)",
+    "Tailwind CSS v4",
+    "shadcn/ui",
+    "Framer Motion",
+    "OpenStreetMap",
+    "Leaflet",
+    "React Query",
+    "Vercel"
+  ],
+  github: "https://github.com/farhankhan0986/lumennnnn-9290f35e",
+  status: "COMPLETED",
+  highlight: "Rental Payments & Travel Rewards Platform",
+  href: "https://lumennnnn.lovable.app/",
+  slug: "lumen_rentals",
+},
+
 
 ];
 
