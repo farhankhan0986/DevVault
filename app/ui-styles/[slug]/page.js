@@ -1693,119 +1693,376 @@ function DashboardPage() {
 
 /* ─── 8. AI ASSISTANT ─────────────────────────────────────────── */
 function AIAssistantPage() {
-  const [input, setInput] = useState("");
-  const convos = [
-    { title: "Q3 competitive analysis",   date: "Today",     active: true },
-    { title: "Draft investor update",     date: "Today"                   },
-    { title: "Summarize earnings call",   date: "Yesterday"               },
-    { title: "Research: OLED vs AMOLED", date: "Mon"                     },
-    { title: "React 19 release notes",   date: "Mon"                     },
-  ];
-  const messages = [
-    { role: "ai",   text: "I've reviewed your Q3 data. Here's what stands out:\n\n**Revenue**: Up 18.4% YoY, ahead of the 14% target. Enterprise segment led at +31%.\n\n**Churn risk**: 3 accounts flagged — Corvin Ltd ($4.2k ARR), Bridgemont ($6.8k), and NordTech ($12.1k). All three haven't logged in for 21+ days.\n\nWant me to draft a re-engagement sequence for these accounts?" },
-    { role: "user", text: "Yes — draft the re-engagement email for Corvin. Keep it under 4 sentences." },
-    { role: "ai",   text: "Subject: Checking in — anything we can help with?\n\nHi [Name], it's been a few weeks since you've used Scout and we wanted to reach out. Has anything changed on your end, or is there something blocking you from getting full value? We just launched [Feature] that teams in your space have found useful — happy to show you in 15 min.\n\nReply here or book time: [calendar link]" },
-  ];
   const SIDEBAR = "#1b2431";
   const ACCENT  = "#1d4ed8";
-  const groups = [
-    { label: "Today",     items: convos.filter(c => c.date === "Today")     },
-    { label: "Yesterday", items: convos.filter(c => c.date === "Yesterday") },
-    { label: "This week", items: convos.filter(c => c.date === "Mon")       },
+  const FONT    = "'Helvetica Neue', Arial, sans-serif";
+
+  const initMessages = [
+    { id: 1, role: "ai",   text: "I've reviewed your Q3 data. Here's what stands out:\n\n**Revenue**: Up 18.4% YoY, ahead of the 14% target. Enterprise segment led at +31%.\n\n**Churn risk**: 3 accounts flagged — Corvin Ltd ($4.2k ARR), Bridgemont ($6.8k), and NordTech ($12.1k). All three haven't logged in for 21+ days.\n\nWant me to draft a re-engagement sequence for these accounts?", sources: ["Q3 Revenue Report", "CRM Export 2025"], time: "2:14 PM" },
+    { id: 2, role: "user", text: "Yes — draft the re-engagement email for Corvin. Keep it under 4 sentences.", time: "2:15 PM" },
+    { id: 3, role: "ai",   text: "**Subject**: Checking in — anything we can help with?\n\nHi [Name], it's been a few weeks since you've used Scout and we wanted to reach out. Has anything changed on your end, or is there something blocking you from getting full value? We just launched Workspace Reports that teams in your space have found useful — happy to show you in 15 min.\n\nReply here or book time: [calendar link]", sources: ["CRM Export 2025", "Email Templates"], time: "2:15 PM" },
   ];
+
+  const [messages, setMessages]       = useState(initMessages);
+  const [input, setInput]             = useState("");
+  const [isTyping, setIsTyping]       = useState(false);
+  const [liked, setLiked]             = useState({});
+  const [copied, setCopied]           = useState(null);
+  const [activeConvo, setActiveConvo] = useState(0);
+  const [hoveredMsg, setHoveredMsg]   = useState(null);
+  const bottomRef   = useRef(null);
+  const textareaRef = useRef(null);
+
+  const convos = [
+    { title: "Q3 competitive analysis", date: "Today" },
+    { title: "Draft investor update",   date: "Today" },
+    { title: "Summarize earnings call", date: "Yesterday" },
+    { title: "Research: OLED vs AMOLED", date: "Mon" },
+    { title: "React 19 release notes",  date: "Mon" },
+  ];
+
+  const suggestions = [
+    "Summarize this week's highlights",
+    "Flag accounts at risk",
+    "Draft a follow-up email",
+    "Compare Q3 vs Q2",
+  ];
+
+  const groups = [
+    { label: "Today",     items: convos.map((c, i) => ({ ...c, idx: i })).filter(c => c.date === "Today") },
+    { label: "Yesterday", items: convos.map((c, i) => ({ ...c, idx: i })).filter(c => c.date === "Yesterday") },
+    { label: "This week", items: convos.map((c, i) => ({ ...c, idx: i })).filter(c => c.date === "Mon") },
+  ];
+
+  useEffect(() => {
+    bottomRef.current?.scrollIntoView({ behavior: "smooth" });
+  }, [messages, isTyping]);
+
+  const getAIResponse = (text) => {
+    const t = text.toLowerCase();
+    if (t.includes("email") || t.includes("draft") || t.includes("follow") || t.includes("re-engage")) {
+      return {
+        text: "**Subject**: Following up — we'd love to help\n\nHi [Name], it's been a while since we've seen you in Scout, and I wanted to check in personally. Is there something specific blocking you, or has your team's focus shifted? We've shipped Workspace Reports and AI Summaries since your last visit — happy to walk you through them in 15 min.\n\nBook time: [calendar link]",
+        sources: ["CRM Export 2025", "Email Templates"],
+      };
+    }
+    if (t.includes("summar") || t.includes("highlight") || t.includes("week")) {
+      return {
+        text: "**This week at a glance**:\n\n• **Revenue**: $184k (+12% WoW) — on track for $720k month\n• **New signups**: 47 accounts (23 organic, 24 paid)\n• **Churn**: 2 cancellations, $3.2k ARR\n• **Top feature**: Workspace Reports — 68% of active users engaged\n• **Avg. support response**: 3.1h across 12 open tickets\n\nWant this formatted as a team update email?",
+        sources: ["Weekly Analytics", "Stripe Dashboard", "Intercom"],
+      };
+    }
+    if (t.includes("risk") || t.includes("churn") || t.includes("flag")) {
+      return {
+        text: "**Accounts at risk** — ranked by ARR:\n\n1. **NordTech** — $12.1k ARR · 24 days inactive · last active: weekly export\n2. **Bridgemont** — $6.8k ARR · 22 days inactive · last active: dashboard view\n3. **Corvin Ltd** — $4.2k ARR · 21 days inactive · last active: onboarding\n\nTotal ARR at risk: **$23.1k**. Recommended: personal outreach for NordTech + Bridgemont, automated sequence for Corvin.\n\nShould I draft the outreach messages?",
+        sources: ["CRM Export 2025", "Product Analytics"],
+      };
+    }
+    if (t.includes("q2") || t.includes("compar") || t.includes("quarter") || t.includes("q3")) {
+      return {
+        text: "**Q3 vs Q2 comparison**:\n\nRevenue: $1.84M vs $1.55M — **+18.7%**\nNew accounts: 167 vs 128 — **+30.5%**\nChurn rate: 2.8% vs 3.2% — **improved -0.4pp**\nNPS: 51 vs 42 — **+9 points**\n\nEnterprise drove the bulk of growth at +31% vs +12% for SMB. The NPS jump tracks with the Workspace Reports launch in mid-Q3.\n\nWant me to build a board summary or slide outline from this?",
+        sources: ["Q2 Revenue Report", "Q3 Revenue Report", "NPS Survey Data"],
+      };
+    }
+    return {
+      text: "I've looked into this based on your connected data. Here's what I found:\n\n**Key pattern**: This appears across 3 consecutive periods, which suggests a structural trend rather than a one-off event.\n\n**Recommended next steps**:\n1. Cross-reference with the segment breakdown from the last export\n2. Flag for the Monday standup — it warrants team visibility\n3. I can monitor this weekly and alert you when it changes\n\nWant me to set up a recurring check, or dig deeper into any of these points?",
+      sources: ["Workspace Data"],
+    };
+  };
+
+  const sendMessage = () => {
+    const text = input.trim();
+    if (!text || isTyping) return;
+    const now = () => new Date().toLocaleTimeString("en-US", { hour: "numeric", minute: "2-digit" });
+    setMessages(prev => [...prev, { id: Date.now(), role: "user", text, time: now() }]);
+    setInput("");
+    if (textareaRef.current) { textareaRef.current.style.height = "auto"; }
+    setIsTyping(true);
+    setTimeout(() => {
+      const resp = getAIResponse(text);
+      setMessages(prev => [...prev, { id: Date.now() + 1, role: "ai", ...resp, time: now() }]);
+      setIsTyping(false);
+    }, 1200 + Math.random() * 700);
+  };
+
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); }
+  };
+
+  const handleInput = (e) => {
+    setInput(e.target.value);
+    e.target.style.height = "auto";
+    e.target.style.height = Math.min(e.target.scrollHeight, 140) + "px";
+  };
+
+  const copyText = (id, text) => {
+    navigator.clipboard?.writeText(text).catch(() => {});
+    setCopied(id);
+    setTimeout(() => setCopied(null), 1600);
+  };
+
+  const exportChat = () => {
+    const text = messages.map(m => `[${m.role === "ai" ? "Scout" : "You"} · ${m.time}]\n${m.text}`).join("\n\n---\n\n");
+    const blob = new Blob([text], { type: "text/plain" });
+    const url  = URL.createObjectURL(blob);
+    const a    = document.createElement("a");
+    a.href = url; a.download = "scout-chat.txt"; a.click();
+    URL.revokeObjectURL(url);
+  };
+
+  const renderText = (text) =>
+    text.split("\n").map((line, li, arr) => {
+      const parts = line.split(/(\*\*[^*]+\*\*)/g);
+      return (
+        <span key={li}>
+          {parts.map((p, pi) =>
+            p.startsWith("**") && p.endsWith("**")
+              ? <strong key={pi} style={{ fontWeight: 700 }}>{p.slice(2, -2)}</strong>
+              : p
+          )}
+          {li < arr.length - 1 && <br />}
+        </span>
+      );
+    });
+
+  const canSend = input.trim().length > 0 && !isTyping;
+
   return (
-    <div style={{ fontFamily: "'Helvetica Neue',Arial,sans-serif", background: "#f8f9fa", minHeight: "100vh", color: "#1a1a2e", display: "flex" }}>
-      <aside style={{ width: 260, background: SIDEBAR, display: "flex", flexDirection: "column", flexShrink: 0, position: "fixed", height: "100vh", zIndex: 50 }}>
-        <div style={{ padding: "20px 18px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+    <div style={{ fontFamily: FONT, background: "#f8f9fa", minHeight: "100vh", color: "#1a1a2e", display: "flex" }}>
+
+      {/* ── Sidebar ── */}
+      <aside style={{ width: 264, background: SIDEBAR, display: "flex", flexDirection: "column", flexShrink: 0, position: "fixed", height: "100vh", zIndex: 50 }}>
+
+        {/* Brand + new chat */}
+        <div style={{ padding: "18px 16px 14px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 14 }}>
             <div style={{ width: 28, height: 28, borderRadius: 6, background: ACCENT, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Search size={14} color="#fff" strokeWidth={2.5} />
+              <Search size={13} color="#fff" strokeWidth={2.5} />
             </div>
             <div>
-              <span style={{ fontWeight: 700, fontSize: "0.95rem", color: "#fff", letterSpacing: "-0.01em" }}>Scout</span>
-              <span style={{ fontSize: "0.6rem", color: "rgba(255,255,255,0.28)", display: "block", letterSpacing: ".06em", textTransform: "uppercase" }}>Research Assistant</span>
+              <span style={{ fontWeight: 700, fontSize: "0.92rem", color: "#fff", letterSpacing: "-0.01em" }}>Scout</span>
+              <span style={{ fontSize: "0.57rem", color: "rgba(255,255,255,0.28)", display: "block", letterSpacing: ".06em", textTransform: "uppercase" }}>Research Assistant</span>
             </div>
           </div>
-        </div>
-        <div style={{ padding: "12px 14px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
-          <button style={{ width: "100%", background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.75)", padding: "9px 14px", borderRadius: 8, fontSize: "0.82rem", fontWeight: 500, cursor: "pointer", fontFamily: "inherit", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
-            <Plus size={14} /> New chat
+          <button
+            onClick={() => { setMessages([]); setActiveConvo(-1); }}
+            style={{ width: "100%", background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.78)", padding: "8px 14px", borderRadius: 7, fontSize: "0.79rem", fontWeight: 500, cursor: "pointer", fontFamily: FONT, display: "flex", alignItems: "center", justifyContent: "center", gap: 7 }}>
+            <Plus size={13} strokeWidth={2.5} /> New chat
           </button>
         </div>
-        <div style={{ flex: 1, overflow: "auto", padding: "10px 10px" }}>
+
+        {/* Search bar */}
+        <div style={{ padding: "9px 12px", borderBottom: "1px solid rgba(255,255,255,0.05)" }}>
+          <div style={{ background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.08)", borderRadius: 6, padding: "6px 10px", display: "flex", alignItems: "center", gap: 7 }}>
+            <Search size={11} color="rgba(255,255,255,0.28)" strokeWidth={2} />
+            <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.24)" }}>Search conversations…</span>
+            <span style={{ marginLeft: "auto", fontSize: "0.57rem", color: "rgba(255,255,255,0.16)", background: "rgba(255,255,255,0.06)", padding: "1px 5px", borderRadius: 3 }}>⌘K</span>
+          </div>
+        </div>
+
+        {/* Conversation list */}
+        <div style={{ flex: 1, overflowY: "auto", padding: "8px 8px" }}>
           {groups.map(({ label, items }) => items.length === 0 ? null : (
-            <div key={label} style={{ marginBottom: 14 }}>
-              <p style={{ fontSize: "0.58rem", letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", padding: "2px 8px", marginBottom: 4 }}>{label}</p>
-              {items.map((c, i) => (
-                <div key={i} style={{ padding: "8px 10px", borderRadius: 7, marginBottom: 1, background: c.active ? "rgba(255,255,255,0.09)" : "transparent", color: c.active ? "#fff" : "rgba(255,255,255,0.42)", cursor: "pointer", fontSize: "0.82rem", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
-                  {c.title}
-                </div>
-              ))}
+            <div key={label} style={{ marginBottom: 16 }}>
+              <p style={{ fontSize: "0.56rem", letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", padding: "2px 8px", marginBottom: 3 }}>{label}</p>
+              {items.map(c => {
+                const active = activeConvo === c.idx;
+                return (
+                  <div key={c.idx} onClick={() => { setActiveConvo(c.idx); setMessages(initMessages); }}
+                    style={{ padding: "7px 10px", borderRadius: 6, marginBottom: 1, background: active ? "rgba(255,255,255,0.1)" : "transparent", color: active ? "#fff" : "rgba(255,255,255,0.42)", cursor: "pointer", fontSize: "0.79rem", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", borderLeft: `2px solid ${active ? ACCENT : "transparent"}`, transition: "all 0.15s" }}>
+                    {c.title}
+                  </div>
+                );
+              })}
             </div>
           ))}
         </div>
+
+        {/* User footer */}
         <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", padding: "12px 14px", display: "flex", flexDirection: "column", gap: 10 }}>
           <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <div style={{ width: 30, height: 30, borderRadius: "50%", background: "rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: "0.7rem", color: "#fff", fontWeight: 700 }}>SK</div>
+            <div style={{ width: 28, height: 28, borderRadius: "50%", background: "rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: "0.62rem", color: "#fff", fontWeight: 700 }}>SK</div>
             <div style={{ flex: 1, minWidth: 0 }}>
-              <p style={{ fontSize: "0.8rem", fontWeight: 600, color: "#fff" }}>Sarah Kim</p>
-              <p style={{ fontSize: "0.62rem", color: "rgba(255,255,255,0.3)" }}>Pro plan</p>
+              <p style={{ fontSize: "0.78rem", fontWeight: 600, color: "#fff" }}>Sarah Kim</p>
+              <p style={{ fontSize: "0.6rem", color: "rgba(255,255,255,0.28)" }}>Pro · 2,847 tokens left</p>
             </div>
-            <Settings size={14} color="rgba(255,255,255,0.28)" style={{ cursor: "pointer", flexShrink: 0 }} />
+            <Settings size={13} color="rgba(255,255,255,0.28)" strokeWidth={1.75} style={{ cursor: "pointer" }} />
           </div>
           <BackBtn />
         </div>
       </aside>
 
-      <main style={{ marginLeft: 260, flex: 1, display: "flex", flexDirection: "column", height: "100vh" }}>
-        <div style={{ padding: "14px 28px", borderBottom: "1px solid #e2e6ea", background: "#fff", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+      {/* ── Main ── */}
+      <main style={{ marginLeft: 264, flex: 1, display: "flex", flexDirection: "column", height: "100vh" }}>
+
+        {/* Thread header */}
+        <div style={{ padding: "13px 28px", borderBottom: "1px solid #e2e6ea", background: "#fff", display: "flex", justifyContent: "space-between", alignItems: "center", flexShrink: 0 }}>
           <div>
-            <p style={{ fontSize: "0.9rem", fontWeight: 600, color: "#1a1a2e", marginBottom: 2 }}>Q3 competitive analysis</p>
-            <p style={{ fontSize: "0.7rem", color: "#8492a6" }}>3 messages · Updated just now</p>
+            <p style={{ fontSize: "0.88rem", fontWeight: 600, color: "#1a1a2e", marginBottom: 2 }}>
+              {activeConvo >= 0 && activeConvo < convos.length ? convos[activeConvo].title : "New Chat"}
+            </p>
+            <p style={{ fontSize: "0.67rem", color: "#8492a6" }}>
+              {messages.length} messages · Scout 2.1 · Research mode
+            </p>
           </div>
-          <div style={{ display: "flex", gap: 8 }}>
-            <button style={{ background: "transparent", border: "1px solid #dde1e7", color: "#6b7c93", padding: "6px 14px", borderRadius: 6, fontSize: "0.75rem", fontWeight: 500, cursor: "pointer", fontFamily: "inherit" }}>Export</button>
-            <button style={{ background: ACCENT, border: "none", color: "#fff", padding: "6px 14px", borderRadius: 6, fontSize: "0.75rem", fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>Share</button>
-          </div>
-        </div>
-
-        <div style={{ flex: 1, overflow: "auto", padding: "28px 28px", display: "flex", flexDirection: "column", gap: 24, background: "#f8f9fa" }}>
-          {messages.map((msg, i) => (
-            <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start", maxWidth: "72%", alignSelf: msg.role === "user" ? "flex-end" : "flex-start", flexDirection: msg.role === "user" ? "row-reverse" : "row" }}>
-              {msg.role === "ai" && (
-                <div style={{ width: 30, height: 30, borderRadius: 8, background: SIDEBAR, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Search size={12} color="#fff" />
-                </div>
-              )}
-              <div style={{ background: msg.role === "ai" ? "#fff" : SIDEBAR, border: msg.role === "ai" ? "1px solid #e2e6ea" : "none", borderRadius: msg.role === "ai" ? "3px 14px 14px 14px" : "14px 3px 14px 14px", padding: "14px 18px", fontSize: "0.87rem", lineHeight: 1.72, color: msg.role === "ai" ? "#2d3748" : "#fff", boxShadow: msg.role === "ai" ? "0 1px 3px rgba(0,0,0,0.06)" : "none", whiteSpace: "pre-line" }}>
-                {msg.text}
-              </div>
-              {msg.role === "user" && (
-                <div style={{ width: 30, height: 30, borderRadius: 8, background: "#dde1e7", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.6rem", color: "#6b7c93", fontWeight: 700 }}>SK</div>
-              )}
-            </div>
-          ))}
-          <div style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
-            <div style={{ width: 30, height: 30, borderRadius: 8, background: SIDEBAR, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <Search size={12} color="#fff" />
-            </div>
-            <div style={{ background: "#fff", border: "1px solid #e2e6ea", borderRadius: "3px 14px 14px 14px", padding: "14px 18px", display: "flex", gap: 4, alignItems: "center", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
-              {[0, 1, 2].map(j => <div key={j} style={{ width: 6, height: 6, borderRadius: "50%", background: "#bcc5d0", animation: "aiBounce 1.4s ease-in-out infinite", animationDelay: `${j * 0.2}s` }} />)}
-            </div>
-          </div>
-        </div>
-
-        <div style={{ padding: "16px 28px", borderTop: "1px solid #e2e6ea", background: "#fff" }}>
-          <div style={{ background: "#f4f6f9", border: "1px solid #dde1e7", borderRadius: 12, padding: "12px 14px", display: "flex", alignItems: "flex-end", gap: 10 }}>
-            <textarea value={input} onChange={e => setInput(e.target.value)} placeholder="Ask Scout anything…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", color: "#2d3748", fontSize: "0.9rem", resize: "none", fontFamily: "inherit", lineHeight: 1.6, minHeight: 24, maxHeight: 120 }} rows={1} />
-            <button style={{ width: 34, height: 34, borderRadius: 8, background: ACCENT, border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", flexShrink: 0 }}>
-              <Send size={14} color="#fff" />
+          <div style={{ display: "flex", gap: 7 }}>
+            <button onClick={exportChat}
+              style={{ background: "transparent", border: "1px solid #dde1e7", color: "#6b7c93", padding: "6px 14px", borderRadius: 6, fontSize: "0.72rem", fontWeight: 500, cursor: "pointer", fontFamily: FONT, display: "flex", alignItems: "center", gap: 6 }}>
+              <Download size={12} strokeWidth={2} /> Export
+            </button>
+            <button style={{ background: ACCENT, border: "none", color: "#fff", padding: "6px 14px", borderRadius: 6, fontSize: "0.72rem", fontWeight: 600, cursor: "pointer", fontFamily: FONT, display: "flex", alignItems: "center", gap: 6 }}>
+              <ArrowUpRight size={12} strokeWidth={2.5} /> Share
             </button>
           </div>
-          <p style={{ fontSize: "0.62rem", color: "#c0cad4", textAlign: "center", marginTop: 8 }}>Scout may make errors. Verify critical information.</p>
+        </div>
+
+        {/* Messages */}
+        <div style={{ flex: 1, overflowY: "auto", padding: "28px 40px", display: "flex", flexDirection: "column", gap: 22, background: "#f8f9fa" }}>
+
+          {/* Empty state */}
+          {messages.length === 0 && (
+            <div style={{ margin: "auto", textAlign: "center", maxWidth: 400 }}>
+              <div style={{ width: 48, height: 48, borderRadius: 13, background: SIDEBAR, display: "flex", alignItems: "center", justifyContent: "center", margin: "0 auto 18px" }}>
+                <Search size={20} color="#fff" strokeWidth={2} />
+              </div>
+              <h3 style={{ fontSize: "1.05rem", fontWeight: 600, color: "#1a1a2e", marginBottom: 8 }}>Start a research thread</h3>
+              <p style={{ fontSize: "0.82rem", color: "#8492a6", lineHeight: 1.65, marginBottom: 24 }}>Ask Scout to analyze data, summarize reports, draft emails, or research any topic — all grounded in your connected workspace.</p>
+              <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 8 }}>
+                {suggestions.map(s => (
+                  <button key={s} onClick={() => { setInput(s); textareaRef.current?.focus(); }}
+                    style={{ background: "#fff", border: "1px solid #dde1e7", color: "#4a5568", padding: "10px 12px", borderRadius: 8, fontSize: "0.78rem", fontWeight: 500, cursor: "pointer", fontFamily: FONT, textAlign: "left", lineHeight: 1.4 }}>
+                    {s}
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
+          {/* Message list */}
+          {messages.map((msg) => (
+            <div key={msg.id}
+              style={{ display: "flex", gap: 12, alignItems: "flex-start", maxWidth: "78%", alignSelf: msg.role === "user" ? "flex-end" : "flex-start", flexDirection: msg.role === "user" ? "row-reverse" : "row" }}
+              onMouseEnter={() => setHoveredMsg(msg.id)}
+              onMouseLeave={() => setHoveredMsg(null)}>
+
+              {/* Avatar */}
+              {msg.role === "ai"
+                ? <div style={{ width: 28, height: 28, borderRadius: 7, background: SIDEBAR, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", marginTop: 1 }}><Search size={11} color="#fff" strokeWidth={2.5} /></div>
+                : <div style={{ width: 28, height: 28, borderRadius: 7, background: "#dde1e7", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.57rem", color: "#6b7c93", fontWeight: 700, marginTop: 1 }}>SK</div>
+              }
+
+              <div style={{ minWidth: 0 }}>
+                {/* Bubble */}
+                <div style={{ background: msg.role === "ai" ? "#fff" : SIDEBAR, border: msg.role === "ai" ? "1px solid #e2e6ea" : "none", borderRadius: msg.role === "ai" ? "3px 13px 13px 13px" : "13px 3px 13px 13px", padding: "13px 17px", fontSize: "0.87rem", lineHeight: 1.74, color: msg.role === "ai" ? "#2d3748" : "#fff", boxShadow: msg.role === "ai" ? "0 1px 3px rgba(0,0,0,0.06)" : "none", whiteSpace: "pre-line", wordBreak: "break-word" }}>
+                  {renderText(msg.text)}
+                </div>
+
+                {/* Source chips */}
+                {msg.role === "ai" && msg.sources?.length > 0 && (
+                  <div style={{ display: "flex", gap: 5, marginTop: 7, flexWrap: "wrap" }}>
+                    {msg.sources.map(src => (
+                      <span key={src} style={{ display: "inline-flex", alignItems: "center", gap: 4, fontSize: "0.64rem", color: "#6b7c93", background: "#fff", border: "1px solid #dde1e7", padding: "2px 8px", borderRadius: 4, fontWeight: 500 }}>
+                        <FileText size={9} strokeWidth={2} /> {src}
+                      </span>
+                    ))}
+                  </div>
+                )}
+
+                {/* Action bar — AI messages only, fades in on hover */}
+                {msg.role === "ai" && (
+                  <div style={{ display: "flex", gap: 4, marginTop: 7, opacity: hoveredMsg === msg.id ? 1 : 0, transition: "opacity 0.15s", pointerEvents: hoveredMsg === msg.id ? "auto" : "none" }}>
+                    <button onClick={() => copyText(msg.id, msg.text)}
+                      style={{ display: "inline-flex", alignItems: "center", gap: 5, background: copied === msg.id ? "#EEF2FF" : "#fff", border: `1px solid ${copied === msg.id ? "#C7D2FE" : "#e2e6ea"}`, borderRadius: 5, padding: "3px 9px", fontSize: "0.67rem", color: copied === msg.id ? ACCENT : "#8492a6", cursor: "pointer", fontFamily: FONT, fontWeight: 500, transition: "all 0.15s" }}>
+                      {copied === msg.id ? <Check size={10} strokeWidth={2.5} /> : <Download size={10} strokeWidth={2} />}
+                      {copied === msg.id ? "Copied" : "Copy"}
+                    </button>
+                    <button onClick={() => setLiked(p => ({ ...p, [msg.id]: !p[msg.id] }))}
+                      style={{ display: "inline-flex", alignItems: "center", gap: 5, background: liked[msg.id] ? "#EEF2FF" : "#fff", border: `1px solid ${liked[msg.id] ? "#C7D2FE" : "#e2e6ea"}`, borderRadius: 5, padding: "3px 9px", fontSize: "0.67rem", color: liked[msg.id] ? ACCENT : "#8492a6", cursor: "pointer", fontFamily: FONT, fontWeight: 500, transition: "all 0.15s" }}>
+                      <Star size={10} strokeWidth={2} fill={liked[msg.id] ? ACCENT : "none"} /> Helpful
+                    </button>
+                    <button onClick={() => {
+                        if (isTyping) return;
+                        setIsTyping(true);
+                        setTimeout(() => {
+                          const prev = messages.slice(0, messages.indexOf(msg));
+                          const lastUser = [...prev].reverse().find(m => m.role === "user");
+                          const resp = lastUser ? getAIResponse(lastUser.text) : getAIResponse("");
+                          setMessages(p => {
+                            const idx = p.findIndex(m => m.id === msg.id);
+                            const next = [...p];
+                            next[idx] = { ...next[idx], ...resp, id: Date.now() };
+                            return next;
+                          });
+                          setIsTyping(false);
+                        }, 1000 + Math.random() * 500);
+                      }}
+                      style={{ display: "inline-flex", alignItems: "center", gap: 5, background: "#fff", border: "1px solid #e2e6ea", borderRadius: 5, padding: "3px 9px", fontSize: "0.67rem", color: "#8492a6", cursor: "pointer", fontFamily: FONT, fontWeight: 500 }}>
+                      <Activity size={10} strokeWidth={2} /> Regenerate
+                    </button>
+                  </div>
+                )}
+
+                <p style={{ fontSize: "0.59rem", color: "#c0cad4", marginTop: 6, textAlign: msg.role === "user" ? "right" : "left" }}>{msg.time}</p>
+              </div>
+            </div>
+          ))}
+
+          {/* Typing indicator */}
+          {isTyping && (
+            <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
+              <div style={{ width: 28, height: 28, borderRadius: 7, background: SIDEBAR, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                <Search size={11} color="#fff" strokeWidth={2.5} />
+              </div>
+              <div>
+                <div style={{ background: "#fff", border: "1px solid #e2e6ea", borderRadius: "3px 13px 13px 13px", padding: "13px 17px", display: "flex", gap: 5, alignItems: "center", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
+                  {[0, 1, 2].map(j => <div key={j} style={{ width: 6, height: 6, borderRadius: "50%", background: "#bcc5d0", animation: "aiBounce 1.4s ease-in-out infinite", animationDelay: `${j * 0.2}s` }} />)}
+                </div>
+                <p style={{ fontSize: "0.59rem", color: "#c0cad4", marginTop: 5 }}>Scout is thinking…</p>
+              </div>
+            </div>
+          )}
+
+          <div ref={bottomRef} />
+        </div>
+
+        {/* ── Input area ── */}
+        <div style={{ padding: "12px 28px 18px", borderTop: "1px solid #e2e6ea", background: "#fff", flexShrink: 0 }}>
+          {/* Suggested prompts — shown when few messages and input is empty */}
+          {messages.length <= 3 && !input && !isTyping && (
+            <div style={{ display: "flex", gap: 7, marginBottom: 11, flexWrap: "wrap" }}>
+              {suggestions.map(s => (
+                <button key={s} onClick={() => { setInput(s); textareaRef.current?.focus(); }}
+                  style={{ background: "#f4f6f9", border: "1px solid #dde1e7", color: "#4a5568", padding: "5px 11px", borderRadius: 6, fontSize: "0.73rem", fontWeight: 500, cursor: "pointer", fontFamily: FONT, transition: "border-color 0.15s" }}>
+                  {s}
+                </button>
+              ))}
+            </div>
+          )}
+          <div style={{ background: "#f4f6f9", border: `1px solid ${canSend ? "#b8c4d0" : "#dde1e7"}`, borderRadius: 12, padding: "11px 14px", display: "flex", alignItems: "flex-end", gap: 10, transition: "border-color 0.2s" }}>
+            <textarea
+              ref={textareaRef}
+              value={input}
+              onChange={handleInput}
+              onKeyDown={handleKeyDown}
+              placeholder="Ask Scout anything… (Enter to send, Shift+Enter for new line)"
+              disabled={isTyping}
+              style={{ flex: 1, background: "transparent", border: "none", outline: "none", color: "#2d3748", fontSize: "0.88rem", resize: "none", fontFamily: FONT, lineHeight: 1.6, minHeight: 24, maxHeight: 140, overflowY: "auto" }}
+              rows={1}
+            />
+            <button onClick={sendMessage} disabled={!canSend}
+              style={{ width: 34, height: 34, borderRadius: 8, background: canSend ? ACCENT : "#dde1e7", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: canSend ? "pointer" : "not-allowed", flexShrink: 0, transition: "background 0.2s" }}>
+              <Send size={14} color="#fff" strokeWidth={2} />
+            </button>
+          </div>
+          <p style={{ fontSize: "0.59rem", color: "#c0cad4", textAlign: "center", marginTop: 8 }}>Scout may make errors. Verify critical information before acting on it.</p>
         </div>
       </main>
-      <style>{`@keyframes aiBounce{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:.9;transform:translateY(-3px)}}`}</style>
+
+      <style>{`
+        @keyframes aiBounce { 0%,100%{opacity:.3;transform:translateY(0)} 50%{opacity:.9;transform:translateY(-3px)} }
+        aside::-webkit-scrollbar { width: 3px; }
+        aside::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+      `}</style>
     </div>
   );
 }
