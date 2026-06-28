@@ -238,7 +238,7 @@ export default function Hero() {
               ))}
 
               {/* Status card  centered on mobile, bottom-left on md+ */}
-              <div className="hero-status-card">
+              <div className="hero-status-card ">
                 <span className="hero-status-dot" />
                 <span>Currently building</span>
                 <span className="hero-status-project">@ Tripify</span>
@@ -487,35 +487,35 @@ export default function Hero() {
         }
 
         /* ── Status card ── */
-        .hero-status-card {
-          position: absolute;
-          bottom: -14px;
-          left: 50%;
-          transform: translateX(-50%);
-          z-index: 30;
-          display: flex; align-items: center; gap: 7px;
-          padding: 9px 14px; border-radius: 12px;
-          border: 1px solid rgba(255,255,255,0.1);
-          background: rgba(10,10,10,0.88); backdrop-filter: blur(14px);
-          font-size: 0.72rem; color: rgba(255,255,255,0.55);
-          box-shadow: 0 8px 32px rgba(0,0,0,0.5);
-          white-space: nowrap;
-        }
-        @media (min-width: 768px) {
-          .hero-status-card {
-            left: -16px;
-            bottom: -18px;
-            transform: none;
-          }
-        }
-        .hero-status-dot {
-          width: 7px; height: 7px; border-radius: 50%;
-          background: #4ade80;
-          box-shadow: 0 0 8px #4ade80;
-          flex-shrink: 0;
-          animation: heroPulse 2s ease-in-out infinite;
-        }
-        .hero-status-project { color: rgba(255,255,255,0.8); font-weight: 700; }
+.hero-status-card {
+  position: absolute;
+  bottom: 10px;        /* was -14px → raised by ~24px on mobile */
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 30;
+  display: flex; align-items: center; gap: 7px;
+  padding: 9px 14px; border-radius: 12px;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(10,10,10,0.88); backdrop-filter: blur(14px);
+  font-size: 0.72rem; color: rgba(255,255,255,0.55);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+  white-space: nowrap;
+}
+@media (min-width: 768px) {
+  .hero-status-card {
+    left: -16px;
+    bottom: 10px;      /* was -18px → raised by ~28px on desktop */
+    transform: none;
+  }
+}
+.hero-status-dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: #4ade80;
+  box-shadow: 0 0 8px #4ade80;
+  flex-shrink: 0;
+  animation: heroPulse 2s ease-in-out infinite;
+}
+.hero-status-project { color: rgba(255,255,255,0.8); font-weight: 700; }
       `}</style>
     </section>
   );

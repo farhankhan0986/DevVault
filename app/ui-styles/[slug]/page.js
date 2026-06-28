@@ -4,9 +4,9 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import {
   ArrowLeft, BarChart2, Users, Shield, Zap, Star, Check, ChevronRight,
-  Send, Search, ShoppingCart, Bell, Settings, TrendingUp, DollarSign,
+  Send, Search, ShoppingCart, ShoppingBag, Bell, Settings, TrendingUp, DollarSign,
   Activity, Eye, MessageSquare, Home, FileText, PieChart, Download,
-  Plus, Heart, ArrowUpRight,
+  Plus, Heart, ArrowUpRight, SlidersHorizontal, ChevronDown, User, Truck, Package,
 } from "lucide-react";
 
 function BackBtn({ light }) {
@@ -692,177 +692,398 @@ function SaaSPage() {
 
 /* ─── 3. GLASSMORPHISM ───────────────────────────────────────── */
 function GlassPage() {
-  const tracks = [
-    { title: "Neon Nights", artist: "Synthwave", dur: "3:42", color: "#f59e0b" },
-    { title: "Ethereal Drift", artist: "Ambient", dur: "5:18", color: "#6366f1" },
-    { title: "Crystal Echo", artist: "Chillwave", dur: "4:01", color: "#10b981" },
-    { title: "Violet Dreams", artist: "Lo-fi", dur: "3:55", color: "#ec4899" },
-  ];
-  const glass = {
-    background: "rgba(255,255,255,0.08)",
-    backdropFilter: "blur(20px)",
-    WebkitBackdropFilter: "blur(20px)",
-    border: "1px solid rgba(255,255,255,0.15)",
-    borderRadius: 20,
-  };
-  return (
-    <div style={{ fontFamily: "system-ui,-apple-system,sans-serif", background: "linear-gradient(135deg,#1a0533 0%,#0d1b4b 45%,#0a2038 100%)", minHeight: "100vh", color: "#fff", position: "relative", overflow: "hidden" }}>
-      <div style={{ position: "fixed", width: 600, height: 600, borderRadius: "50%", background: "radial-gradient(circle,rgba(139,92,246,0.28),transparent 65%)", top: -200, left: -150, pointerEvents: "none", zIndex: 0 }} />
-      <div style={{ position: "fixed", width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle,rgba(99,102,241,0.22),transparent 65%)", bottom: -120, right: -100, pointerEvents: "none", zIndex: 0 }} />
-      <div style={{ position: "fixed", width: 350, height: 350, borderRadius: "50%", background: "radial-gradient(circle,rgba(236,72,153,0.18),transparent 65%)", top: "40%", right: "18%", pointerEvents: "none", zIndex: 0 }} />
+  const [activeTab, setActiveTab] = useState("Overview");
 
-      <nav style={{ ...glass, borderRadius: 0, borderLeft: "none", borderRight: "none", borderTop: "none", padding: "18px 32px", display: "flex", justifyContent: "space-between", alignItems: "center", position: "relative", zIndex: 10 }}>
+  // Deep muted background — not a neon gradient, just rich dark slate
+  const BG = "#0c111e";
+
+  // Glass mixin
+  const G = (extra = {}) => ({
+    background: "rgba(255,255,255,0.07)",
+    backdropFilter: "blur(24px)",
+    WebkitBackdropFilter: "blur(24px)",
+    border: "1px solid rgba(255,255,255,0.11)",
+    ...extra,
+  });
+
+  const trips = [
+    { city: "Kyoto",    country: "Japan",   days: "12",  icon: "⛩",  bg: "rgba(255,255,255,0.04)" },
+    { city: "Lisbon",   country: "Portugal",days: "7",   icon: "🌊",  bg: "rgba(255,255,255,0.03)" },
+    { city: "Reykjavik",country: "Iceland", days: "5",   icon: "🌋",  bg: "rgba(255,255,255,0.03)" },
+  ];
+
+  const itinerary = [
+    { time: "09:00", activity: "Arashiyama Bamboo Grove",  type: "Sightseeing" },
+    { time: "12:30", activity: "Lunch at Kichisen",        type: "Dining"      },
+    { time: "15:00", activity: "Fushimi Inari Shrine",     type: "Sightseeing" },
+    { time: "19:30", activity: "Gion district walk",       type: "Leisure"     },
+  ];
+
+  return (
+    <div style={{ fontFamily: "'Helvetica Neue',Arial,sans-serif", background: BG, minHeight: "100vh", color: "#fff", position: "relative", overflow: "hidden" }}>
+
+      {/* ── Background depth elements (no neon — just white at very low opacity) ── */}
+      <div aria-hidden style={{ position: "fixed", inset: 0, pointerEvents: "none", zIndex: 0 }}>
+        {/* Subtle large circles for glass blur depth */}
+        <div style={{ position: "absolute", width: 700, height: 700, borderRadius: "50%", background: "rgba(255,255,255,0.025)", top: -200, left: -180, filter: "blur(1px)" }} />
+        <div style={{ position: "absolute", width: 500, height: 500, borderRadius: "50%", background: "rgba(255,255,255,0.018)", bottom: -100, right: -80 }} />
+        <div style={{ position: "absolute", width: 300, height: 300, borderRadius: "50%", background: "rgba(255,255,255,0.014)", top: "35%", right: "22%" }} />
+        {/* Fine dot grid */}
+        <div style={{ position: "absolute", inset: 0, backgroundImage: "radial-gradient(rgba(255,255,255,0.06) 1px, transparent 1px)", backgroundSize: "38px 38px", opacity: 0.4 }} />
+      </div>
+
+      {/* ── NAV ── */}
+      <nav style={{ ...G({ borderRadius: 0, borderLeft: "none", borderRight: "none", borderTop: "none" }), padding: "16px 40px", display: "flex", justifyContent: "space-between", alignItems: "center", position: "sticky", top: 0, zIndex: 100 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-          <div style={{ width: 32, height: 32, borderRadius: "50%", background: "linear-gradient(135deg,#ec4899,#8b5cf6,#6366f1)" }} />
-          <span style={{ fontWeight: 700, fontSize: "1.1rem" }}>Aura</span>
+          <div style={{ width: 30, height: 30, borderRadius: 8, border: "1.5px solid rgba(255,255,255,0.35)", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <span style={{ fontSize: "0.9rem" }}>✦</span>
+          </div>
+          <span style={{ fontWeight: 700, fontSize: "1rem", letterSpacing: "-0.01em" }}>Venture</span>
         </div>
-        <div style={{ display: "flex", gap: 28, fontSize: "0.85rem", color: "rgba(255,255,255,0.55)" }}>
-          {["Discover", "Albums", "Artists", "Playlists"].map(l => <a key={l} href="#" style={{ textDecoration: "none", color: "inherit" }}>{l}</a>)}
+        <div style={{ display: "flex", gap: 2 }}>
+          {["Overview", "Trips", "Discover", "Profile"].map(tab => (
+            <button key={tab} onClick={() => setActiveTab(tab)} style={{ background: activeTab === tab ? "rgba(255,255,255,0.1)" : "transparent", border: activeTab === tab ? "1px solid rgba(255,255,255,0.15)" : "1px solid transparent", color: activeTab === tab ? "#fff" : "rgba(255,255,255,0.45)", padding: "7px 16px", borderRadius: 9, fontSize: "0.8rem", fontWeight: 500, cursor: "pointer", fontFamily: "inherit", transition: "all .2s" }}>
+              {tab}
+            </button>
+          ))}
         </div>
         <BackBtn />
       </nav>
 
-      <section style={{ maxWidth: 1100, margin: "0 auto", padding: "70px 32px 60px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "center", position: "relative", zIndex: 5 }}>
-        <div>
-          <div style={{ display: "inline-flex", padding: "5px 14px", ...glass, borderRadius: 9999, fontSize: "0.72rem", fontWeight: 600, color: "rgba(255,255,255,0.65)", marginBottom: 24 }}>
-            ✦ Music for every moment
-          </div>
-          <h1 style={{ fontSize: "clamp(2.2rem,5vw,4.2rem)", fontWeight: 800, letterSpacing: "-0.04em", lineHeight: 1.08, marginBottom: 20 }}>
-            Sound that<br /><span style={{ background: "linear-gradient(90deg,#ec4899,#8b5cf6)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>transcends</span> the noise.
+      <div style={{ maxWidth: 1140, margin: "0 auto", padding: "40px 32px 60px", position: "relative", zIndex: 5 }}>
+
+        {/* ── Page header ── */}
+        <div style={{ marginBottom: 32 }}>
+          <p style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.3)", letterSpacing: ".12em", textTransform: "uppercase", marginBottom: 8 }}>Thursday, 26 June 2025</p>
+          <h1 style={{ fontSize: "clamp(2rem,4vw,3rem)", fontWeight: 300, letterSpacing: "-0.025em", lineHeight: 1.1, marginBottom: 4 }}>
+            Good morning, <span style={{ fontWeight: 700 }}>Sarah.</span>
           </h1>
-          <p style={{ fontSize: "1rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.7, marginBottom: 36, maxWidth: 400 }}>
-            Discover, stream, and feel music like never before. Immersive audio experiences powered by AI.
-          </p>
-          <div style={{ display: "flex", gap: 12 }}>
-            <a href="#" style={{ background: "linear-gradient(135deg,#ec4899,#8b5cf6)", color: "#fff", padding: "12px 28px", borderRadius: 12, fontSize: "0.88rem", fontWeight: 700, textDecoration: "none" }}>Start Listening</a>
-            <a href="#" style={{ ...glass, color: "rgba(255,255,255,0.65)", padding: "12px 22px", borderRadius: 12, fontSize: "0.88rem", fontWeight: 600, textDecoration: "none" }}>Explore →</a>
-          </div>
-          <div style={{ display: "flex", gap: 20, marginTop: 40 }}>
-            {[["40M+", "Songs"], ["5★", "Rating"], ["150+", "Countries"]].map(([v, l]) => (
-              <div key={l}>
-                <div style={{ fontSize: "1.4rem", fontWeight: 800, letterSpacing: "-0.03em" }}>{v}</div>
-                <div style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.4)" }}>{l}</div>
-              </div>
-            ))}
-          </div>
+          <p style={{ fontSize: "0.95rem", color: "rgba(255,255,255,0.4)", fontWeight: 300 }}>You have 3 upcoming trips and 1 flight this week.</p>
         </div>
 
-        <div style={{ ...glass, padding: "24px", maxWidth: 360, marginLeft: "auto", width: "100%" }}>
-          <div style={{ width: "100%", aspectRatio: "1", borderRadius: 16, background: "linear-gradient(135deg,#ec4899,#8b5cf6,#6366f1)", marginBottom: 18, display: "flex", alignItems: "center", justifyContent: "center", position: "relative", overflow: "hidden" }}>
-            <div style={{ position: "absolute", width: 120, height: 120, borderRadius: "50%", background: "rgba(0,0,0,0.25)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <div style={{ width: 22, height: 22, borderRadius: "50%", background: "rgba(255,255,255,0.85)" }} />
+        {/* ── Main grid ── */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr 340px", gap: 16, alignItems: "start", marginBottom: 16 }}>
+
+          {/* Active trip card */}
+          <div style={{ ...G({ borderRadius: 20 }), padding: "28px 28px", gridColumn: "1 / 3" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 28 }}>
+              <div>
+                <div style={{ display: "inline-flex", alignItems: "center", gap: 6, ...G({ borderRadius: 9999, padding: "4px 12px" }), fontSize: "0.68rem", fontWeight: 600, color: "rgba(255,255,255,0.55)", marginBottom: 12, letterSpacing: ".06em", textTransform: "uppercase" }}>
+                  <span style={{ width: 6, height: 6, borderRadius: "50%", background: "#4ade80", flexShrink: 0 }} /> Active Trip
+                </div>
+                <h2 style={{ fontSize: "clamp(1.8rem,3vw,2.6rem)", fontWeight: 700, letterSpacing: "-0.03em", marginBottom: 4 }}>Kyoto, Japan</h2>
+                <p style={{ fontSize: "0.88rem", color: "rgba(255,255,255,0.4)", fontWeight: 300 }}>Day 4 of 12 · Returns 8 July 2025</p>
+              </div>
+              <div style={{ textAlign: "right" }}>
+                <div style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.3)", letterSpacing: ".06em", textTransform: "uppercase", marginBottom: 4 }}>Weather</div>
+                <div style={{ fontSize: "2.8rem", fontWeight: 200, letterSpacing: "-0.04em", lineHeight: 1 }}>18°</div>
+                <div style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.4)" }}>Partly Cloudy</div>
+              </div>
+            </div>
+
+            {/* Progress */}
+            <div style={{ marginBottom: 28 }}>
+              <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 8, fontSize: "0.72rem", color: "rgba(255,255,255,0.4)" }}>
+                <span>Trip progress</span><span>4 / 12 days</span>
+              </div>
+              <div style={{ height: 3, background: "rgba(255,255,255,0.08)", borderRadius: 9999 }}>
+                <div style={{ width: "33%", height: "100%", background: "rgba(255,255,255,0.6)", borderRadius: 9999 }} />
+              </div>
+            </div>
+
+            {/* Today's itinerary */}
+            <div>
+              <p style={{ fontSize: "0.7rem", letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: 14 }}>Today&apos;s itinerary</p>
+              <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+                {itinerary.map(({ time, activity, type }, i) => (
+                  <div key={i} style={{ display: "flex", alignItems: "center", gap: 14, padding: "11px 0", borderBottom: i < itinerary.length - 1 ? "1px solid rgba(255,255,255,0.05)" : "none" }}>
+                    <span style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.3)", width: 38, flexShrink: 0, fontVariantNumeric: "tabular-nums" }}>{time}</span>
+                    <div style={{ width: 1, height: 28, background: "rgba(255,255,255,0.1)" }} />
+                    <div style={{ flex: 1 }}>
+                      <p style={{ fontSize: "0.85rem", fontWeight: 500, color: "rgba(255,255,255,0.85)", marginBottom: 2 }}>{activity}</p>
+                      <p style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.3)" }}>{type}</p>
+                    </div>
+                    <div style={{ ...G({ borderRadius: 6, padding: "3px 9px" }), fontSize: "0.62rem", color: "rgba(255,255,255,0.45)", fontWeight: 500 }}>
+                      {i === 0 ? "Next" : ""}
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
-          <p style={{ fontWeight: 700, fontSize: "1.1rem", marginBottom: 2 }}>Violet Dreams</p>
-          <p style={{ fontSize: "0.8rem", color: "rgba(255,255,255,0.45)", marginBottom: 14 }}>Lo-fi Collective · 2025</p>
-          <div style={{ height: 3, background: "rgba(255,255,255,0.1)", borderRadius: 9999, marginBottom: 18 }}>
-            <div style={{ width: "42%", height: "100%", background: "linear-gradient(90deg,#ec4899,#8b5cf6)", borderRadius: 9999 }} />
-          </div>
-          <div style={{ display: "flex", justifyContent: "center", gap: 20, alignItems: "center", marginBottom: 20 }}>
-            {["⏮", "⏸", "⏭"].map((c, i) => (
-              <button key={i} style={{ background: i === 1 ? "rgba(236,72,153,0.25)" : "transparent", border: "none", color: "#fff", fontSize: i === 1 ? "1.3rem" : "1rem", width: i === 1 ? 48 : 36, height: i === 1 ? 48 : 36, borderRadius: "50%", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>{c}</button>
-            ))}
-          </div>
-          <div style={{ borderTop: "1px solid rgba(255,255,255,0.07)", paddingTop: 16, display: "flex", flexDirection: "column", gap: 10 }}>
-            {tracks.map((t, i) => (
-              <div key={i} style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <div style={{ width: 32, height: 32, borderRadius: 8, background: `${t.color}33`, border: `1px solid ${t.color}55`, flexShrink: 0 }} />
-                <div style={{ flex: 1, minWidth: 0 }}>
-                  <p style={{ fontSize: "0.78rem", fontWeight: 600, color: i === 3 ? "#ec4899" : "rgba(255,255,255,0.8)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{t.title}</p>
-                  <p style={{ fontSize: "0.66rem", color: "rgba(255,255,255,0.35)" }}>{t.artist}</p>
+
+          {/* Right column */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+
+            {/* Flight card */}
+            <div style={{ ...G({ borderRadius: 18 }), padding: "22px 22px" }}>
+              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 18 }}>
+                <p style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.4)", letterSpacing: ".08em", textTransform: "uppercase" }}>Return Flight</p>
+                <span style={{ ...G({ borderRadius: 9999, padding: "2px 9px" }), fontSize: "0.62rem", color: "rgba(255,255,255,0.55)" }}>Jul 8</span>
+              </div>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+                <div>
+                  <p style={{ fontSize: "1.5rem", fontWeight: 700, letterSpacing: "-0.02em" }}>KIX</p>
+                  <p style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.35)" }}>Osaka</p>
                 </div>
-                <span style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.3)" }}>{t.dur}</span>
+                <div style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+                  <div style={{ fontSize: "0.62rem", color: "rgba(255,255,255,0.25)", letterSpacing: ".06em" }}>11h 40m</div>
+                  <div style={{ width: "80%", height: 1, background: "rgba(255,255,255,0.15)", position: "relative" }}>
+                    <div style={{ position: "absolute", right: -3, top: "50%", transform: "translateY(-50%)", fontSize: "0.6rem", color: "rgba(255,255,255,0.4)" }}>✈</div>
+                  </div>
+                </div>
+                <div style={{ textAlign: "right" }}>
+                  <p style={{ fontSize: "1.5rem", fontWeight: 700, letterSpacing: "-0.02em" }}>LHR</p>
+                  <p style={{ fontSize: "0.7rem", color: "rgba(255,255,255,0.35)" }}>London</p>
+                </div>
+              </div>
+              <div style={{ ...G({ borderRadius: 10, padding: "9px 12px" }), display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                <span style={{ fontSize: "0.72rem", color: "rgba(255,255,255,0.5)" }}>British Airways · BA005</span>
+                <span style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.35)" }}>Seat 14A</span>
+              </div>
+            </div>
+
+            {/* Spend card */}
+            <div style={{ ...G({ borderRadius: 18 }), padding: "22px 22px" }}>
+              <p style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.4)", letterSpacing: ".08em", textTransform: "uppercase", marginBottom: 14 }}>Trip Spend</p>
+              <p style={{ fontSize: "2rem", fontWeight: 700, letterSpacing: "-0.03em", marginBottom: 4 }}>¥ 84,200</p>
+              <p style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.35)", marginBottom: 14 }}>of ¥ 150,000 budget</p>
+              <div style={{ height: 3, background: "rgba(255,255,255,0.07)", borderRadius: 9999, marginBottom: 12 }}>
+                <div style={{ width: "56%", height: "100%", background: "rgba(255,255,255,0.55)", borderRadius: 9999 }} />
+              </div>
+              <div style={{ display: "flex", flexDirection: "column", gap: 7 }}>
+                {[["Accommodation", "¥ 38,000"],["Food & Dining", "¥ 22,400"],["Transport", "¥ 13,800"]].map(([cat, amt]) => (
+                  <div key={cat} style={{ display: "flex", justifyContent: "space-between" }}>
+                    <span style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.4)" }}>{cat}</span>
+                    <span style={{ fontSize: "0.75rem", fontWeight: 600, color: "rgba(255,255,255,0.7)" }}>{amt}</span>
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* ── Upcoming trips row ── */}
+        <div>
+          <p style={{ fontSize: "0.7rem", letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: 14 }}>Upcoming trips</p>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 14 }}>
+            {trips.map(({ city, country, days, icon }) => (
+              <div key={city} style={{ ...G({ borderRadius: 16, padding: "20px 22px" }), cursor: "pointer", transition: "border-color .2s" }}
+                onMouseEnter={e => e.currentTarget.style.borderColor = "rgba(255,255,255,0.22)"}
+                onMouseLeave={e => e.currentTarget.style.borderColor = "rgba(255,255,255,0.11)"}>
+                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 }}>
+                  <span style={{ fontSize: "1.8rem" }}>{icon}</span>
+                  <span style={{ ...G({ borderRadius: 9999, padding: "3px 10px" }), fontSize: "0.62rem", color: "rgba(255,255,255,0.45)" }}>{days} days</span>
+                </div>
+                <p style={{ fontSize: "1.1rem", fontWeight: 700, marginBottom: 2, letterSpacing: "-0.01em" }}>{city}</p>
+                <p style={{ fontSize: "0.75rem", color: "rgba(255,255,255,0.38)" }}>{country}</p>
               </div>
             ))}
           </div>
         </div>
-      </section>
-
-      <section style={{ maxWidth: 1100, margin: "0 auto", padding: "10px 32px 80px", display: "flex", gap: 12, flexWrap: "wrap", position: "relative", zIndex: 5 }}>
-        {["Lossless Audio", "AI Recommendations", "Offline Mode", "No Ads", "Social Listening", "Concert Alerts", "Lyrics Sync"].map((f) => (
-          <div key={f} style={{ ...glass, borderRadius: 9999, padding: "10px 20px", fontSize: "0.82rem", color: "rgba(255,255,255,0.65)", fontWeight: 500 }}>{f}</div>
-        ))}
-      </section>
+      </div>
     </div>
   );
 }
 
 /* ─── 4. NEUMORPHISM ─────────────────────────────────────────── */
 function NeumorphismPage() {
-  const BG = "#e0e5ec";
-  const sh = "8px 8px 16px #b8bec7,-8px -8px 16px #ffffff";
-  const shIn = "inset 5px 5px 10px #b8bec7,inset -5px -5px 10px #ffffff";
-  const neu = (ex = {}) => ({ background: BG, boxShadow: sh, borderRadius: 16, ...ex });
-  const neuIn = (ex = {}) => ({ background: BG, boxShadow: shIn, borderRadius: 12, ...ex });
+  const [playing, setPlaying] = useState(true);
+  const [liked, setLiked] = useState(false);
+  const [volume, setVolume] = useState(68);
+  const [activeTab, setActiveTab] = useState("For You");
+
+  // Warm linen palette — neumorphism shines on warm neutrals, not cold grays
+  const BG   = "#e8e3db";
+  const INK  = "#3d3530";
+  const MID  = "#7a7068";
+  const DIM  = "#a09890";
+  const ACT  = "#8b6f5e"; // warm brown accent for active states
+
+  // Shadow helpers
+  const raised = (r = 16, extra = {}) => ({
+    background: BG,
+    boxShadow: `7px 7px 18px #c5bfb6, -7px -7px 18px #ffffff`,
+    borderRadius: r,
+    ...extra,
+  });
+  const pressed = (r = 16, extra = {}) => ({
+    background: BG,
+    boxShadow: `inset 5px 5px 12px #c5bfb6, inset -5px -5px 12px #ffffff`,
+    borderRadius: r,
+    ...extra,
+  });
+  const raisedSm = (r = 12, extra = {}) => ({
+    background: BG,
+    boxShadow: `4px 4px 10px #c5bfb6, -4px -4px 10px #ffffff`,
+    borderRadius: r,
+    ...extra,
+  });
+
+  const queue = [
+    { title: "Still Waters",   artist: "Nils Frahm",      dur: "5:12", active: false },
+    { title: "Says",           artist: "Nils Frahm",      dur: "9:38", active: true  },
+    { title: "All Melody",     artist: "Nils Frahm",      dur: "6:04", active: false },
+    { title: "Them",           artist: "Nils Frahm",      dur: "4:51", active: false },
+  ];
+
+  const tabs = ["For You", "Albums", "Artists", "Library"];
+
   return (
-    <div style={{ fontFamily: "system-ui,-apple-system,sans-serif", background: BG, minHeight: "100vh", color: "#5a6270", padding: "32px 16px" }}>
-      <div style={{ maxWidth: 460, margin: "0 auto" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 32 }}>
+    <div style={{ fontFamily: "'Helvetica Neue',Arial,sans-serif", background: BG, minHeight: "100vh", color: INK }}>
+
+      {/* ── NAV ── */}
+      <nav style={{ maxWidth: 900, margin: "0 auto", padding: "24px 32px", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+        <div>
+          <span style={{ fontWeight: 800, fontSize: "1.15rem", letterSpacing: "-0.02em", color: INK }}>Forma</span>
+          <span style={{ fontSize: "0.65rem", color: DIM, marginLeft: 8, letterSpacing: ".08em", textTransform: "uppercase" }}>Audio</span>
+        </div>
+        <div style={{ display: "flex", gap: 4 }}>
+          {tabs.map(t => (
+            <button key={t} onClick={() => setActiveTab(t)} style={{
+              ...activeTab === t ? pressed(9999) : raisedSm(9999),
+              border: "none", cursor: "pointer", fontFamily: "inherit",
+              padding: "8px 18px", fontSize: "0.78rem", fontWeight: 600,
+              color: activeTab === t ? ACT : MID, transition: "all .15s",
+            }}>{t}</button>
+          ))}
+        </div>
+        <BackBtn />
+      </nav>
+
+      <div style={{ maxWidth: 900, margin: "0 auto", padding: "0 32px 60px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32, alignItems: "start" }}>
+
+        {/* ── LEFT: Player ── */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
+
+          {/* Album art */}
+          <div style={{ ...raised(28), padding: 18, display: "flex", justifyContent: "center" }}>
+            <div style={{ ...pressed(20), width: "100%", aspectRatio: "1", maxWidth: 320, display: "flex", alignItems: "center", justifyContent: "center", overflow: "hidden" }}>
+              {/* Abstract album art — warm geometric blocks */}
+              <svg width="100%" height="100%" viewBox="0 0 280 280" style={{ display: "block" }}>
+                <rect width="280" height="280" fill="#d9d3cb" />
+                <rect x="0" y="0" width="140" height="280" fill="#cec7be" />
+                <rect x="70" y="70" width="140" height="140" fill="#bfb8ae" />
+                <circle cx="140" cy="140" r="42" fill="#a8a098" />
+                <circle cx="140" cy="140" r="18" fill="#e8e3db" />
+                {/* Subtle warm shapes */}
+                <rect x="20" y="20" width="50" height="4" fill="#b5afa5" opacity="0.6" />
+                <rect x="20" y="30" width="30" height="4" fill="#b5afa5" opacity="0.4" />
+              </svg>
+            </div>
+          </div>
+
+          {/* Track info */}
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div>
+              <p style={{ fontSize: "1.25rem", fontWeight: 700, color: INK, letterSpacing: "-0.02em", marginBottom: 4 }}>Says</p>
+              <p style={{ fontSize: "0.82rem", color: MID }}>Nils Frahm · <em>Spaces</em></p>
+            </div>
+            <button onClick={() => setLiked(!liked)} style={{
+              ...liked ? pressed(14) : raisedSm(14),
+              width: 44, height: 44, border: "none", cursor: "pointer",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              color: liked ? ACT : DIM, fontSize: "1.1rem", transition: "all .15s",
+            }}>♥</button>
+          </div>
+
+          {/* Progress */}
           <div>
-            <p style={{ fontSize: "0.7rem", letterSpacing: ".1em", textTransform: "uppercase", color: "#9aa5b4", marginBottom: 3 }}>Good morning</p>
-            <h1 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#3d4856", letterSpacing: "-0.02em" }}>Alex Johnson</h1>
-          </div>
-          <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-            <BackBtn light />
-            <div style={{ ...neu(), width: 44, height: 44, display: "flex", alignItems: "center", justifyContent: "center", borderRadius: 14, flexShrink: 0 }}>
-              <Bell size={18} color="#7b8ea0" />
+            <div style={{ ...pressed(9999, { padding: 0 }), height: 8, overflow: "hidden", marginBottom: 8 }}>
+              <div style={{ width: "42%", height: "100%", background: ACT, borderRadius: 9999, opacity: 0.75 }} />
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between", fontSize: "0.7rem", color: DIM }}>
+              <span>3:56</span><span>9:38</span>
             </div>
           </div>
+
+          {/* Playback controls */}
+          <div style={{ display: "flex", alignItems: "center", justifyContent: "center", gap: 16 }}>
+            {/* Shuffle */}
+            <button style={{ ...raisedSm(10), width: 38, height: 38, border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: DIM, fontSize: "0.85rem" }}>⇌</button>
+            {/* Previous */}
+            <button style={{ ...raised(14), width: 48, height: 48, border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: MID, fontSize: "1rem" }}>⏮</button>
+            {/* Play/pause — larger raised button */}
+            <button onClick={() => setPlaying(!playing)} style={{
+              ...playing ? pressed(22) : raised(22),
+              width: 68, height: 68, border: "none", cursor: "pointer",
+              display: "flex", alignItems: "center", justifyContent: "center",
+              color: ACT, fontSize: "1.5rem", transition: "all .15s",
+            }}>{playing ? "⏸" : "▶"}</button>
+            {/* Next */}
+            <button style={{ ...raised(14), width: 48, height: 48, border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: MID, fontSize: "1rem" }}>⏭</button>
+            {/* Repeat */}
+            <button style={{ ...raisedSm(10), width: 38, height: 38, border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: DIM, fontSize: "0.85rem" }}>↺</button>
+          </div>
+
+          {/* Volume */}
+          <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+            <span style={{ fontSize: "0.78rem", color: DIM }}>🔈</span>
+            <div style={{ flex: 1, ...pressed(9999, { padding: 0 }), height: 6, position: "relative", cursor: "pointer" }}
+              onClick={e => { const r = e.currentTarget.getBoundingClientRect(); setVolume(Math.round(((e.clientX - r.left) / r.width) * 100)); }}>
+              <div style={{ width: `${volume}%`, height: "100%", background: ACT, borderRadius: 9999, opacity: 0.7 }} />
+              <div style={{ position: "absolute", left: `${volume}%`, top: "50%", transform: "translate(-50%,-50%)", width: 14, height: 14, ...raisedSm(9999), flexShrink: 0 }} />
+            </div>
+            <span style={{ fontSize: "0.78rem", color: DIM }}>🔊</span>
+          </div>
         </div>
 
-        <div style={{ ...neu({ borderRadius: 24 }), padding: "32px 28px", marginBottom: 24 }}>
-          <p style={{ fontSize: "0.7rem", letterSpacing: ".1em", textTransform: "uppercase", color: "#9aa5b4", marginBottom: 8 }}>Total Balance</p>
-          <div style={{ fontSize: "2.8rem", fontWeight: 700, color: "#3d4856", letterSpacing: "-0.04em", marginBottom: 4 }}>$24,560<span style={{ fontSize: "1.2rem", color: "#9aa5b4" }}>.00</span></div>
-          <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 24 }}>
-            <TrendingUp size={14} color="#5ba090" />
-            <span style={{ fontSize: "0.78rem", color: "#5ba090", fontWeight: 600 }}>+12.4% this month</span>
-          </div>
-          <div style={{ ...neuIn(), height: 8, overflow: "hidden", padding: 0 }}>
-            <div style={{ width: "65%", height: "100%", background: "linear-gradient(90deg,#6b9fca,#8bb8d4)", borderRadius: 8 }} />
-          </div>
-          <div style={{ display: "flex", justifyContent: "space-between", marginTop: 8, fontSize: "0.68rem", color: "#9aa5b4" }}>
-            <span>Spent: $15,940</span><span>Budget: $24,560</span>
-          </div>
-        </div>
+        {/* ── RIGHT: Queue + Info ── */}
+        <div style={{ display: "flex", flexDirection: "column", gap: 20 }}>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14, marginBottom: 24 }}>
-          {[["↑", "Send"], ["↓", "Receive"], ["⇌", "Transfer"], ["$", "Pay"]].map(([icon, label], i) => (
-            <div key={i} style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 10 }}>
-              <div style={{ ...neu({ width: 52, height: 52, borderRadius: 16, display: "flex", alignItems: "center", justifyContent: "center" }) }}>
-                <span style={{ fontSize: "1.2rem", color: "#6b9fca" }}>{icon}</span>
+          {/* Now playing label */}
+          <div style={{ ...raised(20), padding: "20px 22px" }}>
+            <div style={{ display: "flex", gap: 10, marginBottom: 18 }}>
+              <div style={{ ...pressed(8), flex: 1, height: 28, display: "flex", alignItems: "center", paddingLeft: 10 }}>
+                <span style={{ fontSize: "0.72rem", color: MID }}>🔍  Search music…</span>
               </div>
-              <span style={{ fontSize: "0.66rem", color: "#9aa5b4", fontWeight: 600 }}>{label}</span>
+              <button style={{ ...raisedSm(8), width: 28, height: 28, border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", color: DIM, fontSize: "0.75rem" }}>≡</button>
             </div>
-          ))}
-        </div>
-
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 24 }}>
-          {[["Income", "$8,240", "+8.2%", "#5ba090"], ["Expenses", "$3,680", "-2.1%", "#c17a7a"]].map(([label, val, chg, color], i) => (
-            <div key={i} style={{ ...neu({ borderRadius: 20 }), padding: "20px 18px" }}>
-              <p style={{ fontSize: "0.68rem", color: "#9aa5b4", marginBottom: 8, textTransform: "uppercase", letterSpacing: ".08em" }}>{label}</p>
-              <p style={{ fontSize: "1.5rem", fontWeight: 700, color: "#3d4856", letterSpacing: "-0.03em", marginBottom: 4 }}>{val}</p>
-              <span style={{ fontSize: "0.72rem", color, fontWeight: 600 }}>{chg}</span>
+            <p style={{ fontSize: "0.65rem", letterSpacing: ".1em", textTransform: "uppercase", color: DIM, marginBottom: 12 }}>Up next</p>
+            <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+              {queue.map(({ title, artist, dur, active }, i) => (
+                <div key={i} style={{ display: "flex", alignItems: "center", gap: 12, padding: "11px 0", borderBottom: i < queue.length - 1 ? `1px solid rgba(0,0,0,0.06)` : "none" }}>
+                  <div style={{ ...active ? pressed(9) : raisedSm(9), width: 36, height: 36, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", border: "none" }}>
+                    <span style={{ fontSize: "0.7rem", color: active ? ACT : DIM }}>{active ? "▶" : String(i + 1).padStart(2, "0")}</span>
+                  </div>
+                  <div style={{ flex: 1 }}>
+                    <p style={{ fontSize: "0.85rem", fontWeight: active ? 700 : 500, color: active ? INK : MID, marginBottom: 2 }}>{title}</p>
+                    <p style={{ fontSize: "0.7rem", color: DIM }}>{artist}</p>
+                  </div>
+                  <span style={{ fontSize: "0.7rem", color: DIM }}>{dur}</span>
+                </div>
+              ))}
             </div>
-          ))}
-        </div>
-
-        <div style={{ ...neu({ borderRadius: 24 }), padding: "22px 20px" }}>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 18 }}>
-            <span style={{ fontWeight: 700, color: "#3d4856", fontSize: "0.9rem" }}>Recent Transactions</span>
-            <span style={{ fontSize: "0.7rem", color: "#6b9fca" }}>See all</span>
           </div>
-          {[["Netflix", "Subscription", "-$15.99", "#e85d5d"], ["Salary", "Income", "+$4,200", "#5ba090"], ["Amazon", "Shopping", "-$89.50", "#e85d5d"], ["Freelance", "Income", "+$750", "#5ba090"]].map(([name, type, amount, color], i, arr) => (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: 14, padding: "12px 0", borderBottom: i < arr.length - 1 ? "1px solid rgba(0,0,0,0.04)" : "none" }}>
-              <div style={{ ...neuIn({ width: 40, height: 40, borderRadius: 12, display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }) }}>
-                <span style={{ fontSize: "0.78rem", color: "#7b8ea0", fontWeight: 700 }}>{name[0]}</span>
+
+          {/* Stats row */}
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14 }}>
+            {[["128", "Songs saved"], ["12", "Playlists"]].map(([n, label], i) => (
+              <div key={i} style={{ ...raised(18), padding: "18px 20px" }}>
+                <p style={{ fontSize: "1.8rem", fontWeight: 800, color: INK, letterSpacing: "-0.04em", marginBottom: 2 }}>{n}</p>
+                <p style={{ fontSize: "0.72rem", color: DIM }}>{label}</p>
               </div>
-              <div style={{ flex: 1 }}>
-                <p style={{ fontWeight: 600, fontSize: "0.85rem", color: "#3d4856" }}>{name}</p>
-                <p style={{ fontSize: "0.7rem", color: "#9aa5b4" }}>{type}</p>
-              </div>
-              <span style={{ fontWeight: 700, fontSize: "0.88rem", color }}>{amount}</span>
+            ))}
+          </div>
+
+          {/* EQ bands — decorative neumorphic bars */}
+          <div style={{ ...raised(20), padding: "20px 22px" }}>
+            <p style={{ fontSize: "0.65rem", letterSpacing: ".1em", textTransform: "uppercase", color: DIM, marginBottom: 14 }}>Equalizer</p>
+            <div style={{ display: "flex", gap: 10, alignItems: "flex-end", height: 60 }}>
+              {[55, 72, 88, 64, 78, 90, 70, 58, 44, 62].map((h, i) => (
+                <div key={i} style={{ flex: 1, display: "flex", flexDirection: "column", alignItems: "center", gap: 4, height: "100%" }}>
+                  <div style={{ flex: 1, width: "100%", ...pressed(4, { padding: 0 }), position: "relative", overflow: "hidden" }}>
+                    <div style={{ position: "absolute", bottom: 0, width: "100%", height: `${h}%`, background: ACT, opacity: 0.45, borderRadius: 3 }} />
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+            <div style={{ display: "flex", justifyContent: "space-between", marginTop: 8 }}>
+              {["32","64","125","250","500","1k","2k","4k","8k","16k"].map(f => (
+                <span key={f} style={{ fontSize: "0.5rem", color: DIM, textAlign: "center", flex: 1 }}>{f}</span>
+              ))}
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -871,79 +1092,131 @@ function NeumorphismPage() {
 
 /* ─── 5. BRUTALISM ────────────────────────────────────────────── */
 function BrutalismPage() {
+  const [hovered, setHovered] = useState(null);
   const border = "3px solid #000";
+
   const projects = [
-    { id: "001", name: "REVOLT STUDIO", cat: "Brand Identity", year: "2025", color: "#FFE000" },
-    { id: "002", name: "NAKED TRUTH", cat: "Editorial Design", year: "2025", color: "#fff" },
-    { id: "003", name: "IRON GRID", cat: "Web Design", year: "2024", color: "#FF3B3B" },
-    { id: "004", name: "MANIFEST", cat: "Motion & Video", year: "2024", color: "#00FF87" },
-    { id: "005", name: "CONCRETE TYPE", cat: "Typography", year: "2023", color: "#FFE000" },
+    { id: "001", name: "REVOLT STUDIO",  cat: "Brand Identity",   year: "2025", hover: "#FFE000", dark: false },
+    { id: "002", name: "NAKED TRUTH",    cat: "Editorial Design", year: "2025", hover: "#FF0000", dark: false },
+    { id: "003", name: "IRON GRID",      cat: "Web Design",       year: "2024", hover: "#000",    dark: true  },
+    { id: "004", name: "MANIFEST",       cat: "Motion & Video",   year: "2024", hover: "#00FF00", dark: false },
+    { id: "005", name: "CONCRETE TYPE",  cat: "Typography",       year: "2023", hover: "#0000FF", dark: false },
   ];
+
   return (
-    <div style={{ fontFamily: "'Courier New',Courier,monospace", background: "#fff", minHeight: "100vh", color: "#000" }}>
-      <header style={{ borderBottom: border, padding: "0 32px", display: "grid", gridTemplateColumns: "1fr auto", alignItems: "stretch" }}>
-        <div style={{ padding: "20px 0", borderRight: border }}>
-          <h1 style={{ fontSize: "clamp(1.5rem,4vw,2.5rem)", fontWeight: 900, letterSpacing: "-0.02em", lineHeight: 1, textTransform: "uppercase" }}>
-            BRUTAL<span style={{ background: "#FFE000", padding: "0 6px" }}>FORM</span>
-          </h1>
-          <p style={{ fontSize: "0.68rem", letterSpacing: ".1em", marginTop: 5, color: "#555" }}>CREATIVE STUDIO  EST. 2019</p>
+    <div style={{ fontFamily: "'Arial Black','Helvetica Neue',Arial,sans-serif", background: "#fff", minHeight: "100vh", color: "#000" }}>
+
+      {/* ── HEADER ── */}
+      <header style={{ borderBottom: border, display: "grid", gridTemplateColumns: "1fr auto auto", alignItems: "stretch", height: 68 }}>
+        <div style={{ padding: "0 32px", display: "flex", alignItems: "center", borderRight: border }}>
+          <span style={{ fontWeight: 900, fontSize: "1.3rem", letterSpacing: "-0.02em", textTransform: "uppercase" }}>BRUTAL</span>
+          <span style={{ fontWeight: 900, fontSize: "1.3rem", letterSpacing: "-0.02em", background: "#FFE000", padding: "0 6px" }}>FORM</span>
         </div>
-        <div style={{ padding: "20px 24px", display: "flex", alignItems: "center" }}>
+        <nav style={{ display: "flex", alignItems: "center", borderRight: border }}>
+          {["Work", "Services", "About", "Contact"].map((item, i, arr) => (
+            <a key={item} href="#" style={{ padding: "0 20px", height: "100%", display: "flex", alignItems: "center", fontSize: "0.7rem", fontWeight: 700, letterSpacing: ".08em", textDecoration: "none", color: "#000", borderRight: i < arr.length - 1 ? "1px solid rgba(0,0,0,0.1)" : "none", textTransform: "uppercase" }}>{item}</a>
+          ))}
+        </nav>
+        <div style={{ display: "flex", alignItems: "center", padding: "0 24px" }}>
           <BackBtn light />
         </div>
       </header>
 
-      <section style={{ borderBottom: border, padding: "52px 32px", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 40, alignItems: "center" }}>
-        <div>
-          <div style={{ border: border, background: "#FFE000", display: "inline-block", padding: "4px 10px", fontSize: "0.68rem", letterSpacing: ".12em", textTransform: "uppercase", marginBottom: 18 }}>AVAILABLE FOR WORK</div>
-          <h2 style={{ fontSize: "clamp(2.5rem,6vw,5rem)", fontWeight: 900, letterSpacing: "-0.04em", lineHeight: 0.92, textTransform: "uppercase", marginBottom: 22 }}>
-            WE MAKE UGLY<br />BEAUTIFUL.
-          </h2>
-          <p style={{ fontSize: "0.88rem", lineHeight: 1.7, color: "#333", borderLeft: "4px solid #FFE000", paddingLeft: 14, maxWidth: 400, marginBottom: 28 }}>
-            We reject templates, safe choices, and beige design. Every pixel is intentional  loud and unapologetic.
+      {/* ── HERO ── */}
+      <section style={{ borderBottom: border, padding: "48px 32px", display: "grid", gridTemplateColumns: "3fr 2fr", gap: 0, alignItems: "stretch" }}>
+        <div style={{ paddingRight: 40, borderRight: border }}>
+          <div style={{ border, background: "#FFE000", display: "inline-block", padding: "4px 12px", fontSize: "0.62rem", letterSpacing: ".15em", textTransform: "uppercase", fontWeight: 900, marginBottom: 22 }}>● AVAILABLE FOR WORK</div>
+          <h1 style={{ fontSize: "clamp(3rem,7vw,6rem)", fontWeight: 900, letterSpacing: "-0.04em", lineHeight: 0.9, textTransform: "uppercase", marginBottom: 24 }}>
+            WE MAKE<br />
+            UGLY<br />
+            <span style={{ display: "inline-block", background: "#000", color: "#fff", padding: "2px 10px", lineHeight: 1.1 }}>BEAUTIFUL.</span>
+          </h1>
+          <p style={{ fontSize: "0.9rem", lineHeight: 1.7, color: "#333", maxWidth: 400, marginBottom: 32, borderLeft: "4px solid #FFE000", paddingLeft: 14, fontFamily: "'Helvetica Neue',Arial,sans-serif", fontWeight: 400 }}>
+            We reject templates, safe choices, and beige design. Every pixel is intentional — loud and unapologetic.
           </p>
           <div style={{ display: "flex" }}>
-            <a href="#" style={{ border, background: "#000", color: "#fff", padding: "14px 28px", fontFamily: "inherit", fontWeight: 900, fontSize: "0.88rem", textDecoration: "none", textTransform: "uppercase", letterSpacing: ".06em" }}>HIRE US</a>
-            <a href="#" style={{ border, borderLeft: "none", background: "#FFE000", color: "#000", padding: "14px 28px", fontFamily: "inherit", fontWeight: 900, fontSize: "0.88rem", textDecoration: "none", textTransform: "uppercase", letterSpacing: ".06em" }}>OUR WORK ↗</a>
+            <a href="#" style={{ border, background: "#000", color: "#fff", padding: "14px 32px", fontFamily: "inherit", fontWeight: 900, fontSize: "0.82rem", textDecoration: "none", textTransform: "uppercase", letterSpacing: ".1em" }}>HIRE US ↗</a>
+            <a href="#" style={{ border, borderLeft: "none", background: "#FFE000", color: "#000", padding: "14px 28px", fontFamily: "inherit", fontWeight: 900, fontSize: "0.82rem", textDecoration: "none", textTransform: "uppercase", letterSpacing: ".1em" }}>VIEW WORK</a>
           </div>
         </div>
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 0, border }}>
-          {["🔥", "💀", "⚡", "🎯"].map((em, i) => (
-            <div key={i} style={{ paddingTop: "100%", position: "relative", borderRight: i % 2 === 0 ? border : "none", borderBottom: i < 2 ? border : "none", background: i === 1 ? "#FFE000" : "#fff" }}>
-              <span style={{ position: "absolute", top: "50%", left: "50%", transform: "translate(-50%,-50%)", fontSize: "2.5rem" }}>{em}</span>
+
+        {/* Right: manifesto block — no emojis, pure typographic */}
+        <div style={{ paddingLeft: 40, display: "flex", flexDirection: "column", gap: 0 }}>
+          <div style={{ background: "#000", padding: "28px 26px", flex: 1, display: "flex", flexDirection: "column", justifyContent: "space-between" }}>
+            <div>
+              <div style={{ fontSize: "0.55rem", letterSpacing: ".2em", color: "#FFE000", textTransform: "uppercase", marginBottom: 16, fontWeight: 700 }}>MANIFESTO / 001</div>
+              <p style={{ fontSize: "clamp(1.4rem,3vw,2rem)", fontWeight: 900, color: "#fff", lineHeight: 1.1, letterSpacing: "-0.02em", textTransform: "uppercase" }}>
+                &ldquo;DESIGN IS<br />
+                NOT ART—<br />
+                IT IS<br />
+                COMMUNICATION.&rdquo;
+              </p>
             </div>
-          ))}
+            <div style={{ paddingTop: 20, borderTop: "1px solid rgba(255,255,255,0.12)", display: "grid", gridTemplateColumns: "1fr 1fr 1fr", gap: 10 }}>
+              {[["7+", "YEARS"], ["48", "CLIENTS"], ["120+", "PROJECTS"]].map(([n, l]) => (
+                <div key={l}>
+                  <div style={{ fontSize: "1.5rem", fontWeight: 900, color: "#FFE000", letterSpacing: "-0.04em", lineHeight: 1.1 }}>{n}</div>
+                  <div style={{ fontSize: "0.5rem", color: "rgba(255,255,255,0.4)", letterSpacing: ".1em", textTransform: "uppercase", marginTop: 2 }}>{l}</div>
+                </div>
+              ))}
+            </div>
+          </div>
         </div>
       </section>
 
+      {/* ── PROJECT TABLE ── */}
       <section style={{ padding: "0 32px" }}>
-        <div style={{ borderBottom: border, padding: "14px 0", display: "grid", gridTemplateColumns: "80px 1fr 1fr 80px", gap: 16 }}>
-          {["NO.", "PROJECT", "CATEGORY", "YEAR"].map(h => <span key={h} style={{ fontSize: "0.62rem", letterSpacing: ".12em", fontWeight: 900, color: "#999" }}>{h}</span>)}
+        <div style={{ borderBottom: border, padding: "12px 0", display: "grid", gridTemplateColumns: "72px 1fr 1fr 80px 28px", gap: 16, alignItems: "center" }}>
+          {["NO.", "PROJECT", "CATEGORY", "YEAR", ""].map((h, i) => (
+            <span key={i} style={{ fontSize: "0.58rem", letterSpacing: ".14em", fontWeight: 900, color: "#bbb", textTransform: "uppercase" }}>{h}</span>
+          ))}
         </div>
         {projects.map((p, i) => (
-          <div key={i} style={{ borderBottom: border, padding: "20px 0", display: "grid", gridTemplateColumns: "80px 1fr 1fr 80px", gap: 16, alignItems: "center", cursor: "pointer", transition: "background .15s" }}
-            onMouseEnter={e => e.currentTarget.style.background = p.color}
-            onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
-            <span style={{ fontSize: "0.72rem", fontWeight: 900, color: "#aaa" }}>{p.id}</span>
-            <span style={{ fontSize: "1.05rem", fontWeight: 900, textTransform: "uppercase", letterSpacing: "-0.02em" }}>{p.name}</span>
-            <span style={{ fontSize: "0.8rem", color: "#555" }}>{p.cat}</span>
-            <span style={{ fontSize: "0.8rem", color: "#555" }}>{p.year}</span>
+          <div key={i}
+            onMouseEnter={() => setHovered(i)}
+            onMouseLeave={() => setHovered(null)}
+            style={{ borderBottom: border, padding: "18px 0", display: "grid", gridTemplateColumns: "72px 1fr 1fr 80px 28px", gap: 16, alignItems: "center", cursor: "pointer", transition: "background .1s", background: hovered === i ? p.hover : "transparent", color: hovered === i && p.dark ? "#fff" : "#000" }}>
+            <span style={{ fontSize: "0.65rem", fontWeight: 900, color: hovered === i && p.dark ? "#FFE000" : "#bbb" }}>{p.id}</span>
+            <span style={{ fontSize: "clamp(0.9rem,2vw,1.15rem)", fontWeight: 900, textTransform: "uppercase", letterSpacing: "-0.02em" }}>{p.name}</span>
+            <span style={{ fontSize: "0.82rem", fontFamily: "'Helvetica Neue',Arial,sans-serif", fontWeight: 400, color: hovered === i && p.dark ? "rgba(255,255,255,0.65)" : "#555" }}>{p.cat}</span>
+            <span style={{ fontSize: "0.82rem", fontFamily: "'Helvetica Neue',Arial,sans-serif", fontWeight: 400, color: hovered === i && p.dark ? "rgba(255,255,255,0.65)" : "#555" }}>{p.year}</span>
+            <span style={{ fontSize: "1rem", fontWeight: 900 }}>→</span>
           </div>
         ))}
       </section>
 
-      <div style={{ background: "#000", padding: "14px 0", overflow: "hidden", borderTop: border }}>
-        <div style={{ display: "flex", gap: 48, animation: "marquee 18s linear infinite", whiteSpace: "nowrap" }}>
+      {/* ── SERVICES ── */}
+      <section style={{ borderTop: border, padding: "40px 32px", display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 0 }}>
+        {[
+          ["01", "Brand Identity",  "Logos, systems, and the visual language of a company."],
+          ["02", "Web Design",      "Interfaces that don't apologize for being different."],
+          ["03", "Editorial",       "Layouts that demand to be read, not scanned."],
+          ["04", "Motion",          "Animation as punctuation, not decoration."],
+        ].map(([num, title, desc], i) => (
+          <div key={num} style={{ padding: "0 24px", paddingLeft: i === 0 ? 0 : 24, borderRight: i < 3 ? border : "none" }}>
+            <div style={{ fontSize: "0.55rem", letterSpacing: ".12em", color: "#bbb", fontWeight: 900, marginBottom: 8 }}>{num}</div>
+            <h3 style={{ fontSize: "0.9rem", fontWeight: 900, textTransform: "uppercase", letterSpacing: "-0.01em", marginBottom: 8 }}>{title}</h3>
+            <p style={{ fontSize: "0.76rem", color: "#555", lineHeight: 1.65, fontFamily: "'Helvetica Neue',Arial,sans-serif", fontWeight: 400 }}>{desc}</p>
+          </div>
+        ))}
+      </section>
+
+      {/* ── MARQUEE ── */}
+      <div style={{ background: "#000", padding: "13px 0", overflow: "hidden", borderTop: border, borderBottom: border }}>
+        <div style={{ display: "flex", gap: 48, animation: "marquee 20s linear infinite", whiteSpace: "nowrap" }}>
           {Array(8).fill("BRUTALISM · RAW DESIGN · NO FILTERS · BOLD CHOICES ·").map((t, i) => (
-            <span key={i} style={{ fontSize: "0.8rem", color: "#FFE000", fontWeight: 900, letterSpacing: ".1em" }}>{t}</span>
+            <span key={i} style={{ fontSize: "0.75rem", color: "#FFE000", fontWeight: 900, letterSpacing: ".12em" }}>{t}</span>
           ))}
         </div>
       </div>
 
-      <footer style={{ padding: "28px 32px", display: "flex", justifyContent: "space-between", alignItems: "center", borderTop: border }}>
-        <span style={{ fontWeight: 900, fontSize: "1.1rem", textTransform: "uppercase" }}>BRUTALFORM ©2025</span>
-        <span style={{ fontSize: "0.7rem", letterSpacing: ".1em", textTransform: "uppercase", color: "#555" }}>Made with rage &amp; precision</span>
+      {/* ── FOOTER ── */}
+      <footer style={{ padding: "22px 32px", display: "grid", gridTemplateColumns: "1fr auto auto", gap: 16, alignItems: "center" }}>
+        <span style={{ fontWeight: 900, fontSize: "0.9rem", textTransform: "uppercase", letterSpacing: "-0.01em" }}>BRUTALFORM © 2025</span>
+        <span style={{ fontSize: "0.65rem", letterSpacing: ".1em", textTransform: "uppercase", color: "#888", fontFamily: "'Helvetica Neue',Arial,sans-serif" }}>Made with rage & precision</span>
+        <a href="#" style={{ border, padding: "9px 18px", fontSize: "0.68rem", fontWeight: 900, textDecoration: "none", color: "#000", textTransform: "uppercase", letterSpacing: ".06em" }}>GET IN TOUCH ↗</a>
       </footer>
+
       <style>{`@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}`}</style>
     </div>
   );
@@ -951,68 +1224,115 @@ function BrutalismPage() {
 
 /* ─── 6. MATERIAL DESIGN ─────────────────────────────────────── */
 function MaterialPage() {
-  const PRIMARY = "#6200EA";
-  const tasks = [
-    { title: "Design system audit", done: true, priority: "High" },
-    { title: "User research interviews", done: false, priority: "High" },
-    { title: "Prototype v2 screens", done: false, priority: "Medium" },
-    { title: "Stakeholder presentation", done: true, priority: "Low" },
-    { title: "Usability testing session", done: false, priority: "High" },
-    { title: "Accessibility review", done: false, priority: "Medium" },
-  ];
+  const [activeTab, setActiveTab] = useState(0);
+
+  // Deep warm slate — not neon, grounded and sophisticated
+  const PRIMARY = "#37474F";
   const elev = n => ({ boxShadow: n === 1 ? "0 1px 3px rgba(0,0,0,0.12),0 1px 2px rgba(0,0,0,0.24)" : n === 2 ? "0 3px 6px rgba(0,0,0,0.15),0 2px 4px rgba(0,0,0,0.12)" : "0 10px 20px rgba(0,0,0,0.15),0 3px 6px rgba(0,0,0,0.1)" });
+
+  const tabs = ["Reading", "Finished", "Discover", "Wishlist"];
+
+  const activeBooks = [
+    { title: "Thinking, Fast and Slow",          author: "Daniel Kahneman",    pct: 68, color: "#EFEBE9" },
+    { title: "A Pattern Language",               author: "Christopher Alexander", pct: 23, color: "#E8EAF6" },
+    { title: "The Design of Everyday Things",    author: "Don Norman",          pct: 91, color: "#E0F2F1" },
+  ];
+
+  const finished = [
+    { title: "Atomic Habits",          author: "James Clear",         rating: 5, color: "#FFF8E1" },
+    { title: "Man's Search for Meaning", author: "Viktor Frankl",     rating: 5, color: "#E8F5E9" },
+    { title: "Deep Work",              author: "Cal Newport",          rating: 4, color: "#EDE7F6" },
+    { title: "Sapiens",                author: "Yuval Noah Harari",   rating: 4, color: "#E3F2FD" },
+  ];
+
   return (
-    <div style={{ fontFamily: "Roboto,system-ui,-apple-system,sans-serif", background: "#F5F5F5", minHeight: "100vh", color: "#212121" }}>
-      <header style={{ background: PRIMARY, ...elev(3), padding: "0 20px", height: 64, display: "flex", alignItems: "center", justifyContent: "space-between", position: "sticky", top: 0, zIndex: 100 }}>
+    <div style={{ fontFamily: "Roboto,'Helvetica Neue',Arial,sans-serif", background: "#F5F5F5", minHeight: "100vh", color: "#212121" }}>
+
+      {/* ── TOP APP BAR ── */}
+      <header style={{ background: PRIMARY, ...elev(2), padding: "0 20px", height: 64, display: "flex", alignItems: "center", justifyContent: "space-between", position: "sticky", top: 0, zIndex: 100 }}>
         <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 4, cursor: "pointer" }}>
             {[0, 1, 2].map(i => <div key={i} style={{ height: 2, background: "#fff", borderRadius: 1, width: i === 1 ? 16 : 22 }} />)}
           </div>
-          <span style={{ color: "#fff", fontSize: "1.25rem", fontWeight: 500, letterSpacing: ".0125em" }}>TaskFlow</span>
+          <div>
+            <span style={{ color: "#fff", fontSize: "1.2rem", fontWeight: 500, letterSpacing: ".02em" }}>Shelf</span>
+            <span style={{ color: "rgba(255,255,255,0.45)", fontSize: "0.7rem", marginLeft: 10 }}>42 books</span>
+          </div>
         </div>
         <div style={{ display: "flex", gap: 4, alignItems: "center" }}>
           <BackBtn />
-          {[Search, Bell].map((Icon, i) => (
-            <button key={i} style={{ width: 40, height: 40, borderRadius: "50%", background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
-              <Icon size={20} color="rgba(255,255,255,0.87)" />
-            </button>
-          ))}
-          <div style={{ width: 32, height: 32, borderRadius: "50%", background: "rgba(255,255,255,0.2)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.85rem", color: "#fff", fontWeight: 600 }}>A</div>
+          <button style={{ width: 40, height: 40, borderRadius: "50%", background: "transparent", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer" }}>
+            <Search size={20} color="rgba(255,255,255,0.87)" />
+          </button>
+          <div style={{ width: 32, height: 32, borderRadius: "50%", background: "rgba(255,255,255,0.18)", display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.85rem", color: "#fff", fontWeight: 600 }}>R</div>
         </div>
       </header>
 
-      <div style={{ maxWidth: 960, margin: "0 auto", padding: "24px 16px" }}>
-        <div style={{ display: "flex", gap: 0, marginBottom: 24, background: "#fff", ...elev(1), borderRadius: 4, overflow: "hidden" }}>
-          {["All Tasks", "Today", "Upcoming", "Completed"].map((t, i) => (
-            <button key={t} style={{ flex: 1, padding: "14px 8px", border: "none", background: "transparent", fontFamily: "inherit", fontSize: "0.8rem", fontWeight: i === 0 ? 600 : 400, color: i === 0 ? PRIMARY : "rgba(0,0,0,0.55)", borderBottom: i === 0 ? `2px solid ${PRIMARY}` : "2px solid transparent", cursor: "pointer", letterSpacing: ".06em", textTransform: "uppercase" }}>{t}</button>
-          ))}
-        </div>
+      {/* ── TABS ── */}
+      <div style={{ background: "#fff", ...elev(1), display: "flex", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
+        {tabs.map((t, i) => (
+          <button key={t} onClick={() => setActiveTab(i)} style={{ flex: 1, padding: "14px 8px", border: "none", background: "transparent", fontFamily: "inherit", fontSize: "0.78rem", fontWeight: i === activeTab ? 700 : 400, color: i === activeTab ? PRIMARY : "rgba(0,0,0,0.5)", borderBottom: i === activeTab ? `3px solid ${PRIMARY}` : "3px solid transparent", cursor: "pointer", letterSpacing: ".06em", textTransform: "uppercase", transition: "all .15s" }}>{t}</button>
+        ))}
+      </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 16, marginBottom: 24 }}>
-          {[["12", "Total Tasks", "#6200EA"], ["7", "In Progress", "#0091EA"], ["5", "Completed", "#00C853"]].map(([num, label, color], i) => (
-            <div key={i} style={{ background: "#fff", ...elev(1), borderRadius: 8, padding: "20px 20px 16px", borderTop: `4px solid ${color}` }}>
-              <div style={{ fontSize: "2rem", fontWeight: 700, color, marginBottom: 2 }}>{num}</div>
-              <div style={{ fontSize: "0.78rem", color: "rgba(0,0,0,0.54)", letterSpacing: ".03em" }}>{label}</div>
+      <div style={{ maxWidth: 960, margin: "0 auto", padding: "20px 16px 80px" }}>
+
+        {/* ── STATS ── */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 12, marginBottom: 20 }}>
+          {[["3", "Reading", PRIMARY], ["18", "Finished", "#2E7D32"], ["21", "Wishlist", "#1565C0"], ["47h", "This month", "#6D4C41"]].map(([v, l, c]) => (
+            <div key={l} style={{ background: "#fff", ...elev(1), borderRadius: 8, padding: "16px 18px", borderTop: `3px solid ${c}` }}>
+              <div style={{ fontSize: "1.8rem", fontWeight: 700, color: c, letterSpacing: "-0.03em", lineHeight: 1.1 }}>{v}</div>
+              <div style={{ fontSize: "0.72rem", color: "rgba(0,0,0,0.5)", marginTop: 4 }}>{l}</div>
             </div>
           ))}
         </div>
 
-        <div style={{ background: "#fff", ...elev(1), borderRadius: 8, overflow: "hidden", marginBottom: 80 }}>
-          <div style={{ padding: "16px 20px", borderBottom: "1px solid rgba(0,0,0,0.08)" }}>
-            <h2 style={{ fontSize: "1rem", fontWeight: 500, color: "rgba(0,0,0,0.87)", letterSpacing: ".0125em" }}>My Tasks</h2>
+        {/* ── CURRENTLY READING ── */}
+        <div style={{ background: "#fff", ...elev(1), borderRadius: 8, overflow: "hidden", marginBottom: 20 }}>
+          <div style={{ padding: "14px 20px", borderBottom: "1px solid rgba(0,0,0,0.06)", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <h2 style={{ fontSize: "0.95rem", fontWeight: 500, letterSpacing: ".01em" }}>Currently Reading</h2>
+            <span style={{ fontSize: "0.72rem", color: PRIMARY, fontWeight: 700, letterSpacing: ".04em", cursor: "pointer" }}>SEE ALL</span>
           </div>
-          {tasks.map((task, i) => (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: 16, padding: "14px 20px", borderBottom: i < tasks.length - 1 ? "1px solid rgba(0,0,0,0.05)" : "none" }}>
-              <div style={{ width: 20, height: 20, borderRadius: "50%", border: task.done ? "none" : "2px solid rgba(0,0,0,0.35)", background: task.done ? PRIMARY : "transparent", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                {task.done && <Check size={11} color="#fff" strokeWidth={3} />}
+          {activeBooks.map((book, i) => (
+            <div key={i} style={{ padding: "16px 20px", borderBottom: i < activeBooks.length - 1 ? "1px solid rgba(0,0,0,0.04)" : "none", display: "flex", gap: 14, alignItems: "center" }}>
+              <div style={{ width: 40, height: 56, borderRadius: 3, background: book.color, flexShrink: 0, boxShadow: "1px 1px 4px rgba(0,0,0,0.18), inset -2px 0 4px rgba(0,0,0,0.07)" }} />
+              <div style={{ flex: 1, minWidth: 0 }}>
+                <p style={{ fontSize: "0.9rem", fontWeight: 500, color: "#212121", marginBottom: 2, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{book.title}</p>
+                <p style={{ fontSize: "0.73rem", color: "rgba(0,0,0,0.45)", marginBottom: 8 }}>{book.author}</p>
+                <div style={{ height: 4, background: "#ECEFF1", borderRadius: 9999, overflow: "hidden" }}>
+                  <div style={{ width: `${book.pct}%`, height: "100%", background: PRIMARY, borderRadius: 9999 }} />
+                </div>
               </div>
-              <span style={{ flex: 1, fontSize: "0.92rem", color: task.done ? "rgba(0,0,0,0.35)" : "rgba(0,0,0,0.87)", textDecoration: task.done ? "line-through" : "none" }}>{task.title}</span>
-              <span style={{ fontSize: "0.68rem", fontWeight: 600, letterSpacing: ".05em", padding: "2px 8px", borderRadius: 12, background: task.priority === "High" ? "#FFEBEE" : task.priority === "Medium" ? "#FFF8E1" : "#E8F5E9", color: task.priority === "High" ? "#C62828" : task.priority === "Medium" ? "#F57F17" : "#2E7D32" }}>{task.priority}</span>
+              <span style={{ fontSize: "0.8rem", fontWeight: 700, color: PRIMARY, flexShrink: 0 }}>{book.pct}%</span>
             </div>
           ))}
+        </div>
+
+        {/* ── RECENTLY FINISHED ── */}
+        <div style={{ background: "#fff", ...elev(1), borderRadius: 8, overflow: "hidden" }}>
+          <div style={{ padding: "14px 20px", borderBottom: "1px solid rgba(0,0,0,0.06)" }}>
+            <h2 style={{ fontSize: "0.95rem", fontWeight: 500, letterSpacing: ".01em" }}>Recently Finished</h2>
+          </div>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr" }}>
+            {finished.map((book, i) => (
+              <div key={i} style={{ padding: "14px 20px", borderBottom: i < 2 ? "1px solid rgba(0,0,0,0.04)" : "none", borderRight: i % 2 === 0 ? "1px solid rgba(0,0,0,0.04)" : "none", display: "flex", gap: 12, alignItems: "center", cursor: "pointer" }}>
+                <div style={{ width: 36, height: 50, borderRadius: 3, background: book.color, flexShrink: 0, boxShadow: "1px 1px 4px rgba(0,0,0,0.15)" }} />
+                <div style={{ flex: 1, minWidth: 0 }}>
+                  <p style={{ fontSize: "0.82rem", fontWeight: 500, color: "#212121", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", marginBottom: 2 }}>{book.title}</p>
+                  <p style={{ fontSize: "0.68rem", color: "rgba(0,0,0,0.44)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap", marginBottom: 5 }}>{book.author}</p>
+                  <div style={{ display: "flex", gap: 2 }}>
+                    {Array.from({ length: 5 }, (_, j) => (
+                      <span key={j} style={{ fontSize: "0.62rem", color: j < book.rating ? "#F57F17" : "rgba(0,0,0,0.15)" }}>★</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </div>
 
+      {/* ── FAB ── */}
       <button style={{ position: "fixed", bottom: 28, right: 28, width: 56, height: 56, borderRadius: 16, background: PRIMARY, border: "none", ...elev(3), display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", zIndex: 200 }}>
         <Plus size={24} color="#fff" />
       </button>
@@ -1022,134 +1342,344 @@ function MaterialPage() {
 
 /* ─── 7. DASHBOARD / ADMIN ────────────────────────────────────── */
 function DashboardPage() {
-  const navLocal = [
-    { icon: Home, label: "Overview", active: true },
-    { icon: BarChart2, label: "Analytics" },
-    { icon: Users, label: "Customers" },
-    { icon: FileText, label: "Reports" },
-    { icon: Settings, label: "Settings" },
+  const [activeNav, setActiveNav] = useState("Overview");
+  const [hoveredBar, setHoveredBar] = useState(null);
+
+  const C = {
+    bg:           "#f4efe7",
+    sidebar:      "#1c1812",
+    sidebarBorder:"rgba(255,255,255,0.06)",
+    card:         "#ffffff",
+    border:       "#e6dfd4",
+    text:         "#1a1714",
+    muted:        "#7d7263",
+    faint:        "#b5a898",
+    amber:        "#b87318",
+    amberBg:      "#fef3c7",
+    amberMid:     "#d97706",
+    green:        "#166534",
+    greenBg:      "#dcfce7",
+    red:          "#991b1b",
+    redBg:        "#fee2e2",
+    sand:         "#e8dfd2",
+  };
+
+  const navItems = [
+    { icon: Home,     label: "Overview",  active: true  },
+    { icon: BarChart2,label: "Revenue"              },
+    { icon: Users,    label: "Customers"             },
+    { icon: PieChart, label: "Reports"               },
+    { icon: FileText, label: "Invoices"              },
+    { icon: Settings, label: "Settings"              },
   ];
+
   const kpis = [
-    { label: "Total Revenue", value: "$48,294", change: "+14.2%", up: true, icon: DollarSign, color: "#3b82f6" },
-    { label: "Active Users", value: "12,847", change: "+8.1%", up: true, icon: Users, color: "#10b981" },
-    { label: "Bounce Rate", value: "24.3%", change: "-3.2%", up: false, icon: Activity, color: "#f59e0b" },
-    { label: "Page Views", value: "284,291", change: "+22.5%", up: true, icon: Eye, color: "#8b5cf6" },
+    { label: "Total Revenue",    value: "$124,820", change: "+18.4%", up: true,  sub: "vs last quarter"  },
+    { label: "Active Accounts",  value: "3,847",    change: "+11.2%", up: true,  sub: "vs last month"    },
+    { label: "Avg. Order Value", value: "$284",      change: "-2.1%",  up: false, sub: "vs last month"    },
+    { label: "Renewal Rate",     value: "94.2%",    change: "+1.8pp", up: true,  sub: "this quarter"     },
   ];
-  const bars = [65, 48, 82, 55, 90, 72, 60, 88, 45, 77, 92, 58];
+
+  // 12-month revenue bar data (0–100 scale)
+  const revenueData = [44, 52, 47, 60, 57, 72, 66, 79, 75, 88, 83, 100];
+  const months = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+
+  // Area chart: user growth over 14 weeks
+  const growthPts = [28,34,31,40,38,46,44,53,57,64,60,72,78,88];
+  const W = 480, H = 110;
+  const areaPoints = growthPts.map((v, i) => {
+    const x = (i / (growthPts.length - 1)) * W;
+    const y = H - (v / 100) * (H - 8);
+    return `${x},${y}`;
+  }).join(" ");
+  const areaFill = `${areaPoints} ${W},${H} 0,${H}`;
+
+  const sources = [
+    { label: "Organic Search", pct: 44 },
+    { label: "Direct",         pct: 27 },
+    { label: "Social Media",   pct: 18 },
+    { label: "Referral",       pct: 11 },
+  ];
+
   const tableRows = [
-    ["Acme Corp", "Enterprise", "$12,400", "Active"],
-    ["Globex Inc", "Pro", "$4,200", "Active"],
-    ["Initech", "Starter", "$890", "Trial"],
-    ["Umbrella LLC", "Enterprise", "$18,200", "Active"],
-    ["Hooli", "Pro", "$3,600", "Inactive"],
+    { co: "Oakridge Capital",  plan: "Enterprise", arr: "$48,000", status: "Active",   growth: "+22%" },
+    { co: "Vantage Partners",  plan: "Enterprise", arr: "$36,000", status: "Active",   growth: "+14%" },
+    { co: "Summit Finance",    plan: "Pro",         arr: "$18,400", status: "Active",   growth: "+8%"  },
+    { co: "Hallmark Group",    plan: "Pro",         arr: "$12,800", status: "Active",   growth: "+3%"  },
+    { co: "Corvin Ltd",        plan: "Starter",     arr: "$4,200",  status: "Trial",    growth: "—"    },
   ];
+
+  const statusStyle = (s) => ({
+    fontSize: "0.68rem", fontWeight: 600, padding: "3px 10px", borderRadius: 9999,
+    background: s === "Active" ? C.greenBg : s === "Trial" ? C.amberBg : "#f1f5f9",
+    color:      s === "Active" ? C.green   : s === "Trial" ? C.amber   : C.muted,
+  });
+
   return (
-    <div style={{ fontFamily: "system-ui,-apple-system,sans-serif", background: "#0d1117", minHeight: "100vh", color: "#c9d1d9", display: "flex" }}>
-      <aside style={{ width: 220, background: "#161b22", borderRight: "1px solid #30363d", display: "flex", flexDirection: "column", padding: "20px 0", flexShrink: 0, position: "fixed", height: "100vh", zIndex: 50 }}>
-        <div style={{ padding: "0 16px 20px", borderBottom: "1px solid #30363d" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-            <div style={{ width: 28, height: 28, borderRadius: 7, background: "linear-gradient(135deg,#3b82f6,#8b5cf6)" }} />
-            <span style={{ fontWeight: 700, fontSize: "0.95rem", color: "#e6edf3" }}>DataFlow</span>
+    <div style={{ fontFamily: "'Helvetica Neue',Arial,sans-serif", background: C.bg, minHeight: "100vh", color: C.text, display: "flex" }}>
+
+      {/* ── SIDEBAR ── */}
+      <aside style={{ width: 240, background: C.sidebar, display: "flex", flexDirection: "column", flexShrink: 0, position: "fixed", height: "100vh", zIndex: 50 }}>
+        {/* Logo */}
+        <div style={{ padding: "24px 20px 20px", borderBottom: `1px solid ${C.sidebarBorder}` }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <div style={{ width: 32, height: 32, borderRadius: 8, background: C.amberMid, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <TrendingUp size={16} color="#fff" strokeWidth={2.5} />
+            </div>
+            <div>
+              <span style={{ fontWeight: 700, fontSize: "0.95rem", color: "#f5f0e8", letterSpacing: "-0.01em" }}>Meridian</span>
+              <span style={{ fontSize: "0.65rem", color: "rgba(255,255,255,0.3)", display: "block", letterSpacing: ".05em", textTransform: "uppercase" }}>Analytics</span>
+            </div>
           </div>
         </div>
-        <nav style={{ padding: "12px 8px", flex: 1 }}>
-          {navLocal.map(({ icon: Icon, label, active }, i) => (
-            <div key={i} style={{ display: "flex", alignItems: "center", gap: 10, padding: "10px 10px", borderRadius: 8, marginBottom: 2, background: active ? "rgba(59,130,246,0.1)" : "transparent", color: active ? "#3b82f6" : "#8b949e", cursor: "pointer" }}>
-              <Icon size={16} />
-              <span style={{ fontSize: "0.85rem", fontWeight: active ? 600 : 400 }}>{label}</span>
+
+        {/* Nav */}
+        <nav style={{ padding: "14px 10px", flex: 1 }}>
+          <p style={{ fontSize: "0.58rem", letterSpacing: ".12em", textTransform: "uppercase", color: "rgba(255,255,255,0.22)", padding: "0 10px", marginBottom: 8 }}>Main menu</p>
+          {navItems.map(({ icon: Icon, label, active }) => (
+            <div
+              key={label}
+              onClick={() => setActiveNav(label)}
+              style={{
+                display: "flex", alignItems: "center", gap: 10,
+                padding: "9px 12px", borderRadius: 8, marginBottom: 2,
+                background: (activeNav === label || active && activeNav === "Overview")
+                  ? "rgba(245,240,232,0.1)"
+                  : "transparent",
+                borderLeft: (activeNav === label || active && activeNav === "Overview")
+                  ? `2px solid ${C.amberMid}`
+                  : "2px solid transparent",
+                color: (activeNav === label || active && activeNav === "Overview")
+                  ? "#f5f0e8"
+                  : "rgba(255,255,255,0.38)",
+                cursor: "pointer",
+                transition: "all .18s",
+              }}
+            >
+              <Icon size={15} strokeWidth={1.8} />
+              <span style={{ fontSize: "0.83rem", fontWeight: (activeNav === label) ? 600 : 400 }}>{label}</span>
             </div>
           ))}
         </nav>
-        <div style={{ padding: "12px 14px", borderTop: "1px solid #30363d" }}>
+
+        {/* User + back */}
+        <div style={{ borderTop: `1px solid ${C.sidebarBorder}`, padding: "14px 16px", display: "flex", flexDirection: "column", gap: 10 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <div style={{ width: 32, height: 32, borderRadius: "50%", background: "#4a3728", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0 }}>
+              <span style={{ fontSize: "0.75rem", color: "#e8c99a", fontWeight: 700 }}>AM</span>
+            </div>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <p style={{ fontSize: "0.78rem", fontWeight: 600, color: "#f5f0e8" }}>Anya Mehta</p>
+              <p style={{ fontSize: "0.62rem", color: "rgba(255,255,255,0.28)", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>Head of Finance</p>
+            </div>
+          </div>
           <BackBtn />
         </div>
       </aside>
 
-      <main style={{ marginLeft: 220, flex: 1, padding: "24px 28px" }}>
-        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 28 }}>
+      {/* ── MAIN ── */}
+      <main style={{ marginLeft: 240, flex: 1, padding: "28px 32px", minHeight: "100vh" }}>
+
+        {/* Header */}
+        <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 28 }}>
           <div>
-            <p style={{ fontSize: "0.72rem", color: "#8b949e", marginBottom: 2 }}>Dashboard / Overview</p>
-            <h1 style={{ fontSize: "1.5rem", fontWeight: 700, color: "#e6edf3", letterSpacing: "-0.02em" }}>Analytics Overview</h1>
+            <p style={{ fontSize: "0.68rem", color: C.faint, letterSpacing: ".05em", marginBottom: 4 }}>Dashboard · Overview</p>
+            <h1 style={{ fontSize: "1.6rem", fontWeight: 700, color: C.text, letterSpacing: "-0.025em", lineHeight: 1 }}>Business Overview</h1>
           </div>
-          <div style={{ display: "flex", gap: 10 }}>
-            <select style={{ background: "#21262d", border: "1px solid #30363d", color: "#c9d1d9", padding: "8px 14px", borderRadius: 8, fontSize: "0.82rem", cursor: "pointer" }}>
-              <option>Last 30 days</option>
-            </select>
-            <button style={{ background: "#3b82f6", border: "none", color: "#fff", padding: "8px 16px", borderRadius: 8, fontSize: "0.82rem", fontWeight: 600, cursor: "pointer", display: "flex", alignItems: "center", gap: 6 }}>
-              <Download size={14} /> Export
+          <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
+            <div style={{ border: `1px solid ${C.border}`, background: C.card, borderRadius: 8, padding: "7px 14px", fontSize: "0.78rem", color: C.muted, cursor: "pointer" }}>
+              Q4 2024 ▾
+            </div>
+            <button style={{ background: C.text, border: "none", color: "#f5f0e8", padding: "8px 18px", borderRadius: 8, fontSize: "0.78rem", fontWeight: 600, cursor: "pointer", display: "flex", alignItems: "center", gap: 6, fontFamily: "inherit" }}>
+              <Download size={13} /> Export
             </button>
           </div>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 14, marginBottom: 22 }}>
-          {kpis.map(({ label, value, change, up, icon: Icon, color }, i) => (
-            <div key={i} style={{ background: "#161b22", border: "1px solid #30363d", borderRadius: 12, padding: "18px 18px 14px", borderTop: `2px solid ${color}` }}>
-              <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 10 }}>
-                <span style={{ fontSize: "0.72rem", color: "#8b949e" }}>{label}</span>
-                <div style={{ width: 30, height: 30, borderRadius: 8, background: `${color}18`, display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Icon size={14} color={color} />
-                </div>
+        {/* KPI cards */}
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(4,1fr)", gap: 12, marginBottom: 20 }}>
+          {kpis.map(({ label, value, change, up, sub }, i) => (
+            <div key={i} style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 12, padding: "18px 18px 14px", borderTop: `3px solid ${i === 0 ? C.amberMid : C.sand}` }}>
+              <p style={{ fontSize: "0.68rem", color: C.muted, marginBottom: 10, fontWeight: 500, letterSpacing: ".02em" }}>{label}</p>
+              <p style={{ fontSize: "1.5rem", fontWeight: 700, color: C.text, letterSpacing: "-0.03em", lineHeight: 1, marginBottom: 6 }}>{value}</p>
+              <div style={{ display: "flex", alignItems: "center", gap: 5 }}>
+                <span style={{ fontSize: "0.7rem", fontWeight: 700, color: up ? C.green : C.red, background: up ? C.greenBg : C.redBg, padding: "1px 6px", borderRadius: 4 }}>{change}</span>
+                <span style={{ fontSize: "0.67rem", color: C.faint }}>{sub}</span>
               </div>
-              <div style={{ fontSize: "1.55rem", fontWeight: 700, color: "#e6edf3", letterSpacing: "-0.03em", marginBottom: 4 }}>{value}</div>
-              <span style={{ fontSize: "0.7rem", fontWeight: 600, color: up ? "#10b981" : "#ef4444" }}>{change} vs last period</span>
             </div>
           ))}
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 14, marginBottom: 22 }}>
-          <div style={{ background: "#161b22", border: "1px solid #30363d", borderRadius: 12, padding: "20px" }}>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 20 }}>
-              <h3 style={{ fontSize: "0.88rem", fontWeight: 600, color: "#e6edf3" }}>Revenue (12 months)</h3>
-              <span style={{ fontSize: "0.72rem", color: "#3b82f6", fontWeight: 600 }}>+22.4% YoY</span>
+        {/* Charts row */}
+        <div style={{ display: "grid", gridTemplateColumns: "1fr 380px", gap: 14, marginBottom: 20 }}>
+
+          {/* Bar chart — Revenue */}
+          <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 12, padding: "22px 24px" }}>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 20 }}>
+              <div>
+                <h3 style={{ fontSize: "0.88rem", fontWeight: 700, color: C.text, marginBottom: 2 }}>Monthly Revenue</h3>
+                <p style={{ fontSize: "0.7rem", color: C.muted }}>Jan – Dec 2024</p>
+              </div>
+              <div style={{ textAlign: "right" }}>
+                <p style={{ fontSize: "1.2rem", fontWeight: 700, color: C.text, letterSpacing: "-0.02em" }}>$124,820</p>
+                <span style={{ fontSize: "0.68rem", fontWeight: 700, color: C.green, background: C.greenBg, padding: "1px 6px", borderRadius: 4 }}>+18.4% YoY</span>
+              </div>
             </div>
-            <div style={{ display: "flex", alignItems: "flex-end", gap: 5, height: 120 }}>
-              {bars.map((h, i) => (
-                <div key={i} style={{ flex: 1, height: `${h}%`, background: `rgba(59,130,246,${0.3 + i * 0.04})`, borderRadius: "3px 3px 0 0", minHeight: 4 }} />
-              ))}
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-between", marginTop: 8, fontSize: "0.6rem", color: "#8b949e" }}>
-              {["J", "F", "M", "A", "M", "J", "J", "A", "S", "O", "N", "D"].map((m, i) => <span key={i}>{m}</span>)}
-            </div>
+
+            {/* SVG bar chart */}
+            <svg viewBox="0 0 480 130" style={{ width: "100%", height: 130, overflow: "visible" }}>
+              {/* Grid lines */}
+              {[0, 25, 50, 75, 100].map(pct => {
+                const y = 115 - (pct / 100) * 105;
+                return (
+                  <g key={pct}>
+                    <line x1="0" y1={y} x2="480" y2={y} stroke={C.border} strokeWidth="0.75" strokeDasharray={pct > 0 ? "3,3" : "0"} />
+                    {pct > 0 && <text x="-4" y={y + 3} fontSize="7" fill={C.faint} textAnchor="end">{pct}%</text>}
+                  </g>
+                );
+              })}
+              {/* Bars */}
+              {revenueData.map((v, i) => {
+                const bw = 28, gap = 12;
+                const x = i * (bw + gap) + 10;
+                const barH = (v / 100) * 105;
+                const y = 115 - barH;
+                const isLast = i === revenueData.length - 1;
+                const isHovered = hoveredBar === i;
+                return (
+                  <g key={i}
+                    onMouseEnter={() => setHoveredBar(i)}
+                    onMouseLeave={() => setHoveredBar(null)}
+                    style={{ cursor: "default" }}>
+                    <rect
+                      x={x} y={y} width={bw} height={barH}
+                      rx="3"
+                      fill={isLast ? C.amberMid : isHovered ? "#c47f1a" : "#e8c07a"}
+                    />
+                    {isHovered && (
+                      <text x={x + bw / 2} y={y - 4} fontSize="7.5" fill={C.text} textAnchor="middle" fontWeight="600">
+                        {["$44k","$52k","$47k","$60k","$57k","$72k","$66k","$79k","$75k","$88k","$83k","$100k"][i]}
+                      </text>
+                    )}
+                    <text x={x + bw / 2} y={128} fontSize="7" fill={C.faint} textAnchor="middle">{months[i].slice(0,1)}</text>
+                  </g>
+                );
+              })}
+            </svg>
           </div>
-          <div style={{ background: "#161b22", border: "1px solid #30363d", borderRadius: 12, padding: "20px" }}>
-            <h3 style={{ fontSize: "0.88rem", fontWeight: 600, color: "#e6edf3", marginBottom: 20 }}>Traffic Sources</h3>
-            <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
-              {[["Organic Search", "48%", "#3b82f6"], ["Direct", "24%", "#10b981"], ["Social Media", "18%", "#f59e0b"], ["Referral", "10%", "#8b5cf6"]].map(([src, pct, color]) => (
-                <div key={src}>
-                  <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 6 }}>
-                    <span style={{ fontSize: "0.78rem", color: "#c9d1d9" }}>{src}</span>
-                    <span style={{ fontSize: "0.78rem", fontWeight: 600, color }}>{pct}</span>
-                  </div>
-                  <div style={{ height: 4, background: "rgba(255,255,255,0.05)", borderRadius: 2 }}>
-                    <div style={{ width: pct, height: "100%", background: color, borderRadius: 2 }} />
-                  </div>
+
+          {/* Right panel — sources + mini area chart */}
+          <div style={{ display: "flex", flexDirection: "column", gap: 14 }}>
+
+            {/* Traffic sources */}
+            <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 12, padding: "18px 20px", flex: 1 }}>
+              <h3 style={{ fontSize: "0.88rem", fontWeight: 700, color: C.text, marginBottom: 16 }}>Revenue Sources</h3>
+              <div style={{ display: "flex", flexDirection: "column", gap: 12 }}>
+                {sources.map(({ label, pct }, i) => {
+                  const shades = [C.amberMid, "#92400e", "#c47f1a", C.sand];
+                  const color = shades[i];
+                  return (
+                    <div key={label}>
+                      <div style={{ display: "flex", justifyContent: "space-between", marginBottom: 5 }}>
+                        <span style={{ fontSize: "0.78rem", color: C.text, fontWeight: 500 }}>{label}</span>
+                        <span style={{ fontSize: "0.78rem", fontWeight: 700, color: C.text }}>{pct}%</span>
+                      </div>
+                      <div style={{ height: 5, background: C.sand, borderRadius: 9999 }}>
+                        <div style={{ width: `${pct}%`, height: "100%", background: color, borderRadius: 9999, transition: "width .6s ease" }} />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+
+            {/* Renewal rate donut-style */}
+            <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 12, padding: "18px 20px" }}>
+              <h3 style={{ fontSize: "0.88rem", fontWeight: 700, color: C.text, marginBottom: 12 }}>Renewal Rate</h3>
+              <div style={{ display: "flex", alignItems: "center", gap: 16 }}>
+                <svg viewBox="0 0 64 64" style={{ width: 60, height: 60, flexShrink: 0 }}>
+                  <circle cx="32" cy="32" r="26" fill="none" stroke={C.sand} strokeWidth="9" />
+                  <circle cx="32" cy="32" r="26" fill="none" stroke={C.amberMid} strokeWidth="9"
+                    strokeDasharray={`${2 * Math.PI * 26 * 0.942} ${2 * Math.PI * 26}`}
+                    strokeLinecap="round"
+                    transform="rotate(-90 32 32)" />
+                  <text x="32" y="36" textAnchor="middle" fontSize="11" fontWeight="700" fill={C.text}>94%</text>
+                </svg>
+                <div>
+                  <p style={{ fontSize: "1.1rem", fontWeight: 700, color: C.text, letterSpacing: "-0.02em", marginBottom: 2 }}>94.2%</p>
+                  <p style={{ fontSize: "0.7rem", color: C.muted, lineHeight: 1.4 }}>Renewals this quarter</p>
+                  <span style={{ fontSize: "0.67rem", fontWeight: 700, color: C.green, background: C.greenBg, padding: "1px 6px", borderRadius: 4, display: "inline-block", marginTop: 4 }}>+1.8pp</span>
                 </div>
-              ))}
+              </div>
             </div>
           </div>
         </div>
 
-        <div style={{ background: "#161b22", border: "1px solid #30363d", borderRadius: 12, overflow: "hidden" }}>
-          <div style={{ padding: "16px 20px", borderBottom: "1px solid #30363d", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-            <h3 style={{ fontSize: "0.88rem", fontWeight: 600, color: "#e6edf3" }}>Top Clients</h3>
-            <span style={{ fontSize: "0.72rem", color: "#3b82f6" }}>View all →</span>
+        {/* User growth area chart */}
+        <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 12, padding: "22px 24px", marginBottom: 20 }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-start", marginBottom: 16 }}>
+            <div>
+              <h3 style={{ fontSize: "0.88rem", fontWeight: 700, color: C.text, marginBottom: 2 }}>Account Growth</h3>
+              <p style={{ fontSize: "0.7rem", color: C.muted }}>Weekly new accounts — last 14 weeks</p>
+            </div>
+            <span style={{ fontSize: "0.68rem", fontWeight: 700, color: C.green, background: C.greenBg, padding: "2px 8px", borderRadius: 4 }}>+11.2% this month</span>
+          </div>
+          <svg viewBox={`0 0 ${W} ${H}`} style={{ width: "100%", height: H, overflow: "visible" }}>
+            <defs>
+              <linearGradient id="areaGrad" x1="0" y1="0" x2="0" y2="1">
+                <stop offset="0%" stopColor={C.amberMid} stopOpacity="0.18" />
+                <stop offset="100%" stopColor={C.amberMid} stopOpacity="0.01" />
+              </linearGradient>
+            </defs>
+            {/* Grid */}
+            {[0, 50, 100].map(pct => {
+              const y = H - (pct / 100) * (H - 8);
+              return <line key={pct} x1="0" y1={y} x2={W} y2={y} stroke={C.border} strokeWidth="0.75" strokeDasharray={pct > 0 ? "4,4" : "0"} />;
+            })}
+            {/* Area fill */}
+            <polygon points={areaFill} fill="url(#areaGrad)" />
+            {/* Line */}
+            <polyline points={areaPoints} fill="none" stroke={C.amberMid} strokeWidth="2" strokeLinejoin="round" strokeLinecap="round" />
+            {/* Last point dot */}
+            {(() => {
+              const last = growthPts.length - 1;
+              const x = (last / (growthPts.length - 1)) * W;
+              const y = H - (growthPts[last] / 100) * (H - 8);
+              return (
+                <g>
+                  <circle cx={x} cy={y} r="4" fill={C.amberMid} />
+                  <circle cx={x} cy={y} r="7" fill={C.amberMid} fillOpacity="0.18" />
+                </g>
+              );
+            })()}
+          </svg>
+        </div>
+
+        {/* Table */}
+        <div style={{ background: C.card, border: `1px solid ${C.border}`, borderRadius: 12, overflow: "hidden" }}>
+          <div style={{ padding: "16px 22px", borderBottom: `1px solid ${C.border}`, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <h3 style={{ fontSize: "0.88rem", fontWeight: 700, color: C.text }}>Top Accounts</h3>
+            <span style={{ fontSize: "0.72rem", color: C.amber, fontWeight: 600, cursor: "pointer" }}>View all →</span>
           </div>
           <table style={{ width: "100%", borderCollapse: "collapse", fontSize: "0.82rem" }}>
             <thead>
-              <tr style={{ borderBottom: "1px solid #30363d" }}>
-                {["Company", "Plan", "Revenue", "Status"].map(h => (
-                  <th key={h} style={{ textAlign: "left", padding: "10px 20px", fontSize: "0.68rem", fontWeight: 600, color: "#8b949e", letterSpacing: ".06em", textTransform: "uppercase" }}>{h}</th>
+              <tr style={{ background: C.bg }}>
+                {["Company", "Plan", "ARR", "Growth", "Status"].map(h => (
+                  <th key={h} style={{ textAlign: "left", padding: "9px 22px", fontSize: "0.63rem", fontWeight: 700, color: C.faint, letterSpacing: ".08em", textTransform: "uppercase" }}>{h}</th>
                 ))}
               </tr>
             </thead>
             <tbody>
-              {tableRows.map((row, i) => (
-                <tr key={i} style={{ borderBottom: i < tableRows.length - 1 ? "1px solid rgba(48,54,61,0.6)" : "none" }}>
-                  <td style={{ padding: "12px 20px", color: "#e6edf3", fontWeight: 500 }}>{row[0]}</td>
-                  <td style={{ padding: "12px 20px", color: "#8b949e" }}>{row[1]}</td>
-                  <td style={{ padding: "12px 20px", color: "#e6edf3", fontWeight: 600 }}>{row[2]}</td>
-                  <td style={{ padding: "12px 20px" }}>
-                    <span style={{ fontSize: "0.68rem", fontWeight: 600, padding: "3px 10px", borderRadius: 9999, background: row[3] === "Active" ? "rgba(16,185,129,0.1)" : row[3] === "Trial" ? "rgba(245,158,11,0.1)" : "rgba(239,68,68,0.1)", color: row[3] === "Active" ? "#10b981" : row[3] === "Trial" ? "#f59e0b" : "#ef4444" }}>{row[3]}</span>
+              {tableRows.map(({ co, plan, arr, status, growth }, i) => (
+                <tr key={i} style={{ borderTop: `1px solid ${C.border}` }}
+                  onMouseEnter={e => e.currentTarget.style.background = C.bg}
+                  onMouseLeave={e => e.currentTarget.style.background = "transparent"}>
+                  <td style={{ padding: "11px 22px", fontWeight: 600, color: C.text }}>{co}</td>
+                  <td style={{ padding: "11px 22px", color: C.muted }}>{plan}</td>
+                  <td style={{ padding: "11px 22px", fontWeight: 700, color: C.text, letterSpacing: "-0.01em" }}>{arr}</td>
+                  <td style={{ padding: "11px 22px", fontWeight: 600, color: growth.startsWith("+") ? C.green : C.muted }}>{growth}</td>
+                  <td style={{ padding: "11px 22px" }}>
+                    <span style={statusStyle(status)}>{status}</span>
                   </td>
                 </tr>
               ))}
@@ -1163,175 +1693,393 @@ function DashboardPage() {
 
 /* ─── 8. AI ASSISTANT ─────────────────────────────────────────── */
 function AIAssistantPage() {
+  const [input, setInput] = useState("");
   const convos = [
-    { title: "React performance tips", active: true },
-    { title: "Python async patterns" },
-    { title: "SQL query optimisation" },
-    { title: "System design interview" },
-    { title: "Docker networking guide" },
+    { title: "Q3 competitive analysis",   date: "Today",     active: true },
+    { title: "Draft investor update",     date: "Today"                   },
+    { title: "Summarize earnings call",   date: "Yesterday"               },
+    { title: "Research: OLED vs AMOLED", date: "Mon"                     },
+    { title: "React 19 release notes",   date: "Mon"                     },
   ];
   const messages = [
-    { role: "ai", text: "Hello! I'm Nexus AI. I can help you with code, analysis, writing, and complex problem-solving. What would you like to explore today?" },
-    { role: "user", text: "Can you explain the difference between useCallback and useMemo in React?" },
-    { role: "ai", text: "Great question! Both are React hooks that memoize values to prevent unnecessary re-computations:\n\n• useCallback memoizes a function  returns the same reference between renders unless dependencies change. Best for passing stable callbacks to child components.\n\n• useMemo memoizes a computed value  runs a function and caches the result. Use it for expensive calculations.\n\nKey insight: useCallback(fn, deps) ≡ useMemo(() => fn, deps)." },
-    { role: "user", text: "When should I actually use them vs just writing normal functions?" },
+    { role: "ai",   text: "I've reviewed your Q3 data. Here's what stands out:\n\n**Revenue**: Up 18.4% YoY, ahead of the 14% target. Enterprise segment led at +31%.\n\n**Churn risk**: 3 accounts flagged — Corvin Ltd ($4.2k ARR), Bridgemont ($6.8k), and NordTech ($12.1k). All three haven't logged in for 21+ days.\n\nWant me to draft a re-engagement sequence for these accounts?" },
+    { role: "user", text: "Yes — draft the re-engagement email for Corvin. Keep it under 4 sentences." },
+    { role: "ai",   text: "Subject: Checking in — anything we can help with?\n\nHi [Name], it's been a few weeks since you've used Scout and we wanted to reach out. Has anything changed on your end, or is there something blocking you from getting full value? We just launched [Feature] that teams in your space have found useful — happy to show you in 15 min.\n\nReply here or book time: [calendar link]" },
+  ];
+  const SIDEBAR = "#1b2431";
+  const ACCENT  = "#1d4ed8";
+  const groups = [
+    { label: "Today",     items: convos.filter(c => c.date === "Today")     },
+    { label: "Yesterday", items: convos.filter(c => c.date === "Yesterday") },
+    { label: "This week", items: convos.filter(c => c.date === "Mon")       },
   ];
   return (
-    <div style={{ fontFamily: "system-ui,-apple-system,sans-serif", background: "#0a0a0a", minHeight: "100vh", color: "#e5e7eb", display: "flex" }}>
-      <aside style={{ width: 260, background: "#111", borderRight: "1px solid rgba(255,255,255,0.07)", display: "flex", flexDirection: "column", flexShrink: 0, position: "fixed", height: "100vh" }}>
-        <div style={{ padding: "16px 14px", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 8, background: "rgba(255,255,255,0.05)", border: "1px solid rgba(255,255,255,0.09)", borderRadius: 10, padding: "10px 12px", cursor: "pointer" }}>
-            <div style={{ width: 24, height: 24, borderRadius: 6, background: "linear-gradient(135deg,#6366f1,#8b5cf6)", display: "flex", alignItems: "center", justifyContent: "center" }}>
-              <span style={{ fontSize: "0.6rem", color: "#fff", fontWeight: 700 }}>N</span>
+    <div style={{ fontFamily: "'Helvetica Neue',Arial,sans-serif", background: "#f8f9fa", minHeight: "100vh", color: "#1a1a2e", display: "flex" }}>
+      <aside style={{ width: 260, background: SIDEBAR, display: "flex", flexDirection: "column", flexShrink: 0, position: "fixed", height: "100vh", zIndex: 50 }}>
+        <div style={{ padding: "20px 18px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <div style={{ width: 28, height: 28, borderRadius: 6, background: ACCENT, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Search size={14} color="#fff" strokeWidth={2.5} />
             </div>
-            <span style={{ flex: 1, fontSize: "0.85rem", fontWeight: 600 }}>Nexus AI Pro</span>
-            <ChevronRight size={14} color="rgba(255,255,255,0.35)" />
+            <div>
+              <span style={{ fontWeight: 700, fontSize: "0.95rem", color: "#fff", letterSpacing: "-0.01em" }}>Scout</span>
+              <span style={{ fontSize: "0.6rem", color: "rgba(255,255,255,0.28)", display: "block", letterSpacing: ".06em", textTransform: "uppercase" }}>Research Assistant</span>
+            </div>
           </div>
         </div>
-        <div style={{ padding: "12px 14px", borderBottom: "1px solid rgba(255,255,255,0.07)" }}>
-          <button style={{ width: "100%", background: "rgba(99,102,241,0.12)", border: "1px solid rgba(99,102,241,0.22)", color: "#a5b4fc", padding: "9px 14px", borderRadius: 9, fontSize: "0.82rem", fontWeight: 600, cursor: "pointer", fontFamily: "inherit", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
-            <Plus size={14} /> New conversation
+        <div style={{ padding: "12px 14px", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+          <button style={{ width: "100%", background: "rgba(255,255,255,0.07)", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.75)", padding: "9px 14px", borderRadius: 8, fontSize: "0.82rem", fontWeight: 500, cursor: "pointer", fontFamily: "inherit", display: "flex", alignItems: "center", justifyContent: "center", gap: 6 }}>
+            <Plus size={14} /> New chat
           </button>
         </div>
-        <div style={{ flex: 1, overflow: "auto", padding: "10px 8px" }}>
-          <p style={{ fontSize: "0.62rem", letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(255,255,255,0.22)", padding: "6px 8px", marginBottom: 4 }}>Recent</p>
-          {convos.map((c, i) => (
-            <div key={i} style={{ padding: "9px 10px", borderRadius: 8, marginBottom: 2, background: c.active ? "rgba(99,102,241,0.1)" : "transparent", color: c.active ? "#a5b4fc" : "rgba(255,255,255,0.45)", cursor: "pointer", fontSize: "0.82rem", display: "flex", alignItems: "center", gap: 8 }}>
-              <MessageSquare size={13} />
-              <span style={{ overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{c.title}</span>
+        <div style={{ flex: 1, overflow: "auto", padding: "10px 10px" }}>
+          {groups.map(({ label, items }) => items.length === 0 ? null : (
+            <div key={label} style={{ marginBottom: 14 }}>
+              <p style={{ fontSize: "0.58rem", letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(255,255,255,0.2)", padding: "2px 8px", marginBottom: 4 }}>{label}</p>
+              {items.map((c, i) => (
+                <div key={i} style={{ padding: "8px 10px", borderRadius: 7, marginBottom: 1, background: c.active ? "rgba(255,255,255,0.09)" : "transparent", color: c.active ? "#fff" : "rgba(255,255,255,0.42)", cursor: "pointer", fontSize: "0.82rem", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+                  {c.title}
+                </div>
+              ))}
             </div>
           ))}
         </div>
-        <div style={{ padding: "12px 14px", borderTop: "1px solid rgba(255,255,255,0.07)" }}>
+        <div style={{ borderTop: "1px solid rgba(255,255,255,0.06)", padding: "12px 14px", display: "flex", flexDirection: "column", gap: 10 }}>
+          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+            <div style={{ width: 30, height: 30, borderRadius: "50%", background: "rgba(255,255,255,0.1)", display: "flex", alignItems: "center", justifyContent: "center", flexShrink: 0, fontSize: "0.7rem", color: "#fff", fontWeight: 700 }}>SK</div>
+            <div style={{ flex: 1, minWidth: 0 }}>
+              <p style={{ fontSize: "0.8rem", fontWeight: 600, color: "#fff" }}>Sarah Kim</p>
+              <p style={{ fontSize: "0.62rem", color: "rgba(255,255,255,0.3)" }}>Pro plan</p>
+            </div>
+            <Settings size={14} color="rgba(255,255,255,0.28)" style={{ cursor: "pointer", flexShrink: 0 }} />
+          </div>
           <BackBtn />
         </div>
       </aside>
 
       <main style={{ marginLeft: 260, flex: 1, display: "flex", flexDirection: "column", height: "100vh" }}>
-        <div style={{ padding: "14px 24px", borderBottom: "1px solid rgba(255,255,255,0.06)", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-            <div style={{ width: 28, height: 28, borderRadius: 8, background: "linear-gradient(135deg,#6366f1,#8b5cf6)" }} />
-            <div>
-              <p style={{ fontSize: "0.85rem", fontWeight: 600, color: "#e5e7eb" }}>React performance tips</p>
-              <p style={{ fontSize: "0.68rem", color: "rgba(255,255,255,0.3)" }}>4 messages</p>
-            </div>
+        <div style={{ padding: "14px 28px", borderBottom: "1px solid #e2e6ea", background: "#fff", display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div>
+            <p style={{ fontSize: "0.9rem", fontWeight: 600, color: "#1a1a2e", marginBottom: 2 }}>Q3 competitive analysis</p>
+            <p style={{ fontSize: "0.7rem", color: "#8492a6" }}>3 messages · Updated just now</p>
           </div>
-          <button style={{ background: "transparent", border: "1px solid rgba(255,255,255,0.1)", color: "rgba(255,255,255,0.45)", padding: "6px 12px", borderRadius: 7, fontSize: "0.75rem", cursor: "pointer", fontFamily: "inherit" }}>Share</button>
+          <div style={{ display: "flex", gap: 8 }}>
+            <button style={{ background: "transparent", border: "1px solid #dde1e7", color: "#6b7c93", padding: "6px 14px", borderRadius: 6, fontSize: "0.75rem", fontWeight: 500, cursor: "pointer", fontFamily: "inherit" }}>Export</button>
+            <button style={{ background: ACCENT, border: "none", color: "#fff", padding: "6px 14px", borderRadius: 6, fontSize: "0.75rem", fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>Share</button>
+          </div>
         </div>
 
-        <div style={{ flex: 1, overflow: "auto", padding: "28px 24px", display: "flex", flexDirection: "column", gap: 22 }}>
+        <div style={{ flex: 1, overflow: "auto", padding: "28px 28px", display: "flex", flexDirection: "column", gap: 24, background: "#f8f9fa" }}>
           {messages.map((msg, i) => (
-            <div key={i} style={{ display: "flex", gap: 12, flexDirection: msg.role === "user" ? "row-reverse" : "row", alignItems: "flex-start" }}>
-              <div style={{ width: 32, height: 32, borderRadius: 10, background: msg.role === "ai" ? "linear-gradient(135deg,#6366f1,#8b5cf6)" : "rgba(255,255,255,0.1)", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.65rem", fontWeight: 700 }}>
-                {msg.role === "ai" ? "N" : "You"}
-              </div>
-              <div style={{ maxWidth: "70%", background: msg.role === "ai" ? "rgba(255,255,255,0.04)" : "rgba(99,102,241,0.14)", border: msg.role === "ai" ? "1px solid rgba(255,255,255,0.07)" : "1px solid rgba(99,102,241,0.22)", borderRadius: msg.role === "ai" ? "4px 16px 16px 16px" : "16px 4px 16px 16px", padding: "12px 16px", fontSize: "0.87rem", lineHeight: 1.65, color: "rgba(255,255,255,0.82)", whiteSpace: "pre-line" }}>
+            <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start", maxWidth: "72%", alignSelf: msg.role === "user" ? "flex-end" : "flex-start", flexDirection: msg.role === "user" ? "row-reverse" : "row" }}>
+              {msg.role === "ai" && (
+                <div style={{ width: 30, height: 30, borderRadius: 8, background: SIDEBAR, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+                  <Search size={12} color="#fff" />
+                </div>
+              )}
+              <div style={{ background: msg.role === "ai" ? "#fff" : SIDEBAR, border: msg.role === "ai" ? "1px solid #e2e6ea" : "none", borderRadius: msg.role === "ai" ? "3px 14px 14px 14px" : "14px 3px 14px 14px", padding: "14px 18px", fontSize: "0.87rem", lineHeight: 1.72, color: msg.role === "ai" ? "#2d3748" : "#fff", boxShadow: msg.role === "ai" ? "0 1px 3px rgba(0,0,0,0.06)" : "none", whiteSpace: "pre-line" }}>
                 {msg.text}
               </div>
+              {msg.role === "user" && (
+                <div style={{ width: 30, height: 30, borderRadius: 8, background: "#dde1e7", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.6rem", color: "#6b7c93", fontWeight: 700 }}>SK</div>
+              )}
             </div>
           ))}
-          <div style={{ display: "flex", gap: 12, alignItems: "flex-start" }}>
-            <div style={{ width: 32, height: 32, borderRadius: 10, background: "linear-gradient(135deg,#6366f1,#8b5cf6)", flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center", fontSize: "0.65rem", color: "#fff", fontWeight: 700 }}>N</div>
-            <div style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: "4px 16px 16px 16px", padding: "16px 18px", display: "flex", gap: 5, alignItems: "center" }}>
-              {[0, 1, 2].map(i => <div key={i} style={{ width: 6, height: 6, borderRadius: "50%", background: "rgba(255,255,255,0.4)", animation: `aiBounce 1.4s ease-in-out infinite`, animationDelay: `${i * 0.2}s` }} />)}
+          <div style={{ display: "flex", gap: 14, alignItems: "flex-start" }}>
+            <div style={{ width: 30, height: 30, borderRadius: 8, background: SIDEBAR, flexShrink: 0, display: "flex", alignItems: "center", justifyContent: "center" }}>
+              <Search size={12} color="#fff" />
+            </div>
+            <div style={{ background: "#fff", border: "1px solid #e2e6ea", borderRadius: "3px 14px 14px 14px", padding: "14px 18px", display: "flex", gap: 4, alignItems: "center", boxShadow: "0 1px 3px rgba(0,0,0,0.06)" }}>
+              {[0, 1, 2].map(j => <div key={j} style={{ width: 6, height: 6, borderRadius: "50%", background: "#bcc5d0", animation: "aiBounce 1.4s ease-in-out infinite", animationDelay: `${j * 0.2}s` }} />)}
             </div>
           </div>
         </div>
 
-        <div style={{ padding: "16px 24px", borderTop: "1px solid rgba(255,255,255,0.06)" }}>
-          <div style={{ background: "rgba(255,255,255,0.04)", border: "1px solid rgba(255,255,255,0.09)", borderRadius: 14, padding: "12px 16px", display: "flex", alignItems: "flex-end", gap: 10 }}>
-            <textarea placeholder="Ask Nexus anything..." style={{ flex: 1, background: "transparent", border: "none", outline: "none", color: "rgba(255,255,255,0.8)", fontSize: "0.9rem", resize: "none", fontFamily: "inherit", lineHeight: 1.6, minHeight: 24, maxHeight: 120 }} rows={1} />
-            <button style={{ width: 36, height: 36, borderRadius: 10, background: "linear-gradient(135deg,#6366f1,#8b5cf6)", border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", flexShrink: 0 }}>
-              <Send size={15} color="#fff" />
+        <div style={{ padding: "16px 28px", borderTop: "1px solid #e2e6ea", background: "#fff" }}>
+          <div style={{ background: "#f4f6f9", border: "1px solid #dde1e7", borderRadius: 12, padding: "12px 14px", display: "flex", alignItems: "flex-end", gap: 10 }}>
+            <textarea value={input} onChange={e => setInput(e.target.value)} placeholder="Ask Scout anything…" style={{ flex: 1, background: "transparent", border: "none", outline: "none", color: "#2d3748", fontSize: "0.9rem", resize: "none", fontFamily: "inherit", lineHeight: 1.6, minHeight: 24, maxHeight: 120 }} rows={1} />
+            <button style={{ width: 34, height: 34, borderRadius: 8, background: ACCENT, border: "none", display: "flex", alignItems: "center", justifyContent: "center", cursor: "pointer", flexShrink: 0 }}>
+              <Send size={14} color="#fff" />
             </button>
           </div>
-          <p style={{ fontSize: "0.62rem", color: "rgba(255,255,255,0.18)", textAlign: "center", marginTop: 8 }}>Nexus can make mistakes. Verify important information.</p>
+          <p style={{ fontSize: "0.62rem", color: "#c0cad4", textAlign: "center", marginTop: 8 }}>Scout may make errors. Verify critical information.</p>
         </div>
       </main>
-      <style>{`@keyframes aiBounce{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:1;transform:translateY(-3px)}}`}</style>
+      <style>{`@keyframes aiBounce{0%,100%{opacity:.3;transform:translateY(0)}50%{opacity:.9;transform:translateY(-3px)}}`}</style>
     </div>
   );
 }
 
 /* ─── 9. E-COMMERCE ──────────────────────────────────────────── */
 function EcommercePage() {
+  const [activeCategory, setActiveCategory] = useState("All");
+  const [wishlisted, setWishlisted]         = useState(new Set());
+  const [cartCount, setCartCount]           = useState(2);
+  const [addedToCart, setAddedToCart]       = useState(null);
+  const [hoveredProduct, setHoveredProduct] = useState(null);
+
+  const FONT  = "'Helvetica Neue', Arial, sans-serif";
+  const BG    = "#FAFAF8";
+  const SURF  = "#FFFFFF";
+  const INK   = "#1A1A1A";
+  const MUTED = "#8A8680";
+  const STONE = "#E8E4DE";
+  const BRASS = "#B8954A";
+  const GREEN = "#3D7A5E";
+
+  const categories = ["All", "Furniture", "Textiles", "Kitchen", "Lighting", "Accessories"];
+  const priceRanges = ["Under $50", "$50–$150", "$150–$300", "$300+"];
+  const materials   = ["Oak", "Linen", "Ceramic", "Brass", "Marble", "Wool"];
+  const swatches    = ["#EDE8E1", "#3D3D3A", "#C8A87A", "#B8954A", "#D8D4CE", "#F0EEEA"];
+
   const products = [
-    { name: "Arc Flow Sneaker", price: 149, original: 199, color: "#e8f4ff", accent: "#2563eb", badge: "New" },
-    { name: "Shadow Hoodie Pro", price: 89, original: null, color: "#1a1a1a", accent: "#fff", badge: null },
-    { name: "Minimal Tote Bag", price: 59, original: 89, color: "#faf0e6", accent: "#92400e", badge: "Sale" },
-    { name: "Focus Watch S4", price: 299, original: 399, color: "#f0fdf4", accent: "#166534", badge: "Sale" },
-    { name: "Titanium Wallet", price: 79, original: null, color: "#f8f8f8", accent: "#374151", badge: null },
-    { name: "Urban Backpack 32L", price: 129, original: 179, color: "#fdf4ff", accent: "#7e22ce", badge: "Popular" },
+    { name: "Linen Throw Blanket",   sub: "100% Belgian Linen",             price: 89,  orig: null, imgURL:"https://m.media-amazon.com/images/I/71EUmwZhM6L._AC_UF894,1000_QL80_.jpg", imgBg: "#EDE8E1", imgDark: false, badge: null,   cat: "Textiles",     inStock: true  },
+    { name: "Solid Oak Side Table",  sub: "FSC-Certified White Oak",         price: 349, orig: 449, imgURL: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQTqoldexOP7MkWdiNzXXsDF2RTVhRw3xUGRFiKXKLuoeJ1vZJ7L7TQ7OME&s=10",  imgBg: "#C8A87A", imgDark: false, badge: "Sale", cat: "Furniture",    inStock: true  },
+    { name: "Ceramic Pour-Over Set", sub: "Hand-Thrown Stoneware",           price: 64,  orig: null, imgURL:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR3ugN_UeTsSTEoRbw7dWa37oaCVaUSXs9NK-SGPoy1eXruwte1h6HmfmI&s=10", imgBg: "#F0EEEA", imgDark: false, badge: "New",  cat: "Kitchen",      inStock: true  },
+    { name: "Wool Floor Cushion",    sub: "Merino Wool, Kapok Fill",         price: 129, orig: null, imgURL:"https://eyesofgypsy.com/cdn/shop/files/21_a5aec4f9-dced-49b5-928d-b1feacb9ec54.jpg?v=1764852471&width=1946", imgBg: "#3D3D3A", imgDark: true,  badge: null,   cat: "Textiles",     inStock: false },
+    { name: "Brass Task Lamp",       sub: "Solid Brass, Linen Shade",        price: 199, orig: 269, imgURL:"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2Po-yoctNh_V_TRKZFyALiALDcfukl6WfB8VdqmghUyBSa187G-nqmuYK&s=10", imgBg: "#C8A87A", imgDark: false, badge: "Sale", cat: "Lighting",     inStock: true  },
+    { name: "Marble Coaster Set",    sub: "Honed Carrara Marble, Set of 4",  price: 48,  orig: null, imgURL:"https://theheritageartifacts.com/cdn/shop/products/DSC_4370_2000x2667.jpg?v=1679222912", imgBg: "#D8D4CE", imgDark: false, badge: null,   cat: "Accessories",  inStock: true  },
   ];
+
+  const filtered = activeCategory === "All" ? products : products.filter(p => p.cat === activeCategory);
+
+  const toggleWishlist = (i) => {
+    setWishlisted(prev => {
+      const next = new Set(prev);
+      next.has(i) ? next.delete(i) : next.add(i);
+      return next;
+    });
+  };
+
+  const addToCart = (i) => {
+    setCartCount(c => c + 1);
+    setAddedToCart(i);
+    setTimeout(() => setAddedToCart(null), 1500);
+  };
+
+  const Divider = () => <div style={{ height: 1, background: STONE, margin: "20px 0" }} />;
+
   return (
-    <div style={{ fontFamily: "system-ui,-apple-system,sans-serif", background: "#fff", minHeight: "100vh", color: "#111" }}>
-      <nav style={{ borderBottom: "1px solid #e5e7eb", padding: "0 32px", display: "flex", justifyContent: "space-between", alignItems: "center", height: 64, position: "sticky", top: 0, background: "#fff", zIndex: 100 }}>
-        <span style={{ fontWeight: 800, fontSize: "1.3rem", letterSpacing: "-0.04em" }}>FORMA</span>
-        <div style={{ display: "flex", gap: 28, fontSize: "0.85rem", color: "#555" }}>
-          {["New In", "Clothing", "Footwear", "Accessories", "Sale"].map(l => <a key={l} href="#" style={{ textDecoration: "none", color: "inherit" }}>{l}</a>)}
-        </div>
-        <div style={{ display: "flex", gap: 14, alignItems: "center" }}>
-          <BackBtn light />
-          <button style={{ background: "none", border: "none", cursor: "pointer", position: "relative" }}>
-            <ShoppingCart size={22} color="#111" />
-            <span style={{ position: "absolute", top: -7, right: -7, width: 16, height: 16, borderRadius: "50%", background: "#111", color: "#fff", fontSize: "0.5rem", fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center" }}>3</span>
-          </button>
+    <div style={{ fontFamily: FONT, background: BG, minHeight: "100vh", color: INK }}>
+
+      {/* ── Navigation ── */}
+      <nav style={{ position: "sticky", top: 0, zIndex: 100, background: SURF, borderBottom: `1px solid ${STONE}` }}>
+        <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 36px", height: 62, display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+          <span style={{ fontWeight: 800, fontSize: "1.1rem", letterSpacing: "0.18em", textTransform: "uppercase" }}>HAUS</span>
+          <div style={{ display: "flex", gap: 30, fontSize: "0.77rem", letterSpacing: "0.07em", textTransform: "uppercase", fontWeight: 500 }}>
+            {[["New Arrivals", INK], ["Furniture", MUTED], ["Textiles", MUTED], ["Kitchen", MUTED], ["Lighting", MUTED], ["Sale", BRASS]].map(([l, c]) => (
+              <a key={l} href="#" style={{ textDecoration: "none", color: c }}>{l}</a>
+            ))}
+          </div>
+          <div style={{ display: "flex", gap: 2, alignItems: "center" }}>
+            <BackBtn light />
+            {[<Search size={17} strokeWidth={1.6} />, <User size={17} strokeWidth={1.6} />].map((icon, i) => (
+              <button key={i} style={{ background: "none", border: "none", cursor: "pointer", padding: "10px 9px", display: "flex", color: INK }}>{icon}</button>
+            ))}
+            <button style={{ background: "none", border: "none", cursor: "pointer", padding: "10px 9px", display: "flex", position: "relative", color: INK }}>
+              <ShoppingBag size={17} strokeWidth={1.6} />
+              <span style={{ position: "absolute", top: 5, right: 4, width: 14, height: 14, borderRadius: "50%", background: INK, color: SURF, fontSize: "0.46rem", fontWeight: 700, display: "flex", alignItems: "center", justifyContent: "center" }}>{cartCount}</span>
+            </button>
+          </div>
         </div>
       </nav>
 
-      <div style={{ background: "#111", color: "#fff", textAlign: "center", padding: "11px", fontSize: "0.75rem", letterSpacing: ".06em" }}>
-        FREE SHIPPING ON ORDERS OVER $100  USE CODE <strong>FORMA25</strong>
+      {/* ── Announcement ── */}
+      <div style={{ background: INK, color: SURF, textAlign: "center", padding: "9px", fontSize: "0.69rem", letterSpacing: ".1em", textTransform: "uppercase" }}>
+        Complimentary shipping on orders above $200 &nbsp;·&nbsp; Use <strong>HAUS25</strong> for 10% off
       </div>
 
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px" }}>
-        <div style={{ background: "linear-gradient(135deg,#111,#2a2a2a)", borderRadius: 18, padding: "52px 52px", marginBottom: 48, display: "flex", justifyContent: "space-between", alignItems: "center", overflow: "hidden", position: "relative" }}>
-          <div style={{ position: "absolute", width: 300, height: 300, borderRadius: "50%", background: "rgba(255,255,255,0.04)", right: -80, top: -80 }} />
+      <div style={{ maxWidth: 1280, margin: "0 auto", padding: "0 36px 80px" }}>
+
+        {/* ── Page header ── */}
+        <div style={{ padding: "38px 0 26px", borderBottom: `1px solid ${STONE}`, display: "flex", alignItems: "flex-end", justifyContent: "space-between" }}>
           <div>
-            <p style={{ fontSize: "0.68rem", letterSpacing: ".15em", textTransform: "uppercase", color: "rgba(255,255,255,0.45)", marginBottom: 10 }}>Summer Collection 2025</p>
-            <h2 style={{ fontSize: "clamp(2rem,4vw,3.5rem)", fontWeight: 800, color: "#fff", letterSpacing: "-0.04em", lineHeight: 1.05, marginBottom: 22 }}>Designed for<br />the everyday.</h2>
-            <a href="#" style={{ background: "#fff", color: "#111", padding: "13px 28px", borderRadius: 8, fontSize: "0.88rem", fontWeight: 700, textDecoration: "none", display: "inline-block" }}>Shop Collection</a>
+            <p style={{ fontSize: "0.7rem", color: MUTED, letterSpacing: ".07em", textTransform: "uppercase", marginBottom: 9 }}>Home / New Arrivals</p>
+            <h1 style={{ fontSize: "2.1rem", fontWeight: 700, letterSpacing: "-0.04em", margin: 0, lineHeight: 1.05 }}>New Arrivals</h1>
+            <p style={{ fontSize: "0.79rem", color: MUTED, marginTop: 7 }}>{filtered.length} products</p>
           </div>
-          <div style={{ display: "flex", gap: 16 }}>
-            {["#e8f4ff", "#fdf4ff", "#f0fdf4"].map((c, i) => (
-              <div key={i} style={{ width: 80, height: 110, borderRadius: 14, background: c, transform: `rotate(${[-4, 0, 4][i]}deg)` }} />
-            ))}
-          </div>
-        </div>
-
-        <div style={{ display: "flex", gap: 10, marginBottom: 28, flexWrap: "wrap", alignItems: "center" }}>
-          {["All", "New In", "Under $100", "Sale", "Popular"].map((f, i) => (
-            <button key={f} style={{ border: `1px solid ${i === 0 ? "#111" : "#e5e7eb"}`, background: i === 0 ? "#111" : "transparent", color: i === 0 ? "#fff" : "#555", padding: "7px 18px", borderRadius: 9999, fontSize: "0.8rem", fontWeight: 500, cursor: "pointer", fontFamily: "inherit" }}>{f}</button>
-          ))}
-          <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 8, background: "#f9fafb", border: "1px solid #e5e7eb", borderRadius: 8, padding: "7px 14px" }}>
-            <Search size={14} color="#999" />
-            <span style={{ fontSize: "0.8rem", color: "#999" }}>Search products...</span>
+          <div style={{ display: "flex", alignItems: "center", gap: 8, border: `1px solid ${STONE}`, padding: "8px 14px", background: SURF, cursor: "pointer", fontSize: "0.79rem", color: INK }}>
+            <span>Sort: Newest</span>
+            <ChevronDown size={13} color={MUTED} strokeWidth={2} />
           </div>
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 20 }}>
-          {products.map((p, i) => (
-            <div key={i} style={{ borderRadius: 14, overflow: "hidden", border: "1px solid #f0f0f0", cursor: "pointer", transition: "transform .2s,box-shadow .2s" }}
-              onMouseEnter={e => { e.currentTarget.style.transform = "translateY(-4px)"; e.currentTarget.style.boxShadow = "0 12px 32px rgba(0,0,0,0.1)"; }}
-              onMouseLeave={e => { e.currentTarget.style.transform = "none"; e.currentTarget.style.boxShadow = "none"; }}>
-              <div style={{ background: p.color, height: 210, position: "relative", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                <div style={{ width: 80, height: 80, borderRadius: 16, background: `${p.accent}22`, border: `2px solid ${p.accent}44` }} />
-                {p.badge && <div style={{ position: "absolute", top: 12, left: 12, background: p.badge === "Sale" ? "#ef4444" : p.badge === "New" ? "#111" : "#f59e0b", color: p.badge === "Popular" ? "#111" : "#fff", fontSize: "0.6rem", fontWeight: 700, padding: "3px 9px", borderRadius: 9999 }}>{p.badge}</div>}
-                <button style={{ position: "absolute", top: 12, right: 12, width: 32, height: 32, borderRadius: "50%", background: "rgba(255,255,255,0.9)", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center" }}>
-                  <Heart size={14} color="#111" />
-                </button>
+        {/* ── Body ── */}
+        <div style={{ display: "grid", gridTemplateColumns: "210px 1fr", gap: 44, paddingTop: 36 }}>
+
+          {/* ── Sidebar ── */}
+          <aside style={{ paddingTop: 2 }}>
+            {/* Category */}
+            <div style={{ marginBottom: 6 }}>
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", marginBottom: 14 }}>
+                <span style={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase" }}>Category</span>
+                <SlidersHorizontal size={12} color={MUTED} strokeWidth={1.75} />
               </div>
-              <div style={{ padding: "14px 16px 16px" }}>
-                <p style={{ fontSize: "0.9rem", fontWeight: 600, marginBottom: 8, color: "#111" }}>{p.name}</p>
-                <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
-                  <div style={{ display: "flex", gap: 8, alignItems: "center" }}>
-                    <span style={{ fontWeight: 700, fontSize: "1rem" }}>${p.price}</span>
-                    {p.original && <span style={{ fontSize: "0.82rem", color: "#aaa", textDecoration: "line-through" }}>${p.original}</span>}
-                  </div>
-                  <button style={{ background: "#111", color: "#fff", border: "none", padding: "7px 14px", borderRadius: 7, fontSize: "0.75rem", fontWeight: 600, cursor: "pointer", fontFamily: "inherit" }}>Add to cart</button>
-                </div>
+              {categories.map(c => (
+                <button key={c} onClick={() => setActiveCategory(c)}
+                  style={{ background: "none", border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "space-between", width: "100%", padding: "5.5px 0", fontFamily: FONT, fontSize: "0.84rem", color: activeCategory === c ? INK : MUTED, fontWeight: activeCategory === c ? 600 : 400, textAlign: "left" }}>
+                  <span>{c}</span>
+                  {activeCategory === c && <Check size={12} color={INK} strokeWidth={2.5} />}
+                </button>
+              ))}
+            </div>
+
+            <Divider />
+
+            {/* Price */}
+            <div style={{ marginBottom: 6 }}>
+              <span style={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", display: "block", marginBottom: 14 }}>Price</span>
+              {priceRanges.map(label => (
+                <label key={label} style={{ display: "flex", alignItems: "center", gap: 9, cursor: "pointer", fontSize: "0.82rem", color: MUTED, marginBottom: 9 }}>
+                  <div style={{ width: 14, height: 14, border: `1.5px solid ${STONE}`, background: SURF, flexShrink: 0 }} />
+                  {label}
+                </label>
+              ))}
+            </div>
+
+            <Divider />
+
+            {/* Material */}
+            <div style={{ marginBottom: 6 }}>
+              <span style={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", display: "block", marginBottom: 14 }}>Material</span>
+              {materials.map(m => (
+                <label key={m} style={{ display: "flex", alignItems: "center", gap: 9, cursor: "pointer", fontSize: "0.82rem", color: MUTED, marginBottom: 9 }}>
+                  <div style={{ width: 14, height: 14, border: `1.5px solid ${STONE}`, background: SURF, flexShrink: 0 }} />
+                  {m}
+                </label>
+              ))}
+            </div>
+
+            <Divider />
+
+            {/* Color */}
+            <div>
+              <span style={{ fontSize: "0.68rem", fontWeight: 700, letterSpacing: ".1em", textTransform: "uppercase", display: "block", marginBottom: 14 }}>Colour</span>
+              <div style={{ display: "flex", flexWrap: "wrap", gap: 8 }}>
+                {swatches.map((c, i) => (
+                  <button key={i} title={c} style={{ width: 22, height: 22, borderRadius: "50%", background: c, border: `1.5px solid ${i === 1 ? INK : STONE}`, cursor: "pointer", padding: 0, outline: i === 1 ? `2px solid ${STONE}` : "none", outlineOffset: 2 }} />
+                ))}
               </div>
             </div>
-          ))}
+          </aside>
+
+          {/* ── Products ── */}
+          <div>
+            {/* Active filter chip */}
+            <div style={{ display: "flex", gap: 7, marginBottom: 22 }}>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 7, background: INK, color: SURF, padding: "5px 11px", fontSize: "0.72rem", fontWeight: 500, letterSpacing: ".04em" }}>
+                {activeCategory}
+                <button onClick={() => setActiveCategory("All")} style={{ background: "none", border: "none", cursor: "pointer", padding: 0, color: "rgba(255,255,255,0.65)", display: "flex", lineHeight: 1, fontSize: 14 }}>×</button>
+              </div>
+              <div style={{ display: "inline-flex", alignItems: "center", gap: 7, border: `1px solid ${STONE}`, padding: "5px 11px", fontSize: "0.72rem", color: MUTED }}>
+                In Stock
+                <span style={{ color: "inherit", opacity: 0.5, fontSize: 14, lineHeight: 1 }}>×</span>
+              </div>
+            </div>
+
+            {/* Product grid */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 28 }}>
+              {filtered.map((p, i) => {
+                const isW     = wishlisted.has(i);
+                const isAdded = addedToCart === i;
+                const hovered = hoveredProduct === i;
+                return (
+                  <div key={i} style={{ cursor: "pointer" }}
+                    onMouseEnter={() => setHoveredProduct(i)}
+                    onMouseLeave={() => setHoveredProduct(null)}>
+                    {/* Image area */}
+                    <div style={{ background: p.imgBg, aspectRatio: "4/5", position: "relative", overflow: "hidden", marginBottom: 13 }}>
+                      {/* Product image */}
+                      <div style={{ width: "100%", height: "100%", display: "flex", alignItems: "center", justifyContent: "center", transform: hovered ? "scale(1.04)" : "scale(1)", transition: "transform 0.5s ease" }}>
+                        {p.imgURL ? (
+                          <img
+                            src={p.imgURL}
+                            alt={p.name}
+                            style={{ width: "100%", height: "100%", objectFit: "cover", display: "block" }}
+                          />
+                        ) : (
+                          <div style={{ width: "44%", height: "58%", background: p.imgDark ? "rgba(255,255,255,0.1)" : "rgba(0,0,0,0.06)", borderRadius: 3 }} />
+                        )}
+                      </div>
+                      {/* Badge */}
+                      {p.badge && (
+                        <div style={{ position: "absolute", top: 12, left: 12, background: p.badge === "Sale" ? BRASS : SURF, color: p.badge === "Sale" ? SURF : INK, fontSize: "0.6rem", fontWeight: 700, padding: "3px 9px", letterSpacing: ".07em", textTransform: "uppercase" }}>
+                          {p.badge}
+                        </div>
+                      )}
+                      {/* Wishlist */}
+                      <button onClick={e => { e.stopPropagation(); toggleWishlist(i); }}
+                        style={{ position: "absolute", top: 10, right: 10, width: 32, height: 32, background: SURF, border: "none", cursor: "pointer", display: "flex", alignItems: "center", justifyContent: "center", boxShadow: "0 1px 4px rgba(0,0,0,0.1)", transition: "opacity 0.2s", opacity: hovered || isW ? 1 : 0 }}>
+                        <Heart size={14} color={isW ? BRASS : INK} fill={isW ? BRASS : "none"} strokeWidth={1.5} />
+                      </button>
+                      {/* Out of stock overlay */}
+                      {!p.inStock && (
+                        <div style={{ position: "absolute", inset: 0, background: "rgba(250,250,248,0.72)", display: "flex", alignItems: "flex-end", padding: "12px 14px" }}>
+                          <span style={{ fontSize: "0.7rem", letterSpacing: ".07em", textTransform: "uppercase", color: MUTED, fontWeight: 600 }}>Out of Stock</span>
+                        </div>
+                      )}
+                    </div>
+                    {/* Info */}
+                    <div>
+                      <p style={{ fontSize: "0.87rem", fontWeight: 600, letterSpacing: "-0.01em", lineHeight: 1.3, marginBottom: 3 }}>{p.name}</p>
+                      <p style={{ fontSize: "0.75rem", color: MUTED, marginBottom: 11, lineHeight: 1.4 }}>{p.sub}</p>
+                      <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+                        <div style={{ display: "flex", gap: 7, alignItems: "baseline" }}>
+                          <span style={{ fontWeight: 700, fontSize: "0.9rem" }}>${p.price}</span>
+                          {p.orig && <span style={{ fontSize: "0.78rem", color: MUTED, textDecoration: "line-through" }}>${p.orig}</span>}
+                        </div>
+                        {p.inStock ? (
+                          <button onClick={() => addToCart(i)}
+                            style={{ background: isAdded ? GREEN : INK, color: SURF, border: "none", padding: "7px 14px", fontSize: "0.7rem", fontWeight: 600, cursor: "pointer", letterSpacing: ".05em", textTransform: "uppercase", fontFamily: FONT, display: "flex", alignItems: "center", gap: 5, transition: "background 0.25s" }}>
+                            {isAdded ? <><Check size={11} strokeWidth={2.5} /> Added</> : "Add to Bag"}
+                          </button>
+                        ) : (
+                          <button style={{ background: "none", border: `1px solid ${STONE}`, color: MUTED, padding: "7px 12px", fontSize: "0.7rem", fontWeight: 500, cursor: "pointer", letterSpacing: ".04em", fontFamily: FONT }}>Notify Me</button>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* ── Editorial banner ── */}
+            <div style={{ marginTop: 60, display: "grid", gridTemplateColumns: "1fr 1fr", background: INK, overflow: "hidden" }}>
+              <div style={{ padding: "52px 48px", display: "flex", flexDirection: "column", justifyContent: "space-between", minHeight: 260 }}>
+                <div>
+                  <p style={{ fontSize: "0.66rem", letterSpacing: ".14em", textTransform: "uppercase", color: "rgba(255,255,255,0.38)", marginBottom: 16 }}>The HAUS Standard</p>
+                  <h3 style={{ fontSize: "1.85rem", fontWeight: 700, letterSpacing: "-0.04em", lineHeight: 1.08, color: SURF, margin: "0 0 18px" }}>Objects made to last<br />a lifetime.</h3>
+                  <p style={{ fontSize: "0.81rem", color: "rgba(255,255,255,0.5)", lineHeight: 1.7, maxWidth: 340 }}>Every piece is sourced from independent makers and certified workshops that share our commitment to slow manufacturing and honest materials.</p>
+                </div>
+                <a href="#" style={{ display: "inline-flex", alignItems: "center", gap: 7, color: SURF, textDecoration: "none", fontSize: "0.77rem", fontWeight: 600, letterSpacing: ".08em", textTransform: "uppercase", marginTop: 24 }}>
+                  Our Story <ArrowUpRight size={13} strokeWidth={2} />
+                </a>
+              </div>
+              <div style={{ background: "#252520", display: "grid", gridTemplateColumns: "1fr 1fr", gap: 3, padding: 3 }}>
+                {["#EDE8E1", "#C8A87A", "#3D3D3A", "#D8D4CE"].map((c, i) => (
+                  <div key={i} style={{ background: c, aspectRatio: "1" }} />
+                ))}
+              </div>
+            </div>
+
+            {/* ── Trust signals ── */}
+            <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)" }}>
+              {[
+                [<Truck size={17} strokeWidth={1.5} />,   "Free Shipping",   "On all orders over $200"],
+                [<Package size={17} strokeWidth={1.5} />, "30-Day Returns",  "No questions asked"],
+                [<Shield size={17} strokeWidth={1.5} />,  "2-Year Warranty", "On all furniture items"],
+              ].map(([icon, title, sub], i) => (
+                <div key={i} style={{ padding: "26px 22px", display: "flex", alignItems: "flex-start", gap: 13, borderTop: `1px solid ${STONE}`, borderRight: i < 2 ? `1px solid ${STONE}` : "none" }}>
+                  <div style={{ color: MUTED, flexShrink: 0, marginTop: 2 }}>{icon}</div>
+                  <div>
+                    <p style={{ fontSize: "0.81rem", fontWeight: 600, marginBottom: 3 }}>{title}</p>
+                    <p style={{ fontSize: "0.74rem", color: MUTED }}>{sub}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+          </div>
         </div>
       </div>
     </div>
@@ -1340,90 +2088,350 @@ function EcommercePage() {
 
 /* ─── 10. LANDING PAGE ────────────────────────────────────────── */
 function LandingPage() {
-  const features = [
-    { icon: Zap, title: "10x Faster Deployment", desc: "Ship features in minutes, not days. Our CI/CD pipeline handles the complexity so you don't have to." },
-    { icon: Shield, title: "Enterprise-Grade Security", desc: "SOC 2, ISO 27001, GDPR compliant. Your data never leaves your region." },
-    { icon: Users, title: "Built for Teams", desc: "Real-time collaboration, role-based access, and full audit trails out of the box." },
-    { icon: BarChart2, title: "Deep Analytics", desc: "Understand every user interaction with our powerful built-in analytics suite." },
-    { icon: Activity, title: "99.99% Uptime", desc: "Global CDN with automatic failover. Built to handle any traffic spike, any time." },
-    { icon: Star, title: "5★ Support", desc: "24/7 expert support with an average first response under 4 minutes." },
-  ];
-  return (
-    <div style={{ fontFamily: "system-ui,-apple-system,sans-serif", background: "#050510", minHeight: "100vh", color: "#fff", overflow: "hidden" }}>
-      <div style={{ position: "fixed", inset: 0, backgroundImage: "linear-gradient(rgba(255,255,255,0.022) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,0.022) 1px,transparent 1px)", backgroundSize: "50px 50px", pointerEvents: "none", zIndex: 0 }} />
+  const [scrolled, setScrolled] = useState(false);
+  const [videoLoaded, setVideoLoaded] = useState(false);
 
-      <nav style={{ maxWidth: 1200, margin: "0 auto", padding: "20px 32px", display: "flex", justifyContent: "space-between", alignItems: "center", position: "relative", zIndex: 10 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <div style={{ width: 30, height: 30, borderRadius: 8, background: "linear-gradient(135deg,#6366f1,#8b5cf6)" }} />
-          <span style={{ fontWeight: 800, fontSize: "1.1rem", letterSpacing: "-0.03em" }}>Launchpad</span>
+  useEffect(() => {
+    const fn = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", fn, { passive: true });
+    return () => window.removeEventListener("scroll", fn);
+  }, []);
+
+  const T = {
+    serif: "Georgia, 'Times New Roman', 'Palatino Linotype', serif",
+    sans:  "'Helvetica Neue', 'Inter', Arial, sans-serif",
+  };
+
+  const C = {
+    cream:  "#f5f0e8",
+    ink:    "#1a1814",
+    muted:  "#7a7060",
+    stone:  "#c8bfaf",
+    green:  "#3d5a38",
+    tan:    "#8c7a5e",
+  };
+
+  const experiences = [
+    {
+      label: "The Highlands",
+      title: "Ancient peaks,\nunbroken silence.",
+      desc: "Three weeks traversing Scotland's most remote glens. No signal, no schedule — just stone and sky.",
+      tag: "12-day expedition",
+      bg: "#d4cbbf",
+    },
+    {
+      label: "Patagonia",
+      title: "Wind-carved\nand wild.",
+      desc: "At the end of the world, the mountains don't ask for much — only your full attention.",
+      tag: "18-day circuit",
+      bg: "#c5d4c8",
+    },
+    {
+      label: "Norwegian Fjords",
+      title: "Water, light,\nand stillness.",
+      desc: "Kayaking the Nærøyfjord at dawn. The kind of quiet that reorganises your priorities.",
+      tag: "10-day voyage",
+      bg: "#c3cdd6",
+    },
+  ];
+
+  const stats = [
+    { num: "14",   label: "Countries" },
+    { num: "3,200", label: "Guests guided" },
+    { num: "8",    label: "Years operating" },
+    { num: "100%", label: "Carbon neutral" },
+  ];
+
+  return (
+    <div style={{ fontFamily: T.serif, background: C.cream, minHeight: "100vh", color: C.ink, overflowX: "hidden" }}>
+
+      {/* ── NAV ── */}
+      <nav style={{
+        position: "fixed", top: 0, left: 0, right: 0, zIndex: 100,
+        padding: "0 48px",
+        height: 72,
+        display: "flex", alignItems: "center", justifyContent: "space-between",
+        background: scrolled ? "rgba(245,240,232,0.94)" : "transparent",
+        backdropFilter: scrolled ? "blur(14px)" : "none",
+        WebkitBackdropFilter: scrolled ? "blur(14px)" : "none",
+        borderBottom: scrolled ? `1px solid ${C.stone}55` : "1px solid transparent",
+        transition: "all 0.45s ease",
+      }}>
+        {/* Logo */}
+        <div style={{ display: "flex", alignItems: "baseline", gap: 3 }}>
+          <span style={{ fontFamily: T.serif, fontStyle: "italic", fontWeight: 400, fontSize: "1.35rem", color: scrolled ? C.ink : "#fff", letterSpacing: "-0.01em", transition: "color .45s" }}>Terrain</span>
+          <span style={{ width: 5, height: 5, borderRadius: "50%", background: C.green, marginLeft: 3, marginBottom: 3 }} />
         </div>
-        <div style={{ display: "flex", gap: 28, fontSize: "0.85rem", color: "rgba(255,255,255,0.45)" }}>
-          {["Features", "Pricing", "Docs", "Blog"].map(l => <a key={l} href="#" style={{ textDecoration: "none", color: "inherit" }}>{l}</a>)}
+
+        {/* Links */}
+        <div style={{ display: "flex", gap: 36, fontFamily: T.sans, fontSize: "0.78rem", letterSpacing: ".04em", textTransform: "uppercase", fontWeight: 500 }}>
+          {["Journeys", "Philosophy", "Journal", "About"].map(l => (
+            <a key={l} href="#" style={{ textDecoration: "none", color: scrolled ? C.muted : "rgba(255,255,255,0.65)", transition: "color .45s" }}
+              onMouseEnter={e => e.currentTarget.style.color = scrolled ? C.ink : "#fff"}
+              onMouseLeave={e => e.currentTarget.style.color = scrolled ? C.muted : "rgba(255,255,255,0.65)"}>
+              {l}
+            </a>
+          ))}
         </div>
-        <div style={{ display: "flex", gap: 10, alignItems: "center" }}>
-          <BackBtn />
-          <a href="#" style={{ background: "linear-gradient(135deg,#6366f1,#8b5cf6)", color: "#fff", padding: "9px 22px", borderRadius: 9, fontSize: "0.82rem", fontWeight: 700, textDecoration: "none" }}>Get started →</a>
+
+        {/* CTA */}
+        <div style={{ display: "flex", gap: 14, alignItems: "center" }}>
+          <BackBtn light={scrolled} />
+          <a href="#" style={{
+            fontFamily: T.sans, fontSize: "0.75rem", fontWeight: 600, letterSpacing: ".06em",
+            textTransform: "uppercase", textDecoration: "none",
+            padding: "9px 22px", border: `1px solid ${scrolled ? C.ink : "rgba(255,255,255,0.55)"}`,
+            color: scrolled ? C.ink : "#fff",
+            transition: "all .45s ease",
+          }}
+            onMouseEnter={e => { e.currentTarget.style.background = scrolled ? C.ink : "rgba(255,255,255,0.15)"; e.currentTarget.style.color = scrolled ? C.cream : "#fff"; }}
+            onMouseLeave={e => { e.currentTarget.style.background = "transparent"; e.currentTarget.style.color = scrolled ? C.ink : "#fff"; }}>
+            Plan a journey
+          </a>
         </div>
       </nav>
 
-      <section style={{ maxWidth: 860, margin: "0 auto", padding: "100px 32px 70px", textAlign: "center", position: "relative", zIndex: 5 }}>
-        <div style={{ position: "absolute", width: 700, height: 500, borderRadius: "50%", background: "radial-gradient(circle,rgba(99,102,241,0.18),transparent 65%)", top: "50%", left: "50%", transform: "translate(-50%,-50%)", pointerEvents: "none" }} />
-        <div style={{ display: "inline-flex", alignItems: "center", gap: 6, padding: "5px 16px", borderRadius: 9999, border: "1px solid rgba(99,102,241,0.35)", background: "rgba(99,102,241,0.07)", fontSize: "0.72rem", fontWeight: 600, color: "#a5b4fc", marginBottom: 28, letterSpacing: ".04em", position: "relative" }}>
-          <Star size={12} fill="#a5b4fc" color="#a5b4fc" /> Rated #1 on Product Hunt this month
+      {/* ── HERO ── */}
+      <section style={{ position: "relative", height: "100vh", minHeight: 640, overflow: "hidden", display: "flex", alignItems: "flex-end" }}>
+
+        {/* Video */}
+        <video
+          autoPlay muted loop playsInline
+          onCanPlay={() => setVideoLoaded(true)}
+          style={{
+            position: "absolute", inset: 0, width: "100%", height: "100%",
+            objectFit: "cover", objectPosition: "center",
+            transition: "opacity 1.2s ease",
+            opacity: videoLoaded ? 1 : 0,
+          }}
+          src="/hero.mp4"
+        />
+
+        {/* Fallback bg in case video fails */}
+        <div style={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(170deg,#2a3d28 0%,#1a2e1a 40%,#0f1f10 100%)",
+          zIndex: videoLoaded ? -1 : 0,
+        }} />
+
+        {/* Dark overlay — bottom-weighted so text reads cleanly */}
+        <div style={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(to top, rgba(8,8,5,0.85) 0%, rgba(8,8,5,0.35) 50%, rgba(8,8,5,0.18) 100%)",
+          zIndex: 1,
+        }} />
+
+        {/* Thin top vignette */}
+        <div style={{
+          position: "absolute", inset: 0,
+          background: "linear-gradient(to bottom, rgba(0,0,0,0.3) 0%, transparent 25%)",
+          zIndex: 1,
+        }} />
+
+        {/* Content */}
+        <div style={{ position: "relative", zIndex: 2, width: "100%", maxWidth: 1160, margin: "0 auto", padding: "0 48px 72px" }}>
+
+          {/* Eyebrow */}
+          <div style={{ fontFamily: T.sans, fontSize: "0.7rem", letterSpacing: ".16em", textTransform: "uppercase", color: "rgba(255,255,255,0.5)", marginBottom: 24, display: "flex", alignItems: "center", gap: 10 }}>
+            <span style={{ display: "inline-block", width: 24, height: 1, background: "rgba(255,255,255,0.3)" }} />
+            Small-group wilderness journeys · Since 2016
+          </div>
+
+          {/* Headline */}
+          <h1 style={{
+            fontFamily: T.serif, fontWeight: 400, fontStyle: "italic",
+            fontSize: "clamp(3.2rem,8vw,7rem)",
+            lineHeight: 1.05, letterSpacing: "-0.02em",
+            color: "#fff",
+            marginBottom: 28,
+            maxWidth: 860,
+          }}>
+            Where the wild<br />
+            <span style={{ fontStyle: "normal", fontWeight: 700 }}>things breathe.</span>
+          </h1>
+
+          {/* Sub */}
+          <p style={{
+            fontFamily: T.sans, fontSize: "1rem", fontWeight: 300,
+            color: "rgba(255,255,255,0.58)", lineHeight: 1.75,
+            maxWidth: 440, marginBottom: 40,
+          }}>
+            We take small groups into the world&apos;s most extraordinary landscapes. No crowds. No shortcuts. Just the land and the people who love it.
+          </p>
+
+          {/* CTAs */}
+          <div style={{ display: "flex", gap: 14, alignItems: "center", flexWrap: "wrap" }}>
+            <a href="#" style={{
+              fontFamily: T.sans, fontSize: "0.8rem", fontWeight: 600, letterSpacing: ".06em",
+              textTransform: "uppercase", textDecoration: "none",
+              padding: "14px 36px",
+              background: "#fff", color: C.ink,
+              transition: "background .25s, color .25s",
+            }}
+              onMouseEnter={e => { e.currentTarget.style.background = C.cream; }}
+              onMouseLeave={e => { e.currentTarget.style.background = "#fff"; }}>
+              Browse journeys
+            </a>
+            <a href="#" style={{
+              fontFamily: T.sans, fontSize: "0.8rem", fontWeight: 500, letterSpacing: ".04em",
+              textDecoration: "none", color: "rgba(255,255,255,0.7)",
+              display: "flex", alignItems: "center", gap: 8,
+              transition: "color .25s",
+            }}
+              onMouseEnter={e => e.currentTarget.style.color = "#fff"}
+              onMouseLeave={e => e.currentTarget.style.color = "rgba(255,255,255,0.7)"}>
+              <span style={{ display: "inline-flex", alignItems: "center", justifyContent: "center", width: 36, height: 36, border: "1px solid rgba(255,255,255,0.3)", borderRadius: "50%", fontSize: "0.9rem" }}>▶</span>
+              Watch our story
+            </a>
+          </div>
+
+          {/* Scroll indicator */}
+          <div style={{ position: "absolute", right: 48, bottom: 72, display: "flex", flexDirection: "column", alignItems: "center", gap: 8 }}>
+            <div style={{ fontFamily: T.sans, fontSize: "0.6rem", letterSpacing: ".16em", textTransform: "uppercase", color: "rgba(255,255,255,0.35)", writingMode: "vertical-rl", transform: "rotate(180deg)" }}>Scroll</div>
+            <div style={{ width: 1, height: 48, background: "linear-gradient(to bottom,rgba(255,255,255,0),rgba(255,255,255,0.3))" }} />
+          </div>
         </div>
-        <h1 style={{ fontSize: "clamp(2.8rem,7vw,6rem)", fontWeight: 900, letterSpacing: "-0.05em", lineHeight: 1.0, marginBottom: 24, position: "relative" }}>
-          Launch faster.<br />
-          <span style={{ background: "linear-gradient(90deg,#6366f1,#8b5cf6,#ec4899)", WebkitBackgroundClip: "text", WebkitTextFillColor: "transparent" }}>Scale further.</span>
-        </h1>
-        <p style={{ fontSize: "1.15rem", color: "rgba(255,255,255,0.45)", maxWidth: 540, margin: "0 auto 44px", lineHeight: 1.7, position: "relative" }}>
-          The all-in-one platform for modern startups. From idea to production in a single afternoon  no DevOps PhD required.
+      </section>
+
+      {/* ── INTRO PULL QUOTE ── */}
+      <section style={{ maxWidth: 900, margin: "0 auto", padding: "120px 48px" }}>
+        <div style={{ fontFamily: T.sans, fontSize: "0.68rem", letterSpacing: ".14em", textTransform: "uppercase", color: C.muted, marginBottom: 28, display: "flex", alignItems: "center", gap: 10 }}>
+          <span style={{ display: "inline-block", width: 20, height: 1, background: C.stone }} />
+          Our philosophy
+        </div>
+        <p style={{
+          fontFamily: T.serif, fontStyle: "italic", fontWeight: 400,
+          fontSize: "clamp(1.5rem,3.5vw,2.6rem)",
+          lineHeight: 1.45, letterSpacing: "-0.01em",
+          color: C.ink,
+          marginBottom: 36,
+        }}>
+          "The world's great places don't yield their secrets to those in a hurry. We build slow journeys for people who want to actually arrive."
         </p>
-        <div style={{ display: "flex", gap: 12, justifyContent: "center", marginBottom: 24, flexWrap: "wrap", position: "relative" }}>
-          <a href="#" style={{ background: "linear-gradient(135deg,#6366f1,#8b5cf6)", color: "#fff", padding: "15px 36px", borderRadius: 12, fontSize: "1rem", fontWeight: 700, textDecoration: "none", display: "flex", alignItems: "center", gap: 8 }}>
-            Start for free <ChevronRight size={16} />
-          </a>
-          <a href="#" style={{ background: "rgba(255,255,255,0.05)", color: "rgba(255,255,255,0.65)", padding: "15px 28px", borderRadius: 12, fontSize: "1rem", fontWeight: 600, textDecoration: "none", border: "1px solid rgba(255,255,255,0.1)" }}>
-            Watch demo ▶
-          </a>
-        </div>
-        <p style={{ fontSize: "0.76rem", color: "rgba(255,255,255,0.28)", position: "relative" }}>No credit card required · Free forever plan · Cancel anytime</p>
-      </section>
-
-      <section style={{ borderTop: "1px solid rgba(255,255,255,0.05)", borderBottom: "1px solid rgba(255,255,255,0.05)", padding: "24px 32px", textAlign: "center", marginBottom: 80, position: "relative", zIndex: 5 }}>
-        <p style={{ fontSize: "0.72rem", letterSpacing: ".12em", textTransform: "uppercase", color: "rgba(255,255,255,0.22)", marginBottom: 20 }}>Trusted by teams at</p>
-        <div style={{ display: "flex", justifyContent: "center", gap: 48, flexWrap: "wrap" }}>
-          {["Stripe", "Vercel", "Linear", "Notion", "Figma", "GitHub"].map(co => (
-            <span key={co} style={{ fontSize: "0.95rem", fontWeight: 700, color: "rgba(255,255,255,0.16)", letterSpacing: "-0.02em" }}>{co}</span>
-          ))}
+        <div style={{ display: "flex", alignItems: "center", gap: 14 }}>
+          <div style={{ width: 40, height: 40, borderRadius: "50%", background: C.stone, overflow: "hidden", display: "flex", alignItems: "center", justifyContent: "center" }}>
+            <span style={{ fontSize: "1.1rem" }}>🌿</span>
+          </div>
+          <div>
+            <p style={{ fontFamily: T.sans, fontSize: "0.8rem", fontWeight: 600, color: C.ink, marginBottom: 2 }}>Elspeth Morrow</p>
+            <p style={{ fontFamily: T.sans, fontSize: "0.72rem", color: C.muted }}>Founder · Terrain</p>
+          </div>
         </div>
       </section>
 
-      <section style={{ maxWidth: 1100, margin: "0 auto", padding: "0 32px 100px", position: "relative", zIndex: 5 }}>
-        <div style={{ textAlign: "center", marginBottom: 60 }}>
-          <p style={{ fontSize: "0.7rem", letterSpacing: ".12em", textTransform: "uppercase", color: "rgba(255,255,255,0.25)", marginBottom: 12 }}>Everything you need</p>
-          <h2 style={{ fontSize: "clamp(1.8rem,4vw,3rem)", fontWeight: 800, letterSpacing: "-0.04em" }}>Built for builders who ship.</h2>
-        </div>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 14 }}>
-          {features.map(({ icon: Icon, title, desc }, i) => (
-            <div key={i} style={{ background: "rgba(255,255,255,0.02)", border: "1px solid rgba(255,255,255,0.07)", borderRadius: 16, padding: "28px 22px", transition: "border-color .2s,transform .2s", cursor: "default" }}
-              onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(99,102,241,0.28)"; e.currentTarget.style.transform = "translateY(-4px)"; }}
-              onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.07)"; e.currentTarget.style.transform = "none"; }}>
-              <div style={{ width: 44, height: 44, borderRadius: 12, background: "rgba(99,102,241,0.1)", border: "1px solid rgba(99,102,241,0.18)", display: "flex", alignItems: "center", justifyContent: "center", marginBottom: 18 }}>
-                <Icon size={20} color="#8b5cf6" />
+      {/* ── EXPERIENCES ── */}
+      <section style={{ padding: "0 0 120px" }}>
+        <div style={{ maxWidth: 1160, margin: "0 auto", padding: "0 48px" }}>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "flex-end", marginBottom: 56 }}>
+            <h2 style={{ fontFamily: T.serif, fontWeight: 400, fontSize: "clamp(1.8rem,4vw,3rem)", lineHeight: 1.15, letterSpacing: "-0.02em" }}>
+              Current<br /><em>journeys.</em>
+            </h2>
+            <a href="#" style={{ fontFamily: T.sans, fontSize: "0.72rem", fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", textDecoration: "none", color: C.muted, display: "flex", alignItems: "center", gap: 6, borderBottom: `1px solid ${C.stone}`, paddingBottom: 2 }}
+              onMouseEnter={e => e.currentTarget.style.color = C.ink}
+              onMouseLeave={e => e.currentTarget.style.color = C.muted}>
+              All journeys →
+            </a>
+          </div>
+
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 2 }}>
+            {experiences.map(({ label, title, desc, tag, bg }, i) => (
+              <div
+                key={i}
+                style={{ position: "relative", background: bg, padding: "52px 32px 36px", cursor: "pointer", overflow: "hidden", transition: "transform .35s ease" }}
+                onMouseEnter={e => e.currentTarget.style.transform = "translateY(-4px)"}
+                onMouseLeave={e => e.currentTarget.style.transform = "translateY(0)"}
+              >
+                {/* Card number */}
+                <span style={{ position: "absolute", top: 22, right: 24, fontFamily: T.sans, fontSize: "0.6rem", fontWeight: 700, letterSpacing: ".12em", color: "rgba(0,0,0,0.22)" }}>0{i + 1}</span>
+                {/* Tag */}
+                <span style={{ display: "inline-block", fontFamily: T.sans, fontSize: "0.6rem", fontWeight: 600, letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(0,0,0,0.38)", marginBottom: 20 }}>{label}</span>
+                {/* Title */}
+                <h3 style={{ fontFamily: T.serif, fontWeight: 400, fontStyle: "italic", fontSize: "1.7rem", lineHeight: 1.2, letterSpacing: "-0.01em", color: C.ink, marginBottom: 16, whiteSpace: "pre-line" }}>{title}</h3>
+                {/* Desc */}
+                <p style={{ fontFamily: T.sans, fontSize: "0.82rem", lineHeight: 1.7, color: "rgba(26,24,20,0.55)", marginBottom: 32 }}>{desc}</p>
+                {/* Duration tag */}
+                <div style={{ display: "inline-flex", alignItems: "center", gap: 6, borderTop: "1px solid rgba(0,0,0,0.14)", paddingTop: 14 }}>
+                  <span style={{ fontFamily: T.sans, fontSize: "0.65rem", fontWeight: 600, letterSpacing: ".08em", textTransform: "uppercase", color: "rgba(0,0,0,0.38)" }}>{tag}</span>
+                  <span style={{ fontSize: "0.7rem", color: "rgba(0,0,0,0.28)" }}>→</span>
+                </div>
               </div>
-              <h3 style={{ fontSize: "1rem", fontWeight: 700, marginBottom: 10, letterSpacing: "-0.01em" }}>{title}</h3>
-              <p style={{ fontSize: "0.84rem", color: "rgba(255,255,255,0.42)", lineHeight: 1.65 }}>{desc}</p>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ── STATS STRIP ── */}
+      <section style={{ borderTop: `1px solid ${C.stone}55`, borderBottom: `1px solid ${C.stone}55` }}>
+        <div style={{ maxWidth: 1160, margin: "0 auto", padding: "0 48px", display: "grid", gridTemplateColumns: "repeat(4,1fr)" }}>
+          {stats.map(({ num, label }, i) => (
+            <div key={i} style={{ padding: "52px 0", borderLeft: i > 0 ? `1px solid ${C.stone}55` : "none", paddingLeft: i > 0 ? 40 : 0 }}>
+              <p style={{ fontFamily: T.serif, fontStyle: "italic", fontSize: "clamp(2rem,4vw,3.5rem)", fontWeight: 300, letterSpacing: "-0.03em", color: C.ink, lineHeight: 1, marginBottom: 8 }}>{num}</p>
+              <p style={{ fontFamily: T.sans, fontSize: "0.72rem", letterSpacing: ".08em", textTransform: "uppercase", color: C.muted }}>{label}</p>
             </div>
           ))}
         </div>
       </section>
 
-      <section style={{ margin: "0 32px 80px", background: "linear-gradient(135deg,rgba(99,102,241,0.12),rgba(139,92,246,0.08))", border: "1px solid rgba(99,102,241,0.18)", borderRadius: 24, padding: "72px 32px", textAlign: "center", position: "relative", zIndex: 5, overflow: "hidden" }}>
-        <div style={{ position: "absolute", width: 500, height: 500, borderRadius: "50%", background: "radial-gradient(circle,rgba(99,102,241,0.12),transparent 65%)", top: "50%", left: "50%", transform: "translate(-50%,-50%)", pointerEvents: "none" }} />
-        <h2 style={{ fontSize: "clamp(1.8rem,4vw,3rem)", fontWeight: 800, letterSpacing: "-0.04em", marginBottom: 14, position: "relative" }}>Ready to launch?</h2>
-        <p style={{ color: "rgba(255,255,255,0.45)", marginBottom: 32, fontSize: "1.05rem", position: "relative" }}>Join 40,000+ teams already building on Launchpad.</p>
-        <a href="#" style={{ background: "linear-gradient(135deg,#6366f1,#8b5cf6)", color: "#fff", padding: "15px 40px", borderRadius: 12, fontSize: "1rem", fontWeight: 700, textDecoration: "none", position: "relative", display: "inline-block" }}>Get started for free →</a>
+      {/* ── TESTIMONIAL ── */}
+      <section style={{ maxWidth: 760, margin: "0 auto", padding: "120px 48px", textAlign: "center" }}>
+        <div style={{ fontSize: "2rem", color: C.stone, marginBottom: 28, lineHeight: 1 }}>"</div>
+        <p style={{ fontFamily: T.serif, fontStyle: "italic", fontWeight: 400, fontSize: "clamp(1.15rem,2.5vw,1.55rem)", lineHeight: 1.65, color: C.ink, marginBottom: 40 }}>
+          I&apos;ve done guided trips before, but nothing like this. Terrain gave us 12 days in the Highlands with no agenda beyond the trail. I came back a different person.
+        </p>
+        <div style={{ display: "flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+          <p style={{ fontFamily: T.sans, fontSize: "0.82rem", fontWeight: 600, color: C.ink }}>Miriam van der Berg</p>
+          <p style={{ fontFamily: T.sans, fontSize: "0.72rem", color: C.muted }}>Amsterdam · Highlands Journey 2024</p>
+          <div style={{ display: "flex", gap: 3, marginTop: 6 }}>
+            {[0,1,2,3,4].map(i => <span key={i} style={{ fontSize: "0.7rem", color: C.tan }}>★</span>)}
+          </div>
+        </div>
       </section>
+
+      {/* ── CTA ── */}
+      <section style={{ background: C.ink, padding: "100px 48px", textAlign: "center" }}>
+        <div style={{ fontFamily: T.sans, fontSize: "0.68rem", letterSpacing: ".16em", textTransform: "uppercase", color: "rgba(255,255,255,0.3)", marginBottom: 28, display: "flex", alignItems: "center", justifyContent: "center", gap: 12 }}>
+          <span style={{ display: "inline-block", width: 24, height: 1, background: "rgba(255,255,255,0.2)" }} />
+          Open for 2025
+          <span style={{ display: "inline-block", width: 24, height: 1, background: "rgba(255,255,255,0.2)" }} />
+        </div>
+        <h2 style={{ fontFamily: T.serif, fontWeight: 400, fontStyle: "italic", fontSize: "clamp(2rem,5vw,4rem)", lineHeight: 1.1, color: "#fff", marginBottom: 18, letterSpacing: "-0.02em" }}>
+          Ready to go<br /><strong style={{ fontStyle: "normal" }}>somewhere real?</strong>
+        </h2>
+        <p style={{ fontFamily: T.sans, fontSize: "0.95rem", color: "rgba(255,255,255,0.42)", maxWidth: 420, margin: "0 auto 44px", lineHeight: 1.75, fontWeight: 300 }}>
+          Spaces on every journey are limited to 8 guests. We&apos;re already taking enquiries for 2025.
+        </p>
+        <div style={{ display: "flex", gap: 14, justifyContent: "center", flexWrap: "wrap" }}>
+          <a href="#" style={{
+            fontFamily: T.sans, fontSize: "0.8rem", fontWeight: 600, letterSpacing: ".07em",
+            textTransform: "uppercase", textDecoration: "none",
+            padding: "16px 44px", background: C.cream, color: C.ink,
+            transition: "opacity .25s",
+          }}
+            onMouseEnter={e => e.currentTarget.style.opacity = "0.88"}
+            onMouseLeave={e => e.currentTarget.style.opacity = "1"}>
+            Start an enquiry
+          </a>
+          <a href="#" style={{
+            fontFamily: T.sans, fontSize: "0.8rem", fontWeight: 500, letterSpacing: ".04em",
+            textTransform: "uppercase", textDecoration: "none",
+            padding: "16px 32px", border: "1px solid rgba(255,255,255,0.2)", color: "rgba(255,255,255,0.6)",
+            transition: "border-color .25s, color .25s",
+          }}
+            onMouseEnter={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.5)"; e.currentTarget.style.color = "#fff"; }}
+            onMouseLeave={e => { e.currentTarget.style.borderColor = "rgba(255,255,255,0.2)"; e.currentTarget.style.color = "rgba(255,255,255,0.6)"; }}>
+            See all journeys
+          </a>
+        </div>
+      </section>
+
+      {/* ── FOOTER ── */}
+      <footer style={{ borderTop: `1px solid ${C.stone}33`, padding: "32px 48px", display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 12 }}>
+        <span style={{ fontFamily: T.serif, fontStyle: "italic", fontSize: "1.05rem", color: C.ink }}>Terrain<span style={{ color: C.green }}>.</span></span>
+        <p style={{ fontFamily: T.sans, fontSize: "0.7rem", color: C.muted }}>© 2025 Terrain Expeditions · Edinburgh, Scotland</p>
+        <div style={{ display: "flex", gap: 24, fontFamily: T.sans, fontSize: "0.7rem", color: C.muted }}>
+          {["Privacy", "Terms", "Instagram"].map(l => <a key={l} href="#" style={{ textDecoration: "none", color: "inherit" }}>{l}</a>)}
+        </div>
+      </footer>
     </div>
   );
 }

@@ -70,6 +70,18 @@ export default function Home() {
             </MotionDiv>
           </section>
 
+          {/* UI STYLES */}
+          <section id="ui-styles" className="scroll-mt-5 md:scroll-mt-5 hidden lg:block">
+            <MotionDiv
+              variants={fadeUp}
+              initial="hidden"
+              whileInView="visible"
+              viewport={{ once: true }}
+            >
+              <UIStyles />
+            </MotionDiv>
+          </section>
+
           {/* EXPERIENCE */}
           <section id="experience" className="scroll-mt-5 md:scroll-mt-5">
             <MotionDiv
@@ -106,17 +118,6 @@ export default function Home() {
             </MotionDiv>
           </section>
 
-          {/* UI STYLES */}
-          <section id="ui-styles" className="scroll-mt-5 md:scroll-mt-5">
-            <MotionDiv
-              variants={fadeUp}
-              initial="hidden"
-              whileInView="visible"
-              viewport={{ once: true }}
-            >
-              <UIStyles />
-            </MotionDiv>
-          </section>
 
           {/* DEV ACTIVITY */}
           <section id="activity" className="scroll-mt-5">
